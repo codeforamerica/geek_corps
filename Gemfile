@@ -9,6 +9,7 @@ gem 'hominid'
 gem 'domainatrix'
 gem 'will_paginate'
 gem 'right_aws'
+gem "rake", "0.8.7"
 
 group :development do
   gem 'factory_girl_rails'
