@@ -3,14 +3,6 @@ Code for America Geek Corps
 
 Our tool for micro-network building across our social networks
 
-Does your project or organization use this projects?
-------------------------------------------
-Add it to the [apps](http://github.com/codeforamerica/geek_corps/wiki/apps) wiki!
-
-To use the image loader feature, include the following in your README.md file, and change the logo.png file:
-
-[![Code for America Tracker](http://stats.codeforamerica.org/codeforamerica/geek_corps.png)](http://stats.codeforamerica.org/projects/geek_corps)
-
 Contributing
 ------------
 In the spirit of [free software](http://www.fsf.org/licensing/essays/free-sw.html), **everyone** is encouraged to help improve this project.

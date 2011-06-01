@@ -10,8 +10,11 @@ gem 'domainatrix'
 gem 'will_paginate'
 gem 'right_aws'
 
-group :test do
+group :development do
   gem 'factory_girl_rails'
+end
+
+group :test do
   gem 'mocha'
   gem 'rspec-rails'
   gem 'ZenTest'
