@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'http://gems.rubyforge.org'
 
 gem 'rails', '3.0.7'
 gem 'delayed_job'
@@ -9,9 +10,9 @@ gem 'hominid'
 gem 'domainatrix'
 gem 'will_paginate'
 gem 'right_aws'
-gem "rake", "0.8.7"
+gem "rake", '0.8.7'
 
-group :development do
+group :test, :development do
   gem 'factory_girl_rails'
 end
 

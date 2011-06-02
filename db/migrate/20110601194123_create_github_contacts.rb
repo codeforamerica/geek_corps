@@ -20,7 +20,8 @@ class CreateGithubContacts < ActiveRecord::Migration
        t.boolean :permission
        t.string :email
        t.integer :contact_source_id
-       t.updated_at :datetime
+       t.datetime :first_commit
+       t.datetime :updated_at
     end
     
     add_index :github_contacts, :login
@@ -34,6 +35,7 @@ class CreateGithubContacts < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :github_contacts
+    drop_table :contact_sources
+    drop_table :github_contacts    
   end
 end

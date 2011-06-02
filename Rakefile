@@ -24,6 +24,23 @@ namespace :heroku do
   end
 end
 
+namespace :github do
+  desc "Syncs coders"
+  task :sync => :environment do
+    begin
+      GithubContact.new.delay.update_new_contacts
+    end
+  end
+  desc "Updates coders"
+  task :update => :environment do
+    begin
+      CronProcess.new.delay.update_contacts
+    end
+  end  
+end
+
 task :cron => :environment do
   Rake::Task['heroku:backup'].invoke
+  Rake::Task['github:sync'].invoke
+  Rake::Task['github:update'].invoke    
 end
