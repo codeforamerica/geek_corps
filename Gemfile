@@ -11,6 +11,7 @@ gem 'domainatrix'
 gem 'will_paginate'
 gem 'right_aws'
 gem "rake", '0.8.7'
+gem 'acts-as-taggable-on'
 
 group :test, :development do
   gem 'factory_girl_rails'
