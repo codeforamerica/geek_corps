@@ -21,6 +21,8 @@ class GithubContact < ActiveRecord::Base
   # @return GithubContacts array
   # @example GithubContact.new.update_get_contacts
   
+  # TODO Need to add a created_at after date, and include the last coder
+  
   def update_new_contacts
     contacts = grab_feed
     old_logins = GithubContact.all.map(&:login)
