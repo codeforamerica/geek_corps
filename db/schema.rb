@@ -10,7 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110601235912) do
+ActiveRecord::Schema.define(:version => 20110627233220) do
+
+  create_table "batchbook_contacts", :force => true do |t|
+    t.integer  "batchbook_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.boolean  "primary"
+    t.string   "label"
+    t.integer  "location_id"
+    t.string   "email"
+    t.string   "website"
+    t.string   "phone"
+    t.string   "cell"
+    t.string   "state"
+    t.string   "city"
+    t.string   "postal_code"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contact_sources", :force => true do |t|
     t.string "name"
@@ -58,5 +77,32 @@ ActiveRecord::Schema.define(:version => 20110601235912) do
   add_index "github_contacts", ["login"], :name => "index_github_contacts_on_login"
   add_index "github_contacts", ["public_gist_count"], :name => "index_github_contacts_on_public_gist_count"
   add_index "github_contacts", ["public_repo_count"], :name => "index_github_contacts_on_public_repo_count"
+
+  create_table "people", :force => true do |t|
+    t.string   "bio"
+    t.string   "location"
+    t.float    "lat"
+    t.float    "long"
+    t.string   "picture"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context"
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
 
 end

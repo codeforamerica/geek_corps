@@ -1,90 +1,52 @@
-  [1m[36mSQL (1.6ms)[0m  [1m SELECT name
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [1m[35mSQL (0.5ms)[0m  select sqlite_version(*)
-  [1m[36mSQL (134.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
-  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("schema_migrations")
-  [1m[36mSQL (99.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
-  [1m[35mSQL (0.7ms)[0m   SELECT name
+  [1m[35mSQL (0.1ms)[0m   SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [1m[35mSQL (0.6ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
 Migrating to CreateGithubContacts (20110601194123)
-  [1m[36mSQL (1.5ms)[0m  [1mCREATE TABLE "contact_sources" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
-  [1m[35mSQL (1.4ms)[0m  CREATE TABLE "github_contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "gravatar_id" varchar(255), "company" varchar(255), "name" varchar(255), "created_at" datetime, "location" varchar(255), "public_repo_count" integer, "public_gist_count" integer, "blog" varchar(255), "following_count" integer, "type" varchar(255), "followers_count" integer, "login" varchar(255), "permission" boolean, "email" varchar(255), "contact_source_id" integer, "first_commit" datetime, "updated_at" datetime) 
-  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("github_contacts")[0m
-  [1m[35mSQL (0.7ms)[0m  CREATE INDEX "index_github_contacts_on_login" ON "github_contacts" ("login")
-  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_list("github_contacts")[0m
-  [1m[35mSQL (4.2ms)[0m  PRAGMA index_info('index_github_contacts_on_login')
-  [1m[36mSQL (7.5ms)[0m  [1mCREATE INDEX "index_github_contacts_on_following_count" ON "github_contacts" ("following_count")[0m
-  [1m[35mSQL (0.5ms)[0m  PRAGMA index_list("github_contacts")
-  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_following_count')[0m
-  [1m[35mSQL (0.4ms)[0m  PRAGMA index_info('index_github_contacts_on_login')
-  [1m[36mSQL (2.3ms)[0m  [1mCREATE INDEX "index_github_contacts_on_followers_count" ON "github_contacts" ("followers_count")[0m
-  [1m[35mSQL (0.7ms)[0m  PRAGMA index_list("github_contacts")
-  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_followers_count')[0m
-  [1m[35mSQL (0.3ms)[0m  PRAGMA index_info('index_github_contacts_on_following_count')
-  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_login')[0m
-  [1m[35mSQL (0.6ms)[0m  CREATE INDEX "index_github_contacts_on_public_repo_count" ON "github_contacts" ("public_repo_count")
-  [1m[36mSQL (0.6ms)[0m  [1mPRAGMA index_list("github_contacts")[0m
-  [1m[35mSQL (0.4ms)[0m  PRAGMA index_info('index_github_contacts_on_public_repo_count')
-  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_followers_count')[0m
-  [1m[35mSQL (0.3ms)[0m  PRAGMA index_info('index_github_contacts_on_following_count')
-  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_login')[0m
-  [1m[35mSQL (0.8ms)[0m  CREATE INDEX "index_github_contacts_on_public_gist_count" ON "github_contacts" ("public_gist_count")
-  [1m[36mSQL (0.7ms)[0m  [1mPRAGMA index_list("github_contacts")[0m
-  [1m[35mSQL (0.3ms)[0m  PRAGMA index_info('index_github_contacts_on_public_gist_count')
-  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_public_repo_count')[0m
-  [1m[35mSQL (0.4ms)[0m  PRAGMA index_info('index_github_contacts_on_followers_count')
-  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_following_count')[0m
-  [1m[35mSQL (0.4ms)[0m  PRAGMA index_info('index_github_contacts_on_login')
-  [1m[36mSQL (0.7ms)[0m  [1mCREATE INDEX "index_github_contacts_on_created_at" ON "github_contacts" ("created_at")[0m
-  [1m[35mSQL (0.9ms)[0m  PRAGMA index_list("github_contacts")
-  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_created_at')[0m
-  [1m[35mSQL (0.4ms)[0m  PRAGMA index_info('index_github_contacts_on_public_gist_count')
-  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_public_repo_count')[0m
-  [1m[35mSQL (0.4ms)[0m  PRAGMA index_info('index_github_contacts_on_followers_count')
-  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_following_count')[0m
-  [1m[35mSQL (0.5ms)[0m  PRAGMA index_info('index_github_contacts_on_login')
-  [1m[36mSQL (0.7ms)[0m  [1mCREATE INDEX "index_github_contacts_on_contact_source_id" ON "github_contacts" ("contact_source_id")[0m
-  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110601194123')
 Migrating to CreateDelayedJobs (20110601235912)
-  [1m[36mSQL (0.9ms)[0m  [1m SELECT name
+Migrating to CreateBatchbookContacts (20110602162632)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE TABLE "batchbook_contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "batchbook_id" integer, "first_name" varchar(255), "last_name" varchar(255), "primary" boolean, "label" varchar(255), "location_id" integer, "email" varchar(255), "website" varchar(255), "phone" varchar(255), "cell" varchar(255), "state" varchar(255), "city" varchar(255), "postal_code" varchar(255), "country" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110602162632')
+Migrating to ActsAsTaggableOnMigration (20110602163032)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "tagger_id" integer, "tagger_type" varchar(255), "context" varchar(255), "created_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("taggings")[0m
+  [1m[35mSQL (0.1ms)[0m  CREATE INDEX "index_taggings_on_tag_id" ON "taggings" ("tag_id")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("taggings")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_taggings_on_tag_id')
+  [1m[36mSQL (0.1ms)[0m  [1mCREATE INDEX "index_taggings_on_taggable_id_and_taggable_type_and_context" ON "taggings" ("taggable_id", "taggable_type", "context")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110602163032')
+Migrating to CreatePeople (20110627233220)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "bio" varchar(255), "location" varchar(255), "lat" float, "long" float, "picture" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110627233220')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
-  [1m[35mSQL (11.5ms)[0m  CREATE TABLE "delayed_jobs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "priority" integer DEFAULT 0, "attempts" integer DEFAULT 0, "handler" text, "last_error" text, "run_at" datetime, "locked_at" datetime, "failed_at" datetime, "locked_by" varchar(255), "created_at" datetime, "updated_at" datetime) 
-  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_list("delayed_jobs")[0m
-  [1m[35mSQL (0.8ms)[0m  CREATE INDEX "delayed_jobs_priority" ON "delayed_jobs" ("priority", "run_at")
-  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20110601235912')[0m
-  [1m[35mSQL (0.9ms)[0m   SELECT name
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
  FROM sqlite_master
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36mSQL (0.5ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
-  [1m[35mSQL (0.6ms)[0m   SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("contact_sources")[0m
-  [1m[35mSQL (0.5ms)[0m  PRAGMA index_list("delayed_jobs")
-  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('delayed_jobs_priority')[0m
-  [1m[35mSQL (0.8ms)[0m  PRAGMA index_list("github_contacts")
-  [1m[36mSQL (0.4ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_contact_source_id')[0m
-  [1m[35mSQL (0.3ms)[0m  PRAGMA index_info('index_github_contacts_on_created_at')
-  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_public_gist_count')[0m
-  [1m[35mSQL (0.3ms)[0m  PRAGMA index_info('index_github_contacts_on_public_repo_count')
-  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_followers_count')[0m
-  [1m[35mSQL (0.3ms)[0m  PRAGMA index_info('index_github_contacts_on_following_count')
-  [1m[36mSQL (0.3ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_login')[0m
-
-
-Started GET "/" for 127.0.0.1 at 2011-06-27 14:06:11 -0700
-
-ActionController::RoutingError (No route matches "/"):
-  
-
-Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (5.7ms)
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("batchbook_contacts")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("contact_sources")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("delayed_jobs")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('delayed_jobs_priority')[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("github_contacts")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_contact_source_id')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_github_contacts_on_created_at')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_public_gist_count')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_github_contacts_on_public_repo_count')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_followers_count')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_github_contacts_on_following_count')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_login')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("people")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("taggings")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_taggings_on_taggable_id_and_taggable_type_and_context')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_taggings_on_tag_id')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("tags")
