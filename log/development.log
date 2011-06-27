@@ -1,0 +1,52 @@
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateGithubContacts (20110601194123)
+Migrating to CreateDelayedJobs (20110601235912)
+Migrating to CreateBatchbookContacts (20110602162632)
+  [1m[35mSQL (0.1ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.7ms)[0m  [1mCREATE TABLE "batchbook_contacts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "batchbook_id" integer, "first_name" varchar(255), "last_name" varchar(255), "primary" boolean, "label" varchar(255), "location_id" integer, "email" varchar(255), "website" varchar(255), "phone" varchar(255), "cell" varchar(255), "state" varchar(255), "city" varchar(255), "postal_code" varchar(255), "country" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110602162632')
+Migrating to ActsAsTaggableOnMigration (20110602163032)
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE TABLE "tags" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255)) [0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "taggings" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "tag_id" integer, "taggable_id" integer, "taggable_type" varchar(255), "tagger_id" integer, "tagger_type" varchar(255), "context" varchar(255), "created_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("taggings")[0m
+  [1m[35mSQL (0.1ms)[0m  CREATE INDEX "index_taggings_on_tag_id" ON "taggings" ("tag_id")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("taggings")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_taggings_on_tag_id')
+  [1m[36mSQL (0.1ms)[0m  [1mCREATE INDEX "index_taggings_on_taggable_id_and_taggable_type_and_context" ON "taggings" ("taggable_id", "taggable_type", "context")[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110602163032')
+Migrating to CreatePeople (20110627233220)
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE TABLE "people" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "bio" varchar(255), "location" varchar(255), "lat" float, "long" float, "picture" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20110627233220')
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("batchbook_contacts")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("contact_sources")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("delayed_jobs")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('delayed_jobs_priority')[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("github_contacts")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_contact_source_id')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_github_contacts_on_created_at')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_public_gist_count')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_github_contacts_on_public_repo_count')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_followers_count')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_github_contacts_on_following_count')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_github_contacts_on_login')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("people")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("taggings")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_taggings_on_taggable_id_and_taggable_type_and_context')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_taggings_on_tag_id')[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("tags")
