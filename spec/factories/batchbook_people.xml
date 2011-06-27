@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<people type="array">
+  <person>
+    <id type="integer">3</id>
+    <first_name>Jennifer</first_name>
+    <last_name>Pahlka</last_name>
+    <small_image></small_image>
+    <large_image></large_image>
+    <title></title>
+    <company></company>
+    <company_id type="integer"></company_id>
+    <tags type="array">
+      <tag>
+        <id>1021</id>
+        <name>govt</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1063</id>
+        <name>gmail-alissa</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1244</id>
+        <name>mailchimp</name>
+        <supertag>true</supertag>
+        <fields>
+          <subscribe_date>Mar 10, 2011 12:40AM</subscribe_date>
+          <subscribed>true</subscribed>
+        </fields>
+      </tag>
+    </tags>
+    <locations type="array">
+      <location>
+        <id type="integer">2</id>
+        <label>work</label>
+        <primary type="boolean">true</primary>
+        <email>jen@codeforamerica.org</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+      <location>
+        <id type="integer">1101</id>
+        <label>work1</label>
+        <primary type="boolean">false</primary>
+        <email>jen@pahlka.com</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+      <location>
+        <id type="integer">4316</id>
+        <label>work2</label>
+        <primary type="boolean">false</primary>
+        <email>jen.pahlka@gmail.com</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+    </locations>
+    <mega_comments type="array">
+    </mega_comments>
+    <notes></notes>
+    <created_at>Thu Sep 24 23:50:21 UTC 2009</created_at>
+    <updated_at>Tue Apr 05 04:05:04 UTC 2011</updated_at>
+  </person>
+  <person>
+    <id type="integer">12</id>
+    <first_name>Adrian</first_name>
+    <last_name>Holovaty</last_name>
+    <small_image></small_image>
+    <large_image></large_image>
+    <title></title>
+    <company></company>
+    <company_id type="integer"></company_id>
+    <tags type="array">
+      <tag>
+        <id>1021</id>
+        <name>govt</name>
+        <supertag>false</supertag>
+      </tag>
+    </tags>
+    <locations type="array">
+      <location>
+        <id type="integer">11</id>
+        <label>work</label>
+        <primary type="boolean">true</primary>
+        <email>adrian@holovaty.com</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+    </locations>
+    <mega_comments type="array">
+    </mega_comments>
+    <notes></notes>
+    <created_at>Wed Nov 04 22:15:22 UTC 2009</created_at>
+    <updated_at>Wed Mar 16 22:54:49 UTC 2011</updated_at>
+  </person>
+  <person>
+    <id type="integer">14</id>
+    <first_name>Alan</first_name>
+    <last_name>Wells</last_name>
+    <small_image></small_image>
+    <large_image></large_image>
+    <title></title>
+    <company></company>
+    <company_id type="integer"></company_id>
+    <tags type="array">
+      <tag>
+        <id>1244</id>
+        <name>mailchimp</name>
+        <supertag>true</supertag>
+        <fields>
+          <subscribe_date>Mar 09, 2011  7:40PM</subscribe_date>
+          <subscribed>true</subscribed>
+        </fields>
+      </tag>
+    </tags>
+    <locations type="array">
+      <location>
+        <id type="integer">13</id>
+        <label>work</label>
+        <primary type="boolean">true</primary>
+        <email>alan@hakuwale.com</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+    </locations>
+    <mega_comments type="array">
+    </mega_comments>
+    <notes></notes>
+    <created_at>Wed Nov 04 22:15:22 UTC 2009</created_at>
+    <updated_at>Thu Mar 10 01:12:19 UTC 2011</updated_at>
+  </person>
+  <person>
+    <id type="integer">20</id>
+    <first_name>Andrew</first_name>
+    <last_name>Graham</last_name>
+    <small_image></small_image>
+    <large_image></large_image>
+    <title></title>
+    <company></company>
+    <company_id type="integer"></company_id>
+    <tags type="array">
+      <tag>
+        <id>1021</id>
+        <name>govt</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1244</id>
+        <name>mailchimp</name>
+        <supertag>true</supertag>
+        <fields>
+          <subscribe_date>Mar 10, 2011 12:40AM</subscribe_date>
+          <subscribed>true</subscribed>
+        </fields>
+      </tag>
+    </tags>
+    <locations type="array">
+      <location>
+        <id type="integer">19</id>
+        <label>work</label>
+        <primary type="boolean">true</primary>
+        <email>graham3@uic.edu</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+    </locations>
+    <mega_comments type="array">
+    </mega_comments>
+    <notes></notes>
+    <created_at>Wed Nov 04 22:15:22 UTC 2009</created_at>
+    <updated_at>Wed Mar 16 22:54:53 UTC 2011</updated_at>
+  </person>
+  <person>
+    <id type="integer">24</id>
+    <first_name>Andrew</first_name>
+    <last_name>Hoppin</last_name>
+    <small_image></small_image>
+    <large_image></large_image>
+    <title></title>
+    <company>New York State Senate</company>
+    <company_id type="integer">1031</company_id>
+    <tags type="array">
+      <tag>
+        <id>1018</id>
+        <name>citycamp</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1021</id>
+        <name>govt</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1042</id>
+        <name>brainstorm</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1063</id>
+        <name>gmail-alissa</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1064</id>
+        <name>gmail-jen2</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1072</id>
+        <name>cc</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1244</id>
+        <name>mailchimp</name>
+        <supertag>true</supertag>
+        <fields>
+          <subscribe_date>Mar 10, 2011 12:40AM</subscribe_date>
+          <subscribed>true</subscribed>
+        </fields>
+      </tag>
+    </tags>
+    <locations type="array">
+      <location>
+        <id type="integer">1073</id>
+        <label>work1</label>
+        <primary type="boolean">true</primary>
+        <email></email>
+        <website>http://nysenate.gov</website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+      <location>
+        <id type="integer">1071</id>
+        <label>home</label>
+        <primary type="boolean">false</primary>
+        <email></email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1></street_1>
+        <street_2></street_2>
+        <city>Long Island City</city>
+        <state>NY</state>
+        <postal_code></postal_code>
+        <country>United States</country>
+      </location>
+      <location>
+        <id type="integer">23</id>
+        <label>work</label>
+        <primary type="boolean">false</primary>
+        <email>andrew.hoppin@gmail.com</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+    </locations>
+    <mega_comments type="array">
+    </mega_comments>
+    <notes>Introduced to Jen by Peter Corbett via email.</notes>
+    <created_at>Wed Nov 04 22:15:23 UTC 2009</created_at>
+    <updated_at>Wed Mar 16 22:55:03 UTC 2011</updated_at>
+  </person>
+  <person>
+    <id type="integer">27</id>
+    <first_name>Andrew</first_name>
+    <last_name>Krzmarzick</last_name>
+    <small_image></small_image>
+    <large_image></large_image>
+    <title></title>
+    <company></company>
+    <company_id type="integer"></company_id>
+    <tags type="array">
+      <tag>
+        <id>1021</id>
+        <name>govt</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1063</id>
+        <name>gmail-alissa</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1244</id>
+        <name>mailchimp</name>
+        <supertag>true</supertag>
+        <fields>
+          <subscribe_date>Mar 10, 2011 12:41AM</subscribe_date>
+          <subscribed>true</subscribed>
+        </fields>
+      </tag>
+    </tags>
+    <locations type="array">
+      <location>
+        <id type="integer">25</id>
+        <label>other</label>
+        <primary type="boolean">true</primary>
+        <email>akrzmarzick@gmail.com</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+      <location>
+        <id type="integer">26</id>
+        <label>work</label>
+        <primary type="boolean">false</primary>
+        <email>andrew@govloop.com</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+    </locations>
+    <mega_comments type="array">
+    </mega_comments>
+    <notes></notes>
+    <created_at>Wed Nov 04 22:15:23 UTC 2009</created_at>
+    <updated_at>Wed Mar 16 22:55:07 UTC 2011</updated_at>
+  </person>
+  <person>
+    <id type="integer">32</id>
+    <first_name>Ann</first_name>
+    <last_name>Gillingham</last_name>
+    <small_image></small_image>
+    <large_image></large_image>
+    <title></title>
+    <company></company>
+    <company_id type="integer"></company_id>
+    <tags type="array">
+      <tag>
+        <id>1021</id>
+        <name>govt</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1244</id>
+        <name>mailchimp</name>
+        <supertag>true</supertag>
+        <fields>
+          <subscribe_date>Mar 10, 2011 12:41AM</subscribe_date>
+          <subscribed>true</subscribed>
+        </fields>
+      </tag>
+    </tags>
+    <locations type="array">
+      <location>
+        <id type="integer">31</id>
+        <label>work</label>
+        <primary type="boolean">true</primary>
+        <email>agillingham@lccr.com</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+    </locations>
+    <mega_comments type="array">
+    </mega_comments>
+    <notes></notes>
+    <created_at>Wed Nov 04 22:15:24 UTC 2009</created_at>
+    <updated_at>Wed Mar 16 22:55:13 UTC 2011</updated_at>
+  </person>
+  <person>
+    <id type="integer">34</id>
+    <first_name>Hardik</first_name>
+    <last_name>Bhatt</last_name>
+    <small_image></small_image>
+    <large_image></large_image>
+    <title>Chief Information Officer</title>
+    <company>City of Chicago, IL</company>
+    <company_id type="integer">113</company_id>
+    <tags type="array">
+      <tag>
+        <id>1004</id>
+        <name>city</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1021</id>
+        <name>govt</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1048</id>
+        <name>2012</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1244</id>
+        <name>mailchimp</name>
+        <supertag>true</supertag>
+        <fields>
+          <subscribe_date>Mar 09, 2011  7:41PM</subscribe_date>
+          <subscribed>true</subscribed>
+        </fields>
+      </tag>
+    </tags>
+    <locations type="array">
+      <location>
+        <id type="integer">33</id>
+        <label>work</label>
+        <primary type="boolean">true</primary>
+        <email>hardik.bhatt@cityofchicago.org</email>
+        <website></website>
+        <phone>(312) 742 0667</phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+    </locations>
+    <mega_comments type="array">
+    </mega_comments>
+    <notes></notes>
+    <created_at>Wed Nov 04 22:15:24 UTC 2009</created_at>
+    <updated_at>Thu Mar 10 01:12:49 UTC 2011</updated_at>
+  </person>
+  <person>
+    <id type="integer">36</id>
+    <first_name>Bill</first_name>
+    <last_name>Schrier</last_name>
+    <small_image></small_image>
+    <large_image></large_image>
+    <title>CIO</title>
+    <company>City of Seattle, WA</company>
+    <company_id type="integer">1247</company_id>
+    <tags type="array">
+      <tag>
+        <id>1244</id>
+        <name>mailchimp</name>
+        <supertag>true</supertag>
+        <fields>
+          <unsubscribe_date>Mar 16, 2011  6:19PM</unsubscribe_date>
+          <subscribe_date>Mar 10, 2011 12:41AM</subscribe_date>
+          <subscribed>false</subscribed>
+        </fields>
+      </tag>
+      <tag>
+        <id>1223</id>
+        <name>chief geek</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1151</id>
+        <name>seattle-stakeholder</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1150</id>
+        <name>seattle-tech</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1204</id>
+        <name>datacamp</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1042</id>
+        <name>brainstorm</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1063</id>
+        <name>gmail-alissa</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1048</id>
+        <name>2012</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1026</id>
+        <name>seattle event</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1023</id>
+        <name>us conf of mayors via a. greenhill</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1021</id>
+        <name>govt</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1011</id>
+        <name>king county</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1012</id>
+        <name>seattle</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1004</id>
+        <name>city</name>
+        <supertag>false</supertag>
+      </tag>
+    </tags>
+    <locations type="array">
+      <location>
+        <id type="integer">1342</id>
+        <label>work1</label>
+        <primary type="boolean">true</primary>
+        <email>Bill.Schrier@Seattle.Gov</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+      <location>
+        <id type="integer">35</id>
+        <label>work</label>
+        <primary type="boolean">false</primary>
+        <email>bill.schrier@seattle.gov</email>
+        <website></website>
+        <phone>(206) 684-0633</phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+    </locations>
+    <mega_comments type="array">
+    </mega_comments>
+    <notes></notes>
+    <created_at>Wed Nov 04 22:15:24 UTC 2009</created_at>
+    <updated_at>Wed Apr 13 17:54:55 UTC 2011</updated_at>
+  </person>
+  <person>
+    <id type="integer">38</id>
+    <first_name>Paul</first_name>
+    <last_name>Carlson</last_name>
+    <small_image></small_image>
+    <large_image></large_image>
+    <title></title>
+    <company></company>
+    <company_id type="integer"></company_id>
+    <tags type="array">
+      <tag>
+        <id>1048</id>
+        <name>2012</name>
+        <supertag>false</supertag>
+      </tag>
+      <tag>
+        <id>1244</id>
+        <name>mailchimp</name>
+        <supertag>true</supertag>
+        <fields>
+          <subscribe_date>Mar 09, 2011  7:41PM</subscribe_date>
+          <subscribed>true</subscribed>
+        </fields>
+      </tag>
+    </tags>
+    <locations type="array">
+      <location>
+        <id type="integer">37</id>
+        <label>work</label>
+        <primary type="boolean">true</primary>
+        <email>PCCarlson@columbus.gov</email>
+        <website></website>
+        <phone></phone>
+        <cell></cell>
+        <fax></fax>
+        <street_1/>
+        <street_2/>
+        <city/>
+        <state/>
+        <postal_code/>
+        <country/>
+      </location>
+    </locations>
+    <mega_comments type="array">
+    </mega_comments>
+    <notes></notes>
+    <created_at>Wed Nov 04 22:15:24 UTC 2009</created_at>
+    <updated_at>Thu Mar 10 01:12:27 UTC 2011</updated_at>
+  </person>
+</people>
