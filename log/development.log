@@ -180,3 +180,395 @@ ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
   
 
 Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (6.5ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 14:53:19 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (2.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (0.5ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 157ms (Views: 26.7ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2011-06-29 14:53:20 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (20.3ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2011-06-29 14:53:21 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (11.9ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 14:53:27 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (0.7ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 368ms (Views: 37.1ms | ActiveRecord: 3.9ms)
+  [1m[36mSQL (4.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (0.6ms)[0m  SELECT "people".* FROM "people" ORDER BY people.id DESC LIMIT 1
+  [1m[36mPerson Load (0.7ms)[0m  [1mSELECT "people".* FROM "people" LIMIT 1[0m
+  [1m[35mSQL (1.9ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mPerson Load (1.0ms)[0m  [1mSELECT "people".* FROM "people"[0m
+  [1m[35mGithubContact Load (213.8ms)[0m  SELECT "github_contacts".* FROM "github_contacts"
+  [1m[36mGithubContact Load (3.8ms)[0m  [1mSELECT "github_contacts".* FROM "github_contacts" ORDER BY github_contacts.id DESC LIMIT 1[0m
+  [1m[35mPerson Load (0.9ms)[0m  SELECT "people".* FROM "people"
+  [1m[36mSQL (1.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAREL (2.3ms)[0m  INSERT INTO "people" ("bio", "location", "lat", "long", "picture", "created_at", "updated_at") VALUES ('I like cheese.', 'Palo Alto, CA', NULL, NULL, 'http://codeforamerica.org/wp-content/themes/cfawp2012/images/2011fellows/bloom.png', '2011-06-29 22:28:26.262705', '2011-06-29 22:28:26.262705')
+  [1m[36mPerson Load (3.3ms)[0m  [1mSELECT "people".* FROM "people" ORDER BY people.id DESC LIMIT 1[0m
+  [1m[35mSQL (0.8ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mAREL (0.8ms)[0m  [1mINSERT INTO "people" ("bio", "location", "lat", "long", "picture", "created_at", "updated_at") VALUES ('Hello, world.', 'San Francisco, CA', NULL, NULL, 'http://codeforamerica.org/wp-content/themes/cfawp2012/images/2011fellows/fecteau.png', '2011-06-29 22:31:26.334471', '2011-06-29 22:31:26.334471')[0m
+  [1m[35mPerson Load (4.2ms)[0m  SELECT "people".* FROM "people"
+  [1m[36mAREL (1.4ms)[0m  [1mINSERT INTO "people" ("bio", "location", "lat", "long", "picture", "created_at", "updated_at") VALUES ('I''m Matt Lewis! I''m so cool.', 'San Francisco, CA', NULL, NULL, 'http://codeforamerica.org/wp-content/themes/cfawp2012/images/2011fellows/lewis.png', '2011-06-29 22:32:58.355088', '2011-06-29 22:32:58.355088')[0m
+  [1m[35mAREL (0.9ms)[0m  INSERT INTO "people" ("bio", "location", "lat", "long", "picture", "created_at", "updated_at") VALUES ('Testing', 'Oakland, CA', NULL, NULL, 'http://codeforamerica.org/wp-content/themes/cfawp2012/images/2011fellows/koeth.png', '2011-06-29 22:33:58.884100', '2011-06-29 22:33:58.884100')
+  [1m[36mPerson Load (6.8ms)[0m  [1mSELECT "people".* FROM "people"[0m
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:34:15 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (5.6ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (71.4ms)
+Completed 200 OK in 230ms (Views: 91.3ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2011-06-29 15:34:16 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (12.1ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2011-06-29 15:34:16 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (8.7ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:34:36 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (125.0ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (95.1ms)
+Completed 200 OK in 444ms (Views: 128.4ms | ActiveRecord: 128.6ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2011-06-29 15:34:37 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (9.9ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2011-06-29 15:34:38 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (14.6ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:41:04 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (2.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (5.6ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (62.9ms)
+Completed 200 OK in 298ms (Views: 79.5ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2011-06-29 15:41:05 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (18.3ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2011-06-29 15:41:05 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (5.9ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:44:16 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (7.3ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (107.5ms)
+Completed 200 OK in 471ms (Views: 125.7ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2011-06-29 15:44:18 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (7.6ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2011-06-29 15:44:18 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (36.9ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:50:58 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (4.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (11.8ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (95.7ms)
+Completed 200 OK in 342ms (Views: 119.4ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2011-06-29 15:51:00 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (25.3ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2011-06-29 15:51:00 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (10.3ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:51:06 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (8.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (18.1ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (127.3ms)
+Completed 200 OK in 501ms (Views: 158.2ms | ActiveRecord: 26.8ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:53:06 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (4.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (326.6ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (216.5ms)
+Completed 200 OK in 985ms (Views: 270.7ms | ActiveRecord: 331.1ms)
+
+
+Started GET "/javascripts/jquery.js" for 127.0.0.1 at 2011-06-29 15:53:09 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (22.4ms)
+
+
+Started GET "/javascripts/jquery_ujs.js" for 127.0.0.1 at 2011-06-29 15:53:09 -0700
+
+ActionController::RoutingError (No route matches "/javascripts/jquery_ujs.js"):
+  
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (18.4ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:54:49 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (13.4ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (129.7ms)
+Completed 200 OK in 477ms (Views: 158.4ms | ActiveRecord: 17.1ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:55:34 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (8.6ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (68.4ms)
+Completed 200 OK in 327ms (Views: 82.3ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:55:48 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (4.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (9.3ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (105.4ms)
+Completed 200 OK in 545ms (Views: 129.4ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:56:43 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (5.4ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (68.4ms)
+Completed 200 OK in 227ms (Views: 84.9ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:58:03 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (7.2ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (68.7ms)
+Completed 200 OK in 376ms (Views: 83.4ms | ActiveRecord: 11.1ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:58:31 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (2.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (7.2ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (76.9ms)
+Completed 200 OK in 246ms (Views: 94.6ms | ActiveRecord: 9.9ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:59:15 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (2.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (5.6ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (70.4ms)
+Completed 200 OK in 218ms (Views: 87.3ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 15:59:47 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (7.0ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (67.2ms)
+Completed 200 OK in 217ms (Views: 82.1ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:01:00 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (13.6ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (106.4ms)
+Completed 200 OK in 334ms (Views: 126.2ms | ActiveRecord: 17.3ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:01:34 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (6.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (109.3ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (91.9ms)
+Completed 200 OK in 391ms (Views: 121.5ms | ActiveRecord: 115.8ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:03:32 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (4.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (6.7ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (74.7ms)
+Completed 200 OK in 244ms (Views: 100.7ms | ActiveRecord: 10.9ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:15:38 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (2.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (6.1ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (82.4ms)
+Completed 200 OK in 373ms (Views: 97.5ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:16:32 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (7.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (5.6ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (68.8ms)
+Completed 200 OK in 240ms (Views: 85.5ms | ActiveRecord: 13.4ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:16:36 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (5.4ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (74.0ms)
+Completed 200 OK in 222ms (Views: 90.8ms | ActiveRecord: 8.8ms)
