@@ -1,30 +1,14 @@
 <h1>Listing people</h1>
 
-<table>
-  <tr>
-    <th>Bio</th>
-    <th>Location</th>
-    <th>Lat</th>
-    <th>Long</th>
-    <th>Picture</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul>
 
 <% @people.each do |person| %>
-  <tr>
-    <td><%= person.bio %></td>
-    <td><%= person.location %></td>
-    <td><%= person.lat %></td>
-    <td><%= person.long %></td>
-    <td><%= person.picture %></td>
-    <td><%= link_to 'Show', person %></td>
-    <td><%= link_to 'Edit', edit_person_path(person) %></td>
-    <td><%= link_to 'Destroy', person, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li><%= person.picture %>
+  <span class="location"><%= person.location %></span>
+  <span class="crud-links"><%= link_to 'Show', person %> <%= link_to 'Edit', edit_person_path(person) %> <%= link_to 'Delete', person, :confirm => 'Are you sure?', :method => :delete %>
+  </li>
 <% end %>
-</table>
+</ul>
 
 <br />
 

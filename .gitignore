@@ -24,6 +24,7 @@ rdoc
 spec/reports
 test/tmp
 test/version_tmp
-tmp
+tmp/*
 tmtags
 tramp
+*.log
