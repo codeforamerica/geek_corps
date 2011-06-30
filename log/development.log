@@ -572,3 +572,383 @@ Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:16:36 -0700
   [1m[35mPerson Load (5.4ms)[0m  SELECT "people".* FROM "people"
 Rendered people/index.html.erb within layouts/application (74.0ms)
 Completed 200 OK in 222ms (Views: 90.8ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:35:52 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (4.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (9.2ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (114.4ms)
+Completed 200 OK in 310ms (Views: 136.1ms | ActiveRecord: 13.6ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:41:24 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (7.9ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (68.3ms)
+Completed 200 OK in 310ms (Views: 82.1ms | ActiveRecord: 11.7ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:42:39 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (5.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (7.7ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (73.4ms)
+Completed 200 OK in 331ms (Views: 88.7ms | ActiveRecord: 12.7ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:45:17 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (10.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (9.4ms)[0m  SELECT "people".* FROM "people"
+ERROR: compiling _app_views_layouts_application_html_erb___1035652561_92435080__1019907471 RAISED /home/karen/Code/geek_corps/app/views/layouts/application.html.erb:7: syntax error, unexpected ':', expecting ')'
+...end= ( javascript_include_tag : "scripts" "jquery.isotope.mi...
+...                               ^
+Function body:           def _app_views_layouts_application_html_erb___1035652561_92435080__1019907471(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "layouts/application";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<!DOCTYPE html>
+<html>
+<head>
+  <title>GeekCorps</title>
+  ');@output_buffer.append= ( stylesheet_link_tag :all );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+  ');@output_buffer.append= ( javascript_include_tag : "scripts" "jquery.isotope.min" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( csrf_meta_tag );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</head>
+<body>
+
+');@output_buffer.append= ( yield );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+</body>
+</html>
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/template.rb:255:in `module_eval'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/template.rb:255:in `compile'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/template.rb:134:in `block in render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications.rb:54:in `instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/template.rb:127:in `render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/render/layouts.rb:80:in `_render_layout'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:62:in `block in _render_template'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:26:in `render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:93:in `render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/karen/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:14:in `default_render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:261:in `block in retrieve_response_from_mimes'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/karen/Code/geek_corps/app/controllers/people_controller.rb:7:in `index'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:150:in `process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:436:in `_run__285329754__process_action__1070506056__callbacks'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:94:in `run_callbacks'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:119:in `process'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:41:in `process'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal.rb:138:in `dispatch'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal.rb:178:in `block in action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:493:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/methodoverride.rb:24:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:32:in `block in call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:12:in `cache'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:31:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/sendfile.rb:107:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.0.7/lib/rails/rack/logger.rb:13:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/runtime.rb:17:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.0.7/lib/rails/application.rb:168:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.0.7/lib/rails/application.rb:77:in `method_missing'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.0.7/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/content_length.rb:13:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/handler/webrick.rb:52:in `service'
+/home/karen/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/home/karen/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/home/karen/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered people/index.html.erb within layouts/application (357.9ms)
+Completed   in 600ms
+
+ActionView::Template::Error (/home/karen/Code/geek_corps/app/views/layouts/application.html.erb:7: syntax error, unexpected ':', expecting ')'
+...end= ( javascript_include_tag : "scripts" "jquery.isotope.mi...
+...                               ^):
+    4:   <title>GeekCorps</title>
+    5:   <%= stylesheet_link_tag :all %>
+    6:   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    7:   <%= javascript_include_tag : "scripts" "jquery.isotope.min" %>
+    8:   <%= csrf_meta_tag %>
+    9: </head>
+    10: <body>
+  app/controllers/people_controller.rb:7:in `index'
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (10.4ms)
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (28.4ms)
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (63.0ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:45:38 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (10.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (13.1ms)[0m  SELECT "people".* FROM "people"
+ERROR: compiling _app_views_layouts_application_html_erb___1035652561_92949200__1019907471 RAISED /home/karen/Code/geek_corps/app/views/layouts/application.html.erb:7: syntax error, unexpected ':', expecting ')'
+...end= ( javascript_include_tag : "scripts", "jquery.isotope.m...
+...                               ^
+/home/karen/Code/geek_corps/app/views/layouts/application.html.erb:7: syntax error, unexpected ',', expecting ')'
+...script_include_tag : "scripts", "jquery.isotope.min" );@outp...
+...                               ^
+Function body:           def _app_views_layouts_application_html_erb___1035652561_92949200__1019907471(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "layouts/application";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.safe_concat('<!DOCTYPE html>
+<html>
+<head>
+  <title>GeekCorps</title>
+  ');@output_buffer.append= ( stylesheet_link_tag :all );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+  ');@output_buffer.append= ( javascript_include_tag : "scripts", "jquery.isotope.min" );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( csrf_meta_tag );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</head>
+<body>
+
+');@output_buffer.append= ( yield );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('
+</body>
+</html>
+');@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/template.rb:255:in `module_eval'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/template.rb:255:in `compile'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/template.rb:134:in `block in render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications.rb:54:in `instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/template.rb:127:in `render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/render/layouts.rb:80:in `_render_layout'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:62:in `block in _render_template'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:56:in `_render_template'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_view/render/rendering.rb:26:in `render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:115:in `_render_template'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:109:in `render_to_body'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:102:in `render_to_string'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:93:in `render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:17:in `render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/home/karen/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:14:in `default_render'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:261:in `block in retrieve_response_from_mimes'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/karen/Code/geek_corps/app/controllers/people_controller.rb:7:in `index'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:150:in `process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:436:in `_run__285329754__process_action__1070506056__callbacks'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:410:in `_run_process_action_callbacks'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:94:in `run_callbacks'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `block in instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/notifications.rb:52:in `instrument'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/base.rb:119:in `process'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/abstract_controller/rendering.rb:41:in `process'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal.rb:138:in `dispatch'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_controller/metal.rb:178:in `block in action'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:148:in `block in call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib/rack/mount/code_generation.rb:92:in `recognize'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-mount-0.6.14/lib/rack/mount/route_set.rb:139:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/routing/route_set.rb:493:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/head.rb:14:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/methodoverride.rb:24:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/cookies.rb:302:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:32:in `block in call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:12:in `cache'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/query_cache.rb:31:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activerecord-3.0.7/lib/active_record/connection_adapters/abstract/connection_pool.rb:354:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/callbacks.rb:416:in `_run_call_callbacks'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/sendfile.rb:107:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/show_exceptions.rb:47:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.0.7/lib/rails/rack/logger.rb:13:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/runtime.rb:17:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/activesupport-3.0.7/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/lock.rb:11:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/static.rb:30:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.0.7/lib/rails/application.rb:168:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.0.7/lib/rails/application.rb:77:in `method_missing'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/railties-3.0.7/lib/rails/rack/log_tailer.rb:14:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/content_length.rb:13:in `call'
+/home/karen/.rvm/gems/ruby-1.9.2-p180/gems/rack-1.2.3/lib/rack/handler/webrick.rb:52:in `service'
+/home/karen/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/home/karen/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/home/karen/.rvm/rubies/ruby-1.9.2-p180/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered people/index.html.erb within layouts/application (150.9ms)
+Completed   in 474ms
+
+ActionView::Template::Error (/home/karen/Code/geek_corps/app/views/layouts/application.html.erb:7: syntax error, unexpected ':', expecting ')'
+...end= ( javascript_include_tag : "scripts", "jquery.isotope.m...
+...                               ^
+/home/karen/Code/geek_corps/app/views/layouts/application.html.erb:7: syntax error, unexpected ',', expecting ')'
+...script_include_tag : "scripts", "jquery.isotope.min" );@outp...
+...                               ^):
+    4:   <title>GeekCorps</title>
+    5:   <%= stylesheet_link_tag :all %>
+    6:   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    7:   <%= javascript_include_tag : "scripts", "jquery.isotope.min" %>
+    8:   <%= csrf_meta_tag %>
+    9: </head>
+    10: <body>
+  app/controllers/people_controller.rb:7:in `index'
+
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_trace.erb (20.6ms)
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (78.3ms)
+Rendered /home/karen/.rvm/gems/ruby-1.9.2-p180/gems/actionpack-3.0.7/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (149.9ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:46:01 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (17.2ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (127.9ms)
+Completed 200 OK in 524ms (Views: 157.4ms | ActiveRecord: 21.0ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-29 16:47:36 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (4.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (13.6ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (145.4ms)
+Completed 200 OK in 550ms (Views: 187.4ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-30 11:17:39 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (29.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (6.6ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (99.0ms)
+Completed 200 OK in 306ms (Views: 118.5ms | ActiveRecord: 36.4ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-30 11:18:12 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (3.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (7.5ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (67.3ms)
+Completed 200 OK in 311ms (Views: 81.1ms | ActiveRecord: 11.3ms)
+
+
+Started GET "/people/" for 127.0.0.1 at 2011-06-30 11:19:36 -0700
+  Processing by PeopleController#index as HTML
+  [1m[36mSQL (4.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPerson Load (9.0ms)[0m  SELECT "people".* FROM "people"
+Rendered people/index.html.erb within layouts/application (80.2ms)
+Completed 200 OK in 425ms (Views: 95.3ms | ActiveRecord: 13.1ms)

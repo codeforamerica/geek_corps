@@ -1,5 +1,11 @@
 <h1>Listing people</h1>
 
+<ul id="filters">
+  <li><a href="#" data-filter="*">show all</a></li>
+  <li><a href="#" data-filter=".oakland-ca">Oakland, CA</a></li>
+  <li><a href="#" data-filter=".san-francisco-ca">San Francisco, CA</a></li>
+</ul>
+
 <div id="isotope-container">
 
 <% @people.each do |person| %>
