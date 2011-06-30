@@ -9,7 +9,7 @@
 <div id="isotope-container">
 
 <% @people.each do |person| %>
-  <div class="isotope-object <%= person.location .downcase.gsub(/[^a-z ]/, '').gsub(/ /, '-') %>"><img src="<%= person.picture %>" /><br />
+  <div class="isotope-object <%= person.location .downcase.gsub(/[^a-z ]/, '').gsub(/ /, '-') %> <%= person.skills.each do |skill| %><%= skill.name %> <% end %>"><img src="<%= person.picture %>" /><br />
   <span class="location"><%= person.location %></span><br />
   <span class="crud-links"><%= link_to 'Show', person %> <%= link_to 'Edit', edit_person_path(person) %> <%= link_to 'Delete', person, :confirm => 'Are you sure?', :method => :delete %></span>
   </div>
