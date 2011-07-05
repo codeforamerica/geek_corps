@@ -4,11 +4,8 @@ class Person < ActiveRecord::Base
 
 
     attr_protected :user_id
-    has_paper_trail :ignore => [:user_id, :delta]
     acts_as_taggable_on :tags, :technologies
-    sortable
 
-    default_serialization_options :include => { :tags => {}, :technologies => {}}
 
     # s3 credentials specified in _load_settings
     has_attached_file :photo, :styles => { :medium => '220x220#', :thumb => '48x48#' }, :storage => :s3,

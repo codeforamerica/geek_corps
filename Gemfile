@@ -20,9 +20,11 @@ gem 'aws-s3'
 gem 'twitter'
 gem 'linkedin'
 gem 'mogli'
-gem 'foursquare2'   # https://gist.github.com/419219 <- github oauth docs!
 
 gem "inherited_resources"
+
+gem "haml", "~> 3.0.18"
+gem "formtastic"
 
 group :test, :development do
   gem 'factory_girl_rails'

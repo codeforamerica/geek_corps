@@ -1,6 +1,5 @@
 class PeopleController < InheritedResources::Base
-  custom_actions  :collection => :tag,
-                  :resource => [:claim, :photo]
+  custom_actions  :resource => [:claim, :photo]
 
   before_filter :authenticate_user!, :only => [:new, :create]
   before_filter :require_owner_or_admin!, :only => [:edit, :update, :destroy]
@@ -67,10 +66,6 @@ class PeopleController < InheritedResources::Base
   end
 
   protected
-
-  def collection
-    @people ||= filter_sort_and_paginate(end_of_association_chain, true)
-  end
 
   def require_owner_or_admin!
     authenticate_user! and return unless current_user

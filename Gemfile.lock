@@ -33,6 +33,10 @@ GEM
     acts-as-taggable-on (2.0.6)
     addressable (2.2.4)
     arel (2.0.10)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     cocaine (0.1.0)
@@ -58,10 +62,11 @@ GEM
       rack (< 2, >= 1.1.0)
     faraday_middleware (0.6.5)
       faraday (~> 0.6.0)
-    foursquare2 (1.1.0)
-      faraday (~> 0.6)
-      faraday_middleware (~> 0.6)
-      hashie (~> 1.0)
+    formtastic (1.1.0)
+      actionpack (>= 2.3.0)
+      activesupport (>= 2.3.0)
+      i18n (>= 0.4.0)
+    haml (3.0.25)
     has_scope (0.5.0)
     hashie (1.0.0)
     hominid (3.0.2)
@@ -204,6 +209,7 @@ GEM
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
     will_paginate (2.3.15)
+    xml-simple (1.1.0)
     yard (0.7.2)
 
 PLATFORMS
@@ -212,10 +218,12 @@ PLATFORMS
 DEPENDENCIES
   ZenTest
   acts-as-taggable-on
+  aws-s3
   delayed_job
   devise
   factory_girl_rails
-  foursquare2
+  formtastic
+  haml (~> 3.0.18)
   hominid
   inherited_resources
   jquery-rails
