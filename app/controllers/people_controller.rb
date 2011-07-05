@@ -1,83 +1,93 @@
-class PeopleController < ApplicationController
-  # GET /people
-  # GET /people.xml
+class PeopleController < InheritedResources::Base
+  custom_actions  :collection => :tag,
+                  :resource => [:claim, :photo]
+
+  before_filter :authenticate_user!, :only => [:new, :create]
+  before_filter :require_owner_or_admin!, :only => [:edit, :update, :destroy]
+  before_filter :pick_photo_input, :only => [:update, :create]
+  before_filter :set_user_id_if_admin, :only => [:update, :create]
+
   def index
-    @people = Person.all
+    @view = :grid if params[:grid]
+    index!
+  end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @people }
+  def tag
+    @tag = params[:tag]
+
+    tag! do |format|
+      format.html { render :action => :index }
     end
   end
 
-  # GET /people/1
-  # GET /people/1.xml
   def show
-    @person = Person.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @person }
-    end
+    @person = Person.includes(:companies, :groups, :projects).find(params[:id])
+    show!
   end
 
-  # GET /people/new
-  # GET /people/new.xml
   def new
-    @person = Person.new
+    if params[:q].present? && params[:authentications].present?
+      query = params[:q]
+      authentications = params[:authentications].keys
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @person }
+      @found_people = []
+      current_user.authentications.find(authentications).each do |auth|
+        if auth.api_client
+          @found_people += auth.api_client.search(query)
+          if auth.provider == 'twitter'
+            @rate_limit_status = auth.api_client.client.rate_limit_status
+          end
+        end
+      end
+
+      @found_people.sort! {|a,b| localness(b) <=> localness(a)}
+      @found_people = Person.all(:conditions => ['name LIKE ?', "%#{query}%"]) + @found_people
+
     end
+
+    new!
   end
 
-  # GET /people/1/edit
-  def edit
-    @person = Person.find(params[:id])
-  end
-
-  # POST /people
-  # POST /people.xml
   def create
-    @person = Person.new(params[:person])
+    if params[:form_context] == 'add_self'
+      @person = Person.new(params[:person])
+      @person.user = current_user
+      @person.imported_from_provider = current_user.authentications.first.provider
+      @person.imported_from_id = current_user.authentications.first.uid
+    end
 
-    respond_to do |format|
-      if @person.save
-        format.html { redirect_to(@person, :notice => 'Person was successfully created.') }
-        format.xml  { render :xml => @person, :status => :created, :location => @person }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
-      end
+    create!
+  end
+
+  def claim
+    if resource.user.present?
+      flash[:error] = "This person has already been claimed."
+      redirect_to(:action => 'show') and return
     end
   end
 
-  # PUT /people/1
-  # PUT /people/1.xml
-  def update
-    @person = Person.find(params[:id])
+  protected
 
-    respond_to do |format|
-      if @person.update_attributes(params[:person])
-        format.html { redirect_to(@person, :notice => 'Person was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @person.errors, :status => :unprocessable_entity }
-      end
+  def collection
+    @people ||= filter_sort_and_paginate(end_of_association_chain, true)
+  end
+
+  def require_owner_or_admin!
+    authenticate_user! and return unless current_user
+
+    unless current_user.admin? || current_user == resource.user
+      flash[:warning] = "You aren't allowed to edit this person."
+      redirect_to person_path(@person)
     end
   end
 
-  # DELETE /people/1
-  # DELETE /people/1.xml
-  def destroy
-    @person = Person.find(params[:id])
-    @person.destroy
+  def pick_photo_input
+    params.delete(:photo_import_label) if params[:photo].present?
+  end
 
-    respond_to do |format|
-      format.html { redirect_to(people_url) }
-      format.xml  { head :ok }
+  def set_user_id_if_admin
+    if current_user.admin? && params[:person] && params[:person][:user_id].present?
+      resource.user_id = params[:person][:user_id]
     end
   end
 end
