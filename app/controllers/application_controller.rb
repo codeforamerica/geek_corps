@@ -46,6 +46,11 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def current_person
+    current_user && current_user.person
+  end
+  helper_method :current_person  
+  
   def page_title(value=nil)
     @page_title = value unless value.nil?
 

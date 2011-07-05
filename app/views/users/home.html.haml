@@ -9,8 +9,6 @@
       %li= link_to "View your profile", person_path(current_person)
       %li= link_to "Edit your profile", edit_person_path(current_person)
       %li= link_to "Add a friend to the directory", new_person_path
-      - if current_person.companies.blank?
-        %li= link_to "Add your company", new_company_path
   #authentications
     %h2 Linked Accounts
     = semantic_form_for(SignInData.new(:email => current_user.email), :url => user_sessions_path) do |f|

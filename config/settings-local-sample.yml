@@ -1,4 +1,4 @@
-# environent-specific settings will be deep merged with the common hash, overriding values therein
+# environment-specific settings will be deep merged with the common hash, overriding values therein
 
 common:
   providers:
@@ -8,19 +8,7 @@ common:
     - facebook
     - linked_in
     - github
-  auth_credentials:
-    twitter:
-      key: skeletonkey
-      secret: seekrit!
-    facebook:
-      key: skeletonkey
-      secret: seekrit!
-    linked_in:
-      key:
-      secret: seekrit!
-  google_analytics_id: <your id>
-  hoptoad: seekrit!
-  secret_token: c63463de2c67e13400b5ee30329a12e6d95df8e7a24112c4420ceb0b540829cdcfa48cd1d54d9dff3cc89c552013cf9f5aab7dd2539291d9355bc2069367bafe
+  google_analytics_id: 
   organization:
     name: Org Name
     city: City
@@ -31,9 +19,18 @@ common:
     host: heroku
     host_url: geeks@codeforamerica.org
     logotype: GeekCorps
-  search: sql
 development:
   auth_credentials:
     github:
       key: developmentkey
       secret: devseekrit!
+    twitter:
+      key: skeletonkey
+      secret: seekrit!
+    facebook:
+      key: skeletonkey
+      secret: seekrit!
+    linked_in:
+      key:
+      secret: seekrit!
+      

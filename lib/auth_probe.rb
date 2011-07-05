@@ -58,18 +58,6 @@ class AuthProbe
       end
     end
  
-    module YahooMailMX
-      def self.discover(email)
-        host = email.split("@").last
-        resolver = Net::DNS::Resolver.new(:nameservers => "8.8.8.8")
-        dns = resolver.search(host, Net::DNS::MX)
-        if dns.each_address.any?{|answer| answer.exchange.include?("mail.yahoo.com")}
-          [:open_id, { :openid_url => 'http://yahoo.com' }]
-        else
-          nil
-        end
-      end
-    end
 
     module Twitter
       def self.discover(email)

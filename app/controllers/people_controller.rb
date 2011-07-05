@@ -20,7 +20,7 @@ class PeopleController < InheritedResources::Base
   end
 
   def show
-    @person = Person.includes(:companies, :groups, :projects).find(params[:id])
+    @person = Person.find(params[:id])
     show!
   end
 
