@@ -8,7 +8,7 @@ class Person < ActiveRecord::Base
 
 
     # s3 credentials specified in _load_settings
-    has_attached_file :photo, :styles => { :medium => '220x220#', :thumb => '48x48#' }, :storage => :s3,
+    has_attached_file :photo, :storage => :s3,
     :bucket => 'geekcorps_'+ENV["RAILS_ENV"].to_s,
     :s3_credentials => {
       :access_key_id => S3_KEY,

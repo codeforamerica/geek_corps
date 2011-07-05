@@ -8,14 +8,14 @@ gem 'json'
 gem 'sqlite3'
 gem 'hominid'
 gem 'will_paginate'
-gem 'right_aws'
 gem "rake", '0.8.7'
 gem 'acts-as-taggable-on'
 gem 'multi_xml'
+gem "aws-s3"
 gem 'paperclip'
 gem 'omniauth', '>= 0.2.6'
 gem 'devise'
-gem 'aws-s3'
+
 
 gem 'twitter'
 gem 'linkedin'
