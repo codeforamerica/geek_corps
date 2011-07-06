@@ -11,12 +11,10 @@ class ApplicationController < ActionController::Base
   def require_admin!
     authenticate_user! and return unless current_user
     unless current_user.admin?
-      flash[:error] = "Access denied."
+      flash[:error] = "You need to be an admin to do that."
       redirect_to root_path and return
     end
   end
-
-  protected
 
   def random_sort_clause
     seed = session["#{controller_name}_random_sort_seed"] ||= rand(2147483647)
@@ -49,7 +47,7 @@ class ApplicationController < ActionController::Base
   def current_person
     current_user && current_user.person
   end
-  helper_method :current_person  
+  helper_method :current_person    
   
   def page_title(value=nil)
     @page_title = value unless value.nil?

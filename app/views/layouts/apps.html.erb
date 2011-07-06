@@ -1,0 +1,59 @@
+
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /> 
+    <title>
+      <% if page_title %>
+        <%= page_title %>
+      <% else %>
+      <%= "#{SETTINGS['organization']['name']}: #{SETTINGS['organization']['city']}'s Tech Directory"%>
+      <% end %>
+    </title> 
+    <%= stylesheet_link_tag "reset", "apps", "jquery.fancybox-1.3.4"  %>
+    <%= javascript_include_tag 'lib/jquery-1.5.js' %>
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/smoothness/jquery-ui.css" /> 
+</head> 
+ 
+<body class="sidebar-layout project project-view project-lets-clean-up-ballards-vacant-lot">     
+    <div id="header">
+      <div class="<%=current_user.try(:admin?) ? 'admin' : nil%>" id="account_box">
+        <% if current_user.present? %>
+          <% if current_user.avatar_url%>
+          <%= image_tag normalize_url(current_user.avatar_url), :align => 'left'%>
+          <% else %>
+          <img align="left" class="avatar" src="/photos/thumb/missing.png">
+          <% end %>
+          <div class="name">
+          <%= link_to current_user.name, home_users_path %>
+          <%= link_to 'sign out', sign_out_path%>
+          </div>
+        <% else %>
+          <div id="global_sign_in">
+            <%= link_to "Sign In / Join", sign_in_path, :id => 'sign_in_link' %>
+          </div>
+        <% end %>
+        <ul id='main_nav'>
+          <li><%= link_to "People", people_path, :class => 'people'%></li>
+          <li><%= link_to "Apps", apps_path, :class => 'apps'%></li>
+        </ul>
+      </div>
+  </div>
+    <div class="wrapper">         
+      <%= yield %>
+    <div id="footer"> 
+      <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">API</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Privacy</a></li>
+      </ul>
+      <p><span>Created as Open Source by </span><a href="#">Code for America</a><br /> 
+        &quot;For a more transparent, efficient, and participatory future.&quot;</p> 
+        <a href="http://codeforamerica.org" class="footer-logo"><img src="/images/cfa-full-logo.png"></a> 
+    </div> 
+</div> 
+</body> 
+</html>

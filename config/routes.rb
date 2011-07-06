@@ -1,4 +1,6 @@
 GeekCorps::Application.routes.draw do 
+  resources :apps
+
   root :to => "people#index"
 
   resources :authentications

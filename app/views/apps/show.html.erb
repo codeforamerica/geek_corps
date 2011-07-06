@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+      <div class="title-main"> 
+          <h1>  <%= @app.name %></h1> 
+          <!-- Render header partials --> 
+          <div class="title-content">             
+            <h2>Owned by <a href="/profile/john.mertens">john.mertens</a></a>, <a href="#">Ballard, Seattle, WA, USA</a></h2>
+          </div> 
+      </div> 
+<!-- Begin Content -->           
+      <div id="content"> 
+          <div class="content-inner"> 
+              <!-- Render main content --> 
+              <div class="content-main"> 
+                <div class="project_description"> 
+                  <div class="project_image_box"> 
+                    <img class="project_image" src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects/a8ae67efbc81367f012a4717280178b8/project-image" /> 
+                  </div> 
+                <div class="social_bar"> 
+                  <div id="fb-root"></div>
+                  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+                  <fb:like href="" send="false" width="450" show_faces="true" font=""></fb:like> 
+                </div>     
+          <div class="project_text"> 
+              <div class="project_overview"> 
+                  <header> 
+                      <h1>About This Project</h1> 
+                  </header> 
+                  <p><%= @app.description %></p> 
+              </div>  
+          </div> 
+      </div> 
+    </div>
+  </div>
+</div>
+<!-- End Content -->   
+<!-- Begin Side Bar -->   
+<div id="sidebar"> 
+    <div class="sidebar-inner">  
+        <div class="content-main"> 
+          <div id="metric_block" class="sb_container"> 
+              <div id="metric_content"> 
+                  <ul> 
+                      <li><span class="metric_value">2</span>Supporters</li> 
+                      <li><span class="metric_value">-20</span>Days until event</li> 
+                      <li><span class="metric_value">75%</span>Ready</li>
+                  </ul> 
+                  <div id="join_project_wrapper"> 
+                  <div id="join_project"> 
+                      <a href="/projects/support/lets-clean-up-ballards-vacant-lot">Support this project</a> 
+                  </div> 
+                  </div> 
+              </div> 
+          </div> 
+          <div class="sidebar_box sb_container"> 
+              <div class="sidebar_box_title">Organizer</div> 
+              <div class="sidebar_box_content project-creator"> 
+                <div class="sidebar_box_text"> 
+                  <span class="sidebar_box_name">john.mertens</span> 
+                </div> 
+                <a href="/profile/john.mertens">
+                  <img width="100px" class="profile-image" src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/users/6c4a58293e6376ddd367dec6ad00ab2a/profile_image" />
+                </a> 
+                <div class="sidebar_box_more_info"><a href="/profile/john.mertens" class="arrow-icon">Full Bio</a></div> 
+                <div class="clear"></div> 
+              </div> 
+          </div> 
+          <div class="sidebar_box sb_container"> 
+              <div class="sidebar_box_title">Supporters</div> 
+              <div class="sidebar_box_content"> 
+                <div class="supporter_image"><a href="/profile/billy"><img class="small-avatar" src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/users/e8a119f1b1cd45b8e9d17beb0b00022a/profile_image"></a>
+                </div> 
+                <div class="supporter_image">
+                  <a href="/profile/ayen">
+                    <img class="small-avatar" src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/users/8a19a1e70cf72a16d7fe01876a002a71/profile_image">
+                    </a>
+                </div> 
+                <div class="clear"></div> 
+                  <div class="sidebar_box_more_info supporters_fix"><a href="#" class="arrow-icon">Full List</a></div> 
+                  <div class="clear"></div> 
+              </div> 
+          </div> 
+        </div> 
+      </div> 
+  </div>

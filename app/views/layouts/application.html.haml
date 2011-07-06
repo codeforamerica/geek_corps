@@ -38,7 +38,6 @@
       $(function() { $('#flash .message.success, #flash .message.notice').delay(4000).hide('blind'); });
 
     = csrf_meta_tag
-    = render :partial => 'layouts/google_analytics'
   %body{:class => "#{controller_name} #{controller_name}_#{action_name} #{user_signed_in? ? 'signed_in' : 'not_signed_in'}"}
     #header
       .inner_container
@@ -59,6 +58,7 @@
               = link_to "Sign In / Join", sign_in_path, :id => 'sign_in_link'
         %ul{:id=>'main_nav'}
           %li= link_to "People", people_path, :class => 'people'
+          %li= link_to "Apps", apps_path, :class => 'apps'          
 
       - if current_user.blank?
         #global_sign_in_form
