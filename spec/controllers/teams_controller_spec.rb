@@ -11,7 +11,7 @@ describe TeamsController do
     app = Factory(:app)
     region = Factory(:region)
     expect {
-      post :create, :team => {:app_id => app.id}
+      post :create, :app_id => app.id
     }.to change(Team, :count).by(1)
     Team.last.members.count.should == 1
   end

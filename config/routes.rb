@@ -5,7 +5,9 @@ GeekCorps::Application.routes.draw do
 
   resources :regions
 
-  resources :apps
+  resources :apps do 
+    resources :teams
+  end
 
   root :to => "people#index"
 

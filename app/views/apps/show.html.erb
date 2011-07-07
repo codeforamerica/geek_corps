@@ -47,7 +47,7 @@
                   </ul> 
                   <div id="join_project_wrapper"> 
                   <div id="join_project"> 
-                      <a href="/projects/support/lets-clean-up-ballards-vacant-lot">Start this in SF Bay</a> 
+                      <%= button_to "Start this in #{current_user.region.nick_name}", app_teams_path(@app) %>
                   </div> 
                   </div> 
               </div> 
