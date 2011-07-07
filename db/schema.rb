@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110706162252) do
+ActiveRecord::Schema.define(:version => 20110707232700) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -69,6 +69,15 @@ ActiveRecord::Schema.define(:version => 20110706162252) do
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
+  create_table "details", :force => true do |t|
+    t.integer  "app_id"
+    t.integer  "team_id"
+    t.string   "name"
+    t.string   "setting"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "github_contacts", :force => true do |t|
     t.string   "gravatar_id"
     t.string   "company"
@@ -119,6 +128,14 @@ ActiveRecord::Schema.define(:version => 20110706162252) do
     t.string   "imported_from_screen_name"
   end
 
+  create_table "regions", :force => true do |t|
+    t.string   "city"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "nick_name"
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -136,6 +153,24 @@ ActiveRecord::Schema.define(:version => 20110706162252) do
     t.string "name"
   end
 
+  create_table "team_members", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "user_id"
+    t.string   "team_role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "admin",      :default => false
+  end
+
+  create_table "teams", :force => true do |t|
+    t.integer  "app_id"
+    t.integer  "region_id"
+    t.string   "team_type"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -148,6 +183,7 @@ ActiveRecord::Schema.define(:version => 20110706162252) do
     t.datetime "updated_at"
     t.string   "email"
     t.boolean  "admin",               :default => false
+    t.integer  "region_id"
   end
 
 end

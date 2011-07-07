@@ -1,5 +1,10 @@
 require 'spec_helper'
 
 describe Team do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  it "should create a unique name" do
+    @team = Factory(:team)
+    @team.name.should == (@team.region.nick_name + "-" + @team.app.name).gsub(" ", "-").downcase
+  end
+  
 end

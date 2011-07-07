@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   attr_protected :admin
 
   has_one :person
+  has_many :team_members
+  has_many :teams, :through => :team_members, :source => :user
+  belongs_to :region
+  
   has_many :authentications, :dependent => :destroy do
     def info_get(key)
       info_with_key = self.map(&:info).compact.detect{|info| info[key].present? }

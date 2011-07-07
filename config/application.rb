@@ -9,7 +9,7 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module GeekCorps
   class Application < Rails::Application
     
-    config.eager_load_paths = ['app/models', 'app/controllers', 'app/helpers']
+
     config.autoload_paths += %W(#{config.root}/lib)
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
     
