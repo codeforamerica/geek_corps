@@ -1,0 +1,29 @@
+<h1>Listing details</h1>
+
+<table>
+  <tr>
+    <th>App</th>
+    <th>Team</th>
+    <th>Name</th>
+    <th>Setting</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @details.each do |detail| %>
+  <tr>
+    <td><%= detail.app_id %></td>
+    <td><%= detail.team_id %></td>
+    <td><%= detail.name %></td>
+    <td><%= detail.setting %></td>
+    <td><%= link_to 'Show', detail %></td>
+    <td><%= link_to 'Edit', edit_detail_path(detail) %></td>
+    <td><%= link_to 'Destroy', detail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Detail', new_detail_path %>

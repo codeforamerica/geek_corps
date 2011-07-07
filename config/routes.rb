@@ -1,4 +1,10 @@
 GeekCorps::Application.routes.draw do 
+  resources :details
+
+  resources :teams
+
+  resources :regions
+
   resources :apps
 
   root :to => "people#index"
@@ -30,7 +36,7 @@ GeekCorps::Application.routes.draw do
     get "/sign_out" => "devise/sessions#destroy"
     get "/sign_in" => "users/sessions#new"
   end
-
+  
   match '/auth/:provider/callback' => 'authentications#create'
   match '/auth/auto' => 'authentications#auto'
   match '/auth/failure' => 'authentications#auth_failure'
