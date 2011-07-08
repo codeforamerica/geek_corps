@@ -1,6 +1,7 @@
 require 'factory_girl'
 require 'faker'
 require 'factory_girl_rails'
+require 'uuid'
 
 #Add Regions
 [["San Francisco", "CA", "SF"], ["Seattle", "WA", "SEA"], ["Boston", "MA", "BOS"], ["Philadelphia", "PA", "PHL"]]. each do |city|

@@ -25,10 +25,7 @@ gem "inherited_resources"
 
 gem "haml", "~> 3.0.18"
 gem "formtastic"
-
-group :test, :development do 
-  gem 'uuid'
-end
+gem 'uuid'
 
 group :test do
   gem 'factory_girl_rails'
