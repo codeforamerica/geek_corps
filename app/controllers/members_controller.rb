@@ -4,7 +4,7 @@ class MembersController < InheritedResources::Base
   
   def create
     team = Team.where(:id => params[:team_id]).first
-    @members = TeamMember.new(:user => current_user, :team_role => params[:team_role], :team => team)
+    @member = TeamMember.new(:user => current_user, :team_role => "supporter", :team => team)
     create! do |format|
       format.html { redirect_to team }
     end

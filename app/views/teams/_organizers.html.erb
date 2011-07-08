@@ -3,8 +3,7 @@
     <div class="sidebar_box_content"> 
       <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
       <div class="supporter_image">
-        <%= image_tag organizer.user.person.photo.url %>
-        <%=link_to organizer.user.person.name, organizer.user.person %>
+        <%=link_to (image_tag organizer.user.person.photo_url(:medium), :class=>"profile-image", :alt => organizer.user.person.name), organizer.user.person%>
       </div> 
       <%end%>
       <div class="clear"></div> 
