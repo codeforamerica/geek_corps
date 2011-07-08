@@ -47,7 +47,11 @@
                   </ul> 
                   <div id="join_project_wrapper"> 
                   <div id="join_project"> 
+                    <% if @app.teams.where(:region_id => current_user.region).blank?%>
                       <%= button_to "Start this in #{current_user.region.nick_name}", app_teams_path(@app) %>
+                    <% else %>
+                    <%=link_to "Goto #{current_user.region.nick_name}'s Page", @app.teams.where(:region_id => current_user.region).first%>
+                    <% end %>
                   </div> 
                   </div> 
               </div> 
