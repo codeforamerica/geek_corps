@@ -44,7 +44,7 @@ GeekCorps::Application.routes.draw do
   match '/auth/:provider/callback' => 'authentications#create'
   match '/auth/auto' => 'authentications#auto'
   match '/auth/failure' => 'authentications#auth_failure'
-  
   match '/:team_name' => 'teams#show'
+  
 
 end

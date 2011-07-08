@@ -1,0 +1,13 @@
+<div class="sidebar_box sb_container"> 
+    <div class="sidebar_box_title">Regional Teams</div> 
+    <div class="sidebar_box_content"> 
+      <ul class="regional_teams">
+      <% @app.regional_teams.each do |team|%>
+          <li><%=link_to "#{team.region.city}, #{team.region.state}", team.to_url %></li>
+      <%end%>
+      </ul>
+      <div class="clear"></div> 
+        <div class="sidebar_box_more_info supporters_fix"><a href="#" class="arrow-icon">Full List</a></div> 
+        <div class="clear"></div> 
+    </div> 
+</div>

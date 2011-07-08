@@ -38,25 +38,9 @@
 <div id="sidebar"> 
     <div class="sidebar-inner">  
         <div class="content-main"> 
-          <div id="metric_block" class="sb_container"> 
-              <div id="metric_content"> 
-                  <ul> 
-                      <li><span class="metric_value">2</span>Supporters</li> 
-                      <li><span class="metric_value">-20</span>Days until event</li> 
-                      <li><span class="metric_value">75%</span>Ready</li>
-                  </ul> 
-                  <div id="join_project_wrapper"> 
-                  <div id="join_project"> 
-                    <% if @app.teams.where(:region_id => current_user.region).blank?%>
-                      <%= button_to "Start this in #{current_user.region.nick_name}", app_teams_path(@app) %>
-                    <% else %>
-                    <%=link_to "Goto #{current_user.region.nick_name}'s Page", @app.teams.where(:region_id => current_user.region).first%>
-                    <% end %>
-                  </div> 
-                  </div> 
-              </div> 
-          </div> 
+          <%= render :partial => "metric"%>
           <%= render :partial => "core_team"%>
+          <%= render :partial => "implementations"%>          
         </div> 
       </div> 
   </div>

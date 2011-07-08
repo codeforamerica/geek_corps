@@ -1,6 +1,6 @@
 class Team < ActiveRecord::Base
   has_many :team_members
-  has_many :members, :through => :team_members, :source => :team
+  has_many :members, :through => :team_members, :source => :user
   belongs_to :region
   has_many :details
   belongs_to :app
@@ -15,8 +15,12 @@ class Team < ActiveRecord::Base
     new_name = region.nick_name.to_s + "-" + app.name.to_s
     self.name = new_name.gsub(" ", "-").downcase
     else
-      self.name = app.name.to_s
+      self.name = app.name.gsub(" ", "-").downcase
     end
+  end
+  
+  def to_url
+    "/" + self.name
   end
 
   

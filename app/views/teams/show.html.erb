@@ -42,38 +42,8 @@
 <div id="sidebar"> 
     <div class="sidebar-inner">  
         <div class="content-main"> 
-          <div id="metric_block" class="sb_container"> 
-              <div id="metric_content"> 
-                  <ul> 
-                      <li><span class="metric_value">2</span>Supporters</li> 
-                      <li><span class="metric_value">-20</span>Days until event</li> 
-                      <li><span class="metric_value">75%</span>Ready</li>
-                  </ul> 
-                  <div id="join_project_wrapper"> 
-                  <div id="join_project"> 
-                    <% if current_user.teams.where(:id => @team).blank?%>
-                      <%= button_to "Join this Team!", team_members_path(@team)  %>
-                    <% else %>
-                    Your Team Role: <%=current_user.team_members.where(:team_id => @team).first.team_role.capitalize%>
-                    <% end %>
-                  </div> 
-                  </div> 
-              </div> 
-          </div> 
-          <div class="sidebar_box sb_container"> 
-              <div class="sidebar_box_title">Organizers</div> 
-              <div class="sidebar_box_content"> 
-                <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
-                <div class="supporter_image">
-                  <%= image_tag organizer.user.person.photo.url %>
-                  <%=link_to organizer.user.person.name, organizer.user.person %>
-                </div> 
-                <%end%>
-                <div class="clear"></div> 
-                  <div class="sidebar_box_more_info supporters_fix"><a href="#" class="arrow-icon">Full List</a></div> 
-                  <div class="clear"></div> 
-              </div> 
-          </div> 
+          <%= render :partial => "metric"%>
+          <%= render :partial => "organizers"%>
         </div> 
       </div> 
   </div>
