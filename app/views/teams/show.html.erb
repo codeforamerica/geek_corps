@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
       <div class="title-main"> 
-          <h1>  <%= @team.name %></h1> 
+          <h1>  <%= @team.app.name %> in <%=@team.region.city%>,<%=@team.region.state%></h1> 
           <!-- Render header partials --> 
           <div class="title-content">             
-            <h2><%=@team.region.city%>,<%=@team.region.state%></h2>
+            <h2></h2>
             <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
               <%=link_to organizer.user.person.name, organizer.user.person %>
               <%end%>
@@ -44,6 +44,7 @@
         <div class="content-main"> 
           <%= render :partial => "metric"%>
           <%= render :partial => "organizers"%>
+          <%= render :partial => "supporters"%>          
         </div> 
       </div> 
   </div>

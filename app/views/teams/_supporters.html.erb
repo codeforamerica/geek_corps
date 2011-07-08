@@ -1,10 +1,10 @@
 <div class="sidebar_box sb_container"> 
-    <div class="sidebar_box_title"><%=@team.region.city%> Organizers</div> 
+    <div class="sidebar_box_title"><%=@team.region.city%> Team Members</div> 
     <div class="sidebar_box_content"> 
-      <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
+      <% @team.team_members.where(:team_role => 'supporter').each do |supporter|%>
       <div class="supporter_image">
-        <%= image_tag organizer.user.person.photo.url %>
-        <%=link_to organizer.user.person.name, organizer.user.person %>
+        <%= image_tag supporter.user.person.photo.url %>
+        <%=link_to supporter.user.person.name, supporter.user.person %>
       </div> 
       <%end%>
       <div class="clear"></div> 
