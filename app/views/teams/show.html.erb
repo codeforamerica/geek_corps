@@ -1,25 +1,82 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>App:</b>
-  <%= @team.app_id %>
-</p>
+      <div class="title-main"> 
+          <h1>  <%= @team.name %></h1> 
+          <!-- Render header partials --> 
+          <div class="title-content">             
+            <h2><%=@team.region.city%>,<%=@team.region.state%></h2>
+            <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
+              <%=link_to organizer.user.person.name, organizer.user.person %>
+              <%end%>
+              </h2>
+          </div> 
+      </div> 
+<!-- Begin Content -->           
+      <div id="content"> 
+          <div class="content-inner"> 
+              <!-- Render main content --> 
+              <div class="content-main"> 
+                <div class="project_description"> 
+                  <div class="project_image_box"> 
+                    <img class="project_image" src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects/a8ae67efbc81367f012a4717280178b8/project-image" /> 
+                  </div> 
+                <div class="social_bar"> 
+                  <div id="fb-root"></div>
+                  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+                  <fb:like href="" send="false" width="450" show_faces="true" font=""></fb:like> 
+                </div>     
+          <div class="project_text"> 
+              <div class="project_overview"> 
+                  <header> 
+                      <h1>About This Project</h1> 
+                  </header> 
+                  <p><%= @team.app.description %></p> 
+              </div>  
+          </div> 
+      </div> 
+    </div>
+  </div>
+</div>
+<!-- End Content -->   
+<!-- Begin Side Bar -->   
+<div id="sidebar"> 
+    <div class="sidebar-inner">  
+        <div class="content-main"> 
+          <div id="metric_block" class="sb_container"> 
+              <div id="metric_content"> 
+                  <ul> 
+                      <li><span class="metric_value">2</span>Supporters</li> 
+                      <li><span class="metric_value">-20</span>Days until event</li> 
+                      <li><span class="metric_value">75%</span>Ready</li>
+                  </ul> 
+                  <div id="join_project_wrapper"> 
+                  <div id="join_project"> 
+                    <% if current_user.teams.where(:id => @team).blank?%>
+                      <%= button_to "Join this Team!", team_members_path(@team)  %>
+                    <% else %>
+                    Your Team Role: <%=current_user.team_members.where(:team_id => @team).first.team_role.capitalize%>
+                    <% end %>
+                  </div> 
+                  </div> 
+              </div> 
+          </div> 
+          <div class="sidebar_box sb_container"> 
+              <div class="sidebar_box_title">Organizers</div> 
+              <div class="sidebar_box_content"> 
+                <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
+                <div class="supporter_image">
+                  <%= image_tag organizer.user.person.photo.url %>
+                  <%=link_to organizer.user.person.name, organizer.user.person %>
+                </div> 
+                  
+                <%end%>
+                </div> 
+                <div class="clear"></div> 
+                  <div class="sidebar_box_more_info supporters_fix"><a href="#" class="arrow-icon">Full List</a></div> 
+                  <div class="clear"></div> 
+              </div> 
+          </div> 
+        </div> 
+      </div> 
+  </div>
 
-<p>
-  <b>Region:</b>
-  <%= @team.region_id %>
-</p>
-
-<p>
-  <b>Team type:</b>
-  <%= @team.team_type %>
-</p>
-
-<p>
-  <b>Name:</b>
-  <%= @team.name %>
-</p>
-
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>

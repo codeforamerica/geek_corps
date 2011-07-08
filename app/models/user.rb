@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   has_one :person
   has_many :team_members
-  has_many :teams, :through => :team_members, :source => :user
+  has_many :teams, :through => :team_members, :source => :team
   belongs_to :region
   
   has_many :authentications, :dependent => :destroy do

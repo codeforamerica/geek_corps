@@ -1,7 +1,9 @@
 GeekCorps::Application.routes.draw do 
   resources :details
 
-  resources :teams
+  resources :teams do 
+    resources :members
+  end
 
   resources :regions
 

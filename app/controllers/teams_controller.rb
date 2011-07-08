@@ -1,5 +1,6 @@
 class TeamsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:show, :index]
+  layout "apps"
   
   def create
     app = App.where(:id => params[:app_id]).first
