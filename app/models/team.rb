@@ -11,8 +11,12 @@ class Team < ActiveRecord::Base
   # creates a unique team name based upon region's nickname "SF" and the app name
 
   def create_team_name
+    if self.team_type != "core"
     new_name = region.nick_name.to_s + "-" + app.name.to_s
     self.name = new_name.gsub(" ", "-").downcase
+    else
+      self.name = app.name.to_s
+    end
   end
 
   
