@@ -49,10 +49,18 @@ class PeopleController < InheritedResources::Base
       @person.user = current_user
       @person.imported_from_provider = current_user.authentications.first.provider
       @person.imported_from_id = current_user.authentications.first.uid
+      @person.user.update_attributes(:region_id => params[:person][:location].to_i)
     end
     
     create!
     
+  end
+  
+  def update
+    if params[:person][:location] != current_user.region
+      current_user.update_attributes(:region_id => params[:person][:location])
+    end
+    update!
   end
 
   def claim

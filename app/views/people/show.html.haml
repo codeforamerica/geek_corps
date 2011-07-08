@@ -8,7 +8,7 @@
       -# TODO: Report duplicate if current_user.person.present?
 
   - if @person.location.present?
-    .location= @person.location
+    .location= "#{@person.user.region.city}, #{@person.user.region.state}"
   - if @person.bio.present?
   .bio= simple_format @person.bio
   .links
