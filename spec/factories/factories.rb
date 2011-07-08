@@ -45,7 +45,6 @@ end
 #--[ Person ]-------------------------------------------------------------------
 Factory.define :person do |p|
   p.name { Faker::Name.name }
-  p.email { Faker::Internet.email }
   p.url { Faker::Internet.domain_name }
   p.bio { Faker::Lorem.paragraph }
   p.location { Faker::Address.city }

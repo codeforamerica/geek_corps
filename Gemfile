@@ -26,7 +26,11 @@ gem "inherited_resources"
 gem "haml", "~> 3.0.18"
 gem "formtastic"
 
-group :test, :development do
+group :test, :development do 
+  gem 'uuid'
+end
+
+group :test do
   gem 'factory_girl_rails'
   gem 'mocha'
   gem 'rspec-rails'
@@ -35,6 +39,5 @@ group :test, :development do
   gem 'webmock'
   gem 'yard'
   gem 'spork', '~> 0.9.0.rc'
-  gem 'uuid'
   gem 'faker'
 end
