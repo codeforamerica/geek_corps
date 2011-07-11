@@ -20,6 +20,7 @@ For non-Code for America developers:
 * Alter the settings for AWS with your S3 credentials
 
 For Code for America Developers (you'll need a google apps account):
+
 * Copy https://docs.google.com/a/codeforamerica.org/document/d/1Z2a6XPjBU1bL763Y3y0etv3F84VJaeosaktaNB10UWw/edit?hl=en_US into config/settings.yml
 
     bundle exec rake db:migrate
