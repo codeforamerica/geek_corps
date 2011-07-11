@@ -6,13 +6,11 @@ Our tool for micro-network building across our social networks
 Installation
 ------------
 
-We recommend using Ruby Version Manager
+We recommend using Ruby Version Manager.
 
-  git clone git@github.com:codeforamerica/geek_corps.git
-  cd geek_corps
-  bundle install
-  bundle exec rake db:migrate
-  bundle exec rake db:seed
+git clone git@github.com:codeforamerica/geek_corps.git
+cd geek_corps
+bundle install
 
 For non-Code for America developers:
   Obtain API Keys for following services: Github, Facebook, Twitter, and Linkedin
@@ -23,9 +21,12 @@ For non-Code for America developers:
 For Code for America Developers (you'll need a google apps account):
   Copy https://docs.google.com/a/codeforamerica.org/document/d/1Z2a6XPjBU1bL763Y3y0etv3F84VJaeosaktaNB10UWw/edit?hl=en_US into config/settings.yml
 
-To Reset the DB & Data
+bundle exec rake db:migrate
+bundle exec rake db:seed
 
-  bundle exec rake db:reset
+To Reset the DB & Data:
+
+bundle exec rake db:reset
 
 
 Contributing
