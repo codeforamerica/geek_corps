@@ -1,0 +1,86 @@
+!!! 5
+%html
+  %head
+    %title
+      - if page_title
+        = page_title
+        &raquo;
+      = "#{SETTINGS['organization']['name']}: #{SETTINGS['organization']['city']}'s Tech Directory"
+    %meta{:name=>"viewport", :content=>"width=device-width, user-scalable=no"}
+    - force_mobile = params[:force_mobile].present?
+    -#
+      Level 1: All browsers, evar.
+      Provides basic mobile layout
+    = stylesheet_link_tag 'basic_mobile', :media => 'all'
+
+    -#
+      Level 2: Nicer mobile browsers
+      Narrow devices that support @media queries get this one
+    = stylesheet_link_tag('advanced_mobile',
+        :media => force_mobile ? 'all' : 'only screen and (max-device-width: 960px)')
+
+    -# Level 3: Desktop browsers only
+
+    = stylesheet_link_tag('desktop',
+        :media => force_mobile ? 'none' : 'all and (min-device-width: 961px)')
+    /[if lt IE 9]
+      = stylesheet_link_tag('desktop', :media => 'all')
+
+    = javascript_include_tag 'lib/jquery-1.5.js',
+                             'lib/jquery.hotkeys.js',
+                             'lib/jquery.placeholder.min.js',
+                             'lib/json2.js',
+                             'lib/underscore.js',
+                             'lib/backbone.js',
+                             'citizenry.js',
+                             'rails'
+    %script
+      $(function() { $('#flash .message.success, #flash .message.notice').delay(4000).hide('blind'); });
+
+    = csrf_meta_tag
+  %body{:class => "#{controller_name} #{controller_name}_#{action_name} #{user_signed_in? ? 'signed_in' : 'not_signed_in'}"}
+    #header
+      .inner_container
+        %h1
+          %a{:href => root_path}
+            ="#{SETTINGS['organization']['logotype']}".html_safe
+            %img{:class => 'home_marker', :src => '/images/home_12x12.png',
+              :height => 12, :width => 12}
+        #account_box{:class => current_user.try(:admin?) ? 'admin' : nil}
+          - if current_user.present?
+            - if current_user.avatar_url
+              %img.avatar{:src => normalize_url(current_user.avatar_url), :align => 'left'}
+            .name
+              = link_to current_user.name, home_users_path
+            = link_to 'sign out', sign_out_path
+          - else
+            #global_sign_in
+              = link_to "Sign In / Join", sign_in_path, :id => 'sign_in_link'
+        %ul{:id=>'main_nav'}
+          %li= link_to "People", people_path, :class => 'people'
+          %li= link_to "Apps", apps_path, :class => 'apps'          
+
+      - if current_user.blank?
+        #global_sign_in_form
+          = render :partial => 'authentications/login_form'
+
+    #content
+
+      = yield(:section_header)
+      = render_flash
+      = yield
+
+    #footer
+      #citizenry_credit
+        Powered by
+        = link_to("Citizenry", "http://github.com/reidab/citizenry/") + '.'
+      #hosting_credit
+        Hosting thanks to
+        = link_to("#{SETTINGS['organization']['host']}", "#{SETTINGS['organization']['host_url']}") + '.'
+      #contact_link
+        Questions? Comments? Desires? Email
+        = mail_to "#{SETTINGS['organization']['email']}"
+      #twitter_link
+        Follow
+        = twitter_link SETTINGS['organization']['twitter']
+        on Twitter

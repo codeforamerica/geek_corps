@@ -1,0 +1,21 @@
+<% semantic_form_for(@person, :html => {:multipart => true}) do |f| %>
+  <% f.inputs do %>
+    <%= f.input :name, :input_html => { :value => current_user.authentications.first.info[:name]} %>
+    <%= f.input :location, :label => "Region", :hint => 'We are only in a select number of regions', :collection => Region.all.map { |x| ["#{x.city}, #{x.state}", x.id]} %>    
+    <%= f.input :url, :label => 'Website' %>        
+    <%= f.input :bio, :input_html => { :value => current_user.authentications.first.info[:description]}  %>
+    <%= f.input :tag_list, :as => :text, :label => 'Tags (interests, titles, personal descriptors, technologies)', :hint => "Comma separated, please", :input_html => {:class => 'tags'}%>
+  <% end %>
+  <% f.inputs :name => "Photo" do %>
+    <li>
+      <%= image_tag current_user.authentications.first.info[:image], :size => '220'%>
+    </li>
+    <li>
+      <%=f.input :photo_import_url, :label => "Import a photo from the web…",  :input_html => { :value => current_user.authentications.first.info[:image]} %>
+      <%= f.input :photo, :label => "…or upload one from your computer.", :hint => "Preferably 220px wide or larger"%>
+    </li>
+  <% end %>
+  <%=hidden_field_tag :form_context, context%>
+  <%=f.buttons%>
+
+<% end %>

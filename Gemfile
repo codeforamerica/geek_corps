@@ -7,18 +7,28 @@ gem 'jquery-rails'
 gem 'json'
 gem 'sqlite3'
 gem 'hominid'
-gem 'domainatrix'
 gem 'will_paginate'
-gem 'right_aws'
 gem "rake", '0.8.7'
 gem 'acts-as-taggable-on'
 gem 'multi_xml'
+gem "aws-s3"
+gem 'paperclip'
+gem 'omniauth', '>= 0.2.6'
+gem 'devise'
 
-group :test, :development do
-  gem 'factory_girl_rails'
-end
+
+gem 'twitter'
+gem 'linkedin'
+gem 'mogli'
+
+gem "inherited_resources"
+
+gem "haml", "~> 3.0.18"
+gem "formtastic"
+gem 'uuid'
 
 group :test do
+  gem 'factory_girl_rails'
   gem 'mocha'
   gem 'rspec-rails'
   gem 'ZenTest'
@@ -26,4 +36,5 @@ group :test do
   gem 'webmock'
   gem 'yard'
   gem 'spork', '~> 0.9.0.rc'
+  gem 'faker'
 end

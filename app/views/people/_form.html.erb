@@ -1,37 +1,23 @@
-<%= form_for(@person) do |f| %>
-  <% if @person.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this person from being saved:</h2>
-
-      <ul>
-      <% @person.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<% semantic_form_for(@person, :html => {:multipart => true}) do |f| %>
+  <% f.inputs do %>
+    <%= f.input :name %>
+    <%= f.input :location, :label => "Region", :hint => 'We are only in a select number of regions', :collection => Region.all.map { |x| ["#{x.city}, #{x.state}", x.id]} %>
+    <%= f.input :url, :label => 'Website' %>        
+    <%= f.input :bio %>
+    <%= f.input :tag_list, :as => :text, :label => 'Tags (interests, titles, personal descriptors, technologies)', :hint => "Comma separated, please", :input_html => {:class => 'tags'}%>
   <% end %>
+  <% f.inputs :name => "Photo" do %>
+   <% if photo_url = @person.photo_import_url || (@person.photo.file? && @person.photo.url(:medium)) %>
+    <li>
+      <%= image_tag photo_url, :size => '220'%>
+    </li>
+  <% end %>
+    <li>
+      <%=f.input :photo_import_url, :label => "Import a photo from the web…"%>
+      <%= f.input :photo, :label => "…or upload one from your computer.", :hint => "Preferably 220px wide or larger"%>
+    </li>
+  <% end %>
+  <%=hidden_field_tag :form_context, :review%>
+  <%=f.buttons%>
 
-  <div class="field">
-    <%= f.label :bio %><br />
-    <%= f.text_field :bio %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
-  </div>
-  <div class="field">
-    <%= f.label :lat %><br />
-    <%= f.text_field :lat %>
-  </div>
-  <div class="field">
-    <%= f.label :long %><br />
-    <%= f.text_field :long %>
-  </div>
-  <div class="field">
-    <%= f.label :picture %><br />
-    <%= f.text_field :picture %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>
