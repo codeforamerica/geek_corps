@@ -8,33 +8,28 @@ Installation
 
 We recommend using Ruby Version Manager.
 
-git clone git@github.com:codeforamerica/geek_corps.git
-
+ ```git clone git@github.com:codeforamerica/geek_corps.git
 cd geek_corps
-
 bundle install
+```
 
 For non-Code for America developers:
-
-  Obtain API Keys for following services: Github, Facebook, Twitter, and Linkedin
-
-  Copy the config/settings-local-sample.yml to config/settings.yml
-
-  Alter the settings with your Github, LinkedIn, Twitter, Linkedin
-
-  Alter the settings for AWS with your S3 credentials
+* Obtain API Keys for following services: Github, Facebook, Twitter, and Linkedin
+* Copy the config/settings-local-sample.yml to config/settings.yml
+* Alter the settings with your Github, LinkedIn, Twitter, Linkedin
+* Alter the settings for AWS with your S3 credentials
 
 For Code for America Developers (you'll need a google apps account):
+* Copy https://docs.google.com/a/codeforamerica.org/document/d/1Z2a6XPjBU1bL763Y3y0etv3F84VJaeosaktaNB10UWw/edit?hl=en_US into config/settings.yml
 
-  Copy https://docs.google.com/a/codeforamerica.org/document/d/1Z2a6XPjBU1bL763Y3y0etv3F84VJaeosaktaNB10UWw/edit?hl=en_US into config/settings.yml
-
-bundle exec rake db:migrate
-
+ ```bundle exec rake db:migrate
 bundle exec rake db:seed
+```
 
 To Reset the DB & Data:
 
-bundle exec rake db:reset
+```bundle exec rake db:reset
+```
 
 
 Contributing
