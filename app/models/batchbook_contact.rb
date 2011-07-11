@@ -38,5 +38,6 @@ class BatchbookContact < ActiveRecord::Base
       location["location_id"] = location["id"]
       %w(id).each { |x| location.delete(x) }
     end
+  end
   
 end
