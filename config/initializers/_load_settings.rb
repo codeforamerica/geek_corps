@@ -1,5 +1,5 @@
 if Rails.env=='production'
-SETTINGS = {'twitter' => {},'facebook' => {},'linkedin' => {},'github' => {}, 'organization'=>{}, 'common'=> {}}
+SETTINGS = {'auth_credentials' => {'twitter' => {},'facebook' => {},'linkedin' => {},'github' => {}}, 'organization'=>{}, 'common'=> {}}
 S3_KEY = ENV['S3_KEY']
 S3_SECRET = ENV['S3_SECRET']
 SETTINGS['auth_credentials']['twitter']['key']= ENV['twitter_key']
