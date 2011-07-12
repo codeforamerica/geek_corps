@@ -33,6 +33,11 @@ To Reset the DB & Data:
     bundle exec rake db:reset
 
 
+Credits
+-------
+
+Part of this app was developed using [Citizenry](https://github.com/reidab/citizenry), a local techie network developed for Portland.
+
 Contributing
 ------------
 In the spirit of [free software](http://www.fsf.org/licensing/essays/free-sw.html), **everyone** is encouraged to help improve this project.
