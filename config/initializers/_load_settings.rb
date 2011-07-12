@@ -1,11 +1,11 @@
 if Rails.env=='production'
-SETTINGS = {'auth_credentials' => {'twitter' => {},'facebook' => {},'linkedin' => {},'github' => {}}, 'organization'=>{}, 'common'=> {}}
+SETTINGS = {'auth_credentials' => {'twitter' => {},'facebook' => {},'linked_in' => {},'github' => {}}, 'organization'=>{}, 'common'=> {}}
 S3_KEY = ENV['S3_KEY']
 S3_SECRET = ENV['S3_SECRET']
 SETTINGS['auth_credentials']['twitter']['key']= ENV['twitter_key']
 SETTINGS['auth_credentials']['twitter']['secret']= ENV['twitter_secret']
-SETTINGS['auth_credentials']['linkedin']['key']= ENV['linkedin_key']
-SETTINGS['auth_credentials']['linkedin']['secret']= ENV['linkedin_secret']
+SETTINGS['auth_credentials']['linked_in']['key']= ENV['linkedin_key']
+SETTINGS['auth_credentials']['linked_in']['secret']= ENV['linkedin_secret']
 SETTINGS['auth_credentials']['github']['key']= ENV['github_key']
 SETTINGS['auth_credentials']['github']['secret']= ENV['github_secret']
 SETTINGS['auth_credentials']['facebook']['key']= ENV['facebook_key']
