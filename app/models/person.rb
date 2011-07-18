@@ -2,10 +2,13 @@ class Person < ActiveRecord::Base
     require 'open-uri'
     require 'digest/md5'
 
-
+    attr_accessor :photo_import_url
     attr_protected :user_id
-    acts_as_taggable_on :tags, :technologies
 
+
+    PHOTO_SIZES = {:medium => 220, :thumb => 48} # for gravatar
+
+    acts_as_taggable_on :tags, :technologies
 
     # s3 credentials specified in _load_settings
     has_attached_file :photo, :storage => :s3,
@@ -15,10 +18,9 @@ class Person < ActiveRecord::Base
       :access_key_id => S3_KEY,
       :secret_access_key => S3_SECRET
     }
-    
-    PHOTO_SIZES = {:medium => 220, :thumb => 48} # for gravatar
 
-    attr_accessor :photo_import_url
+    belongs_to :user
+
     before_validation do
       if self.photo_import_url.present?
         io = open(URI.parse(self.photo_import_url))
@@ -27,8 +29,6 @@ class Person < ActiveRecord::Base
         self.photo = io if io.original_filename.present?
       end
     end
-
-    belongs_to :user
 
     validates_presence_of :name
 

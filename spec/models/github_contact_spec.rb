@@ -5,7 +5,7 @@ describe GithubContact do
   before do
     GithubContact.delete_all
   end
-  
+
   describe "sync with server" do
     before do
       stub_request(:get, "http://stats.codeforamerica.org/coders.json").
@@ -19,9 +19,9 @@ describe GithubContact do
       GithubContact.new.get_contacts
       GithubContact.count.should == 2
     end
-            
+
   end
-  
+
   describe "update coders with server" do
     before do
       stub_request(:get, "http://stats.codeforamerica.org/coders.json").
@@ -35,9 +35,9 @@ describe GithubContact do
       GithubContact.new.update_new_contacts
       GithubContact.count.should == 2
     end
-            
+
   end
-  
+
   describe "update coder" do
     before do
       stub_request(:get, "http://stats.codeforamerica.org/coders.json?login=danmelton").
@@ -52,9 +52,9 @@ describe GithubContact do
       coder.update_contact
       coder.reload.following_count.should == 19
     end
-            
+
   end
-  
+
   pending "sync with server and update coders"
   pending "sync with server and add new coders"
 

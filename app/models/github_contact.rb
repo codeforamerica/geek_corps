@@ -1,12 +1,12 @@
 class GithubContact < ActiveRecord::Base
   belongs_to :contact_source
   validates_uniqueness_of :login, :on => :create, :message => "must be unique"
-  
+
   # grabs coders from stats.codeforamerica.org/coders.json
   #
   # @return GithubContacts array
   # @example GithubContact.new.get_contacts
-  
+
   def get_contacts
     contacts = grab_feed
     contacts.each do |contact|
@@ -15,14 +15,14 @@ class GithubContact < ActiveRecord::Base
       GithubContact.create(contact)
     end
   end
-  
+
   # grabs coders from stats.codeforamerica.org/coders.json and adds new ones
   #
   # @return GithubContacts array
   # @example GithubContact.new.update_get_contacts
-  
+
   # TODO Need to add a created_at after date, and include the last coder
-  
+
   def update_new_contacts
     contacts = grab_feed
     old_logins = GithubContact.all.map(&:login)
@@ -39,20 +39,19 @@ class GithubContact < ActiveRecord::Base
   #
   # @return true
   # @example GithubContact.first.update_contact
-  
+
   def update_contact
     contact = grab_feed("http://stats.codeforamerica.org/coders.json?login=#{self.login}").first
     contact.delete("org_id")
     self.update_attributes(contact)
   end
-  
+
   # returns a parsed json hash of coders
   #
   # @return true
   # @example GithubContact.new.grab_feed
-  
+
   def grab_feed(url="http://stats.codeforamerica.org/coders.json")
     JSON.parse(Net::HTTP.get(URI.parse(url)))[1].collect { |x| x["coder"]}
   end
-  
 end
