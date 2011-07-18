@@ -20,5 +20,9 @@ describe Region do
       @invalid_region = Region.new(attr)
       @invalid_region.should have(1).error_on(:city)
     end
+    it 'presence of nick_name' do
+      @region.nick_name = nil
+      @region.should have(1).error_on(:nick_name)
+    end
   end
 end
