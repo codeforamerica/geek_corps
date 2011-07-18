@@ -3,17 +3,18 @@ class App < ActiveRecord::Base
   has_many :details
   has_many :team_members
   has_many :members, :through => :team_members, :source => :user, :uniq => true
-  
+
   validates_uniqueness_of :name, :on => :create, :message => "must be unique"
-  
+
+  # shouldn't these be scopes?
   def core_team_members
     self.teams.where(:team_type => "core").first.team_members
   end
-  
+
   def regional_teams
     self.teams.where(:team_type => "application")
   end
-  
+
   def all_members
     total_members = []
     self.teams.each do |team|
@@ -21,5 +22,5 @@ class App < ActiveRecord::Base
     end
     total_members.uniq!
   end
-  
+
 end
