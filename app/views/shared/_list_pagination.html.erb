@@ -1,0 +1,6 @@
+<% if list_pagination.respond_to?(:total_pages) && list_pagination.total_pages > 1 %>
+  <div class="pagination">
+    <%= will_paginate list_pagination %>
+    <%= link_to "Show all", params.merge('page' => 'all'), :class => 'all' %>
+  </div>
+<% end %>

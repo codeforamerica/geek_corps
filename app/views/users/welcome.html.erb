@@ -1,0 +1,25 @@
+<div id="welcome">
+  <h1><%= "Hi #{@name.split(' ').first}!" %></h1>
+  <% if @possible_duplicates.present? %>
+    <div id="possible_duplicates">
+      <h2> Might this be you? </h2>
+      <p class="hint">
+        It looks like someone may have already added you to <%= SETTINGS['organization']['name']} %>.
+        <%= @possible_duplicates.size == 1 ? 'Is this you?' : 'Are you any of these people?' %>
+      </p>
+      <%= render :partial => 'people/list', :object => @possible_duplicates, :locals => {:context => :claim} %>
+  <div id="add_yourself">
+    <% if @person.new_record? %>
+      <h2> Add yourself to <%= SETTINGS['organization']['name'] %></h2>
+      <p><%= "We imported as much info as we could from your #{provider_name(current_user.authentications.first.provider)} account. Look it over and hit the big button to get started."</p>
+    <% else %>
+      <h2> Review your details </h2>
+      <p><%= "You were already in the directory! Please review your details and let us know they're right." %>
+    <% end %>
+    <% if @person.new_record? %>
+      <%= render :partial => 'people/new_form', :locals => {:context => :add_self} %>
+    <% else %>
+      <%= render :partial => 'people/form', :locals => {:context => :review} %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<h1> Authentications </h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th> Provider </th>
+    <th> Name </th>
+    <th> Account </th>
+    <th> Actions </th>
+  </tr>
+  <% for authentication in @authentications %>
+    <tr>
+      <td>
+        <% if authentication.info[:image] %>
+          <img src=<%= authentication.info[:image] %> width=48 height=48 />
+        <% end %>
+      </td>
+      <td><%= provider_icon(authentication.provider) %></td>
+      <td><%= authentication.info[:name] %></td>
+      <td><%= authentication.info[:nickname] %></td>
+      <td>
+        <% if @authentications.size > 1 %>
+          <%= link_to "Remove", authentication_path(authentication), :confirm => 'Are you sure?', :method => :delete %>
+        <% end %>
+      </td>
+    </tr>
+</table>
