@@ -1,5 +1,24 @@
 require 'spec_helper'
 
 describe Region do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @region = Factory(:region)
+  end
+  context 'has many' do
+    it 'teams' do
+      @region.respond_to?(:teams).should be_true
+    end
+    it 'users' do
+      @region.respond_to?(:users).should be_true
+    end
+  end
+  context 'validates' do
+    it 'uniqueness of city' do
+      attr = Factory.attributes_for(:region)
+      @region = Region.new(attr)
+      @region.save!
+      @invalid_region = Region.new(attr)
+      @invalid_region.should have(1).error_on(:city)
+    end
+  end
 end

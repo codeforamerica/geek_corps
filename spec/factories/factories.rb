@@ -1,7 +1,9 @@
+#--[ ContactSource ]-------------------------------------------------------------------
 Factory.define :contact_source do |f|
   f.name "something"
 end
 
+#--[ GithubContact ]-------------------------------------------------------------------
 Factory.define :github_contact do |f|
   f.name "Code for America"
   f.created_at Time.now
@@ -16,23 +18,17 @@ Factory.define :github_contact do |f|
   f.contact_source {Factory(:contact_source, :name => "github")}
 end
 
-Factory.define :region do |f|
-  f.city {Faker::Address.city}
-  f.state {Faker::Address.state}
-  f.nick_name { "something#{rand(1000)}" }
-end
-
+#--[ App ]-------------------------------------------------------------------
 Factory.define :app do |f|
-  f.name { "something#{rand(1000)}" }
-  f.description {Faker::Lorem.paragraph}
+  f.sequence(:name) {|n| "#{n}something#{rand(1000000)}" }
+  f.description { Faker::Lorem.paragraph }
 end
 
-Factory.define :team do |f|
-  f.app {Factory(:app)}
-  f.region {Factory(:region)}
-end
-
-Factory.define :detail do |f|
+#--[ Region ]-------------------------------------------------------------------
+Factory.define :region do |f|
+  f.city { Faker::Address.city }
+  f.state { Faker::Address.state }
+  f.nick_name { "something#{rand(1000000)}" }
 end
 
 #--[ Authentication ]-----------------------------------------------------------
@@ -42,22 +38,46 @@ Factory.define :authentication do |a|
   a.info :name => 'Test Auth'
 end
 
+#--[ User ]---------------------------------------------------------------------
+Factory.define :user do |u|
+  u.email { Faker::Internet.email }
+  u.admin false
+  u.region { Factory(:region)}
+  u.after_build do |user|
+    user.authentications = [ Factory.build(:authentication, :user => user) ]
+  end
+end
+
+#--[ Team ]-------------------------------------------------------------------
+Factory.define :team do |f|
+  f.app {Factory(:app)}
+  f.region {Factory(:region)}
+  f.team_type "Super!"
+  f.name Faker::Name.name
+end
+
+#--[ TeamMember ]-------------------------------------------------------------------
+Factory.define :team_member do |f|
+  f.team { Factory(:team)}
+  f.user { Factory(:user)}
+  f.app { Factory(:app)}
+  f.team_role "supporter"
+  f.admin false
+end
+
+#--[ Detail ]-------------------------------------------------------------------
+Factory.define :detail do |f|
+  f.app { Factory(:app)}
+  f.team { Factory(:team)}
+  f.name { "name#{rand(1000)}" }
+end
+
 #--[ Person ]-------------------------------------------------------------------
 Factory.define :person do |p|
   p.name { Faker::Name.name }
   p.url { Faker::Internet.domain_name }
   p.bio { Faker::Lorem.paragraph }
   p.location { Faker::Address.city }
-end
-
-#--[ User ]---------------------------------------------------------------------
-Factory.define :user do |u|
-  u.email { Faker::Internet.email }
-  u.admin false
-  u.region Factory(:region)
-  u.after_build do |user|
-    user.authentications = [ Factory.build(:authentication, :user => user) ]
-  end
 end
 
 Factory.define :admin_user, :parent => :user do |u|

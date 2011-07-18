@@ -6,7 +6,7 @@ describe TeamsController do
     @user = Factory(:user)
     sign_in(@user)
   end
-  
+
   it "creates a team around an application" do
     app = Factory(:app)
     region = Factory(:region)
@@ -15,7 +15,4 @@ describe TeamsController do
     }.to change(Team, :count).by(1)
     Team.last.members.count.should == 1
   end
-  
-  
-
 end
