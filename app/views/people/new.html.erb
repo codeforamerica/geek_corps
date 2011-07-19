@@ -21,6 +21,7 @@
               <% check_box_name = "authentications[#{auth.id}]" %>
               <%= check_box_tag check_box_name, '1', params[:authentications].present? ? params[:authentications][auth.id.to_s] : true %>
               <%= label_tag check_box_name, auth_label(auth) %>
+            <% end %>
           </div>
           <%= text_field_tag(:q, params[:q]) %>
           <%= submit_tag("Search") %>
@@ -44,9 +45,11 @@
               <% if person.imported_from_provider == 'twitter' && person.imported_from_screen_name.present? %>
                 <strong>
                   <a href="https://twitter.com/<%= person.imported_from_screen_name %>"><%= "@" + person.imported_from_screen_name %></a>
-                  on Twitter
-              <p class='location'><%= person.location %></p>
-              <p class='bio'><%= person.bio %></p>
+                </strong>
+                on Twitter
+                <p class='location'><%= person.location %></p>
+                <p class='bio'><%= person.bio %></p>
+              <% end %>
               <% if !person.new_record? %>
                 <div class="<%= existing_user_label %>">
                   <%= SETTINGS['organization']['name'] %> already knows <%= person.name %>!
