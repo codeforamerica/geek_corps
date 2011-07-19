@@ -8,7 +8,7 @@
   <% end %>
   <% f.inputs :name => "Photo" do %>
     <li>
-      <%= image_tag current_user.authentications.first.info[:image], :size => '220'%>
+      <%= current_user.authentications.first.info[:image].present? ? image_tag(current_user.authentications.first.info[:image], :size => '220') : "We can't seem to find a photo for you" %>
     </li>
     <li>
       <%=f.input :photo_import_url, :label => "Import a photo from the web…",  :input_html => { :value => current_user.authentications.first.info[:image]} %>
