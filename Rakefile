@@ -44,3 +44,15 @@ task :cron => :environment do
   Rake::Task['github:update'].invoke    
   Rake::Task['github:sync'].invoke
 end
+
+require 'rspec/core/rake_task'
+Rspec::Core::RakeTask.new(:spec)
+
+require 'yard'
+namespace :doc do
+  YARD::Rake::YardocTask.new do |task|
+    task.files   = ['LICENSE.md', 'lib/**/*.rb']
+    task.options = ['--markup', 'markdown']
+   end
+end
+
