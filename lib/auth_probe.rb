@@ -57,7 +57,7 @@ class AuthProbe
         end
       end
     end
- 
+
 
     module Twitter
       def self.discover(email)
@@ -86,6 +86,6 @@ class AuthProbe
                 Strategy::WebFinger,
                 Strategy::HostOpenID,
                 Strategy::GoogleAppsMX,
-                Strategy::YahooMailMX,
+                Strategy::Facebook,
                 Strategy::GitHub]
 end
