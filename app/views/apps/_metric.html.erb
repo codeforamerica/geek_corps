@@ -6,7 +6,7 @@
         </ul> 
         <div id="join_project_wrapper"> 
         <div id="join_project"> 
-          <% if current_user%>
+          <% if current_user && current_user.region %>
           <% if @app.teams.where(:region_id => current_user.region).blank?%>
             <%= button_to "Start this in #{current_user.region.nick_name}", app_teams_path(@app) %>
           <% else %>
