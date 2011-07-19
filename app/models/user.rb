@@ -15,8 +15,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  validates_presence_of :region
-
   devise :rememberable, :trackable
 
   def avatar_url
