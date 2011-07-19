@@ -1,10 +1,11 @@
 <ul class="authentications" >
   <% list.each do |authentication| %>
-    <li class="<%= authentication.provider] %>" id="<%= authentication.provider %>_<%= authentication.uid %>" >
+    <li class="<%= authentication.provider] %>" id="<%= "#{authentication.provider}_#{authentication.uid}" %>" >
       <%= provider_icon(authentication.provider) %>
       <%= auth_label(authentication) %>
       <% if list.size > 1 %>
         <%= link_to "Remove", authentication_path(authentication), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %>
       <% end %>
     </li>
+  <% end %>
 </ul>
