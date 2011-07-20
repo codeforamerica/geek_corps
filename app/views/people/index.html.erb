@@ -16,6 +16,7 @@
       <%= link_to_unless_current "Grid", grid_people_path(:page => params[:page], :column => params[:column], :order => params[:order]) %>
     </span>
   </div>
+<% end %>
   <div class='people-list'>
     <% if @view == :grid %>
        <%= render :partial => 'grid', :object => @people %>
@@ -23,4 +24,4 @@
        <%= render :partial => 'list', :object => @people %>
     <% end %>
   </div>
-<% end %>
+
