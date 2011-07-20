@@ -1,0 +1,10 @@
+<ul class="auth_providers">
+  <% SETTINGS['providers'].each do |provider| %>
+    <li><%= link_to OmniAuth::Utils.camelize(provider), "/auth/#{provider}", :class => provider %></li>
+    <% if auth = current_user.authentications.via(provider).first %>
+      <li><%= link_to 'Remove', auth, :method => :delete %></li>
+    <% else %>
+      <li><%= link_to 'Add', "/auth/#{provider}" %></li>
+    <% end %>
+  <% end %>
+</ul>

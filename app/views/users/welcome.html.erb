@@ -21,6 +21,7 @@
     <% if @person.new_record? %>
       <%= render :partial => 'people/new_form', :locals => {:context => :add_self} %>
     <% else %>
+      <%= render :partial => 'authentications/add_auth_form' %>
       <%= render :partial => 'people/form', :locals => {:context => :review} %>
     <% end %>
   </div>
