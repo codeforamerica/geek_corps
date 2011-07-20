@@ -17,11 +17,12 @@ class Person < ActiveRecord::Base
     :s3_credentials => {
       :access_key_id => S3_KEY,
       :secret_access_key => S3_SECRET
-    }
+    },
+    :default_url => '/images/geekcorpsavatar1.png'
 
     belongs_to :user
 
-    before_validation do
+    before_validation :on => :create do
       if self.photo_import_url.present?
         io = open(URI.parse(self.photo_import_url))
         def io.original_filename; base_uri.path.split('/').last; end
@@ -46,7 +47,7 @@ class Person < ActiveRecord::Base
     # returns a photo url, with fallback to a unique-within-epdx generated avatar from gravatar
     def photo_url(size)
       size ||= :medium
-      self.photo.file? ? self.photo.url(size) : "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(self.id.to_s)}?d=retro&f=y&s=#{PHOTO_SIZES[size]}"
+      self.photo.file? ? self.photo.url(size) : "/images/geekcorpsavatar1.png"
     end
 
     private
