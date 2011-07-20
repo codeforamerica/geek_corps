@@ -64,4 +64,7 @@ Citizenry.Views.SignInForm = Backbone.View.extend({
   }
 });
 
+
 $(function() { Citizenry.app.init(); });
+
+$(function() { $('#flash .message.success, #flash .message.notice').delay(4000).hide('blind'); });
