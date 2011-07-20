@@ -28,12 +28,6 @@ class Person < ActiveRecord::Base
         def io.original_filename; base_uri.path.split('/').last; end
 
         self.photo = io if io.original_filename.present?
-      else
-        # use random default avatar image
-        # doesn't actually work
-        default_images = ['/images/geekcorpsavatar1.png', '/images/geekcorpsavatar2.png','/images/geekcorpsavatar3.png']
-        default_image_path = default_images[rand(3)]
-        self.photo = default_image_path
       end
     end
 
@@ -43,12 +37,6 @@ class Person < ActiveRecord::Base
 
     scope :claimed, where('user_id IS NOT null')
     scope :unclaimed, where('user_id IS null')
-
-    # returns a photo url, with fallback to a unique-within-epdx generated avatar from gravatar
-    def photo_url(size)
-      size ||= :medium
-      self.photo.file? ? self.photo.url(size) : "/images/geekcorpsavatar1.png"
-    end
 
     private
 

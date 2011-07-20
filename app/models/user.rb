@@ -18,7 +18,11 @@ class User < ActiveRecord::Base
   devise :rememberable, :trackable
 
   def avatar_url
-    self.person.try(:photo).try(:url, :thumb) || self.authentications.info_get(:image)
+    if self.person.present?
+      self.person.photo.url(:thumb) 
+    else
+      self.authentications.info_get(:image)
+    end
   end
 
   def name
