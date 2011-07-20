@@ -1,15 +1,15 @@
-Citizenry = {};
-Citizenry.Models = {};
-Citizenry.Views = {};
-Citizenry.Controllers = {};
+GeekCorps = {};
+GeekCorps.Models = {};
+GeekCorps.Views = {};
+GeekCorps.Controllers = {};
 
-Citizenry.app = {
+GeekCorps.app = {
   init: function() {
-    this.controller = new Citizenry.Controllers.AppController();
+    this.controller = new GeekCorps.Controllers.AppController();
   }
 };
 
-Citizenry.Controllers.AppController = Backbone.Controller.extend({
+GeekCorps.Controllers.AppController = Backbone.Controller.extend({
   routes: {
     'sign_in': 'showSignInForm',
     'sign_in/:provider': 'showSignInForm'
@@ -17,7 +17,7 @@ Citizenry.Controllers.AppController = Backbone.Controller.extend({
   initialize: function(options) {
     _.bindAll('showSignInForm', 'focusSearchField', this);
     if($('#global_sign_in').length > 0) {
-      this.signInForm = new Citizenry.Views.SignInForm({el: $('#global_sign_in')});
+      this.signInForm = new GeekCorps.Views.SignInForm({el: $('#global_sign_in')});
     }
     $(document).bind('keydown', '/', this.focusSearchField);
     $('input, textarea').placeholder();
@@ -33,7 +33,7 @@ Citizenry.Controllers.AppController = Backbone.Controller.extend({
   }
 });
 
-Citizenry.Views.SignInForm = Backbone.View.extend({
+GeekCorps.Views.SignInForm = Backbone.View.extend({
   events: {
     'click  #sign_in_link': 'signInLinkClicked'
   },
@@ -65,6 +65,6 @@ Citizenry.Views.SignInForm = Backbone.View.extend({
 });
 
 
-$(function() { Citizenry.app.init(); });
+$(function() { GeekCorps.app.init(); });
 
 $(function() { $('#flash .message.success, #flash .message.notice').delay(4000).hide('blind'); });
