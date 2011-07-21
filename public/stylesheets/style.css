@@ -1,5 +1,167 @@
+/**
+ * Main CSS for City-Hero
+ */
+
+/**
+ * General HTML elements styles
+ */
 body {
-  margin: 0;
-  padding: 0;
-  background: #eee;
-  }
+    background:#fff;
+    font-family:Helvetica, Arial, sans-serif;
+    color:#333;
+    font-size:12px;
+    padding:0;
+    margin:0;
+}
+
+h1 { font-size:24px; line-height:150%; margin-bottom:15px;}
+h2 { font-size:18px; line-height:150%; margin-bottom:15px;}
+h3 { font-size:16px; line-height:150%; margin-bottom:15px;}
+
+.section-header h1 {
+    font-weight: bold;
+    font-size: 4.2em;
+    text-transform: uppercase;
+    color: #992739;
+    line-height: 100%;
+}
+
+.section-header h2 {
+    font-weight: bold;
+    font-size: 1.6em;
+    text-transform: uppercase;
+}
+
+.section-header h2 a {
+    color: #992739;
+}
+
+a:link, a:visited {
+    color:#96a044;
+    text-decoration:none;
+}
+
+a:hover, a:active {
+    color:#96a044;
+    text-decoration:underline;
+}
+.project_block a:hover, .project_block a:active {
+    text-decoration:none;
+    }
+
+.right { float:right; }
+.left { float:left; }
+
+p {
+    margin-top: 1em;
+    line-height: 1.5em;
+}
+
+strong {
+    font-weight: bold;
+}
+
+/**
+ * General class styles
+ */
+.clear { 
+    clear: both;
+}
+
+.wrapper {
+    width:960px;
+    position:absolute;
+    left:50%;
+    margin-left:-480px;
+}
+
+.hidden {
+    display: none;
+}
+
+/** 
+ * Header section
+ */
+#header {
+    height:20px;
+    padding:10px 20px;
+    margin-bottom:30px;
+    text-transform: uppercase;
+    color:#fff;
+    background-color: #533549;
+    -webkit-box-shadow: 0px 2px 5px #666;
+    -moz-box-shadow: 0px 2px 5px #666;
+    box-shadow: 0px 2px 5px #666;
+}
+
+#header a {
+    color: white;
+    }
+
+#main-nav {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    }
+    
+#main-nav li {
+    padding-right: 15px;
+    float: left;
+    }
+
+/**
+ * In-place login form mess
+ */
+ 
+.quick_ease, #front_nav li a, #front_nav li .count, #main_nav li a, #main_nav li .count, #header h1 a, #header h1 img { -moz-transition-property: all; -webkit-transition-property: all; -o-transition-property: all; transition-property: all; -moz-transition-duration: 0.2s; -webkit-transition-duration: 0.2s; -o-transition-duration: 0.2s; transition-duration: 0.2s; -moz-transition-timing-function: ease-out; -webkit-transition-timing-function: ease-out; -o-transition-timing-function: ease-out; transition-timing-function: ease-out; }
+
+#global_sign_in_form { -moz-transition-property: height, opacity; -webkit-transition-property: height, opacity; -o-transition-property: height, opacity; transition-property: height, opacity; -moz-transition-duration: 0.2s; -webkit-transition-duration: 0.2s; -o-transition-duration: 0.2s; transition-duration: 0.2s; -moz-transition-timing-function: ease-out; -webkit-transition-timing-function: ease-out; -o-transition-timing-function: ease-out; transition-timing-function: ease-out; }
+#global_sign_in_form.open { height: 120px; }
+
+#global_sign_in { -moz-border-radius: 0.2em; -webkit-border-radius: 0.2em; -o-border-radius: 0.2em; -ms-border-radius: 0.2em; -khtml-border-radius: 0.2em; border-radius: 0.2em; }
+#global_sign_in_form { position: absolute; top: 3.45em; left: 50%; z-index: 99; width: 250px; margin-left: 210px; opacity: 0; -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); -moz-border-radius: 0.25em; -webkit-border-radius: 0.25em; -o-border-radius: 0.25em; -ms-border-radius: 0.25em; -khtml-border-radius: 0.25em; border-radius: 0.25em; -moz-box-shadow: #333333 1px 1px 5px 0; -webkit-box-shadow: #333333 1px 1px 5px 0; -o-box-shadow: #333333 1px 1px 5px 0; box-shadow: #333333 1px 1px 5px 0; }
+#global_sign_in_form.open { border-width: 3px; height: 110px; *height: 160px; opacity: 1; -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); padding-bottom: 5px; }
+#global_sign_in_form.open li { list-style: none; }
+#global_sign_in_form.open li li { list-style-image: none; list-style-type: none; margin-left: 0px; }
+
+
+#header #account_box img.avatar { width: 35px; height: 35px; }
+#header #account_box .name { display: block; padding-right: 0; margin-right: 0; border-right: none; }
+#header #account_box #global_sign_in { float: right; }
+
+/**
+ * People / apps lists and grids
+ */
+ 
+.count {
+    background: #eeff88;
+    padding-left: 12px;
+    border-radius: 10px;
+    }
+ 
+#people-suboptions {
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    background: #e6a74d;
+    }
+    
+#people-suboptions a {
+    color: white;
+    }
+ 
+#new-person {
+    float: right;
+    }
+    
+#view-options span {
+    margin-right: 20px;
+    }
+#content { overflow: hidden; *zoom: 1; background: white; }
+#content .resource-list li { width: auto; }
+#content .resource-list li h3 { display: inline; margin-right: 0.5em; }
+#content .resource-grid { overflow: hidden; *zoom: 1; }
+#content .resource-grid li { display: inline; float: left; margin-left: 10px; margin-right: 10px; width: 220px; }
+
+.people-list .person p.bio {
+    display: none;
+    }

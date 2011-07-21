@@ -90,7 +90,7 @@ html[xmlns] .clearfix {
 #header {
     height:20px;
     padding:10px 20px;
-    margin-bottom:80px;
+    margin-bottom:30px;
     text-transform: uppercase;
     color:#fff;
     background-color: #533549;
@@ -128,6 +128,22 @@ a#title img {
 #user-links {
     width:150px;
 }
+
+.quick_ease, #front_nav li a, #front_nav li .count, #main_nav li a, #main_nav li .count, #header h1 a, #header h1 img { -moz-transition-property: all; -webkit-transition-property: all; -o-transition-property: all; transition-property: all; -moz-transition-duration: 0.2s; -webkit-transition-duration: 0.2s; -o-transition-duration: 0.2s; transition-duration: 0.2s; -moz-transition-timing-function: ease-out; -webkit-transition-timing-function: ease-out; -o-transition-timing-function: ease-out; transition-timing-function: ease-out; }
+
+#global_sign_in_form { -moz-transition-property: height, opacity; -webkit-transition-property: height, opacity; -o-transition-property: height, opacity; transition-property: height, opacity; -moz-transition-duration: 0.2s; -webkit-transition-duration: 0.2s; -o-transition-duration: 0.2s; transition-duration: 0.2s; -moz-transition-timing-function: ease-out; -webkit-transition-timing-function: ease-out; -o-transition-timing-function: ease-out; transition-timing-function: ease-out; }
+#global_sign_in_form.open { height: 120px; }
+
+#global_sign_in { -moz-border-radius: 0.2em; -webkit-border-radius: 0.2em; -o-border-radius: 0.2em; -ms-border-radius: 0.2em; -khtml-border-radius: 0.2em; border-radius: 0.2em; }
+#global_sign_in_form { position: absolute; top: 3.45em; left: 50%; z-index: 99; width: 250px; margin-left: 210px; opacity: 0; -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); -moz-border-radius: 0.25em; -webkit-border-radius: 0.25em; -o-border-radius: 0.25em; -ms-border-radius: 0.25em; -khtml-border-radius: 0.25em; border-radius: 0.25em; -moz-box-shadow: #333333 1px 1px 5px 0; -webkit-box-shadow: #333333 1px 1px 5px 0; -o-box-shadow: #333333 1px 1px 5px 0; box-shadow: #333333 1px 1px 5px 0; }
+#global_sign_in_form.open { border-width: 3px; height: 110px; *height: 160px; opacity: 1; -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); padding-bottom: 5px; }
+#global_sign_in_form.open li { list-style: none; }
+#global_sign_in_form.open li li { list-style-image: none; list-style-type: none; margin-left: 0px; }
+
+
+#header #account_box img.avatar { width: 35px; height: 35px; }
+#header #account_box .name { display: block; padding-right: 0; margin-right: 0; border-right: none; }
+#header #account_box #global_sign_in { float: right; }
 
 /*
  * Warnings section

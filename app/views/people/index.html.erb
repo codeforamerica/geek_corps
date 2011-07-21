@@ -1,20 +1,23 @@
 <% content_for(:section_header) do %>
-  <div class='section_header people'>
+  <div class='section-header people'>
     <h1> <%= semantic_pluralize(@people.respond_to?(:total_entries) ? @people.total_entries : @people.size, "#{@tag} person".strip.titleize) %></h1>
-      <%= link_to "+ Add Someone", new_person_path, :class => 'new', :id => 'new_person' %>
-      <div id='view_options'>
-        <span class='sorting'>
-          <strong> Sort by:</strong>
-          <%= sort_link(:name) %>,
-          <%= sort_link(:created_at, :label => "Date added", :default_order => :desc) %>,
-          <%= sort_link(:random, :is_default => :asc) %>
-        </span>
+      <div id="people-suboptions">
+          <%= link_to "+ Add Someone", new_person_path, :class => 'new', :id => 'new-person' %>
+          <div id='view-options'>
+            <span class="view">
+              <strong>View as:</strong>
+              <%= link_to_unless_current "List", people_path(:page => params[:page], :column => params[:column], :order => params[:order]) %> |
+              <%= link_to_unless_current "Grid", grid_people_path(:page => params[:page], :column => params[:column], :order => params[:order]) %>
+            </span>
+            <span class='sorting'>
+              <strong> Sort by:</strong>
+              <%= sort_link(:name) %>,
+              <%= sort_link(:created_at, :label => "Date added", :default_order => :desc) %>,
+              <%= sort_link(:random, :is_default => :asc) %>
+            </span>
+            
+          </div>
       </div>
-    <span class="view">
-      <strong>View as:</strong>
-      <%= link_to_unless_current "List", people_path(:page => params[:page], :column => params[:column], :order => params[:order]) %> |
-      <%= link_to_unless_current "Grid", grid_people_path(:page => params[:page], :column => params[:column], :order => params[:order]) %>
-    </span>
   </div>
 <% end %>
   <div class='people-list'>
