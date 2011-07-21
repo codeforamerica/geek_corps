@@ -12,17 +12,12 @@
 
   <div class="body-wrapper">
     <div id="gc-logo">
-      <img src="images/tmp-geekcorps-logo.png" />
       <div id="title">
-        <span class="title">GEEK</span>
-        <span class="title">CORPS</span>
+        <div id="geek">GEEK</div>
+        <div id="corps">CORPS</div>
       </div>
       <p id="header-slogan">
-        <% if user_signed_in? %>
-          begin self.involve(now, *actions)
-        <% else %>
-          self.join_the_army_of_good()
-        <% end %>
+        Wage Tech
       </p>
     </div>
     <ul id="header-links">

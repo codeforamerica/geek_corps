@@ -50,7 +50,7 @@ html
       in: shared/search
       form
         input
-        ....
+        .... (wip)
 
       in: shared/list
       ul#front-list
