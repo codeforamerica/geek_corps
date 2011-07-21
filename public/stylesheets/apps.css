@@ -129,6 +129,30 @@ a#title img {
     width:150px;
 }
 
+/*
+ * Warnings section
+ */
+ 
+div.message { padding: 0; margin: 1em 0; border: 3px solid; position: relative; }
+div.message a { font-weight: bold; text-decoration: underline; }
+div.message .message_type { display: block; color: white; padding: 0.5em; font-weight: bold; }
+div.message .message_content { margin: 0.5em; font-weight: bold; }
+div.message .message_content p { margin-bottom: 5px; }
+div.message.notice { border-color: #54a5d4; background: #d6eaf5; }
+div.message.notice .message_type { background: #54a5d4; }
+div.message.notice a { color: #54a5d4; }
+div.message.success { border-color: #82c555; background: #e3f2d9; }
+div.message.success .message_type { background: #82c555; }
+div.message.success a { color: #82c555; }
+div.message.warning { border-color: #e6a74d; background: #f9e9d2; }
+div.message.warning .message_type { background: #e6a74d; }
+div.message.error { border-color: #ef6c7b; background: #fad1d6; }
+div.message.error .message_type { background: #ef6c7b; }
+div.message.error a { color: #ef6c7b; }
+div.message.urgent { border-color: #da6dc9; background: #f5d6f0; }
+div.message.urgent .message_type { background: #da6dc9; }
+div.message.urgent a { color: #da6dc9; }
+
 /**
  * Main Content Section
  */
@@ -165,6 +189,13 @@ a#title img {
 .title-main h2 a {
     color: #992739;
 }
+
+/**
+ * Lists/grids of people/apps/etc
+ *
+ */
+ 
+ 
 
 /**
  * Sidebar
