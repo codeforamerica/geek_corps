@@ -1,0 +1,43 @@
+<div id="header">
+  <div class="colored-band">
+    <div class="color-in-band"></div>
+    <div class="color-in-band"></div>
+    <div class="color-in-band"></div>
+    <div class="color-in-band"></div>
+    <div class="color-in-band"></div>
+    <div class="color-in-band"></div>
+    <div class="color-in-band"></div>
+  </div>
+  <div class="background-bar"></div>
+
+  <div class="body-wrapper">
+    <div id="gc-logo">
+      <img src="images/tmp-geekcorps-logo.png" />
+      <div id="title">
+        <span class="title">GEEK</span>
+        <span class="title">CORPS</span>
+      </div>
+      <p id="header-slogan">
+        <% if user_signed_in? %>
+          begin self.involve(now, *actions)
+        <% else %>
+          self.join_the_army_of_good()
+        <% end %>
+      </p>
+    </div>
+    <ul id="header-links">
+      <li><%= link_to "People", people_path %></li>
+      <li><%= link_to "Apps", apps_path %></li>
+      <li><%= link_to "Regions", regions_path %></li>
+    </ul>
+    <div id="user-links">
+      <% if user_signed_in? %>
+        <%= image_tag current_user.avatar_url, :class => 'current-user-thumb' %>
+        <%= link_to current_user.name, home_users_path, :id => 'user-home' %>
+        <%= link_to 'Sign Out', sign_out_path, :id => 'sign-out' %>
+      <% else %>
+        <%= link_to "Sign In / Join", sign_in_path, :id => 'sign-in' %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -63,3 +63,17 @@
   background-image:      -o-linear-gradient(top, #1C009E, #2d11af); /* Opera 11.10+ */
   background-image:         linear-gradient(top, #1C009E, #2d11af);  
 }
+
+.body-wrapper {
+  left: 50%;
+  margin-left: -480px;
+  position: absolute;
+  width: 960px;
+}
+
+#gc-logo {
+  z-index: 1;
+  margin-top: -48px;
+  font-family: LeagueGothicRegular,"Impact";
+  font-weight: normal;
+}

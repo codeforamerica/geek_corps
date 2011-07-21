@@ -1,27 +1,15 @@
-<h1>Listing apps</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Video url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @apps.each do |app| %>
-  <tr>
-    <td><%= app.name %></td>
-    <td><%= app.description %></td>
-    <td><%= app.video_url %></td>
-    <td><%= link_to 'Show', app %></td>
-    <td><%= link_to 'Edit', edit_app_path(app) %></td>
-    <td><%= link_to 'Destroy', app, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% content_for(:page_heading) do %>
+  <div id="page-heading">
+    <h1>
+      APPS!
+    </h1>
+    <p>
+      I don't write copy so well, some day this just might be inspiring? witty? ...engaging???
+    </p>
+  </div>
 <% end %>
-</table>
 
-<br />
+<%= render :partial => 'shared/search', :locals => {:resource => @apps.first.class.new} %>
 
-<%= link_to 'New App', new_app_path %>
+<%= render :partial => 'shared/list', :object => @apps %>
+

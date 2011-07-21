@@ -1,25 +1,15 @@
-<h1>Listing regions</h1>
-
-<table>
-  <tr>
-    <th>City</th>
-    <th>State</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @regions.each do |region| %>
-  <tr>
-    <td><%= region.city %></td>
-    <td><%= region.state %></td>
-    <td><%= link_to 'Show', region %></td>
-    <td><%= link_to 'Edit', edit_region_path(region) %></td>
-    <td><%= link_to 'Destroy', region, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% content_for(:page_heading) do %>
+  <div id="page-heading">
+    <h1>
+      REGIONS!
+    </h1>
+    <p>
+      A different word for regions? Locales? Areas? 'Hoods? Something   ...more playful?
+    </p>
+  </div>
 <% end %>
-</table>
 
-<br />
+<%= render :partial => 'shared/search', :locals => {:resource => @regions.first.class.new} %>
 
-<%= link_to 'New Region', new_region_path %>
+<%= render :partial => 'shared/list', :object => @regions %>
+

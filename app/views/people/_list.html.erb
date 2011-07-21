@@ -1,5 +1,0 @@
-<% context ||= :general %>
-<ul class='resource_list people'>
-  <%= render :partial => 'people/list_item', :collection => list, :locals => {:context => context} %>
-</ul>
-<%= render :partial => 'shared/list_pagination', :object => list %>
