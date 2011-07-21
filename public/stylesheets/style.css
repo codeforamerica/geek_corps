@@ -165,3 +165,54 @@ strong {
 .people-list .person p.bio {
     display: none;
     }
+    
+/**
+ * Footer
+ */
+ 
+#footer {
+    float: left;
+    width: 920px;
+    height: 140px;
+    font-weight: bold;
+}
+
+#footer ul {
+    display: inline;
+    }
+
+#footer ul li {
+    list-style: none;
+    display: block;
+    float: left;
+    border-right: 1px solid #666;
+    padding: 0 4px 0 4px;
+}
+
+#footer ul li:last-child {
+    border:none;
+}
+
+#footer ul li a {
+    color: #533549;
+    text-transform: uppercase;
+}
+
+#footer ul, #footer p {
+    float: left;
+    display: block;
+}
+
+#footer .footer-logo img {
+    float: right;
+    margin-top: 1em;
+    display: block;
+}
+
+#footer span {
+    color: #333333;
+}
+
+#footer p {
+color: #999;
+}
