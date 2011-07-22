@@ -139,13 +139,13 @@ strong {
     border-radius: 10px;
     }
  
-#suboptions {
+.suboptions {
     padding: 8px 10px;
     margin: 0 0 15px 0;
     background: #e6a74d;
     }
     
-#suboptions a {
+.suboptions a {
     color: white;
     }
  

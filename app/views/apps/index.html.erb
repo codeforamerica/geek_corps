@@ -1,9 +1,12 @@
 <% content_for(:section_header) do %>
   <div class='section-header apps'>
     <h1> <%= semantic_pluralize(@apps.respond_to?(:total_entries) ? @apps.total_entries : @apps.size, "#{@tag} app".strip.titleize) %></h1>
-    <div id="suboptions app-suboptions">
+    <div class="suboptions">
           <%= link_to '[+ Add App]', new_app_path, :class => 'new', :id => 'new-person' %>
-      </div>
+          <span class="view">
+              <strong>&nbsp;</strong>
+          </span>
+    </div>
   </div>
 <% end %>
 
