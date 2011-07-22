@@ -1,27 +1,27 @@
-<h1>Listing apps</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Video url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @apps.each do |app| %>
-  <tr>
-    <td><%= app.name %></td>
-    <td><%= app.description %></td>
-    <td><%= app.video_url %></td>
-    <td><%= link_to 'Show', app %></td>
-    <td><%= link_to 'Edit', edit_app_path(app) %></td>
-    <td><%= link_to 'Destroy', app, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<% content_for(:section_header) do %>
+  <div class='section-header apps'>
+    <h1> <%= semantic_pluralize(@apps.respond_to?(:total_entries) ? @apps.total_entries : @apps.size, "#{@tag} app".strip.titleize) %></h1>
+    <div id="suboptions app-suboptions">
+          <%= link_to '[+ Add App]', new_app_path, :class => 'new', :id => 'new-person' %>
+      </div>
+  </div>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'New App', new_app_path %>
+  <div class='app-list'>
+    <ul class='resource-grid people'>
+      <% @apps.each do |app| %>
+      <li>
+         <% if app.video_url? %>
+             <video width="220" height="220" src="<%= app.video_url %>" autobuffer>
+                <div class="fallback">
+                    <p>You must have an HTML5 capable browser.</p>
+                </div>
+             </video>
+         <% else %>
+             <%= link_to image_tag('http://littlegreenriver.com/stuffs/starling.png'), app_path(app), :class => 'avatar' %>
+         <% end %>
+         <h3><%= link_to app.name, app %><span class='edit-links'> -- <%= link_to '[Edit]', edit_app_path(app) %> <%= link_to '[Destroy]', app, :confirm => 'Are you sure?', :method => :delete %></span></h3>
+      </li>
+      <% end %>
+    </ul>
+  </div>
