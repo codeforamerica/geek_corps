@@ -1,65 +1,335 @@
-.colored-band {
-  width: 100%;
+@font-face {
+    font-family: "LeagueGothicRegular";
+    src: url("/fonts/League_Gothic-webfont.eot");
+    src: local("?"), url("/fonts/League_Gothic-webfont.woff") format("woff"),
+        url("/fonts/League_Gothic-webfont.ttf") format("truetype"),
+        url("/fonts/League_Gothic-webfont.svg#webfontOTINA1xY") format("svg");
+    font-weight: normal;
+    font-style: normal;
 }
 
-.colored-band :nth-child(1) {
-  float: left;
-  height: 6px;
-  width: 15%;
-  background-color: #03026B; 
+@font-face {
+    font-family: "LeagueGothicRegular";
+    src: url("/fonts/League_Gothic-webfont.eot");
+    src: local("?"), url("/fonts/League_Gothic-webfont.woff") format("woff"),
+        url("/fonts/League_Gothic-webfont.ttf") format("truetype"),
+        url("/fonts/League_Gothic-webfont.svg#webfontOTINA1xY") format("svg");
+    font-weight: bold;
+    font-style: normal;
 }
 
-.colored-band :nth-child(2) {
-  float: left;
-  height: 6px;
-  width: 14%;
-  background-color: #1C009E; 
+
+/**
+ * Main CSS for City-Hero
+ */
+
+/**
+ * General HTML elements styles
+ */
+body {
+    background:#fff;
+    font-family:Helvetica, Arial, sans-serif;
+    color:#333;
+    font-size:12px;
+    padding:0;
+    margin:0;
 }
 
-.colored-band :nth-child(3) {
-  float: left;
-  height: 6px;
-  width: 14%;
-  background-color: #00079E; 
+h1 { font-size:24px; line-height:150%; margin-bottom:15px;}
+h2 { font-size:18px; line-height:150%; margin-bottom:15px;}
+h3 { font-size:16px; line-height:150%; margin-bottom:15px;}
+
+.section-header h1 {
+    font-weight: bold;
+    font-size: 4.2em;
+    text-transform: uppercase;
+    color: #992739;
+    line-height: 100%;
 }
 
-.colored-band :nth-child(4) {
-  float: left;
-  height: 6px;
-  width: 14%;
-  background-color: #03026B; 
+.section-header h2 {
+    font-weight: bold;
+    font-size: 1.6em;
+    text-transform: uppercase;
 }
 
-.colored-band :nth-child(5) {
-  float: left;
-  height: 6px;
-  width: 14%;
-  background-color: #003C9E; 
+.section-header h2 a {
+    color: #992739;
 }
 
-.colored-band :nth-child(6) {
-  float: left;
-  height: 6px;
-  width: 14%;
-  background-color: #006FA0; 
+a:link, a:visited {
+    color:#96a044;
+    text-decoration:none;
 }
 
-.colored-band :nth-child(7) {
-  float: left;
-  height: 6px;
-  width: 15%;
-  background-color: #409DD6; 
+a:hover, a:active {
+    color:#96a044;
+    text-decoration:underline;
+}
+.project_block a:hover, .project_block a:active {
+    text-decoration:none;
+    }
+
+.right { float:right; }
+.left { float:left; }
+
+p {
+    margin-top: 1em;
+    line-height: 1.5em;
 }
 
-/**  FIX ME  **/
-.background-bar {
-  width: 100%;
-  height: 42px;
-  background-color: #1C009E;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#1C009E), to(#2d11af)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(top, #1C009E, #2d11af); /* Chrome 10+, Saf5.1+ */
-  background-image:    -moz-linear-gradient(top, #1C009E, #3e22bf); /* FF3.6 */
-  background-image:     -ms-linear-gradient(top, #1C009E, #2d11af); /* IE10 */
-  background-image:      -o-linear-gradient(top, #1C009E, #2d11af); /* Opera 11.10+ */
-  background-image:         linear-gradient(top, #1C009E, #2d11af);  
+strong {
+    font-weight: bold;
+}
+
+/**
+ * General class styles
+ */
+.clear { 
+    clear: both;
+}
+
+.wrapper {
+    width:960px;
+    position:absolute;
+    left:50%;
+    margin-left:-480px;
+}
+
+.hidden {
+    display: none;
+}
+
+/** 
+ * Header section
+ */
+#header {
+    height:20px;
+    padding:10px 20px;
+    margin-bottom:30px;
+    font-family: "League Gothic", Impact, sans-serif;
+    text-transform: uppercase;
+    color:#fff;
+    background-color: #533549;
+    -webkit-box-shadow: 0px 2px 5px #666;
+    -moz-box-shadow: 0px 2px 5px #666;
+    box-shadow: 0px 2px 5px #666;
+}
+
+#header a {
+    color: white;
+    }
+
+#gc-logo {
+    float: left;
+    margin-right: 30px;
+    font-size: 20px;
+
+}
+
+#main-nav {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    }
+
+#main-nav li {
+    padding-right: 15px;
+    float: left;
+    }
+
+/**
+ * In-place login form mess
+ */
+ 
+.quick_ease, #front_nav li a, #front_nav li .count,
+main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
+    -moz-transition-property: all;
+    -webkit-transition-property: all;
+    -o-transition-property: all;
+    transition-property: all;
+    -moz-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -moz-transition-timing-function: ease-out;
+    -webkit-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+#sign-in-form {
+    -moz-transition-property: height, opacity;
+    -webkit-transition-property: height, opacity;
+    -o-transition-property: height, opacity;
+    transition-property: height, opacity;
+    -moz-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -moz-transition-timing-function: ease-out;
+    -webkit-transition-timing-function: ease-out;
+    -o-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+}
+
+#sign-in {
+    -moz-border-radius: 0.2em;
+    -webkit-border-radius: 0.2em;
+    -o-border-radius: 0.2em;
+    -ms-border-radius: 0.2em;
+    -khtml-border-radius: 0.2em;
+    border-radius: 0.2em;
+}
+
+#sign-in-form {
+    position: absolute;
+    top: 3.45em;
+    left: 50%;
+    z-index: 99;
+    width: 250px;
+    margin-left: 210px;
+    opacity: 0;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    -moz-border-radius: 0.25em;
+    -webkit-border-radius: 0.25em;
+    -o-border-radius: 0.25em;
+    -ms-border-radius: 0.25em;
+    -khtml-border-radius: 0.25em;
+    border-radius: 0.25em;
+    -moz-box-shadow: #333333 1px 1px 5px 0;
+    -webkit-box-shadow: #333333 1px 1px 5px 0;
+    -o-box-shadow: #333333 1px 1px 5px 0;
+    box-shadow: #333333 1px 1px 5px 0;
+}
+
+#sign-in-form.open {
+    border-width: 3px;
+    height: 110px;
+    opacity: 1;
+    -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    padding-bottom: 5px;
+}
+
+#sign-in-form.open {
+    height: 120px;
+}
+
+#sign-in-form.open li {
+    list-style: none;
+}
+
+#sign-in-form.open li li {
+    list-style-image: none;
+    list-style-type: none;
+    margin-left: 0px;
+}
+
+#header #account-box {
+    float: right;
+}
+#header #account-box img.avatar {
+    width: 32px;
+    height: 32px;
+}
+
+#header #account-box .name {
+    display: block;
+    padding-right: 0;
+    margin-right: 0;
+    border-right: none;
+}
+
+#header #account-box #sign-in {
+}
+
+/**
+ * People / apps lists and grids
+ */
+ 
+.count {
+    background: #eeff88;
+    padding-left: 12px;
+    border-radius: 10px;
+    }
+
+.suboptions {
+    padding: 8px 10px;
+    margin: 0 0 15px 0;
+    background: #e6a74d;
+    }
+
+.suboptions a {
+    color: white;
+    }
+
+#new-person, #new-app {
+    float: right;
+    }
+
+#view-options span {
+    margin-right: 20px;
+    }
+#content { overflow: hidden; *zoom: 1; background: white; }
+#content .resource-list li { width: auto; }
+#content .resource-list li h3 { display: inline; margin-right: 0.5em; }
+#content .resource-grid { overflow: hidden; *zoom: 1; }
+#content .resource-grid li { display: inline; float: left; margin-left: 10px; margin-right: 10px; width: 220px; }
+
+.people-list .person p.bio {
+    display: none;
+    }
+
+/**
+ * Footer
+ */
+
+#footer {
+    float: left;
+    width: 920px;
+    height: 140px;
+    font-weight: bold;
+}
+
+#footer ul {
+    display: inline;
+    }
+
+#footer ul li {
+    list-style: none;
+    display: block;
+    float: left;
+    border-right: 1px solid #666;
+    padding: 0 4px 0 4px;
+}
+
+#footer ul li:last-child {
+    border:none;
+}
+
+#footer ul li a {
+    color: #533549;
+    text-transform: uppercase;
+}
+
+#footer ul, #footer p {
+    float: left;
+    display: block;
+}
+
+#footer .footer-logo img {
+    float: right;
+    margin-top: 1em;
+    display: block;
+}
+
+#footer span {
+    color: #333333;
+}
+
+#footer p {
+    color: #999;
 }
