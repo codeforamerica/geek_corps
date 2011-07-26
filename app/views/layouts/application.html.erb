@@ -18,7 +18,9 @@
 
       <%= render :partial => 'shared/header' %>
 
-      <div class="main wrapper">
+      <a id="feedback" href="#"></a>
+
+      <div id="main" class="wrapper">
         <%= yield(:page_heading) %>
         <%= render_flash %>
         <%= yield %>
