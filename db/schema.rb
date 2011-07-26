@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110726171207) do
+ActiveRecord::Schema.define(:version => 20110726194202) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(:version => 20110726171207) do
     t.string   "name"
     t.integer  "skillable_id"
     t.string   "skillable_type"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -209,6 +210,10 @@ ActiveRecord::Schema.define(:version => 20110726171207) do
     t.string   "email"
     t.boolean  "admin",               :default => false
     t.integer  "region_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
 end
