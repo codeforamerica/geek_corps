@@ -3,6 +3,20 @@ require 'faker'
 require 'factory_girl_rails'
 require 'uuid'
 
+sys_admin = Role.create(:name => 'System Administrator')
+back_dev = Role.create(:name => 'Backend Developer')
+front_dev = Role.create(:name => 'Frontend Developer')
+design = Role.create(:name => 'Designer')
+organizer = Role.create(:name => 'Organizer')
+
+%w(ruby python php javascript bash c c++ c# objective-c java css html).each do |lang|
+  Language.create(:name => lang)
+end
+
+sys_skils = %w(puppet chef load_balancing microsoft_iis)
+back_skills = %(rails django drupal nodejs postgresql postgis couchdb redis)
+front_skills = %()
+
 #Add Regions
 puts "Adding Regions"
 [["San Francisco", "CA", "SF"], ["Seattle", "WA", "SEA"], ["Boston", "MA", "BOS"], ["Philadelphia", "PA", "PHL"]]. each do |city|

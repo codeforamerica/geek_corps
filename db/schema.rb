@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110708173625) do
+ActiveRecord::Schema.define(:version => 20110726171207) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -106,6 +106,14 @@ ActiveRecord::Schema.define(:version => 20110708173625) do
   add_index "github_contacts", ["public_gist_count"], :name => "index_github_contacts_on_public_gist_count"
   add_index "github_contacts", ["public_repo_count"], :name => "index_github_contacts_on_public_repo_count"
 
+  create_table "languages", :force => true do |t|
+    t.string   "name"
+    t.integer  "polyglot_id"
+    t.string   "polyglot_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "people", :force => true do |t|
     t.string   "bio"
     t.string   "location"
@@ -134,6 +142,22 @@ ActiveRecord::Schema.define(:version => 20110708173625) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nick_name"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.integer  "rolable_id"
+    t.string   "rolable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "skills", :force => true do |t|
+    t.string   "name"
+    t.integer  "skillable_id"
+    t.string   "skillable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", :force => true do |t|

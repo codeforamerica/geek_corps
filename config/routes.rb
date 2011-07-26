@@ -1,13 +1,20 @@
 GeekCorps::Application.routes.draw do 
+
+  resources :languages
+
+  resources :skills
+
+  resources :roles
+
   resources :details
 
-  resources :teams do 
+  resources :teams do
     resources :members
   end
 
   resources :regions
 
-  resources :apps do 
+  resources :apps do
     resources :teams
   end
 
@@ -40,11 +47,17 @@ GeekCorps::Application.routes.draw do
     get "/sign_out" => "devise/sessions#destroy"
     get "/sign_in" => "users/sessions#new"
   end
-  
+
   match '/auth/:provider/callback' => 'authentications#create'
   match '/auth/auto' => 'authentications#auto'
   match '/auth/failure' => 'authentications#auth_failure'
   match '/:team_name' => 'teams#show'
-  
+
+  get 'privacy' => 'pages#privacy'
+  get 'about' => 'pages#about'
+  get 'api' => 'pages#api'
+  get 'blog' => 'pages#blog'
+  get 'contact' => 'pages#contact'
+  get 'terms' => 'pages#terms'
 
 end

@@ -1,0 +1,80 @@
+css class/id manifest:
+
+cfa-blue: #409DD6
+cfa-red: #CB2A3C
+city-hero-border: #E9E9E9
+city-hero-purple: #533549
+citizenry-green: #7DC358
+citizenry-blue: #50A7D5
+citizenry-blue-compliment: #006FA0
+citizenry-purple: #AF71DD
+citizenry-fuscia: #EDABDE
+citizenry-pink: #F3B3B9
+citizenry-yellow: #EFA54A
+
+possible geekcorp blues:
+#003C9E
+#00079E
+#1C009E
+#03026B
+
+html
+  body
+    in: shared/header
+    div#header
+      div.colored-band
+        span.color-in-band x 7
+      div.background-bar
+      div.body-wrapper
+        div#gc-logo
+          img
+          p#header-slogan
+      ul#header-links
+        li  |
+          a | x 2
+      div#user-links
+        `````
+        img.current-user-thumb
+        a#user-home
+        a#sign-out
+        ----
+        a#sign-in
+        ,,,,,,
+
+    in: "model"/index
+    div.body-wrapper
+      div#page-heading
+        h1
+        p
+
+      in: shared/search
+      form
+        input
+        .... (wip)
+
+      in: shared/list
+      ul#front-list
+
+        in: shared/list_item
+        li.front-box
+          img
+          dl
+            dt
+            dd
+          p.list-item-description
+
+    in: shared/footer
+    div#footer
+      div.body-wrapper
+        div#footer-links
+          li    |
+            a   | x 6
+        p#props
+        p#footer-slogan
+          a
+        q
+        a#cfa-logo
+          img
+        div.colored-band
+          span.color-in-band x 7
+        div.background-bar

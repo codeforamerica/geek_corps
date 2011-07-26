@@ -1,6 +1,0 @@
-<% context ||= :general %>
-<ul class='resource-grid people'>
-  <%= render :partial => 'people/grid_item', :collection => grid, :locals => {:context => context} %>
-</ul>
-
-<%= render :partial => 'shared/list_pagination', :object => grid %>
