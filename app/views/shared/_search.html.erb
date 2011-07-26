@@ -1,2 +1,7 @@
-<%= form_tag do %>
+<%= form_for @search, :url => polymorphic_path(resource), :html => {:method => :get} do |f| %>
+  <%= f.text_field :name_contains, :id => 'main-search' %>
+  <%= f.select :roles_id_equals, Role.all.map {|r| [r.id, r.name] } %>
+  <%= f.select :skills_id_equals, Skill.all.map {|s| [s.id, s.name] } %>
+  <%= f.select :languages_id_equals, Language.all.map {|l| [l.id, l.name] } %>
+  <input id="main-submit" type="image" alt="Search" value="Search" src="/images/binocular.png" />
 <% end %>

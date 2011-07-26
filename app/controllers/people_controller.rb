@@ -8,7 +8,8 @@ class PeopleController < InheritedResources::Base
 
   def index
     @view = :grid if params[:grid]
-    index!
+    @search = Person.search(params[:search])
+    @people = @search.paginate
   end
 
   def tag
