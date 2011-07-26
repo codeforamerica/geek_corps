@@ -1,5 +1,5 @@
 <li class="front-box">
-  <h3><%= list_item.name %></h3>
+  <h3><%= link_to list_item.name, polymorphic_path(list_item) %></h3>
   <%= image_tag list_item.photo.url %>
   <dl>
     <!--- list_item.stats.each do |stat|  --->
