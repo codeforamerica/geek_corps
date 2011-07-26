@@ -1,5 +1,11 @@
 GeekCorps::Application.routes.draw do 
 
+  resources :languages
+
+  resources :skills
+
+  resources :roles
+
   resources :details
 
   resources :teams do

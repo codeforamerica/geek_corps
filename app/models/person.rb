@@ -21,6 +21,9 @@ class Person < ActiveRecord::Base
     :default_url => '/images/geekcorpsavatar1.png'
 
     belongs_to :user
+    has_many :skills, :as => :skillable
+    has_many :roles, :as => :rolable
+    has_many :languages, :as => :polyglot
 
     before_validation :on => :create do
       if self.photo_import_url.present?
