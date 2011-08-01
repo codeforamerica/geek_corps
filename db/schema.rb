@@ -85,6 +85,24 @@ ActiveRecord::Schema.define(:version => 20110801152005) do
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
+  create_table "deploy_task_resources", :force => true do |t|
+    t.integer  "deploy_task_id"
+    t.integer  "team_id"
+    t.string   "resource_type"
+    t.text     "content"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "deploy_tasks", :force => true do |t|
+    t.integer  "app_id"
+    t.string   "type"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "details", :force => true do |t|
     t.integer  "app_id"
     t.integer  "team_id"
@@ -177,24 +195,6 @@ ActiveRecord::Schema.define(:version => 20110801152005) do
     t.datetime "updated_at"
   end
 
-  create_table "step_resources", :force => true do |t|
-    t.integer  "step_id"
-    t.integer  "team_id"
-    t.string   "resource_type"
-    t.text     "content"
-    t.string   "link"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "steps", :force => true do |t|
-    t.integer  "app_id"
-    t.string   "step_type"
-    t.integer  "parent_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -212,6 +212,14 @@ ActiveRecord::Schema.define(:version => 20110801152005) do
     t.string "name"
   end
 
+  create_table "team_deploy_tasks", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "deploy_task_id"
+    t.boolean  "completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "team_members", :force => true do |t|
     t.integer  "team_id"
     t.integer  "user_id"
@@ -220,14 +228,6 @@ ActiveRecord::Schema.define(:version => 20110801152005) do
     t.datetime "updated_at"
     t.boolean  "admin",      :default => false
     t.integer  "app_id"
-  end
-
-  create_table "team_steps", :force => true do |t|
-    t.integer  "team_id"
-    t.integer  "step_id"
-    t.boolean  "completed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "teams", :force => true do |t|
