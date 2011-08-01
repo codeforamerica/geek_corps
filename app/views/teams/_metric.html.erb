@@ -1,17 +1,21 @@
-<div id="metric_block" class="sb_container"> 
-    <div id="metric_content"> 
-        <ul> 
-            <li><span class="metric_value"><%=@team.members.uniq.size%></span>Team Members</li> 
-            <li><span class="metric_value"><%=@team.team_members.where(:team_role => 'developer').uniq.size%></span>Developers</li>             
-        </ul> 
-        <div id="join_project_wrapper"> 
-        <div id="join_project"> 
-          <% if current_user.teams.where(:id => @team).blank?%>
-            <%= button_to "Join this Team!", team_members_path(@team)  %>
+<div id="metric-block" class="side-bar-item">
+    <div id="metric-content">
+        <ul>
+            <li><span class="metric-value"><%=@team.members.uniq.size%></span>Team Members</li>
+            <li><span class="metric-value"><%=@team.team_members.where(:team_role => 'developer').uniq.size%></span>Developers</li>
+        </ul>
+        <div id="join-project-wrapper">
+        <div id="join-project">
+          <% if user_signed_in? %>
+            <% if current_user.teams.where(:id => @team).blank?%>
+              <%= button_to "Join this Team!", team_members_path(@team)  %>
+            <% else %>
+              Your Team Role: <%=current_user.team_members.where(:team_id => @team).first.team_role.capitalize%>
+            <% end %>
           <% else %>
-          Your Team Role: <%=current_user.team_members.where(:team_id => @team).first.team_role.capitalize%>
+            Join the Geek Corps to help start this project
           <% end %>
-        </div> 
-        </div> 
-    </div> 
-</div> 
+        </div>
+        </div>
+    </div>
+</div>

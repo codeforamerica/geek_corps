@@ -1,0 +1,25 @@
+<div class="title-main">
+  <h1 class="app-name">  <%= @team.app.name %> in <%=@team.region.city%>,<%=@team.region.state%></h1> 
+  <div class="title-content">
+    <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
+      <%=link_to organizer.user.person.name, organizer.user.person %>
+      <%end%>
+    </h2>
+  </div>
+  <ul id="app-nav">
+    <li><%= link_to 'Home', @team %></li>
+    <li><%= link_to 'People', teams_people_path(@team.name) %></li>
+    <li>Steps</li>
+    <li><%= link_to 'Repo', @team.repo_url %></li>
+  </ul>
+</div>
+<div id="content">
+  <div id="main-bar" class="main-list-type">
+    <%= render :partial => 'shared/list_item', :collection => @people %>
+  </div>
+
+  <div id="side-bar">
+    <%= render :partial => "metric"%>
+  </div>
+</div>
+

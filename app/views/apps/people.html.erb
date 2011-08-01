@@ -1,0 +1,19 @@
+<h1 class="app-name"><%= @app.name %></h1>
+<ul id="app-nav">
+  <li><%= link_to 'Home', @app %></li>
+  <li><%= link_to 'People', apps_people_path(@app) %></li>
+  <li>Steps</li>
+  <li><%= link_to 'Repo', @app.core_team.repo_url %></li>
+</ul>
+<div id="content">
+  <div id="main-bar" class="main-list-type">
+    <%= render :partial => 'shared/list_item', :collection => @people %>
+  </div>
+
+  <div id="side-bar">
+    <%= render :partial => "metric"%>
+    <%= render :partial => "core_team"%>
+    <%= render :partial => "implementations"%>
+  </div>
+</div>
+

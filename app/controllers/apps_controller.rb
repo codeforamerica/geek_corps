@@ -1,5 +1,5 @@
 class AppsController < InheritedResources::Base
-  before_filter :require_admin!, :except => [:show, :index]
+  before_filter :require_admin!, :except => [:show, :index, :people]
 
   def index
     @search = App.search(params[:search])
@@ -11,6 +11,12 @@ class AppsController < InheritedResources::Base
     else
       @app = App.where(:id => params[:id]).first
     end
+  end
+
+  def people
+    @app = App.where(:id => params[:id]).first
+    users = User.joins(:team_members, :teams).where(:team_members => {:app_id => params[:id]}).where(:team_members => {:teams => {:team_type => 'core'}}).includes(:person).all
+    @people = users.map(&:person)
   end
 
 end
