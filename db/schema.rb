@@ -10,14 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110726194202) do
+ActiveRecord::Schema.define(:version => 20110801152005) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "video_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "video_file_name"
+    t.string   "video_content_type"
+    t.integer  "video_file_size"
+    t.datetime "video_updated_at"
   end
 
   create_table "authentications", :force => true do |t|
@@ -46,6 +53,15 @@ ActiveRecord::Schema.define(:version => 20110726194202) do
     t.string   "city"
     t.string   "postal_code"
     t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.text     "text"
+    t.integer  "user_id"
+    t.integer  "flag"
+    t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -161,6 +177,24 @@ ActiveRecord::Schema.define(:version => 20110726194202) do
     t.datetime "updated_at"
   end
 
+  create_table "step_resources", :force => true do |t|
+    t.integer  "step_id"
+    t.integer  "team_id"
+    t.string   "resource_type"
+    t.text     "content"
+    t.string   "link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "steps", :force => true do |t|
+    t.integer  "app_id"
+    t.string   "step_type"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -188,6 +222,14 @@ ActiveRecord::Schema.define(:version => 20110726194202) do
     t.integer  "app_id"
   end
 
+  create_table "team_steps", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "step_id"
+    t.boolean  "completed"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "teams", :force => true do |t|
     t.integer  "app_id"
     t.integer  "region_id"
@@ -195,6 +237,7 @@ ActiveRecord::Schema.define(:version => 20110726194202) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "repo_url"
   end
 
   create_table "users", :force => true do |t|
@@ -210,10 +253,6 @@ ActiveRecord::Schema.define(:version => 20110726194202) do
     t.string   "email"
     t.boolean  "admin",               :default => false
     t.integer  "region_id"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
 end
