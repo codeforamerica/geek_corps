@@ -54,6 +54,7 @@ Factory.define :team do |f|
   f.region {Factory(:region)}
   f.team_type "Super!"
   f.name Faker::Name.name
+  f.repo_url "http://github.com/codeforamerica"
 end
 
 #--[ TeamMember ]-------------------------------------------------------------------
@@ -86,6 +87,7 @@ end
 Factory.define :skill do |s|
   s.name 'Rails'
   s.role { Factory(:role) }
+  s.skillable Person.first
 end
 
 #--[ Person ]-------------------------------------------------------------------
@@ -94,9 +96,9 @@ Factory.define :person do |p|
   p.url { Faker::Internet.domain_name }
   p.bio { Faker::Lorem.paragraph }
   p.location { Faker::Address.city }
-  p.roles { Factory(:role) }
-  p.languages { Factory(:language) }
-  p.skills { Factory(:skill) }
+  p.roles { [ Factory(:role) ] }
+  p.languages { [ Factory(:language) ] }
+  p.skills { [ Factory(:skill) ] }
 end
 
 Factory.define :admin_user, :parent => :user do |u|

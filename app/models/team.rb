@@ -5,6 +5,8 @@ class Team < ActiveRecord::Base
   has_many :details
   belongs_to :app
   before_create :create_team_name
+  has_many :team_steps
+  has_many :steps, :through => :team_steps
 
   validates_uniqueness_of :region_id, :scope => :app_id
 

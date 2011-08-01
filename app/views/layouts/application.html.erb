@@ -10,13 +10,12 @@
       <% end %>
    </title>
     <%= stylesheet_link_tag 'reset', 'geekcorps' %>
-    <%= javascript_include_tag 'lib/jquery.min.js', 'lib/jquery-ujs', 
-        'lib/underscore.js', 'lib/backbone.js', 'geekcorps.js' %>
+    <%= javascript_include_tag 'lib/jquery.min.js', 'lib/jquery-ujs' %>
     <%= csrf_meta_tag %>
   </head>
   <body>
       <%= render :partial => 'shared/header' %>
-      <a id="feedback" href="#"></a>
+      <a id="feedback" href="http://getsatisfaction.com/geekcorps"></a>
 
       <div id="main" class="wrapper">
         <%= yield(:page_heading) %>

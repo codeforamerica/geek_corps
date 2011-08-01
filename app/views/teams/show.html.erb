@@ -1,51 +1,47 @@
-<p id="notice"><%= notice %></p>
+<div class="title-main">
+  <h1 class="app-name">  <%= @team.app.name %> in <%=@team.region.city%>,<%=@team.region.state%></h1> 
+  <div class="title-content">
+    <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
+      <%=link_to organizer.user.person.name, organizer.user.person %>
+      <%end%>
+      </h2>
+  </div>
+  <ul id="app-nav">
+    <li><%= link_to 'Home', @team %></li>
+    <li><%= link_to 'People', teams_people_path(@team.name) %></li>
+    <li>Steps</li>
+    <li><%= link_to 'Repo', @team.repo_url %></li>
+  </ul>
+</div>
+<div id="content">
+  <div id="main-bar">
 
-      <div class="title-main"> 
-          <h1>  <%= @team.app.name %> in <%=@team.region.city%>,<%=@team.region.state%></h1> 
-          <!-- Render header partials --> 
-          <div class="title-content">             
-            <h2></h2>
-            <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
-              <%=link_to organizer.user.person.name, organizer.user.person %>
-              <%end%>
-              </h2>
-          </div> 
-      </div> 
-<!-- Begin Content -->           
-      <div id="content"> 
-          <div class="content-inner"> 
-              <!-- Render main content --> 
-              <div class="content-main"> 
-                <div class="project_description"> 
-                  <div class="project_image_box"> 
-                    <img class="project_image" src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects/a8ae67efbc81367f012a4717280178b8/project-image" /> 
-                  </div> 
-                <div class="social_bar"> 
-                  <div id="fb-root"></div>
-                  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-                  <fb:like href="" send="false" width="450" show_faces="true" font=""></fb:like> 
-                </div>     
-          <div class="project_text"> 
-              <div class="project_overview"> 
-                  <header> 
-                      <h1>About This Project</h1> 
-                  </header> 
-                  <p><%= @team.app.description %></p> 
-              </div>  
-          </div> 
-      </div> 
+    <div id="visual-intro-box">
+      <% unless @team.app.video.url == '/videos/original/missing.png' %>
+        <%= video_tag @team.app.video.url, :id => 'app-video', :class => 'main-visual' %>
+      <% else %>
+        <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
+      <% end %>
+      <div id="social-bar"> 
+        <div id="fb-root"></div>
+        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+        <fb:like href="" send="false" width="450" show_faces="true" font=""></fb:like> 
+      </div>
     </div>
+
+    <div class="project-text"> 
+      <h1>About This Project</h1>
+      <p><%= @team.app.description %></p> 
+    </div>
+
+    <% render :partial => 'activity_stream' %>
+
+  </div>
+
+  <div id="side-bar">
+    <%= render :partial => "metric"%>
+    <%= render :partial => "organizers"%>
+    <%= render :partial => "supporters"%>
   </div>
 </div>
-<!-- End Content -->   
-<!-- Begin Side Bar -->   
-<div id="sidebar"> 
-    <div class="sidebar-inner">  
-        <div class="content-main"> 
-          <%= render :partial => "metric"%>
-          <%= render :partial => "organizers"%>
-          <%= render :partial => "supporters"%>          
-        </div> 
-      </div> 
-  </div>
 

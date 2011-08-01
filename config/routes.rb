@@ -1,4 +1,4 @@
-GeekCorps::Application.routes.draw do 
+GeekCorps::Application.routes.draw do
 
   resources :languages
 
@@ -52,6 +52,8 @@ GeekCorps::Application.routes.draw do
   match '/auth/auto' => 'authentications#auto'
   match '/auth/failure' => 'authentications#auth_failure'
   match '/:team_name' => 'teams#show'
+  match '/apps/:id/people' => 'apps#people', :as => 'apps_people'
+  match '/:team_name/people' => 'teams#people', :as => 'teams_people'
 
   get 'privacy' => 'pages#privacy'
   get 'about' => 'pages#about'

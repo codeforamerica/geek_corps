@@ -1,11 +1,13 @@
 class App < ActiveRecord::Base
   has_many :teams
+  has_one  :core_team, :class_name => "Team", :conditions => {:team_type => 'core'}
   has_many :details
   has_many :team_members
   has_many :members, :through => :team_members, :source => :user, :uniq => true
   has_many :roles, :as => :rolable
   has_many :skills, :as => :skillable
   has_many :languages, :as => :polyglot
+  has_many :steps
 
   validates_uniqueness_of :name, :on => :create, :message => "must be unique"
 
@@ -20,12 +22,20 @@ class App < ActiveRecord::Base
   has_attached_file :photo,
     :storage => :s3,
     :bucket => 'geekcorps_' + Rails.env,
-    :path => "/:id/:filename",
+    :path => "/app_photo/:id/:filename",
     :s3_credentials => {
       :access_key_id => S3_KEY,
       :secret_access_key => S3_SECRET
-    },
-    :default_url => '/images/geekcorpsavatar1.png'
+    }
+
+  has_attached_file :video,
+    :storage => :s3,
+    :bucket => 'geekcorps_' + Rails.env,
+    :path => "/app_video/:id/:filename",
+    :s3_credentials => {
+      :access_key_id => S3_KEY,
+      :secret_access_key => S3_SECRET
+    }
 
   before_validation :on => :create do
     if self.photo.nil?

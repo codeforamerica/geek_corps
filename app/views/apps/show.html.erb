@@ -1,46 +1,39 @@
-<p id="notice"><%= notice %></p>
+<h1 class="app-name"><%= @app.name %></h1>
+<ul id="app-nav">
+  <li><%= link_to 'Home', @app %></li>
+  <li><%= link_to 'People', apps_people_path(@app) %></li>
+  <li>Steps</li>
+  <li><%= link_to 'Repo', @app.core_team.repo_url %></li>
+</ul>
+<div id="content">
+  <div id="main-bar">
 
-      <div class="title-main"> 
-          <h1>  <%= @app.name %></h1> 
-          <!-- Render header partials --> 
-          <div class="title-content">             
-            <h2>Owned by <a href="/profile/john.mertens">john.mertens</a></a>, <a href="#">Ballard, Seattle, WA, USA</a></h2>
-          </div> 
-      </div> 
-<!-- Begin Content -->           
-      <div id="content"> 
-          <div class="content-inner"> 
-              <!-- Render main content --> 
-              <div class="content-main"> 
-                <div class="project_description"> 
-                  <div class="project_image_box"> 
-                    <img class="project_image" src="http://ec2-184-73-122-209.compute-1.amazonaws.com:5984/projects/a8ae67efbc81367f012a4717280178b8/project-image" /> 
-                  </div> 
-                <div class="social_bar"> 
-                  <div id="fb-root"></div>
-                  <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-                  <fb:like href="" send="false" width="450" show_faces="true" font=""></fb:like> 
-                </div>     
-          <div class="project_text"> 
-              <div class="project_overview"> 
-                  <header> 
-                      <h1>About This Project</h1> 
-                  </header> 
-                  <p><%= @app.description %></p> 
-              </div>  
-          </div> 
-      </div> 
+    <div id="visual-intro-box">
+      <% unless @app.video.url == '/videos/original/missing.png' %>
+        <%= video_tag @app.video.url, :id => 'app-video', :class => 'main-visual' %>
+      <% else %>
+        <%= image_tag @app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
+      <% end %>
+      <div id="social-bar"> 
+        <div id="fb-root"></div>
+        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
+        <fb:like href="" send="false" width="450" show_faces="true" font=""></fb:like> 
+      </div>
     </div>
+
+    <div class="project-text"> 
+      <h1>About This Project</h1>
+      <p><%= @app.description %></p> 
+    </div>
+
+    <%= render :partial => 'activity_stream' %>
+
+  </div>
+
+  <div id="side-bar">
+    <%= render :partial => "metric"%>
+    <%= render :partial => "core_team"%>
+    <%= render :partial => "implementations"%>
   </div>
 </div>
-<!-- End Content -->   
-<!-- Begin Side Bar -->   
-<div id="sidebar"> 
-    <div class="sidebar-inner">  
-        <div class="content-main"> 
-          <%= render :partial => "metric"%>
-          <%= render :partial => "core_team"%>
-          <%= render :partial => "implementations"%>          
-        </div> 
-      </div> 
-  </div>
+

@@ -1,6 +1,5 @@
 class TeamsController < InheritedResources::Base
-  before_filter :authenticate_user!, :except => [:show, :index]
-  layout "apps"
+  before_filter :authenticate_user!, :except => [:show, :index, :people]
 
   def create
     app = App.where(:id => params[:app_id]).first
@@ -10,11 +9,24 @@ class TeamsController < InheritedResources::Base
   end
 
   def show
+    find_team
+    redirect_to app_path(@team.app) if @team.team_type == "core"
+  end
+
+  def people
+    find_team
+    redirect_to apps_people_path(@team.app) if @team.team_type == "core"
+    users = User.joins(:team_members).where(:team_members => {:team_id => @team.id})
+    @people = users.map(&:person)
+  end
+
+  private
+
+  def find_team
     if params[:team_name]
       @team = Team.where(:name => params[:team_name].downcase).first
     else
       @team = Team.where(:id => params[:id]).first
     end
-    redirect_to app_path(@team.app) if @team.team_type == "core"
   end
 end
