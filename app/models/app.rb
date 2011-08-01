@@ -7,7 +7,7 @@ class App < ActiveRecord::Base
   has_many :roles, :as => :rolable
   has_many :skills, :as => :skillable
   has_many :languages, :as => :polyglot
-  has_many :steps
+  has_many :deploy_tasks
 
   validates_uniqueness_of :name, :on => :create, :message => "must be unique"
 

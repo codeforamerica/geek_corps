@@ -1,7 +1,7 @@
-class CreateStepResources < ActiveRecord::Migration
+class CreateDeployTaskResources < ActiveRecord::Migration
   def self.up
-    create_table :step_resources do |t|
-      t.integer :step_id
+    create_table :deploy_task_resources do |t|
+      t.integer :deploy_task_id
       t.integer :team_id
       t.string  :resource_type
       t.text    :content
@@ -11,6 +11,6 @@ class CreateStepResources < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :step_resources
+    drop_table :deploy_task_resources
   end
 end
