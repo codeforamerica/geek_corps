@@ -39,9 +39,9 @@ h1, h2, h3 {
     font-family: "League Gothic", Impact, sans-serif;
     }
 
-h1 { font-size:24px; line-height:150%; margin-bottom:15px;}
-h2 { font-size:18px; line-height:150%; margin-bottom:15px;}
-h3 { font-size:16px; line-height:150%; margin-bottom:15px;}
+h1 { font-size:2em; line-height:150%; margin-bottom:15px;}
+h2 { font-size:1.5em; line-height:150%; margin-bottom:15px;}
+h3 { font-size:1.25em; line-height:150%; margin-bottom:15px;}
 
 /***
 *
@@ -70,13 +70,13 @@ h3 { font-size:16px; line-height:150%; margin-bottom:15px;}
 }
 
 #page-heading h1 {
-    font-size: 96px;
+    font-size: 4em;
     line-height: 120px;
     margin: 0 0 0 54px;
 }
 
 #page-heading p {
-    font-size: 24px;
+    font-size: 2em;
     padding: 0 42px;
     text-indent: 12px;
     margin-top: 12px;
@@ -84,7 +84,7 @@ h3 { font-size:16px; line-height:150%; margin-bottom:15px;}
 }
 
 #main-search {
-    font-size: 54px;
+    font-size: 2.5em;;
     -moz-border-radius: 12px 0 0 12px;
     -webkit-border-radius: 12px 0 0 12px;
     border-radius: 12px 0 0 12px;
@@ -172,6 +172,7 @@ strong {
     padding:10px 20px;
     margin-bottom:30px;
     font-family: "League Gothic", Impact, sans-serif;
+    font-size: 1.2em;
     text-transform: uppercase;
     color:#fff;
     background-color: #533549;
@@ -187,14 +188,14 @@ strong {
 #gc-logo {
     float: left;
     margin-right: 30px;
-    font-size: 20px;
+    font-size: 1.7em;
 }
 
 #main-nav {
     display: inline;
     margin: 0;
     padding: 0;
-    font-size: 18px;
+    font-size: 1.5em;
 }
 
 #main-nav li {
@@ -406,7 +407,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     bottom: 0;
     z-index: 1;
     text-align: center;
-    font-size: 22px;
+    font-size: 1.9em;
     overflow: hidden;
     font-family: "League Gothic", Impact, sans-serif;
 }
@@ -463,11 +464,11 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 }
 
 .app-name {
-    font-size: 48px;
+    font-size: 4em;
 }
 
 #app-nav {
-    font-size: 18px;
+    font-size: 1.5em;
     display: block;
     float: left;
 }
@@ -582,7 +583,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     width: 100%;
     margin: 10px 0;
     padding: 10px;
-    font-size: 28px;
+    font-size: 2.4em;
     color: #533549;
     -moz-box-shadow: 1px 1px 4px #444;
     -webkit-box-shadow: 1px 1px 4px #444;
@@ -595,9 +596,9 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     }
 
 .metric-value {
-    font-size: 32px;
+    font-size: 1.5em;
     font-weight: 700;
-    width: 2em;
+    padding-right: 10px;
     display: inline-block;
     color: #992739;
 }
@@ -609,10 +610,13 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     color: #eee;
 }
 
+#join-project {
+    margin: 0 auto;
+    }
+
 .side-bar-item {
     width: 100%;
     margin: 10px auto;
-    font-size: 28px;
     -moz-box-shadow: 1px 1px 4px #444;
     -webkit-box-shadow: 1px 1px 4px #444;
     box-shadow: 1px 2px 3px #444;
@@ -622,11 +626,12 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     background-color: #E89A41;
     text-transform: uppercase;
     font-family: "League Gothic", Impact, sans-serif;
-    font-size: 32px
+    font-size: 2.6em;
     font-weight: 700px;
     padding: 10px;
 }
 
 .side-bar-box-content {
     margin: 10px;
+    font-size: 1.2em;
 }
