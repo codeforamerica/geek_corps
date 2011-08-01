@@ -7,7 +7,6 @@ class PeopleController < InheritedResources::Base
   before_filter :set_user_id_if_admin, :only => [:update, :create]
 
   def index
-    @view = :grid if params[:grid]
     @search = Person.search(params[:search])
     @people = @search.paginate
   end
@@ -52,11 +51,11 @@ class PeopleController < InheritedResources::Base
       @person.imported_from_id = current_user.authentications.first.uid
       @person.user.update_attributes(:region_id => params[:person][:location].to_i)
     end
-    
+
     create!
-    
+
   end
-  
+
   def update
     if params[:person][:location] != current_user.region
       current_user.update_attributes(:region_id => params[:person][:location])
