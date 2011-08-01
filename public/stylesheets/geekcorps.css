@@ -1,5 +1,5 @@
-@font-face {
-    font-family: "LeagueGothicRegular";
+ @font-face {
+    font-family: "LeagueGothic";
     src: url("/fonts/League_Gothic-webfont.eot");
     src: local("?"), url("/fonts/League_Gothic-webfont.woff") format("woff"),
         url("/fonts/League_Gothic-webfont.ttf") format("truetype"),
@@ -34,6 +34,10 @@ body {
     padding:0;
     margin:0;
 }
+
+h1, h2, h3 {
+    font-family: "League Gothic", Impact, sans-serif;
+    }
 
 h1 { font-size:24px; line-height:150%; margin-bottom:15px;}
 h2 { font-size:18px; line-height:150%; margin-bottom:15px;}
@@ -288,6 +292,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 }
 
 #header #account-box {
+    font-family: "League Gothic", Impact, sans-serif;
     float: right;
 }
 #header #account-box img.avatar {
@@ -582,7 +587,12 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     -moz-box-shadow: 1px 1px 4px #444;
     -webkit-box-shadow: 1px 1px 4px #444;
     box-shadow: 1px 2px 3px #444;
+    font-family: "League Gothic", Impact, sans-serif;
 }
+
+#metric-block li {
+    text-transform: uppercase;
+    }
 
 .metric-value {
     font-size: 32px;
@@ -611,6 +621,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 .side-bar-box-title {
     background-color: #E89A41;
     text-transform: uppercase;
+    font-family: "League Gothic", Impact, sans-serif;
     font-size: 32px
     font-weight: 700px;
     padding: 10px;
