@@ -22,19 +22,19 @@ require 'uuid'
 end
 
 @sys_skills = @sys_skills.map do |skill|
-  Factory(:skill, :name => skill, :role => @sys_admin)
+  Factory(:skill, :name => skill, :skillable => nil, :role => @sys_admin)
 end
 
 @back_skills = @back_skills.map do |skill|
-  Factory(:skill, :name => skill, :role => @back_dev)
+  Factory(:skill, :name => skill, :skillable => nil, :role => @back_dev)
 end
 
 @design_skills = @design_skills.map do |skill|
-  Factory(:skill, :name => skill, :role => @design)
+  Factory(:skill, :name => skill, :skillable => nil, :role => @design)
 end
 
 @organize_skills = @organize_skills.map do |skill|
-  Factory(:skill, :name => skill, :role => @organizer)
+  Factory(:skill, :name => skill, :skillable => nil, :role => @organizer)
 end
 
 @skills = [@sys_skills, @back_skills, @design_skills, @organize_skills].flatten

@@ -356,7 +356,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     box-shadow: 1px 2px 3px #444;
 }
 
-#front-list li {
+.main-list-type li {
     position: relative;
     float: left;
     margin: 10px;
@@ -393,7 +393,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     transform: skew(5deg) rotate(4deg);
 }
 
-#front-list h3 {
+.main-list-type h3 {
     background-color: rgba(255, 255, 255, .7);
     margin: 0;
     width: 100%;
@@ -414,11 +414,12 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     height: 140px;
     font-weight: bold;
     margin-top: 30px;
+    clear: both;
 }
 
 #footer ul {
-    display: inline;
-    }
+    margin: auto;
+}
 
 #footer ul li {
     list-style: none;
@@ -437,12 +438,12 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     text-transform: uppercase;
 }
 
-#footer ul, #footer p {
+#maker, #props, #footer q {
     float: left;
-    display: block;
+    clear: left;
 }
 
-#footer .footer-logo img {
+#cfa-logo {
     float: right;
     margin-top: 1em;
     display: block;
@@ -454,4 +455,167 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 
 #footer p {
     color: #999;
+}
+
+.app-name {
+    font-size: 48px;
+}
+
+#app-nav {
+    font-size: 18px;
+    display: block;
+    float: left;
+}
+
+#app-nav li {
+    display: block;
+    float:left;
+    margin-right: 15px;
+}
+
+#content {
+    clear: both;
+}
+
+#main-bar {
+    position: relative;
+    float:left;
+    width: 60%;
+    border: 22px solid #E9E9E9;
+    margin: 20px 20px 20px 0;
+    -moz-box-shadow: 1px 1px 4px #444;
+    -webkit-box-shadow: 1px 1px 4px #444;
+    box-shadow: 1px 2px 3px #444;
+}
+
+/***
+ *  Help CSS Wizard! I'm not a CSS guru, was able to get
+ *  this to work on the main page, but haven't been able to
+ *  get it to work on the apps show page. Must move on to
+ *  business logic....  Help!!
+ *
+*#main-bar:before, #main-bar:after {
+*    position: absolute;
+*    width: 40%;
+*    height: 10px;
+*    content: ' ';
+*    left: 1px;
+*    bottom: -10px;
+*    background: transparent;
+*    -webkit-transform: skew(-5deg) rotate(-4deg);
+*    -moz-transform: skew(-5deg) rotate(-4deg);
+*    -ms-transform: skew(-5deg) rotate(-4deg);
+*    -o-transform: skew(-5deg) rotate(-4deg);
+*    transform: skew(-5deg) rotate(-4deg);
+*    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+*    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+*    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+*    z-index: -1;
+*}
+*
+*#main-bar:after {
+*    left: auto;
+*    right: 12px;
+*    -webkit-transform: skew(5deg) rotate(4deg);
+*    -moz-transform: skew(5deg) rotate(4deg);
+*    -ms-transform: skew(5deg) rotate(4deg);
+*    -o-transform: skew(5deg) rotate(4deg);
+*    transform: skew(5deg) rotate(4deg);
+*}
+*
+***/
+
+#side-bar {
+    float: right;
+    width: 30%;
+}
+
+.main-visual {
+    display: block;
+    width: 600px;
+    height: 450px;
+}
+
+#social-bar {
+    background-color: #ccc;
+}
+
+.project-text {
+    position: relative;
+    margin: 10px -47px 10px -47px;
+    padding: 10px 47px 10px 47px;
+    background-color: #333;
+    color: #eee;
+}
+
+.project-text:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 0;
+    bottom: -10px;
+    border-width: 5px 13px;
+    border-style: solid;
+    border-color: #666 #666 transparent transparent;
+}
+
+.project-text:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    right: 0;
+    bottom: -10px;
+    border-width: 5px 13px;
+    border-style: solid;
+    border-color: #666 transparent transparent #666;
+}
+
+#metric-block {
+    border: 20px solid #533549;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 28px;
+    color: #533549;
+    -moz-box-shadow: 1px 1px 4px #444;
+    -webkit-box-shadow: 1px 1px 4px #444;
+    box-shadow: 1px 2px 3px #444;
+}
+
+.metric-value {
+    font-size: 32px;
+    font-weight: 700;
+    width: 2em;
+    display: inline-block;
+    color: #992739;
+}
+
+#join-project-wrapper {
+    margin: 10px -40px;
+    padding: 10px;
+    background-color: #992739;
+    color: #eee;
+}
+
+.side-bar-item {
+    width: 100%;
+    margin: 10px auto;
+    font-size: 28px;
+    -moz-box-shadow: 1px 1px 4px #444;
+    -webkit-box-shadow: 1px 1px 4px #444;
+    box-shadow: 1px 2px 3px #444;
+}
+
+.side-bar-box-title {
+    background-color: #E89A41;
+    text-transform: uppercase;
+    font-size: 32px
+    font-weight: 700px;
+    padding: 10px;
+}
+
+.side-bar-box-content {
+    margin: 10px;
 }
