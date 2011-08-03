@@ -76,7 +76,7 @@ Factory(:app, :name => "Class Talk")].each do |app|
   puts "  added #{core_team.team_members.first.user.person.name} to core team"
   regions.each do |region|
     puts "Creating regional teams for #{app.name}"
-    app_team = app.teams.create(:team_type => "application", :app => app, :region => region)
+    app_team = app.teams.create!(:team_type => "application", :app => app, :region => region)
     User.where(:region_id => region.id).each do |member|
       app_team.team_members.create!(:team_role => "supporter", :user => member, :app => app)
     end

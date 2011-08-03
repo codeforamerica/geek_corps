@@ -578,7 +578,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     border-color: #666 transparent transparent #666;
 }
 
-#metric-block {
+#main-side-bar-block {
     border: 20px solid #533549;
     width: 100%;
     margin: 10px 0;
@@ -591,7 +591,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     font-family: "League Gothic", Impact, sans-serif;
 }
 
-#metric-block li {
+#main-side-bar-block li {
     text-transform: uppercase;
     }
 
@@ -603,7 +603,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     color: #992739;
 }
 
-#join-project-wrapper {
+#block-heading-wrapper {
     margin: 10px -40px;
     padding: 10px;
     background-color: #992739;

@@ -1,5 +1,8 @@
 class Goal < DeployTask
   has_many :milestones, :foreign_key => :parent_id, :inverse_of => :goal
+  belongs_to :app
+
+  accepts_nested_attributes_for :milestones
 
   validate :milestones_are_milestones
 

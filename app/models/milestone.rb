@@ -2,6 +2,10 @@ class Milestone < DeployTask
   belongs_to :goal, :foreign_key => :parent_id, :inverse_of => :milestones
   has_many :steps, :foreign_key => :parent_id, :inverse_of => :milestone
 
+  belongs_to :app
+
+  accepts_nested_attributes_for :steps
+
   validate :goal_is_goal
   validate :steps_are_steps
 

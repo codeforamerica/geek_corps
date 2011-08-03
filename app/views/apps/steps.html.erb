@@ -1,0 +1,66 @@
+<%= render :partial => 'header', :object => @app %>
+
+<div id="content">
+  <div id="main-bar">
+    <div id="goals">
+      <% @app.goals.each do |goal| %>
+        <div class="goal">
+          <div class="goal banner"><%= goal.title %></div>
+          <div class="goal details">
+            <div class="goal content"><%= goal.content %></div>
+            <div class="goal resources">
+              <% goal.deploy_task_resources.each do |resource| %>
+                <div class="goal resource"><%= resource.content %></div>
+              <% end %>
+            </div>
+            <div class="milestones">
+              <% goal.milestones.each do |milestone| %>
+                <div class="milestone">
+                  <%= milestone.title %>
+                  <%= milestone.content %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div id="side-bar">
+    <div id="main-side-bar-block">
+      <h3 id="block-heading-wrapper">Table of Contents</h3>
+      <ul>
+        <% @app.goals.each do |goal| %>
+          <li>
+            <h4>
+              <%= truncate(goal.title, :length => 12, :separator => ' ') %>
+            </h4>
+            <% unless goal.milestones.empty? %>
+              <ol>
+                <% goal.milestones.each do |milestone| %>
+                  <li>
+                    <h5>
+                      <%= truncate(milestone.title, :length => 12, :separator => ' ') %>
+                    </h5>
+                    <% unless milestone.steps.empty? %>
+                      <ol>
+                        <% milestone.steps.each do |step| %>
+                          <li>
+                            <h6>
+                              <%= truncate(step.title, :length => 12, :separator => ' ') %>
+                            </h6>
+                          </li>
+                        <% end %>
+                      </ol>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ol>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
