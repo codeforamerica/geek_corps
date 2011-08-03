@@ -1,6 +1,7 @@
 class Step < DeployTask
   belongs_to :milestone, :foreign_key => :parent_id, :inverse_of => :steps
-  belongs_to :goal
+
+  belongs_to :app
 
   validate :milestone_is_milestone
   validate :goal_is_goal
