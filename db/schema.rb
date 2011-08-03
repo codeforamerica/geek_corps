@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110801152005) do
+ActiveRecord::Schema.define(:version => 20110803010943) do
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20110801152005) do
   create_table "deploy_task_resources", :force => true do |t|
     t.integer  "deploy_task_id"
     t.integer  "team_id"
-    t.string   "resource_type"
+    t.string   "type"
     t.text     "content"
     t.string   "link"
     t.datetime "created_at"
