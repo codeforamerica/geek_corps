@@ -1,21 +1,32 @@
 GeekCorps::Application.routes.draw do
 
   resources :languages
-
   resources :skills
-
   resources :roles
-
   resources :details
 
   resources :teams do
     resources :members
+    member do
+      get 'admin'
+      get 'people'
+    end
   end
 
   resources :regions
 
   resources :apps do
     resources :teams
+    resources :goals do
+      resources :milestones do
+        resources :steps
+      end
+    end
+    member do
+      get 'people'
+      get 'admin'
+      get 'steps'
+    end
   end
 
   root :to => "people#index"
