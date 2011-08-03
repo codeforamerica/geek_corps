@@ -23,8 +23,8 @@
         <%= f.text_area :description %>
       </div>
       <br />
-      <% unless @app.details.empty? %>
-        <div id="app-details">
+      <div id="app-details">
+        <% unless @app.details.empty? %>
           Details:
           <div id="app-current-details">
             <% @app.details.each do |detail| %>
@@ -32,11 +32,10 @@
                 <%= details_form.text_field :name %>
                 <%= details_form.text_field :setting %>
               <% end %>
-              <br />
             <% end %>
           </div>
         <% end %>
-        Add a new Detail:
+        <div id="add-detail">Add a new Detail:</div>
         <div id="app-new-detail">
           <%= f.fields_for :details, @app.details.build do |details_form| %>
             <%= details_form.label :name, 'What is the name of this detail?' %>
