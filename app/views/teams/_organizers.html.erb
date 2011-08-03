@@ -1,13 +1,13 @@
-<div class="side-bar-item"> 
-    <div class="sidebar-box-title"><%=@team.region.city%> Organizers</div> 
-    <div class="sidebar-box-content"> 
+<div class="side-bar-item">
+  <div class="side-bar-box-title"><%=@team.region.city%> Organizers</div>
+  <div class="side-bar-box-content">
       <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
       <div class="supporter-image">
         <%=link_to (image_tag organizer.user.person.photo.url(:medium), :class=>"profile-image", :alt => organizer.user.person.name), organizer.user.person%>
-      </div> 
+      </div>
       <%end%>
       <div class="clear"></div> 
-      <div class="sidebar-box-more-info supporters-fix"><%= link_to 'Full List', teams_people_path(@team.name), :class => 'arrow-icon' %></div> 
-        <div class="clear"></div> 
-    </div> 
+      <div class="side-bar-box-more-info supporters-fix"><%= link_to 'Full List', teams_people_path(@team.name), :class => 'arrow-icon' %></div>
+        <div class="clear"></div>
+    </div>
 </div>
