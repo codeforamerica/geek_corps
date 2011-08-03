@@ -44,4 +44,8 @@ class AppsController < InheritedResources::Base
         :alert => 'You can only access the Apps Admin area if you are an admin on the core team'
     end
   end
+
+  def steps
+    @app = App.find(params[:id])
+  end
 end
