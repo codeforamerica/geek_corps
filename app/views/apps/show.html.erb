@@ -1,10 +1,5 @@
-<h1 class="app-name"><%= @app.name %></h1>
-<ul id="app-nav">
-  <li><%= link_to 'Home', @app %></li>
-  <li><%= link_to 'People', apps_people_path(@app) %></li>
-  <li>Steps</li>
-  <li><%= link_to 'Repo', @app.core_team.repo_url %></li>
-</ul>
+<%= render :partial => 'header', :object => @app %>
+
 <div id="content">
   <div id="main-bar">
 
