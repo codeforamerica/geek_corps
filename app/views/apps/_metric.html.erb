@@ -1,9 +1,23 @@
-<div id="metric-block" class="side-bar-item">
+<div id="main-side-bar-block" class="side-bar-item">
   <ul>
-    <li><span class="metric-value"><%=@app.teams.size%></span>Teams</li>
-    <li><span class="metric-value"><%=@app.members.size%></span>Team Members</li>
+    <li>
+      <span class="metric-value"><%=@app.teams.size%></span>
+      <% if @app.teams.size == 1 %>
+        Team
+      <% else %>
+        Teams
+      <% end %>
+    </li>
+    <li>
+      <span class="metric-value"><%=@app.users.size%></span>
+      <% if @app.users.size == 1 %>
+        Team Member
+      <% else %>
+        Team Members
+      <% end %>
+    </li>
   </ul>
-  <div id="join-project-wrapper">
+  <div id="block-heading-wrapper">
     <div id="join-project">
       <% if current_user && current_user.region %>
         <% if @app.teams.where(:region_id => current_user.region).blank?%>
