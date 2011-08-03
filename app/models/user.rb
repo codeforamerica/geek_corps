@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :teams, :through => :team_members, :source => :team
   belongs_to :region
 
+  scope :admins, joins(:team_members).where(:team_members => {:admin => true})
+
   has_many :authentications, :dependent => :destroy do
     def info_get(key)
       info_with_key = self.map(&:info).compact.detect{|info| info[key].present? }
@@ -40,5 +42,6 @@ class User < ActiveRecord::Base
   def has_auth_from?(provider)
     self.authentications.via(provider).present?
   end
+
 end
 
