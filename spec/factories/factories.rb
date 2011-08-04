@@ -70,6 +70,7 @@ end
 Factory.define :detail do |f|
   f.app { Factory(:app)}
   f.team { Factory(:team)}
+  f.setting "Some setting"
   f.name { "name#{rand(1000)}" }
 end
 
@@ -121,6 +122,7 @@ Factory.define :comment do |p|
   p.team {Factory(:team)}
   p.user {Factory(:user)}
   p.text 'Some nifty comment'
+  p.commentable {Factory(:team)}
   p.flag false
 end
 
