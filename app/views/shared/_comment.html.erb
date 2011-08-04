@@ -1,6 +1,8 @@
-<% form_for :comment do |f| -%>
+<% form_for :comment, :url => comments_create_path do |f| -%>
 <%= f.text_area :text %>
 <%= f.hidden_field :team_id, :value => @team.id %>
-<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<%= f.hidden_field :commentable_type, :value => comment.class %>
+<%= f.hidden_field :commentable_id, :value => comment.id %>
+<%= f.submit "Post", :disable_with => 'Submiting...' %>
   
 <% end -%>

@@ -85,4 +85,30 @@ module ApplicationHelper
       return type.to_s.titleize
     end
   end
+  
+  def activity_image(item)
+    case item.class.to_s
+    when "Comment"
+      image_tag(item.user.person.photo.url)
+    when "Team"
+    when "Milestone"
+    when "TeamMember"
+    else
+    end    
+  end
+  
+  def activity_type(item)
+    case item.class.to_s
+    when "Comment"
+      link_to item.user.person.name, person_path(item.user.person)
+    when "Team"
+      "From Geek Robot"
+    when "Milestone"
+      "From Geek Robot"
+    when "TeamMember"
+      "From Geek Robot"
+    else
+    end
+  end
+  
 end

@@ -1,2 +1,7 @@
-
-<%= render "shared/comment", :locals => {:item => @team}%>
+<ul>
+<% @team.activity_feeds.order("created_at ASC").each do |feed| %>
+<li><span><%= activity_image(feed.feedable)%></span><%=feed.activity%>
+  <span><%= activity_type(feed.feedable)%>, <%= time_ago_in_words(feed.created_at)%><span></li>
+<% end %>
+</ul>
+<%= render "shared/comment", :comment => @team %>

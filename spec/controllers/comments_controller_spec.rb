@@ -18,7 +18,7 @@ describe CommentsController do
     end
     
     it "should be post to comments and redirect with error" do
-      post 'create',:comment => Factory.attributes_for(:comment, :team => @comment.team, :commentable => @comment.commentable , :user => nil)
+      post 'create',:comment => Factory.attributes_for(:comment, :team => @comment.team, :commentable => nil)
       flash[:alert].should == 'We had a problem adding that comment'
       response.should redirect_to @comment.commentable
     end
