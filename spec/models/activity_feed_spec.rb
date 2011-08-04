@@ -31,13 +31,4 @@ describe ActivityFeed do
 
   end
 
-pending "feedable"
-
-
-pending "team started adds to activity feed"
-pending "team member joins adds to activity feed"
-pending "team member promoted to admin adds to activity feed"
-pending "milestone completed adds to feed"
-pending ""
-
 end

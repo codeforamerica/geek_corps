@@ -1,5 +1,7 @@
 GeekCorps::Application.routes.draw do
 
+  post "comments/create"
+
   resources :languages
   resources :skills
   resources :roles

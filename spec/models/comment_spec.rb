@@ -47,11 +47,11 @@ describe Comment do
       @comment.figure_out_comment_text.should == @comment.text
     end
     
-    it 'should post to activity feed' do
+    it 'should post to activity feed as a team' do
+      # @comment.commentable is "Team"
       @comment.activity_feed.activity.should == @comment.text
     end
     
-    pending 'team updates'
     pending 'step comments'
     pending 'milestones'
     pending 'resource'

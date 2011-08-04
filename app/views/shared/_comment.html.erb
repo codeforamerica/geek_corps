@@ -1,0 +1,6 @@
+<% form_for :comment do |f| -%>
+<%= f.text_area :text %>
+<%= f.hidden_field :team_id, :value => @team.id %>
+<%= f.submit "Submit", :disable_with => 'Submiting...' %>
+  
+<% end -%>
