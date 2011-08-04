@@ -1,7 +1,16 @@
-<ul>
-<% @team.activity_feeds.order("created_at ASC").each do |feed| %>
-<li><span><%= activity_image(feed.feedable)%></span><%=feed.activity%>
-  <span><%= activity_type(feed.feedable)%>, <%= time_ago_in_words(feed.created_at)%><span></li>
-<% end %>
-</ul>
-<%= render "shared/comment", :comment => @team %>
+<div id="feed-wrapper">
+  <div id="activity-feed-title">
+    <%= @team.name.titleize %> Activity
+  </div>
+  <div id="activity-feed">
+    <% @team.activity_feeds.order("created_at ASC").each do |feed| %>
+      <div class="feed-item">
+        <%= activity_image(feed.feedable)%>
+        <span class="comment-body"><%=feed.activity%></span>
+        <span class="comment-stamp"><%= activity_type(feed.feedable)%>, <%= time_ago_in_words(feed.created_at)%><span>
+      </div>
+    <% end %>
+    <%= render "shared/comment", :comment => @team %>
+    <div style="clear:both; height:0;"></div>
+  </div>
+</div>
