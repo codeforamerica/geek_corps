@@ -114,4 +114,21 @@ Factory.define :user_with_person, :parent => :user do |u|
 end
 
 
+#--[ Activities and Comments ]-------------------------------------------------------------------
+
+
+Factory.define :comment do |p|
+  p.team {Factory(:team)}
+  p.user {Factory(:user)}
+  p.text 'Some nifty comment'
+  p.flag false
+end
+
+Factory.define :activity_feed do |p|
+  p.team {Factory(:team)}
+  p.activity "Something funny"
+  p.feedable {Factory(:comment)}
+end
+
+
 

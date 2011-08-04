@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110803010943) do
+ActiveRecord::Schema.define(:version => 20110804182313) do
+
+  create_table "activity_feeds", :force => true do |t|
+    t.integer  "team_id"
+    t.string   "feedable_type"
+    t.integer  "feedable_id"
+    t.string   "activity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "apps", :force => true do |t|
     t.string   "name"
