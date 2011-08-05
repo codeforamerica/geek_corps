@@ -75,5 +75,14 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :page_title
+  
+  def find_team
+    if params[:team_name]
+      @team = Team.where(:name => params[:team_name].downcase).first
+    else
+      @team = Team.where(:id => params[:id]).first
+    end
+  end
+  helper_method :find_team
 
 end

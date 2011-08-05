@@ -18,13 +18,5 @@ class TeamsController < InheritedResources::Base
     @people = users.map(&:person)
   end
 
-  private
 
-  def find_team
-    if params[:team_name]
-      @team = Team.where(:name => params[:team_name].downcase).first
-    else
-      @team = Team.where(:id => params[:id]).first
-    end
-  end
 end
