@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110805000044) do
+ActiveRecord::Schema.define(:version => 20110805185055) do
 
   create_table "activity_feeds", :force => true do |t|
     t.integer  "team_id"

@@ -111,4 +111,19 @@ module ApplicationHelper
     end
   end
   
+  def goal_name(item)
+    case item
+    when 1
+      "Goal 1: Setup the Server"
+    when 2
+      "Goal 2: Get Data"
+    when 3
+      "Goal 3: Customize the Design"      
+    when 4
+      "Goal 4: Build Community Support"            
+    when 5  
+      "Goal 5: Launch It!"            
+    end  
+  end
+  
 end

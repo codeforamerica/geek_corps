@@ -7,14 +7,6 @@ GeekCorps::Application.routes.draw do
   resources :roles
   resources :details
 
-  resources :teams do
-    resources :members
-    member do
-      get 'admin'
-      get 'people'
-    end
-  end
-
   resources :regions
 
   match 'apps' => 'apps#index', :as => 'apps'
@@ -52,9 +44,22 @@ GeekCorps::Application.routes.draw do
   match '/auth/:provider/callback' => 'authentications#create'
   match '/auth/auto' => 'authentications#auto'
   match '/auth/failure' => 'authentications#auth_failure'
-  match '/:team_name' => 'teams#show'
-  match '/apps/:id/people' => 'apps#people', :as => 'apps_people'
-  match '/:team_name/people' => 'teams#people', :as => 'teams_people'
+  
+  resources :teams do
+    resources :members
+  end
+  
+  controller :teams do
+    get '/:team_name' => :show
+    get '/:team_name/people' => 'teams#people', :as => 'team_people'
+    get '/:team_name/guide/' => 'milestones#index', :as => 'team_guide'
+    controller :steps do
+      get '/:team_name/guide/step/:id' => 'steps#show', :as => 'team_step'
+    end
+    controller :milestones do
+      get '/:team_name/guide/milestone/:id' => 'milestones#show', :as => 'team_milestone'
+    end
+  end
 
   get 'privacy' => 'pages#privacy'
   get 'about' => 'pages#about'

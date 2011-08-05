@@ -978,3 +978,23 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	float:left;
 }
 
+/**
+ * Guide
+ *
+*/
+
+#guide-main-bar {
+    position: relative;
+    float:right;
+    width: 60%;
+    border: 22px solid #E9E9E9;
+    margin: 20px 20px 20px 0;
+    -moz-box-shadow: 1px 1px 4px #444;
+    -webkit-box-shadow: 1px 1px 4px #444;
+    box-shadow: 1px 2px 3px #444;
+}
+#guide-side-bar {
+    float: left;
+    width: 30%;
+    clear: both;
+}

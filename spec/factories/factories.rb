@@ -132,5 +132,11 @@ Factory.define :activity_feed do |p|
   p.feedable {Factory(:comment)}
 end
 
-
+Factory.define :milestone do |m|
+  m.steps { [Factory(:step), Factory(:step), Factory(:step)] }
+  m.goal (rand(5)+1)
+  m.position (rand(5)+1)
+  m.name Faker::Lorem.sentence
+  m.description Faker::Lorem.paragraph
+end
 

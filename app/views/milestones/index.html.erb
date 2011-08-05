@@ -1,0 +1,49 @@
+<div id="content">
+  <div id="title-main">
+    <div id="app-image">
+        <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
+    </div>
+    <h1 class="app-name">  <%= @team.app.name %> </h1>
+    <div class="title-content">
+      <% unless @team.team_type == 'core' %>
+        <h2><%=@team.region.city%>, <%=@team.region.state%></h2>
+      <% end%>
+      <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
+        <%=link_to organizer.user.person.name, organizer.user.person %>
+        <%end%>
+        </h2>
+    </div></div>
+    <div id="guide-side-bar">
+      <% @team.app.milestones.group_by(&:goal).each do |key, value| %>
+        <ul id="group_<%= key %>" class="group">
+          <li class="goal_name"><%=goal_name(key)%></li>
+          <% value.each do |milestone| %>
+            <li id="milestone_<%= milestone.id %>" class="milestone">
+              <%= milestone.name %> 
+              <ul>
+                <% milestone.steps.each do |step| %>
+                  <li id="step_<%= step.id %>" class="step">
+                    <%= step.name %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
+    </div>
+    <div id="guide-main-bar">
+      <% @team.app.milestones.group_by(&:goal).each do |key, value| %>
+        <ul id="group_<%= key %>" class="group">
+          <li class="goal_name"><%=goal_name(key)%></li>
+          <% value.each do |milestone| %>
+            <li id="milestone_<%= milestone.id %>" class="milestone">
+              <%= milestone.name %> 
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
+
+    </div>
+</div>
+
