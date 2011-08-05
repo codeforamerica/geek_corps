@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     if @comment.save
       flash[:success] = 'Comment added!'
-      redirect_to @comment.commentable
+      redirect_to @comment.commentable.to_url
     else
       flash[:error] = 'We had a problem adding that comment'
-      redirect_to @comment.commentable            
+      redirect_to :back            
     end
   end
 

@@ -1,39 +1,30 @@
 <div class="title-main">
-  <h1 class="app-name">  <%= @team.app.name %> 
-    <% unless @team.team_type == 'core' %>
-      in <%=@team.region.city%>,<%=@team.region.state%>
-    <% end%>
-    </h1>
+  <div id="app-image">
+      <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
+  </div>
+  <h1 class="app-name">  <%= @team.app.name %> </h1>
   <div class="title-content">
+    <% unless @team.team_type == 'core' %>
+      <h2><%=@team.region.city%>, <%=@team.region.state%></h2>
+    <% end%>
     <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
       <%=link_to organizer.user.person.name, organizer.user.person %>
       <%end%>
       </h2>
-  </div>
-  <ul id="app-nav">
-    <li><%= link_to 'Home', @team %></li>
-    <li><%= link_to 'People', teams_people_path(@team.name) %></li>
-  </ul>
-</div>
+      
+  </div></div>
 <div id="content">
   <div id="main-bar">
-    <div id="visual-intro-box">
-      <% unless @team.app.video.url == '/videos/original/missing.png' %>
-        <%= video_tag @team.app.video.url, :id => 'app-video', :class => 'main-visual' %>
-      <% else %>
-        <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
-      <% end %>
-      <div id="social-bar">
-        <div id="fb-root"></div>
-        <script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script>
-        <fb:like href="" send="false" width="450" show_faces="true" font=""></fb:like>
-      </div>
-    </div>
 
     <div class="project-text">
       <h1>About This Project</h1>
       <p><%= @team.app.description %></p>
     </div>
+    <ul id="app-nav">
+      <li><%= link_to 'Home', @team %></li>
+      <li><%= link_to 'People', teams_people_path(@team.name) %></li>
+    </ul>
+    
 
     <%= render :partial => 'activity_stream' %>
 

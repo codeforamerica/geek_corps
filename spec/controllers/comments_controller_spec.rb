@@ -14,13 +14,14 @@ describe CommentsController do
     it "should be post to comments and redirect with success" do
       post 'create', :comment => Factory.attributes_for(:comment, :team => @comment.team, :user => @user, :commentable => @comment.commentable )
       flash[:success].should == 'Comment added!'
-      response.should redirect_to @comment.commentable 
+      response.should redirect_to @comment.commentable.to_url 
     end
     
     it "should be post to comments and redirect with error" do
+      request.env['HTTP_REFERER'] = '/' + @comment.team.to_url
       post 'create',:comment => Factory.attributes_for(:comment, :team => @comment.team, :commentable => nil)
       flash[:error].should == 'We had a problem adding that comment'
-      response.should redirect_to @comment.commentable
+
     end
     
   end

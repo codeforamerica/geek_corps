@@ -98,6 +98,32 @@ h3 { font-size:1.25em; line-height:150%; margin-bottom:15px;}
     border-radius: 0 12px 12px 0;
 }
 
+#title-main {
+    
+}
+
+.title-main h1 {
+    margin: 0px; 
+    line-height: 100%;}
+
+.title-main h2 {
+    margin: 0px;
+}
+
+#app-image {
+    
+}
+
+#app-image img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 15px;
+}
+
+.title-content {
+    
+}
 a:link, a:visited {
     color:#96a044;
     text-decoration:none;
