@@ -51,7 +51,7 @@ GeekCorps::Application.routes.draw do
   
   controller :teams do
     get '/:team_name' => :show
-    get '/:team_name/people' => 'teams#people', :as => 'teams_people'
+    get '/:team_name/people' => 'teams#people', :as => 'team_people'
     get '/:team_name/guide/' => 'milestones#index', :as => 'team_guide'
     controller :steps do
       get '/:team_name/guide/step/:id' => 'steps#show', :as => 'team_step'
