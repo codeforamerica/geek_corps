@@ -1,9 +1,13 @@
 <% form_for :comment, :url => comments_create_path do |f| -%>
-<%= f.text_area :text, :rows => nil %>
 <div id="comment-subform">
+  <%= f.text_area :text, :rows => nil %>
   <%= f.hidden_field :team_id, :value => @team.id %>
   <%= f.hidden_field :commentable_type, :value => comment.class %>
   <%= f.hidden_field :commentable_id, :value => comment.id %>
-  <%= f.submit "Post", :disable_with => 'Submiting...' %>
-</div>  
+  <div id="mainselection">
+    <%= f.select :flag, [['Chatter', 1]] %>
+  </div>
+  <%= f.submit "Post" %>
+  <div style="clear:both; height:0;"></div>
+</div>
 <% end -%>
