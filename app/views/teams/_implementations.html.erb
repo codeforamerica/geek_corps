@@ -3,7 +3,7 @@
     <div class="sidebar_box_content ">
       <% @team.app.regional_teams.each do |team|%>
       <div class="supporter_image">
-          <%= link_to image_tag("default_app_1.png", :alt => team.name, :class => "medium-avatar"), team.to_url %>
+          <%= link_to image_tag(team.region.photo.url, :alt => team.name, :class => "medium-avatar"), team.to_url %>
       </div>
       <%end%>
       <div class="clear"></div>    
