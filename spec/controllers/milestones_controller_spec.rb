@@ -40,5 +40,24 @@ describe MilestonesController do
         response.should redirect_to team_milestone_path(team.name, assigns(:milestone).id)
       end
     end
+    
+    context 'new' do
+      it 'wonts to access a new milestone but you dont have the core team cred. damn.' do
+        team = Factory(:team)
+        request.env['HTTP_REFERER'] = '/' + team.to_url + '/guide'
+        get :new, :team_name => team.name, :goal => 1
+        response.should redirect_to request.env['HTTP_REFERER']
+      end
+
+      it 'properly creates milestone with goal and app if you are a member of the core team' do
+        team = Factory(:team)
+        team.team_members.create(:user => @user, :admin => true, :team_role => "loser")
+        get :new, :team_name => team.name, :goal => 1
+        assigns(:milestone).app.should == team.app
+        assigns(:milestone).goal.should == 1
+        response.should be_success
+      end
+    end
+    
   end
 end

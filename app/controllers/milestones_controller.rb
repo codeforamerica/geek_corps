@@ -22,5 +22,15 @@ class MilestonesController < InheritedResources::Base
       redirect_to :back
     end
   end
+  
+  def new
+    find_team
+    if @team.app.admin?(current_user)
+      @milestone = Milestone.new(:app_id => @team.app_id, :goal => params[:goal])
+    else
+      flash[:error] = "You need to be a member of the core team to add a milestone!"
+      redirect_to :back      
+    end
+  end
 
 end

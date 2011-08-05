@@ -14,31 +14,7 @@
         </h2>
     </div></div>
     <div id="guide-side-bar">
-      <% @team.app.milestones.group_by(&:goal).each do |key, value| %>
-        <ul id="group_<%= key %>" class="group">
-          <li>
-			<h3><%=goal_name(key)%></h3>
-            <div>
-            <ul>
-              <% value.each do |milestone| %>
-                <li id="milestone_<%= milestone.id %>" class="milestone">
-                  <h4><%= milestone.name %></h4> 
-                  <div>    
-                    <ol>
-                        <% milestone.steps.each do |step| %>
-                          <li id="step_<%= step.id %>" class="step">
-                            <h5><%= step.name %></h5>
-                          </li>
-                        <% end %>
-                     </ol>
-                  </div>
-                 </li>
-              <% end %>
-            </ul>
-            </div> 
-            </li>
-        </ul>    
-        <% end %>
+      <%= render "guide_sidebar"%>
     </div>
     <div id="guide-main-bar">
       <% @team.app.milestones.group_by(&:goal).each do |key, value| %>
