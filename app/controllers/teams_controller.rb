@@ -10,12 +10,10 @@ class TeamsController < InheritedResources::Base
 
   def show
     find_team
-    redirect_to app_path(@team.app) if @team.team_type == "core"
   end
 
   def people
     find_team
-    redirect_to apps_people_path(@team.app) if @team.team_type == "core"
     users = User.joins(:team_members).where(:team_members => {:team_id => @team.id})
     @people = users.map(&:person)
   end

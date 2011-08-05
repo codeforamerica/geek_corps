@@ -1,5 +1,5 @@
 <div class="side-bar-item">
-  <div class="side-bar-box-title"><%=@team.region.city%> Organizers</div>
+  <div class="side-bar-box-title"><%=@team.region ? @team.region.city : 'Core'%> Organizers</div>
   <div class="side-bar-box-content">
       <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
       <div class="supporter-image">

@@ -23,7 +23,7 @@
         <% if current_user.teams.where(:id => @team).blank?%>
           <%= button_to "Join this Team!", team_members_path(@team)  %>
         <% else %>
-          Your Team Role: <%=current_user.team_members.where(:team_id => @team).first.team_role.capitalize%>
+          Your Team Role: <%= role = current_user.team_members.where(:team_id => @team).first.team_role; role.nil? ? "Doesn't Exist :(" : role.capitalize %>
         <% end %>
       <% else %>
         Join the Geek Corps to help start this project

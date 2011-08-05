@@ -17,19 +17,7 @@ GeekCorps::Application.routes.draw do
 
   resources :regions
 
-  resources :apps do
-    resources :teams
-    resources :goals do
-      resources :milestones do
-        resources :steps
-      end
-    end
-    member do
-      get 'people'
-      get 'admin'
-      get 'steps'
-    end
-  end
+  match 'apps' => 'apps#index', :as => 'apps'
 
   root :to => "people#index"
 
