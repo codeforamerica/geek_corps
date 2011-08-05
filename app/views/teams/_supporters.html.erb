@@ -1,5 +1,5 @@
 <div class="sidebar_box sb_container">
-    <div class="sidebar_box_title"><%=@team.region ? @team.region.city : 'Core'%> Team Members</div>
+    <div class="sidebar_box_title"><%=@team.region ? @team.region.city : 'Core'%> Team</div>
     <div class="sidebar_box_content ">
       <% @team.team_members.where(:team_role => 'supporter')[0..10].each do |supporter|%>
       <div class="supporter_image">

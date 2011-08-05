@@ -5,10 +5,10 @@ class CommentsController < ApplicationController
     @comment =  Comment.new(params[:comment])
     @comment.user = current_user
     if @comment.save
-      flash[:notice] = 'Comment added!'
+      flash[:success] = 'Comment added!'
       redirect_to @comment.commentable
     else
-      flash[:alert] = 'We had a problem adding that comment'
+      flash[:error] = 'We had a problem adding that comment'
       redirect_to @comment.commentable            
     end
   end

@@ -13,13 +13,13 @@ describe CommentsController do
     
     it "should be post to comments and redirect with success" do
       post 'create', :comment => Factory.attributes_for(:comment, :team => @comment.team, :user => @user, :commentable => @comment.commentable )
-      flash[:notice].should == 'Comment added!'
+      flash[:success].should == 'Comment added!'
       response.should redirect_to @comment.commentable 
     end
     
     it "should be post to comments and redirect with error" do
       post 'create',:comment => Factory.attributes_for(:comment, :team => @comment.team, :commentable => nil)
-      flash[:alert].should == 'We had a problem adding that comment'
+      flash[:error].should == 'We had a problem adding that comment'
       response.should redirect_to @comment.commentable
     end
     
