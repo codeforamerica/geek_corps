@@ -321,12 +321,25 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 }
 
 #header #account-box {
-    font-family: "League Gothic", Impact, sans-serif;
+    font-family: sans-serif;
+    font-size: .8em;
     float: right;
+    text-transform: none;
+    width: 250px;
 }
+
 #header #account-box img {
     width: 40 px;
     height: 40 px;
+    float: left;
+    margin-right: 10px;
+}
+#header #account-box p {
+    margin-top: 3px;
+}
+
+#header #account-box a {
+    text-decoration: underline;
 }
 
 #header #account-box .name {
