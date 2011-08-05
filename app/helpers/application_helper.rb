@@ -73,9 +73,9 @@ module ApplicationHelper
   def flash_type_title(type)
     flowery_vocabulary = {
       :error   => [ 'Egads', 'Balderdash', 'Fiddlesticks', 'Holy Toledo', 'Tarnation', 'Damnation', 'Fooey',
-                    'Boo', 'Aw shucks', 'Uh oh', 'Great Scott', "Blisterin' barnacles" ],
-      :success => [ 'Yippee', 'Hooray', 'Awesome', 'Yeehaw', 'Hoorah', 'Huzzah', 'Yeah', 'Yay' ],
-      :notice  => [ 'Heads up', 'Avast', 'Notice' ],
+                    'Boo', 'Aw shucks', 'Uh oh', 'Great Scott', "Blisterin' barnacles", "Duoh" ],
+      :success => [ 'Yippee', 'Hooray', 'Awesome', 'Yeehaw', 'Hoorah', 'Huzzah', 'Yeah', 'Yay', 'So Rad', 'BooYah' ],
+      :notice  => [ 'Heads up', 'Avast', 'Notice', 'Yo' ],
       :warning => [ 'Beware', 'Warning', 'Watch out' ]
     }
 

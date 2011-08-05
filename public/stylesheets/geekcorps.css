@@ -98,6 +98,34 @@ h3 { font-size:1.25em; line-height:150%; margin-bottom:15px;}
     border-radius: 0 12px 12px 0;
 }
 
+#title-main {
+    position: relative;
+    float:left;
+    width: 60%;
+}
+
+#title-main h1 {
+    margin: 0px; 
+    line-height: 100%;}
+
+#title-main h2 {
+    margin: 0px;
+}
+
+#app-image {
+    
+}
+
+#app-image img {
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin-right: 15px;
+}
+
+.title-content {
+    
+}
 a:link, a:visited {
     color:#96a044;
     text-decoration:none;
@@ -168,7 +196,7 @@ strong {
  */
 
 #header {
-    height:20px;
+    height:30px;
     padding:10px 20px;
     margin-bottom:30px;
     font-family: "League Gothic", Impact, sans-serif;
@@ -296,9 +324,9 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     font-family: "League Gothic", Impact, sans-serif;
     float: right;
 }
-#header #account-box img.avatar {
-    width: 32px;
-    height: 32px;
+#header #account-box img {
+    width: 40 px;
+    height: 40 px;
 }
 
 #header #account-box .name {
@@ -534,6 +562,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 #side-bar {
     float: right;
     width: 30%;
+    margin-top: -50px;
 }
 
 .main-visual {
