@@ -1,13 +1,13 @@
-<div class="side-bar-item"> 
-    <div class="side-bar-box-title">Regional Teams</div> 
-    <div class="side-bar-box-content"> 
-      <ul class="regional-teams">
+<div class="sidebar_box sb_container">
+    <div class="sidebar_box_title">Regional Teams</div>
+    <div class="sidebar_box_content ">
       <% @app.regional_teams.each do |team|%>
-          <li><%=link_to "#{team.region.city}, #{team.region.state}", team.to_url %></li>
+      <div class="supporter_image">
+          <%= link_to image_tag("default_app_1.png", :alt => team.name, :class => "medium-avatar"), team.to_url %>
+      </div>
       <%end%>
-      </ul>
-      <div class="clear"></div> 
-        <div class="side-bar-box-more-info supporters-fix"><a href="#" class="arrow-icon">Full List</a></div> 
-        <div class="clear"></div> 
-    </div> 
+      <div class="clear"></div>    
+      <div class="sidebar_box_more_info"><%= link_to 'Full List', apps_people_path(@app), :class => 'arrow-icon' %></div>
+      <div class="clear"></div>
+    </div>
 </div>

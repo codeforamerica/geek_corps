@@ -5,9 +5,9 @@ class Person < ActiveRecord::Base
   attr_accessor :photo_import_url
   attr_protected :user_id
 
-  PHOTO_DEFAULTS = ["#{Rails.root.to_s}/public/images/default_person_1.png",
-                    "#{Rails.root.to_s}/public/images/default_person_2.png",
-                    "#{Rails.root.to_s}/public/images/default_person_3.png"]
+  PHOTO_DEFAULTS = ["/images/geekcorpsavatar1.png",
+                    "/images/geekcorpsavatar2.png",
+                    "/images/geekcorpsavatar3.png"]
 
   PHOTO_SIZES = {:medium => 220, :thumb => 48} # for gravatar
 
@@ -17,6 +17,7 @@ class Person < ActiveRecord::Base
   has_attached_file :photo, :storage => :s3,
   :bucket => 'geekcorps_' + Rails.env,
   :path => "/:id/:filename",
+  :default_url => PHOTO_DEFAULTS[rand(2)],
   :s3_credentials => {
     :access_key_id => S3_KEY,
     :secret_access_key => S3_SECRET
