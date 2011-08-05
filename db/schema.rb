@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110804192425) do
+ActiveRecord::Schema.define(:version => 20110805000044) do
 
   create_table "activity_feeds", :force => true do |t|
     t.integer  "team_id"
@@ -187,6 +187,10 @@ ActiveRecord::Schema.define(:version => 20110804192425) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nick_name"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.datetime "photo_updated_at"
+    t.integer  "photo_file_size"
   end
 
   create_table "roles", :force => true do |t|
