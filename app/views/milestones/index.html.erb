@@ -3,7 +3,7 @@
     <div id="app-image">
         <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
     </div>
-    <h1 class="app-name">  <%= @team.app.name %> </h1>
+    <h1 class="app-name">  <%= @team.app.name %> Guide </h1>
     <div class="title-content">
       <% unless @team.team_type == 'core' %>
         <h2><%=@team.region.city%>, <%=@team.region.state%></h2>
