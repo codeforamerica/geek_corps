@@ -14,10 +14,36 @@
         </h2>
     </div></div>
     <div id="guide-side-bar">
-      SOME TEXT
+      <% @team.app.milestones.group_by(&:goal).each do |key, value| %>
+        <ul id="group_<%= key %>" class="group">
+          <li class="goal_name"><%=goal_name(key)%></li>
+          <% value.each do |milestone| %>
+            <li id="milestone_<%= milestone.id %>" class="milestone">
+              <%= milestone.name %> 
+              <ul>
+                <% milestone.steps.each do |step| %>
+                  <li id="step_<%= step.id %>" class="step">
+                    <%= step.name %>
+                  </li>
+                <% end %>
+              </ul>
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
     </div>
     <div id="guide-main-bar">
-      Some text
+      <% @team.app.milestones.group_by(&:goal).each do |key, value| %>
+        <ul id="group_<%= key %>" class="group">
+          <li class="goal_name"><%=goal_name(key)%></li>
+          <% value.each do |milestone| %>
+            <li id="milestone_<%= milestone.id %>" class="milestone">
+              <%= milestone.name %> 
+            </li>
+          <% end %>
+        </ul>
+        <% end %>
+
     </div>
 </div>
 

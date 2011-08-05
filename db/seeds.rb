@@ -62,6 +62,15 @@ Region.all.each do |region|
   end
 end
 
+def create_guide_goal(app, goal_id)
+  (rand(4)+1).times do |i|
+  m = Milestone.create(:app => app, :goal => goal_id, :position => i+1, :name => Faker::Lorem.sentence, :description => Faker::Lorem.paragraph)
+    (rand(4)+1).times do |x|
+      m.steps.create(:est_time => rand(60), :app => app, :goal => goal_id, :position => x+1, :name => Faker::Lorem.sentence, :description => Faker::Lorem.paragraph)
+    end
+  end
+end
+
 #Add Applications, Core Team and Team Members
 regions = Region.all
 [Factory(:app, :name => "Art Application"),
@@ -86,15 +95,6 @@ Factory(:app, :name => "Class Talk")].each do |app|
     puts "  supporters added"
     app_team.team_members.create!(:team_role => "organizer", :user => User.where(:region_id => region.id).first, :app => app)
     puts "  organizer added"
-  end
-end
-
-def create_guide_goal(app, goal_id)
-  (rand(4)+1).times do |i|
-  m = Milestone.create(:app => app, :goal => goal_id, :position => i+1, :name => Faker::Lorem.sentence, :description => Faker::Lorem.paragraph)
-    (rand(4)+1).times do |x|
-      m.steps.create(:est_time => rand(60), :app => app, :goal => goal_id, :position => x+1, :name => Faker::Lorem.sentence, :description => Faker::Lorem.paragraph)
-    end
   end
 end
 
