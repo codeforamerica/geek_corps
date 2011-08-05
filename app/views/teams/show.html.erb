@@ -13,13 +13,10 @@
   <ul id="app-nav">
     <li><%= link_to 'Home', @team %></li>
     <li><%= link_to 'People', teams_people_path(@team.name) %></li>
-    <li>Steps</li>
-    <li><%= link_to 'Repo', @team.repo_url %></li>
   </ul>
 </div>
 <div id="content">
   <div id="main-bar">
-
     <div id="visual-intro-box">
       <% unless @team.app.video.url == '/videos/original/missing.png' %>
         <%= video_tag @team.app.video.url, :id => 'app-video', :class => 'main-visual' %>
@@ -43,9 +40,15 @@
   </div>
 
   <div id="side-bar">
-    <%= render :partial => "metric"%>
-    <%= render :partial => "organizers"%>
-    <%= render :partial => "supporters"%>
+    <% if @team.team_type == 'core' %>
+      <%= render :partial => "core_metric"%>
+      <%= render :partial => "core_team"%>
+      <%= render :partial => "implementations"%>
+    <% else %>
+      <%= render :partial => "metric"%>
+      <%= render :partial => "organizers"%>
+      <%= render :partial => "supporters"%>
+    <% end %>
   </div>
 </div>
 

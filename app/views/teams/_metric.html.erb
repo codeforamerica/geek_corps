@@ -1,33 +1,33 @@
-<div id="main-side-bar-block" class="side-bar-item">
-  <ul>
-    <li>
-      <span class="metric-value"><%=@team.members.uniq.size%></span>
-      <% if @team.members.uniq.size == 1 %>
-        Team Member
-      <% else %>
-        Team Members
-      <% end %>
-    </li>
-    <li>
-      <span class="metric-value"><%= dev_count = @team.team_members.where(:team_role => 'developer').uniq.size; dev_count.to_s  %></span>
-      <% if dev_count == 1 %>
-        Developer
-      <% else %>
-        Developers
-      <% end %>
-    </li>
-  </ul>
-  <div id="block-heading-wrapper">
-    <div id="join-project">
-      <% if user_signed_in? %>
-        <% if current_user.teams.where(:id => @team).blank?%>
-          <%= button_to "Join this Team!", team_members_path(@team)  %>
-        <% else %>
-          Your Team Role: <%= role = current_user.team_members.where(:team_id => @team).first.team_role; role.nil? ? "Doesn't Exist :(" : role.capitalize %>
-        <% end %>
-      <% else %>
-        Join the Geek Corps to help start this project
-      <% end %>
+<div id="metric_block" class="sb_container">
+    <div id="metric_content">
+        <ul>
+            <li><span class="metric-value"><%=@team.members.uniq.size%></span>
+            <% if @team.members.uniq.size == 1 %>
+              Team Member
+            <% else %>
+              Team Members
+            <% end %>
+            </li>
+            <li><span class="metric-value"><%= dev_count = @team.team_members.where(:team_role => 'developer').uniq.size; dev_count.to_s  %></span>
+            <% if dev_count == 1 %>
+              Developer
+            <% else %>
+              Developers
+            <% end %></li>
+        </ul>
+        <div id="join_project_wrapper">
+        <div id="join_project">
+          <% if user_signed_in? %>
+            <% if current_user.teams.where(:id => @team).blank?%>
+              <%= button_to "Join this Team!", team_members_path(@team)  %>
+            <% else %>
+              <% role = current_user.team_members.where(:team_id => @team).first.team_role%>
+              <%= link_to "Your Team Role: #{role.nil? ? "Doesn't Exist :(" : role.capitalize}", "#" %>
+            <% end %>
+          <% else %>
+            Join the Geek Corps to help start this project
+          <% end %>
+        </div>
+        </div>
     </div>
-  </div>
 </div>
