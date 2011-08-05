@@ -1,0 +1,6 @@
+<%= form_for @milestone do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_area :description %>
+  <%= f.hidden_field :goal %>
+  <%= f.submit %>
+<% end %>

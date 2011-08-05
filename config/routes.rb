@@ -49,14 +49,16 @@ GeekCorps::Application.routes.draw do
     resources :members
   end
   
+  resources :milestones
+  resources :steps
+  
   controller :teams do
     get '/:team_name' => :show
     get '/:team_name/people' => 'teams#people', :as => 'team_people'
     get '/:team_name/guide/' => 'milestones#index', :as => 'team_guide'
-    controller :steps do
-      get '/:team_name/guide/step/:id' => 'steps#show', :as => 'team_step'
-    end
+    get '/:team_name/guide/step/:id' => 'steps#show', :as => 'team_step'
     controller :milestones do
+      get '/:team_name/guide/milestone/new' => 'milestones#new', :as => 'team_milestone_new'      
       get '/:team_name/guide/milestone/:id' => 'milestones#show', :as => 'team_milestone'
     end
   end
