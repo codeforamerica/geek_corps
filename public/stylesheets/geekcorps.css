@@ -879,67 +879,93 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     font-size: 1.2em;
 }
 
-
 #feed-wrapper {
-       background:#e9e9e9;
-       padding:20px;
-       width:560px;
-}
-
+	background:#e9e9e9;
+	padding:20px;
+	width:560px;
+	}
 #activity-feed-title {
-       font-size:30px;
-       color:#533549;
-       margin:0 0 10px 0;
-}
-
+	font-size:30px;
+	color:#533549;
+	margin:0 0 10px 0;
+	}
 #activity-feed {
-       width:520px;
-       background:#FFF;
-       padding:20px;
-       clear:both;
-}
-
-.feed-notify, .feed-comment, .feed-sub {
-       float:left;
-       margin-bottom:20px;
-       min-height:62px;
-       width:520px;
-}
-
+	width:520px;
+	background:#FFF;
+	padding:20px;
+	clear:both;
+	}
+.feed-item {
+	float:left;
+	margin-bottom:20px;
+	min-height:62px;
+	width:520px;
+	}
 #activity-feed img {
-       float:left;
-}
-
+	float:left;
+	}
 #activity-feed a {
-       color:#992739;
-       text-decoration:none;
-}
-
+	color:#992739;
+	text-decoration:none;
+	}
 #activity-feed a:hover {
-       text-decoration:underline;
-}
-
+	text-decoration:underline;
+	}
 .comment-body, .comment-stamp {
-       width:450px;
-       float:right;
-}
-
+	width:450px;
+	float:right;
+	}
 .comment-body {
-       line-height:120%;
-}
-
+	line-height:120%;
+	}
 .comment-stamp {
-       font-size:10px;
-}
-
+	font-size:10px;
+	}
 #activity-feed textarea {
-       width:500px;
-       border:10px solid #e9e9e9;
-}
-
+	width:480px;
+	height:50px;
+	padding:10px;
+	border:0;
+	margin-bottom:10px;
+	}
 #comment-subform {
-       background:#e9e9e9;
-       padding:0 10px 10px 10px;
+	background:#e9e9e9;
+	padding:10px;
+	margin:0;
+	border:0;
+	clear:both;
 }
 
+#comment_submit {
+	font-size:18px;
+	text-transform:uppercase;
+	font-weight:bold;
+	padding:3px 10px;
+	background:#992739;
+	color:#FFF;
+	float:right;
+	border:0;
+	cursor:pointer;
+}
+
+#comment_flag {
+	border:0;
+	color:#EEE;
+	background:transparent;
+	font-size:20px;
+	font-weight:bold;
+	padding:2px 10px;
+	width:450px;
+	float:left;
+	*width:450px;
+	*background:#999;
+	cursor:pointer;
+}
+
+#mainselection {
+	overflow:hidden;
+	width:415px;
+	background: url("select-arrow.png") no-repeat scroll 380px 6px #999;
+	float:left;
+}
 
