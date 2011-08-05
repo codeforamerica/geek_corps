@@ -8,6 +8,7 @@ class Team < ActiveRecord::Base
   before_create :create_team_name
   has_many :team_deploy_tasks
   has_many :deploy_tasks, :through => :team_deploy_tasks
+  has_many :activity_feeds
 
   validates_presence_of :region, :unless => Proc.new { |team| team.team_type == 'core' }
   validates_uniqueness_of :region_id, :scope => :app_id

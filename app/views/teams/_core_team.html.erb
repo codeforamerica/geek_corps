@@ -1,9 +1,9 @@
 <div class="sidebar_box sb_container">
-    <div class="sidebar_box_title"><%=@team.region ? @team.region.city : 'Core'%> Team</div>
+    <div class="sidebar_box_title">Core Team</div>
     <div class="sidebar_box_content ">
-      <% @team.team_members.where(:team_role => 'supporter')[0..10].each do |supporter|%>
+      <% @team.app.core_team_members.each do |organizer|%>
       <div class="supporter_image">
-        <%=link_to (image_tag supporter.user.person.photo.url(:medium), :class=>"medium-avatar", :alt => supporter.user.person.name), supporter.user.person%>
+        <%= link_to image_tag(organizer.user.person.photo.url, :alt => organizer.user.person.name, :class => "medium-avatar"), organizer.user.person %>
       </div>
       <%end%>
       <div class="clear"></div>    
@@ -11,4 +11,3 @@
       <div class="clear"></div>
     </div>
 </div>
-

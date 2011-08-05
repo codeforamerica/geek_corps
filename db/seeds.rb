@@ -43,7 +43,7 @@ puts "There are #{@skills.length} skills"
 #Add Regions
 puts "Adding Regions"
 [["San Francisco", "CA", "SF"], ["Seattle", "WA", "SEA"], ["Boston", "MA", "BOS"], ["Philadelphia", "PA", "PHL"]]. each do |city|
-  r = Region.create!(:city => city[0], :state => city[1], :nick_name => city[2])
+  r = Region.create!(:city => city[0], :state => city[1], :nick_name => city[2], :photo => File.open(Rails.root.to_s + "/public/images/#{city[2].downcase}-icon.png"))
   puts "Created #{r.city}, #{r.state}" if r
 end
 

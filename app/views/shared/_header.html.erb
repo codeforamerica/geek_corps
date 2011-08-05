@@ -10,8 +10,8 @@
     <div id="account-box">
       <% if user_signed_in? %>
         <%= image_tag current_user.avatar_url, :class => 'current-user-thumb' %>
-        <%= link_to current_user.name, home_users_path, :id => 'user-home' %>
-        <%= link_to 'Sign Out', sign_out_path, :id => 'sign-out' %>
+        Heya <%= link_to current_user.name, current_user.person, :id => 'user-home' %>!
+        <p><%= link_to 'Sign Out', sign_out_path, :id => 'sign-out' %> | <%= link_to "Settings", home_users_path, :id => 'user-setting' %></p>
       <% else %>
         <%= link_to "Sign In / Join", sign_in_path, :id => 'sign-in' %>
       <% end %>

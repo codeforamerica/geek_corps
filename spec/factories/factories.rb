@@ -70,6 +70,7 @@ end
 Factory.define :detail do |f|
   f.app { Factory(:app)}
   f.team { Factory(:team)}
+  f.setting "Some setting"
   f.name { "name#{rand(1000)}" }
 end
 
@@ -111,6 +112,24 @@ end
 
 Factory.define :user_with_person, :parent => :user do |u|
   u.person {|u| u.association(:person, :reviewed => true) }
+end
+
+
+#--[ Activities and Comments ]-------------------------------------------------------------------
+
+
+Factory.define :comment do |p|
+  p.team {Factory(:team)}
+  p.user {Factory(:user)}
+  p.text 'Some nifty comment'
+  p.commentable {Factory(:team)}
+  p.flag false
+end
+
+Factory.define :activity_feed do |p|
+  p.team {Factory(:team)}
+  p.activity "Something funny"
+  p.feedable {Factory(:comment)}
 end
 
 

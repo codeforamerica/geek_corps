@@ -10,7 +10,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110803010943) do
+ActiveRecord::Schema.define(:version => 20110805000044) do
+
+  create_table "activity_feeds", :force => true do |t|
+    t.integer  "team_id"
+    t.string   "feedable_type"
+    t.integer  "feedable_id"
+    t.string   "activity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "apps", :force => true do |t|
     t.string   "name"
@@ -64,6 +73,8 @@ ActiveRecord::Schema.define(:version => 20110803010943) do
     t.integer  "team_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "commentable_type"
+    t.integer  "commentable_id"
   end
 
   create_table "contact_sources", :force => true do |t|
@@ -158,6 +169,10 @@ ActiveRecord::Schema.define(:version => 20110803010943) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nick_name"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.datetime "photo_updated_at"
+    t.integer  "photo_file_size"
   end
 
   create_table "roles", :force => true do |t|

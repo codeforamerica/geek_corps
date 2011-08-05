@@ -22,14 +22,15 @@ class App < ActiveRecord::Base
 
   validates_uniqueness_of :name, :on => :create, :message => "must be unique"
 
-  PHOTO_DEFAULTS = ["#{Rails.root.to_s}/public/images/default_app_1.png",
-                    "#{Rails.root.to_s}/public/images/default_app_2.png",
-                    "#{Rails.root.to_s}/public/images/default_app_3.png"]
+  PHOTO_DEFAULTS = ["/images/default_app_1.png",
+                    "/images/default_app_2.png",
+                    "/images/default_app_3.png"]
 
   has_attached_file :photo,
     :storage => :s3,
     :bucket => 'geekcorps_' + Rails.env,
     :path => "/app_photo/:id/:filename",
+    :default_url => PHOTO_DEFAULTS[rand(2)],
     :s3_credentials => {
       :access_key_id => S3_KEY,
       :secret_access_key => S3_SECRET
