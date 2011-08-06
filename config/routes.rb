@@ -63,6 +63,7 @@ GeekCorps::Application.routes.draw do
     end
     controller :steps do
       get '/:team_name/guide/step/new' => 'steps#new', :as => 'team_step_new'
+      get '/:team_name/guide/step/:id/edit' => 'steps#edit', :as => 'team_step_edit'      
       get '/:team_name/guide/step/:id' => 'steps#show', :as => 'team_step'
     end
   end

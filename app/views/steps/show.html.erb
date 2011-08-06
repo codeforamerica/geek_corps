@@ -1,0 +1,14 @@
+<div id="content">
+  <div id="title-main">
+    <%= render "shared/app_header"%>
+  </div>
+    <div id="guide-side-bar">
+      <%= render "shared/guide_sidebar"%>
+    </div>
+    <div id="guide-main-bar">
+        <%= link_to "edit", team_step_edit_path(@team.name, @step.id)%>
+          <h2>Step: <%=@step.name%></h2>
+          <p><%= @step.description%></p>
+    </div>
+</div>
+
