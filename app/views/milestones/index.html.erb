@@ -1,7 +1,7 @@
 <div id="content">
   <div id="title-main">
     <div id="app-image">
-        <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
+      <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
     </div>
     <h1 class="app-name">  <%= @team.app.name %> Guide </h1>
     <div class="title-content">
@@ -9,7 +9,7 @@
         <h2><%=@team.region.city%>, <%=@team.region.state%></h2>
       <% end%>
       <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
-        <%=link_to organizer.user.person.name, organizer.user.person %>
+          <%=link_to organizer.user.person.name, organizer.user.person %>
         <%end%>
         </h2>
     </div></div>
@@ -27,7 +27,8 @@
           <% end %>
         </ul>
         <% end %>
+      </ul>
+    <% end %>
 
-    </div>
+  </div>
 </div>
-
