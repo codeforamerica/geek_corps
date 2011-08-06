@@ -22,7 +22,7 @@
           <li class="goal_name"><%=goal_name(key)%></li>
           <% value.each do |milestone| %>
             <li id="milestone_<%= milestone.id %>" class="milestone">
-              <%= milestone.name %> 
+              <%= link_to milestone.name, team_milestone_path(@team.name, milestone.id) %> 
             </li>
           <% end %>
         </ul>
@@ -30,21 +30,4 @@
 
     </div>
 </div>
-<script>
-  jQuery(document).ready(function(){
-
-    $('h5').next().hide();
-
-    $('h3,h4').click(function() {
-      $(this).css('background-position-y', '0');
-      $(this).next().toggle('slow');
-      return false;
-    });
-    $('h5').click(function() {
-      var detail = $(this).next().html();
-      $('#step-detail').html(detail);
-      return false;
-    });
-  });
-</script>
 
