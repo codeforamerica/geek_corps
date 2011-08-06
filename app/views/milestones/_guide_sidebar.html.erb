@@ -1,0 +1,41 @@
+<% @team.app.milestones.group_by(&:goal).each do |key, value| %>
+  <ul id="group_<%= key %>" class="group">
+    <li>
+    <h3>
+      <%= truncate(goal_name(key), :length => 35, :separator => ' ') %>
+    </h3>
+    <div>
+      <ul>
+        <% value.each do |milestone| %>
+          <li id="milestone_<%= milestone.id %>" class="milestone">
+          <h4>
+            <%= link_to truncate(milestone.name, :length => 35, :separator => ' '), team_milestone_path(@team.name, milestone.id) %>
+          </h4>
+          <div>
+            <ol>
+              <% milestone.steps.each do |step| %>
+                <li id="step_<%= step.id %>" class="step">
+                <h5>
+                  <%= truncate(step.name, :length => 35, :separator => ' ') %>
+                </h5>
+                </li>
+              <% end %>
+            </ol>
+          </div>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "Add a Milestone", team_milestone_new_path(@team.name, :goal => key)%> 
+    </div>
+    </li>
+  </ul>
+<% end %>
+<script>
+  jQuery(document).ready(function(){
+    $('h3,h4').click(function() {
+      $(this).toggleClass('collapsed');
+      $(this).next().toggle('slow');
+      return false;
+    });
+  });
+</script>

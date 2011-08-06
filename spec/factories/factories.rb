@@ -52,7 +52,7 @@ end
 Factory.define :team do |f|
   f.app {Factory(:app)}
   f.region {Factory(:region)}
-  f.team_type "Super!"
+  f.team_type "core"
   f.name Faker::Name.name
   f.repo_url "http://github.com/codeforamerica"
 end
@@ -132,11 +132,20 @@ Factory.define :activity_feed do |p|
   p.feedable {Factory(:comment)}
 end
 
+#--[ Guide ]-------------------------------------------------------------------
+
+Factory.define :step do |s|
+  s.name Faker::Lorem.sentence
+  s.description Faker::Lorem.paragraph
+  s.position (rand(5)+1)
+end
+
 Factory.define :milestone do |m|
   m.steps { [Factory(:step), Factory(:step), Factory(:step)] }
   m.goal (rand(5)+1)
   m.position (rand(5)+1)
   m.name Faker::Lorem.sentence
   m.description Faker::Lorem.paragraph
+  m.app { Factory(:app) }
 end
 
