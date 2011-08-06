@@ -17,9 +17,19 @@ describe MilestonesController do
       sign_in(@user)
     end
     context 'edit' do
-      it 'sets the milestone goal correctly' do
-        milestone = Factory(:milestone)
-        get :edit, :id => milestone.id
+      it 'wont let you see edit unless u got the core or admin cred' do
+        team = Factory(:team)
+        request.env['HTTP_REFERER'] = '/' + team.to_url + '/guide'
+        milestone = Factory(:milestone, :app => team.app)
+        get :edit, :id => milestone.id, :team_name => milestone.app.core_team.name
+        response.should redirect_to request.env['HTTP_REFERER']
+      end
+      
+      it 'properly creates milestone with goal and app if you are a member of the core team' do
+        team = Factory(:team)
+        milestone = Factory(:milestone, :app => team.app)
+        team.team_members.create(:user => @user, :admin => true, :team_role => "loser")
+        get :edit, :id => milestone.id, :team_name => milestone.app.core_team.name
         response.should be_success
       end
     end
@@ -28,14 +38,14 @@ describe MilestonesController do
       it 'wont create a milestone cause you dont have the core team cred' do
         team = Factory(:team)
         request.env['HTTP_REFERER'] = '/' + team.to_url + '/guide'
-        post :create, :milestone => {:name => 'blah', :description => 'blah', :app_id => team.app_id}
+        post :create, :milestone => {:name => 'blah', :description => 'blah', :app_id => team.app_id}, :team_name =>team.name
         response.should redirect_to request.env['HTTP_REFERER']
       end
 
       it 'properly creates milestone with goal and app if you are a member of the core team' do
         team = Factory(:team)
         team.team_members.create(:user => @user, :admin => true, :team_role => "loser")
-        post :create, :milestone => {:name => 'blah', :description => 'blah', :app_id => team.app_id}
+        post :create, :milestone => {:name => 'blah', :description => 'blah', :app_id => team.app_id}, :team_name => team.name
         assigns(:milestone).app.should == team.app
         response.should redirect_to team_milestone_path(team.name, assigns(:milestone).id)
       end

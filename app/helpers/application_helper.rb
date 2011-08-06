@@ -126,4 +126,8 @@ module ApplicationHelper
     end  
   end
   
+  def goal_select_list
+    select "milestone", "goal", [["Goal 1: Setup the Server",1], ["Goal 2: Get Data",2], ["Goal 3: Customize the Design",3],["Goal 4: Build Community Support",4], ["Goal 5: Launch It!",5]]
+  end
+  
 end
