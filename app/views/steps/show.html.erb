@@ -6,9 +6,16 @@
       <%= render "shared/guide_sidebar"%>
     </div>
     <div id="guide-main-bar">
-        <%= link_to "edit", team_step_edit_path(@team.name, @step.id)%>
-          <h2>Step: <%=@step.name%></h2>
-          <p><%= @step.description%></p>
+      <div id="step-detail">
+        <ul>
+          <li class="step-title"><span class="detail-edit"><%= link_to "EDIT", team_step_edit_path(@team.name, @step.id)%></span>Step: <span><%=@step.name%></span></li>
+          <li class="step-tags">Tags: <span>dev, design</span></li>
+          <li class="step-desc"><%= @step.description%></li>
+          <li class="step-req">Is required: <span>Eventually</span></li>
+          <li class="step-time">Time budget: <span>100hrs</span></li>
+          <li class="step-cost">Money budget: <span>$1,000</span></li>
+        </ul>
+      </div>
     </div>
 </div>
 
