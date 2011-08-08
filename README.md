@@ -32,6 +32,12 @@ To Reset the DB & Data:
 
     bundle exec rake db:reset
 
+Testing
+-------
+
+We use spork to speed up development tests.  Run the following in a separate console window:
+
+    spork
 
 Credits
 -------
