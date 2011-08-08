@@ -40,19 +40,32 @@ describe Comment do
   end
 
   context "comment text for activity feeds" do
-    it 'should figure out comment text based upon commentable type' do
+    it 'should figure out comment text based upon team type' do
       @comment.commentable_type = "Team"
       @comment.save
       @comment.figure_out_comment_text.should == @comment.text
     end
 
     it 'should post to activity feed as a team' do
-      # @comment.commentable is "Team"
       @comment.activity_feed.activity.should == @comment.text
     end
+    
+    it 'should figure out comment text based upon milestone type' do
+      milestone = Factory(:milestone)
+      team = Factory(:team)
+      comment = Factory(:comment, :commentable => milestone, :team => team )
+      comment.commentable.should == milestone
+      comment.team.should == team
+    end
+    
+    it 'should figure out comment text based upon step type' do
+      step = Factory(:step)
+      team = Factory(:team)
+      comment = Factory(:comment, :commentable => step, :team => team )
+      comment.commentable.should == step
+      comment.team.should == team
+    end
 
-    pending 'step comments'
-    pending 'milestones'
     pending 'resource'
 
   end
