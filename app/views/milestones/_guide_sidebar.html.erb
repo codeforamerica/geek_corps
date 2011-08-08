@@ -16,11 +16,12 @@
               <% milestone.steps.each do |step| %>
                 <li id="step_<%= step.id %>" class="step">
                 <h5>
-                  <%= truncate(step.name, :length => 35, :separator => ' ') %>
+                  <%=link_to truncate(step.name, :length => 35, :separator => ' '), team_step_path(@team.name, step)%>
                 </h5>
                 </li>
               <% end %>
             </ol>
+            <%= link_to "Add a Step", team_step_new_path(@team.name, :milestone => milestone)%>
           </div>
           </li>
         <% end %>

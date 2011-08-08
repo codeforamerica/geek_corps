@@ -975,7 +975,6 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     float:right;
     width: 60%;
     border: 22px solid #E9E9E9;
-    margin: 20px 20px 20px 0;
     -moz-box-shadow: 1px 1px 4px #444;
     -webkit-box-shadow: 1px 1px 4px #444;
     box-shadow: 1px 2px 3px #444;
@@ -1062,6 +1061,88 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	margin:0 -20px 10px -20px;
 	font-size:10px;
 	}	
+
+/* Step details */
+#step-detail {
+	padding:0 20px;
+	background:#FFF;
+	text-transform:uppercase;
+	}
+#step-detail p {
+	text-transform:none;
+	}
+#step-detail h6 {
+	color:#999;
+	font-size:10px;
+	font-weight:normal;
+	}
+#step-detail ul {
+	background:#FFF;
+	display:block;
+	list-style:none;
+	margin:0 0 20px 0;
+	}
+.step-title {
+	font-size:30px;
+	color:#333;
+	margin:0 -20px 10px -20px;
+	padding:10px 20px;
+	background:#96a044;
+	font-weight:bold;
+	}
+.step-title span {
+	color:#FFF;
+	}
+.step-desc {
+	text-transform:none;
+	color:#333;
+	font-size:12px;
+	line-height:150%;
+	padding-bottom:10px;
+	margin-bottom:10px;
+	border-bottom:#CCC 1px dotted;
+	}
+.step-desc h6 {
+	text-transform:uppercase;
+	margin-bottom:5px;
+	}
+.step-req {
+	color:#999;
+	font-size:12px;
+	float:left;
+	margin-right:20px;
+	}
+.step-req span {
+	color:#533549
+	}
+.step-time {
+	color:#999;
+	font-size:12px;
+	float:left;
+	margin-right:20px;
+	}
+.step-time span {
+	color:#533549;
+	text-transform:none;
+	}
+.step-cost {
+	color:#999;
+	font-size:12px;
+	padding-bottom:10px;
+	margin-right:20px;
+	}
+.step-cost span {
+	color:#533549}
+.step-tags {
+	padding-bottom:10px;
+	margin-bottom:10px;
+	border-bottom:1px #CCC dotted;
+	color:#999;
+	font-size:10px;
+	}
+.step-tags span {
+	color:#533549;
+	}
 
 	
 
