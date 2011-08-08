@@ -11,5 +11,5 @@ class Region < ActiveRecord::Base
     :s3_credentials => {
       :access_key_id => S3_KEY,
       :secret_access_key => S3_SECRET
-    },
+    }
 end

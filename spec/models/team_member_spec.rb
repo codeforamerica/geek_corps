@@ -9,10 +9,24 @@ describe TeamMember do
       @team_member.respond_to?(:user).should be_true
     end
     it 'team' do
-      @team_member.respond_to?(:user).should be_true
+      @team_member.respond_to?(:team).should be_true
     end
     it 'app' do
       @team_member.respond_to?(:app).should be_true
+    end
+  end
+  context 'validations' do
+    it 'must have a user' do
+      @team_member.user = nil
+      @team_member.should have(1).error_on(:user)
+    end
+    it 'must have a team' do
+      @team_member.team = nil
+      @team_member.should have(1).error_on(:team)
+    end
+    it 'must have an app' do
+      @team_member.app = nil
+      @team_member.should have(1).error_on(:app)
     end
   end
 end

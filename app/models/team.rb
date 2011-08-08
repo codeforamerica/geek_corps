@@ -11,7 +11,7 @@ class Team < ActiveRecord::Base
   has_many :activity_feeds
 
   validates_presence_of :region, :unless => Proc.new { |team| team.team_type == 'core' }
-  validates_uniqueness_of :region_id, :scope => :app_id
+  validates_uniqueness_of :region_id, :scope => :app_id, :unless => Proc.new { |team| team.team_type == 'core' }
 
   # creates a unique team name based upon region's nickname "SF" and the app name
 

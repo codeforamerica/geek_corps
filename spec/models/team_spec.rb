@@ -26,6 +26,7 @@ describe Team do
       @team = Factory.build(:team)
     end
     it "should create a unique name for an implementation team" do
+      @team.team_type = 'substantial'
       @team.save(:validate => false)
       @team.name.should == (@team.region.nick_name + "-" + @team.app.name).gsub(" ", "-").downcase
     end
