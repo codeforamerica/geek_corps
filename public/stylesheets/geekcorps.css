@@ -1063,5 +1063,25 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	font-size:10px;
 	}	
 
+/* --- Profile View by Pete --- */
+
+.single_record h1 {
+	float:left;
+	display:block;
+	}
+.single_record img {
+	float:left;
+	margin-right:20px;
+	margin-bottom:20px;
+	}
+ul.auth_providers {
+	margin-bottom:20px;
+	vertical-align:top;
+	}
+ul.auth_providers li {
+	display:block;
+	float:left;
+	margin-right:20px;
+	}
 	
 
