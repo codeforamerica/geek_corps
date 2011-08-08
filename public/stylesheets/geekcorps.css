@@ -1024,11 +1024,13 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	background:#999 url(../images/arrows.png) right -40px no-repeat;
 	padding: 5px 40px 5px 10px;
 	margin: 0 -10px;
-	color:#FFF;
 	text-transform:uppercase;
 	cursor:pointer;
   border-bottom: 1px #fff solid;
 	}
+#guide-side-bar ul ul li h4 a{
+  color: #FFF;
+}
 #guide-side-bar ul ul li h4.collapsed {
   background-position-y: 0;
   }
