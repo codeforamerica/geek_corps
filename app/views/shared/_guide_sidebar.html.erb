@@ -40,7 +40,7 @@
         $('#'+collapsed_milestones[i]).addClass('collapsed').next().hide();
       }
     }
-
+    // Handler for animating the table of contents and storing the state in a cookie
     $('h3,h4').click(function() {
       var closed = [];
       $(this).toggleClass('collapsed');
