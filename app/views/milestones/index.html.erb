@@ -1,7 +1,7 @@
 <div id="content">
   <div id="title-main">
     <div id="app-image">
-        <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
+      <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
     </div>
     <h1 class="app-name">  <%= @team.app.name %> Guide </h1>
     <div class="title-content">
@@ -9,12 +9,12 @@
         <h2><%=@team.region.city%>, <%=@team.region.state%></h2>
       <% end%>
       <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
-        <%=link_to organizer.user.person.name, organizer.user.person %>
+          <%=link_to organizer.user.person.name, organizer.user.person %>
         <%end%>
         </h2>
     </div></div>
     <div id="guide-side-bar">
-      <%= render "guide_sidebar"%>
+      <%= render "shared/guide_sidebar"%>
     </div>
     <div id="guide-main-bar">
       <% @team.app.milestones.group_by(&:goal).each do |key, value| %>
@@ -22,29 +22,12 @@
           <li class="goal_name"><%=goal_name(key)%></li>
           <% value.each do |milestone| %>
             <li id="milestone_<%= milestone.id %>" class="milestone">
-              <%= milestone.name %> 
+              <%= link_to milestone.name, team_milestone_path(@team.name, milestone.id) %> 
             </li>
           <% end %>
         </ul>
         <% end %>
+      </ul>
 
-    </div>
+  </div>
 </div>
-<script>
-  jQuery(document).ready(function(){
-
-    $('h5').next().hide();
-
-    $('h3,h4').click(function() {
-      $(this).css('background-position-y', '0');
-      $(this).next().toggle('slow');
-      return false;
-    });
-    $('h5').click(function() {
-      var detail = $(this).next().html();
-      $('#step-detail').html(detail);
-      return false;
-    });
-  });
-</script>
-

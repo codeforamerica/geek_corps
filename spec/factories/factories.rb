@@ -132,6 +132,8 @@ Factory.define :activity_feed do |p|
   p.feedable {Factory(:comment)}
 end
 
+#--[ Guide ]-------------------------------------------------------------------
+
 Factory.define :step do |s|
   s.name Faker::Lorem.sentence
   s.description Faker::Lorem.paragraph
