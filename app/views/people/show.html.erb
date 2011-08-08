@@ -34,22 +34,10 @@
       <%= render :partial => 'tags/list', :object => @person.technologies, :locals => {:type => :person} %>
     </div>
   <% end %>
-  <% if current_user.person == @person %>
-  <div class="authentications">
-  <%= render :partial => 'authentications/add_auth_form' %>
-  </div>
-  <% end %>
-  
-  <div class="record_actions">
-    <% if current_user && (current_user.admin? || current_user.person == @person) %>
-      <%= link_to 'Edit', edit_person_path(@person), :class => 'edit' %>
-      <%= link_to "Delete", person_path(@person), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %>
-    <% end %>
-  </div>
-  
+
   <span class="teams-title">Teams</span>
   <ul id="front-list" class="main-list-type">
     <%= render :partial => 'team_list', :collection => @person.user.teams %>
   </ul>
-  
+
 </div>
