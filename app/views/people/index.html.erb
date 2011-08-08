@@ -6,8 +6,9 @@
   </div>
 <% end %>
 
-<div id="people-sidebar">
-    <h2>Filter by:</h2>
+<div id="people-sidebar" class="sidebar_box">
+    <h2 class="sidebar_box_title">Filter by:</h2>
+    <div class="sidebar_box_content">
 <!--    <ul id="active-filters">
         <li class="active-filter"><img src="" class="removal-icon" alt="remove" /><span class="filter-metatext">Skill: </span>Python
         </li>
@@ -30,11 +31,13 @@
             <!-- autocomplete text box and submit button goes here -->
         </div>
     </div>
+    </div>
 </div>
     
 </div>
 
 <!--<%= render :partial => 'shared/search', :locals => {:resource => Person.new} %>-->
 
+<div id="people-list">
 <%= render :partial => 'shared/list', :object => @people %>
-
+</div>
