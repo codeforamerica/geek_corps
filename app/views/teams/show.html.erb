@@ -10,6 +10,7 @@
     <ul id="app-nav">
       <li><%= link_to 'Home', @team %></li>
       <li><%= link_to 'People', team_people_path(@team.name) %></li>
+      <li><%= link_to 'Guide', team_guide_path(@team.name) %></li>      
     </ul>
 
     <%= render :partial => 'activity_stream' %>
