@@ -9,6 +9,8 @@
         <%= link_to "edit", team_step_edit_path(@team.name, @step.id)%>
           <h2>Step: <%=@step.name%></h2>
           <p><%= @step.description%></p>
+    <%= render "shared/comment_list", :comment => @step %>        
     </div>
+    
 </div>
 

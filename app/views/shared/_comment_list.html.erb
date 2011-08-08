@@ -1,0 +1,13 @@
+<div id="feed-wrapper">
+  <h1>Comments</h1>
+  <div id="activity-feed">
+  <% comment.comments.order("created_at ASC").each do |feed| %>
+    <div class="feed-item">
+      <%= activity_image(feed)%>
+      <span class="comment-body"><%=feed.text%></span>
+      <span class="comment-stamp"><%= activity_type("Comment")%>, <%= time_ago_in_words(feed.created_at)%><span>
+    </div>
+  <% end %>
+  <%= render "shared/comment", :comment => comment %>
+  </div>
+</div>
