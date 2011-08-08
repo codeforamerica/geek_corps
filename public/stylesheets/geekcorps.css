@@ -87,16 +87,15 @@ h3 { font-size:1.25em;}
 }
 
 #title-main h1 {
-    margin: 0px; 
+    margin: 0px 0px 5px 0px; 
     line-height: 100%;}
 
 #title-main h2 {
-    margin: 0px;
+    margin: 0px 0px 5px 0px;
 }
 
 #title-main h3 {
-    margin-top: 5px;
-    margin-bottom: 5px;    
+    margin: 0px 0px 5px 0px;
 }
 
 #app-image {
@@ -1228,9 +1227,11 @@ ul.auth_providers li {
 	padding:10px 20px;
 	background:#96a044;
 	font-weight:bold;
+	line-height: 130%;
 	}
 .step-title span {
 	color:#FFF;
+	line-height: 100%;
 	}
 .step-desc {
 	text-transform:none;
@@ -1257,8 +1258,9 @@ ul.auth_providers li {
 .step-time {
 	color:#999;
 	font-size:12px;
-	float:left;
-	margin-right:20px;
+	padding-bottom:10px;
+	margin-bottom:10px;
+	border-bottom:1px #CCC dotted;
 	}
 .step-time span {
 	color:#533549;
@@ -1273,12 +1275,27 @@ ul.auth_providers li {
 .step-cost span {
 	color:#533549}
 .step-tags {
+  float: left;
 	padding-bottom:10px;
 	margin-bottom:10px;
-	border-bottom:1px #CCC dotted;
+	padding-right:20px;
 	color:#999;
 	font-size:10px;
 	}
 .step-tags span {
 	color:#533549;
 	}
+.detail-edit a {
+    font-size:12px;
+    float:right;
+    background:#FFF;
+    color:#96a044;
+    margin-top:5px;
+    text-decoration:none;
+    padding:5px 10px;
+    line-height: 120%;
+    }
+.detail-edit a:hover {
+    color:#CCC;
+    text-decoration:underline;
+    }
