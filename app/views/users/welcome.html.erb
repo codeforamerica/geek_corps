@@ -23,6 +23,11 @@
     <% else %>
       <%= render :partial => 'authentications/add_auth_form' %>
       <%= render :partial => 'people/form', :locals => {:context => :review} %>
+      <div class="record_actions">
+        <% if current_user && (current_user.admin? || current_user.person == @person) %>
+          <%= link_to "Delete", person_path(@person), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %>
+        <% end %>
+      </div>
     <% end %>
   </div>
 </div>
