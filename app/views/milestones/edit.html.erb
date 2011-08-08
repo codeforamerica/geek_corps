@@ -17,13 +17,18 @@
       <%= render "shared/guide_sidebar"%>
     </div>
     <div id="guide-main-bar">
+      <div id="step-detail">
       <%= form_for @milestone do |f| %>
-        <p><%= f.label :name, "Name:" %><%= f.text_field :name %></p>
+      <ul>
+        <li class="step-title">Edit This Milestone</li>
+        <li class="step-desc"><p><%= f.label :name, "Name:" %><%= f.text_field :name %></p>
         <p><%= f.label :description, "Description" %><br><%= f.text_area :description %></p>
-        <%=goal_select_list%>
-        <input name="team_name" value="<%=@team.name%>" type="hidden">
-        <%= f.submit %>
+        <input name="team_name" value="<%=@team.name%>" type="hidden">        
+        </li>
+      </ul>
+              <%= f.submit :id => "guide_submit" %>
       <% end %>
+      </div>
     </div>
 </div>
 

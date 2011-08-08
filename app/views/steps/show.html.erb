@@ -8,6 +8,7 @@
     <div id="guide-main-bar">    
       <div id="step-detail">
         <ul>
+          <li><%=link_to @team.pretty_name, @team.to_url%> >> <%=link_to "Guide", team_guide_path(@team.name)%> >> <%= link_to @step.milestone.name[0..25].strip + "...", team_milestone_path(@team.name, @step.milestone.id) %></li>          
           <li class="step-title"><span class="detail-edit"><%= link_to "EDIT", team_step_edit_path(@team.name, @step.id)%></span>Step <%= @step.position %>: <span><%= @step.name %></span></li>
           <li class="step-tags">Tags: <span>dev, design</span></li>
           <li class="step-time">Time budget: <span><%= @step.est_time %> minutes</span></li>
