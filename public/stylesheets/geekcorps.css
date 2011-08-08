@@ -392,6 +392,11 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     height: 220px;
 }
 
+.main-list-type li img {
+    width: 220px;
+    height: 220px;
+}
+
 #front-list:before, #front-list:after {
     position: absolute;
     width: 40%;
@@ -425,6 +430,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     background-color: rgba(255, 255, 255, .7);
     margin: 0;
     width: 100%;
+    padding: 10px;
     position: absolute;
     bottom: 0;
     z-index: 1;
