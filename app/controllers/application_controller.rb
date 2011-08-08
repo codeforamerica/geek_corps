@@ -43,12 +43,12 @@ class ApplicationController < ActionController::Base
       collection
     end
   end
-  
+
   def current_person
     current_user && current_user.person
   end
   helper_method :current_person    
-  
+
   def page_title(value=nil)
     @page_title = value unless value.nil?
 
@@ -75,19 +75,22 @@ class ApplicationController < ActionController::Base
     end
   end
   helper_method :page_title
-  
+
   def find_team
-    if params[:team_name]
-      @team = Team.where(:name => params[:team_name].downcase).first
+    if params[:team_name] || params[:id]
+      if params[:team_name]
+        @team = Team.where(:name => params[:team_name].downcase).first
+      elsif params[:id]
+        @team = Team.where(:id => params[:id]).first
+      end
     end
   end
   helper_method :find_team
-  
+
   def check_core_team
     find_team
     @team.app.admin?(current_user) || current_user.admin?
   end
   helper_method :check_core_team
-  
 
 end

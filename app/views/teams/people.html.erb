@@ -1,5 +1,9 @@
 <div class="title-main">
-  <h1 class="app-name">  <%= @team.app.name %> in <%=@team.region.city%>,<%=@team.region.state%></h1> 
+  <h1 class="app-name">  <%= @team.app.name %>
+    <% unless @team.team_type == 'core' %> 
+      in <%=@team.region.city%>,<%=@team.region.state%>
+    <% end %>
+    </h1>
   <div class="title-content">
     <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
       <%=link_to organizer.user.person.name, organizer.user.person %>
