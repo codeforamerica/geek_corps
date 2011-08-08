@@ -1085,9 +1085,21 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 
 /* --- Profile View by Pete --- */
 
-.single_record h1 {
-	float:left;
-	display:block;
+.single-user-name {
+	font-size:30px;
+	font-weight:bold;
+	}
+.single_record .bio {
+	}
+.single_record .links {
+	padding-bottom:10px;
+	margin-bottom:10px;
+	border-bottom:#CCC 1px dotted;
+	}
+.single_record .section {
+	padding-bottom:10px;
+	margin-bottom:10px;
+	border-bottom:#CCC 1px dotted;
 	}
 .single_record img {
 	float:left;
@@ -1186,7 +1198,3 @@ ul.auth_providers li {
 .step-tags span {
 	color:#533549;
 	}
-
->>>>>>> 14a31b4655d71666b8593b38278eba85f62a6b61
-	
-
