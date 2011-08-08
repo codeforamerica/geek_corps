@@ -14,8 +14,8 @@ describe App do
     it 'team_members' do
       @app.respond_to?(:team_members).should be_true
     end
-    it 'members' do
-      @app.respond_to?(:members).should be_true
+    it 'users' do
+      @app.respond_to?(:users).should be_true
     end
   end
   context 'validates' do

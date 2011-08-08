@@ -247,7 +247,7 @@ DEPENDENCIES
   rake (= 0.8.7)
   rspec-rails
   simplecov
-  spork (~> 0.9.0.rc)
+  spork
   sqlite3
   twitter
   uuid

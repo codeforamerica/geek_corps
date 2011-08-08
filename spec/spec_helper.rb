@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'spork'
 
 Spork.prefork do

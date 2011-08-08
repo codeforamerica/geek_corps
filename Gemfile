@@ -29,6 +29,7 @@ gem "formtastic"
 gem 'uuid'
 
 group :test do
+  gem 'spork'
   gem 'factory_girl_rails'
   gem 'mocha'
   gem 'rspec-rails'
@@ -36,6 +37,5 @@ group :test do
   gem 'simplecov'
   gem 'webmock'
   gem 'yard'
-  gem 'spork', '~> 0.9.0.rc'
   gem 'faker'
 end
