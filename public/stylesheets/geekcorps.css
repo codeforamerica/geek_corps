@@ -83,6 +83,7 @@ h3 { font-size:1.25em;}
     position: relative;
     float:left;
     width: 60%;
+    margin-bottom: 15px;
 }
 
 #title-main h1 {
@@ -91,6 +92,11 @@ h3 { font-size:1.25em;}
 
 #title-main h2 {
     margin: 0px;
+}
+
+#title-main h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;    
 }
 
 #app-image {
@@ -1142,6 +1148,7 @@ ul.auth_providers li {
 	}
 .step-title span {
 	color:#FFF;
+	line-height: 100%;
 	}
 .step-desc {
 	text-transform:none;
@@ -1195,3 +1202,17 @@ ul.auth_providers li {
 .step-tags span {
 	color:#533549;
 	}
+.detail-edit a {
+    font-size:12px;
+    float:right;
+    background:#FFF;
+    color:#96a044;
+    margin-top:5px;
+    text-decoration:none;
+    padding:5px 10px;
+    line-height: 120%;
+    }
+.detail-edit a:hover {
+    color:#CCC;
+    text-decoration:underline;
+    }
