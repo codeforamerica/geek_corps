@@ -33,16 +33,22 @@
 <% end %>
 <script>
   jQuery(document).ready(function(){
-    
+    // Load the state of the guide table of contents from the browser cookie
+    var collapsed_milestones = $.parseJSON($.cookie('geek_corps_toc'));
+    if (collapsed_milestones != null) {
+      for (var i = 0; i<collapsed_milestones.length; i++) {
+        $('#'+collapsed_milestones[i]).addClass('collapsed').next().hide();
+      }
+    }
+
     $('h3,h4').click(function() {
       var closed = [];
       $(this).toggleClass('collapsed');
-//      console.log($(this).parents('ul')[0]);
       $(this).next().slideToggle('slow', function() {
         $('h3.collapsed, h4.collapsed').each(function(idx, el) {
           closed.push(el.id);
         });
-//        console.log(closed);
+          $.cookie('geek_corps_toc', JSON.stringify(closed));
       });
       return false;
     });

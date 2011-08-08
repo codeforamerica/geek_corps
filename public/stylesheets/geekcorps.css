@@ -1117,15 +1117,99 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	margin-right:20px;
 	margin-bottom:20px;
 	}
+.auth-delete {
+	display:block;
+	margin-top:4px;
+	font-size:0px;
+	background:url(../images/authbuttons/auth-delete.png) no-repeat;
+	height:16px;
+	width:16px;
+	float:left;
+	}
+.auth-add {
+	display:block;
+	margin-top:4px;
+	font-size:0px;
+	background:url(../images/authbuttons/auth-add.png) no-repeat;
+	height:16px;
+	width:16px;
+	float:left;
+	}
 ul.auth_providers {
-	margin-bottom:20px;
-	vertical-align:top;
+	padding-bottom:20px;
+	}
+ul.auth_providers .twitter {
+	display:block;
+	float:left;
+	background:url(../images/authbuttons/twitter_32.png) no-repeat;
+	font-size:0px;
+	height:32px;
+	width:32px;
+	}
+ul.auth_providers .open_id {
+	display:block;
+	float:left;
+	background:url(../images/authbuttons/open_id_32.png) no-repeat;
+	font-size:0px;
+	height:32px;
+	width:32px;
+	}
+ul.auth_providers .google {
+	display:block;
+	float:left;
+	background:url(../images/authbuttons/google_32.png) no-repeat;
+	font-size:0px;
+	height:32px;
+	width:32px;
+	}
+ul.auth_providers .facebook {
+	display:block;
+	float:left;
+	background:url(../images/authbuttons/facebook_32.png) no-repeat;
+	font-size:0px;
+	height:32px;
+	width:32px;
+	}
+ul.auth_providers .linked_in {
+	display:block;
+	float:left;
+	background:url(../images/authbuttons/linked_in_32.png) no-repeat;
+	font-size:0px;
+	height:32px;
+	width:32px;
+    }
+ul.auth_providers .github {
+	display:block;
+	float:left;
+	background:url(../images/authbuttons/github_32.png) no-repeat;
+	font-size:0px;
+	height:32px;
+	width:32px;
+	}
+.record_actions {
+	margin-left:20px;
+	padding-bottom:40px;
 	}
 ul.auth_providers li {
 	display:block;
 	float:left;
 	margin-right:20px;
 	}
+.teams-title {
+	display:block;
+	float:left;
+	font-size:18px;
+	font-weight:bold;
+	clear:both;
+	padding-bottom:10px;
+	}
+#front-list {
+	clear:both;
+	}
+	
+#edit_person_1 {
+	clear:both;
+}
 	
 /* --- Step details --- */
 
