@@ -87,16 +87,15 @@ h3 { font-size:1.25em;}
 }
 
 #title-main h1 {
-    margin: 0px; 
+    margin: 0px 0px 5px 0px; 
     line-height: 100%;}
 
 #title-main h2 {
-    margin: 0px;
+    margin: 0px 0px 5px 0px;
 }
 
 #title-main h3 {
-    margin-top: 5px;
-    margin-bottom: 5px;    
+    margin: 0px 0px 5px 0px;
 }
 
 #app-image {
