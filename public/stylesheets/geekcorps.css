@@ -83,6 +83,7 @@ h3 { font-size:1.25em;}
     position: relative;
     float:left;
     width: 60%;
+    margin-bottom: 15px;
 }
 
 #title-main h1 {
@@ -91,6 +92,11 @@ h3 { font-size:1.25em;}
 
 #title-main h2 {
     margin: 0px;
+}
+
+#title-main h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;    
 }
 
 #app-image {

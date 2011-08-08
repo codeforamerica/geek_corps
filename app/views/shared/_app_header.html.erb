@@ -1,13 +1,13 @@
 <div id="app-image">
-    <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
+    <%= link_to image_tag(@team.app.photo.url, :id => 'app-photo', :class => 'main-visual'), @team.to_url %>
 </div>
-<h1 class="app-name">  <%= @team.app.name %> Guide </h1>
-<div class="title-content">
-  <% unless @team.team_type == 'core' %>
-    <h2><%=@team.region.city%>, <%=@team.region.state%></h2>
-  <% end%>
+  <% if @team.team_type == 'core' %>
+<h1 class="app-name">  <%= @team.app.name %> </h1>
+  <% else %>
+  <h1 class="app-name"><%=link_to"#{@team.region.nick_name} #{@team.app.name}", @team.to_url %> </h1>  
+  <h3 class="implementation">implementation of <%= link_to @team.app.name, @team.app.core_team.to_url%></h3>
+  <% end %>
   <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
     <%=link_to organizer.user.person.name, organizer.user.person %>
     <%end%>
-    </h2>
-</div>
+  </h2>
