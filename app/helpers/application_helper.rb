@@ -100,10 +100,14 @@ module ApplicationHelper
   def activity_type(item)
     case item.class.to_s
     when "Comment"
-      link_to item.user.person.name, person_path(item.user.person)
+      if item.commentable_type == "DeployTask"
+        raw("Comment posted on #{link_to item.commentable.name, "#{item.team.to_url}/guide/#{item.commentable.class.to_s.downcase}/#{item.commentable.id}"}")
+      elsif item.commentable_type == "Team"
+        raw("Comment posted on #{link_to "Team: #{item.commentable.name.gsub('-', ' ').titlecase}", "#{item.commentable.to_url}"}")
+      end
     when "Team"
       "From Geek Robot"
-    when "Milestone"
+    when "DeployTask"
       "From Geek Robot"
     when "TeamMember"
       "From Geek Robot"

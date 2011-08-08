@@ -17,8 +17,7 @@ class Comment < ActiveRecord::Base
 
   def figure_out_comment_text
     case self.commentable_type
-    when "Step"
-    when "Milestone"
+    when "DeployTask"
       self.text
     when "Team"
       self.text
