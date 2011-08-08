@@ -1084,11 +1084,26 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 
 /* --- Profile View by Pete --- */
 
+.message {
+	padding-bottom:20px;
+	}
+.message_type {
+	display:block;
+	float:left;
+	margin-right:10px;
+	font-weight:bold;
+	}
+.message_content {
+	display:block;
+	float:left;
+	}
+
 .single-user-name {
 	font-size:30px;
 	font-weight:bold;
 	}
-.single_record .bio {
+.single_record {
+	clear:both;
 	}
 .single_record .links {
 	padding-bottom:10px;
