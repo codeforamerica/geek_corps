@@ -17,13 +17,17 @@ class Comment < ActiveRecord::Base
 
   def figure_out_comment_text
     case self.commentable_type
-    when "Step"
-    when "Milestone"
+    when "DeployTask"
+      self.text
     when "Team"
       self.text
     when "Resource"
     else
     end
+  end
+  
+  def commentable_type=(sType)
+     super(sType.to_s.classify.constantize.base_class.to_s)
   end
 
 end
