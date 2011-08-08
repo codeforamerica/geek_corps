@@ -1,13 +1,4 @@
 <li class="front-box">
   <h3><%= link_to list_item.name, polymorphic_path(list_item) %></h3>
   <%= image_tag list_item.photo.url %>
-  <dl>
-    <!--- list_item.stats.each do |stat|  --->
-      <dt><!---  stat.name(or type?)  ---></dt>
-      <dd><!---  stat.value  ---></dd>
-    <!---  end  --->
-  </dl>
-  <p class="list-item-description">
-    <!---  list_item.description  --->
-  </p>
 </li>

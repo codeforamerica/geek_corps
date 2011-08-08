@@ -5,15 +5,16 @@
     <div id="claim_user">
       <p><%= "Are you #{@person.name}?" %></p>
       <%= link_to "Claim this person", claim_person_path(@person), :class => 'claim' %>
-      <!--- TODO: Report duplicate if current_user.person.present? --->
     </div>
   <% end %>
-
-  <% if @person.location.present? %>
+  <% if @person.user.admin? %>
+    Code for America Admin
+  <% end %>  
+  <% if @person.user.region %>
     <div class="location"><%= "#{@person.user.region.city}, #{@person.user.region.state}" %></div>
   <% end %>
   <% if @person.bio.present? %>
-    <div class="bio"<%= simple_format @person.bio %></div>
+    <div class="bio"><%= simple_format @person.bio %></div>
   <% end %>
   <div class="links">
     <% if @person.url.present? %>
@@ -33,11 +34,22 @@
       <%= render :partial => 'tags/list', :object => @person.technologies, :locals => {:type => :person} %>
     </div>
   <% end %>
-
+  <% if current_user.person == @person %>
+  <div class="authentications">
+  <%= render :partial => 'authentications/add_auth_form' %>
+  </div>
+  <% end %>
+  
   <div class="record_actions">
     <% if current_user && (current_user.admin? || current_user.person == @person) %>
       <%= link_to 'Edit', edit_person_path(@person), :class => 'edit' %>
       <%= link_to "Delete", person_path(@person), :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %>
     <% end %>
   </div>
+  
+  <h1>Teams</h1>
+  <ul id="front-list" class="main-list-type">
+    <%= render :partial => 'team_list', :collection => @person.user.teams %>
+  </ul>
+  
 </div>
