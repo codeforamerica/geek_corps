@@ -1146,6 +1146,7 @@ ul.auth_providers li {
 	}
 .step-title span {
 	color:#FFF;
+	line-height: 100%;
 	}
 .step-desc {
 	text-transform:none;
@@ -1197,3 +1198,17 @@ ul.auth_providers li {
 .step-tags span {
 	color:#533549;
 	}
+.detail-edit a {
+    font-size:12px;
+    float:right;
+    background:#FFF;
+    color:#96a044;
+    margin-top:5px;
+    text-decoration:none;
+    padding:5px 10px;
+    line-height: 120%;
+    }
+.detail-edit a:hover {
+    color:#CCC;
+    text-decoration:underline;
+    }

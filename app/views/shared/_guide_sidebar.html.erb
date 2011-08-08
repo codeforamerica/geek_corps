@@ -1,14 +1,14 @@
 <% @team.app.milestones.group_by(&:goal).each do |key, value| %>
-  <ul id="group_<%= key %>" class="group">
+  <ul class="group">
     <li>
-    <h3>
+    <h3 id="group_<%= key %>">
       <%= truncate(goal_name(key), :length => 35, :separator => ' ') %>
     </h3>
     <div>
       <ul>
         <% value.each do |milestone| %>
-          <li id="milestone_<%= milestone.id %>" class="milestone">
-          <h4>
+          <li  class="milestone">
+          <h4 id="milestone_<%= milestone.id %>">
             <%= link_to truncate(milestone.name, :length => 35, :separator => ' '), team_milestone_path(@team.name, milestone.id) %>
           </h4>
           <div>
@@ -33,9 +33,17 @@
 <% end %>
 <script>
   jQuery(document).ready(function(){
+    
     $('h3,h4').click(function() {
+      var closed = [];
       $(this).toggleClass('collapsed');
-      $(this).next().slideToggle('slow');
+//      console.log($(this).parents('ul')[0]);
+      $(this).next().slideToggle('slow', function() {
+        $('h3.collapsed, h4.collapsed').each(function(idx, el) {
+          closed.push(el.id);
+        });
+//        console.log(closed);
+      });
       return false;
     });
   });
