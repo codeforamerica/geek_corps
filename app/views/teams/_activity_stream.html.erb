@@ -1,6 +1,6 @@
 <div id="feed-wrapper">
   <div id="activity-feed">
-    <% @team.activity_feeds.order("created_at ASC").each do |feed| %>
+    <% @team.activity_feeds[0..20].order("created_at DESC").each do |feed| %>
       <div class="feed-item">
         <%= activity_image(feed.feedable)%>
           <span class="comment-user">

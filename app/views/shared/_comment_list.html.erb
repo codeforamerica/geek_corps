@@ -1,7 +1,7 @@
 <div id="feed-wrapper">
   <h1>Comments</h1>
   <div id="activity-feed">
-  <% comment.comments.order("created_at ASC").each do |feed| %>
+  <% comment.comments.order("created_at DESC").each do |feed| %>
     <div class="feed-item">
       <%= activity_image(feed)%>
       <span class="comment-body"><%=feed.text%></span>
