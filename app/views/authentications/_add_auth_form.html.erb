@@ -1,7 +1,7 @@
 <div class="sidebar_box sb_container">
     <div class="sidebar_box_title">Your Social Networks</div>
     <div class="sidebar_box_content ">
-      Click the + or - sign to add/remove an account
+      <span>Click the + or - sign to add/remove an account<span>
       <ul class="auth_providers">
         <% SETTINGS['providers'].each do |provider| %>
           <li><%= link_to OmniAuth::Utils.camelize(provider), "/auth/#{provider}", :class => provider %>

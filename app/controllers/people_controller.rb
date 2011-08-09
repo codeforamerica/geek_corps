@@ -43,16 +43,11 @@ class PeopleController < InheritedResources::Base
   end
 
   def create
-    if params[:form_context] == 'add_self'
       @person = Person.new(params[:person])
       @person.user = current_user
       @person.imported_from_provider = current_user.authentications.first.provider
       @person.imported_from_id = current_user.authentications.first.uid
-      @person.user.update_attributes(:region_id => params[:person][:location].to_i)
-    end
-
-    create!
-
+      create!
   end
 
   def update
