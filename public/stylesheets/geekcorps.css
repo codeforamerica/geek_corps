@@ -1143,7 +1143,9 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	}
 .message {
 	padding:20px 10px;
-	background-color:#e89a41;
+	background-color:#96a044;
+	color:#FFF;
+	font-size:18px;
 	}
 .message_type {
 	display:block;
