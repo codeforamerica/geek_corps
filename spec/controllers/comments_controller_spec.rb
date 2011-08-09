@@ -12,6 +12,7 @@ describe CommentsController do
 
     
     it "should be post to comments and redirect with success" do
+      request.env['HTTP_REFERER'] = @comment.commentable.to_url      
       post 'create', :comment => Factory.attributes_for(:comment, :team => @comment.team, :user => @user, :commentable => @comment.commentable )
       flash[:success].should == 'Comment added!'
       response.should redirect_to @comment.commentable.to_url 

@@ -1,0 +1,36 @@
+<div id="content">
+  <div id="title-main">
+    <div id="app-image">
+        <%= image_tag @team.app.photo.url, :id => 'app-photo', :class => 'main-visual' %>
+    </div>
+    <h1 class="app-name">  <%= @team.app.name %> </h1>
+    <div class="title-content">
+      <% unless @team.team_type == 'core' %>
+        <h2><%=@team.region.city%>, <%=@team.region.state%></h2>
+      <% end%>
+      <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
+        <%=link_to organizer.user.person.name, organizer.user.person %>
+        <%end%>
+        </h2>
+    </div></div>
+    <div id="guide-side-bar">
+      <%= render "shared/guide_sidebar"%>
+    </div>
+    <div id="guide-main-bar">
+      <div id="step-detail">
+      <ul>
+        <% form_for :deploy_task_resource, :url => deploy_task_resources_path do |f| -%>
+        <li class="step-title">New Resource for <%=@deploy_task_resource.deploy_task.name%></li>
+          <li class="step-desc">
+          <p><%= f.label :content, "Title:" %><%= f.text_field :content %></p>
+          <p><%= f.label :link, "URL" %><%= f.text_field :link %> </p> 
+          <%= f.hidden_field :deploy_task_id %>
+          <input type="hidden" name="team_name" value="<%=@team.name%>">
+          </li>
+          <%= f.submit "Create", :id => "guide_submit"  %>
+        <% end -%>
+      <ul>
+        </div>
+    </div>
+</div>
+
