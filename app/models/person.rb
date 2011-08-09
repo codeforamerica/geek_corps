@@ -1,6 +1,7 @@
 class Person < ActiveRecord::Base
   require 'open-uri'
   require 'digest/md5'
+  after_create :add_location_to_user
 
   attr_accessor :photo_import_url
   attr_protected :user_id
@@ -57,6 +58,12 @@ class Person < ActiveRecord::Base
   def attach_to_matching_user
     if self.user.nil? && matching_user.present?
       self.user = matching_user
+    end
+  end
+  
+  def add_location_to_user
+    if self.user
+      self.user.update_attributes(:region_id => self.location.to_i)
     end
   end
 end
