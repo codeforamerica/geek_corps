@@ -5,8 +5,7 @@
     </h1>
   </div>
 <% end %>
-
-<div id="people-sidebar" class="sidebar_box">
+<div id="sidebar" class="sidebar_box">
     <h2 class="sidebar_box_title">Filter by:</h2>
     <div class="sidebar_box_content">
 <!--    <ul id="active-filters">
@@ -16,20 +15,18 @@
     <div id="remaining-filters">
         <div id="location-filter">
             <h3>Location:</h3>
-            <!-- drop down menu goes here - on select, goes to the active-filters section and updates the people -->
-        </div>
-        <div id="role-filter">
-            <h3>Role:</h3>
-            <!-- drop down menu goes here - on select, goes to the active-filters section and updates the people -->
+              <select name="region" id="region" size="1">
+              <% Region.all.each do |region| %>
+                <option value="<%=region_name_underscored(region)%>" data-filter=".<%=region_name_underscored(region)%>"><%=region.city%>, <%=region.state%></option>              
+              <% end %>    
+              </select>
         </div>
         <div id="skill-filter">
             <h3>Skills:</h3>
             <ul>
-              <!---
-                <%% Skill.all.each do |skill| %>
-                <li class="skill"><a href=""><%%= skill.name %> (<span class="skill-number"><%%= rand(40) %></span>)</a></li>
-                <%% end %> -->
-                <!--<li class="skill"><a href="">Ruby (<span class="skill-number">40</span>)</a></li> -->
+              <% get_skills.each do |skill|%>
+              <li><a href="#" data-filter=".<%=skill.gsub(".", "_").gsub(" ", "_")%>"><%=skill%></a></li>
+              <% end %>
             </ul>
             <span>Other skills:</span>
             <!-- autocomplete text box and submit button goes here  -->
@@ -40,5 +37,22 @@
 </div>
 
 <div id="people-list">
-<%= render :partial => 'shared/list', :object => @people %>
+<%= render :partial => 'list' %>
 </div>
+<script type="text/javascript" charset="utf-8">
+$('#people-list').isotope({
+  // options
+  itemSelector : '.front-box',
+  layoutMode : 'fitRows'
+});
+$('#skill-filter a').click(function(){
+  var selector = $(this).attr('data-filter');
+  $('#people-list').isotope({ filter: selector });
+  return false;
+});
+$('#location-filter select').select(function(){
+  var selector = $(this).attr('data-filter');
+  $('#people-list').isotope({ filter: selector });
+  return false;
+});
+</script>
