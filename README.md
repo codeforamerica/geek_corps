@@ -31,6 +31,23 @@ then:
 To Reset the DB & Data:
 
     bundle exec rake db:reset
+    
+After you've set up the database, launch the server:
+
+    rails s  
+
+Launch your fav browser and create an account by visiting /sign_in and authorizing through OAuth.
+
+Then, make yourself an admin for the entire system in console:
+
+    rails c
+    s = User.last
+    s.admin = true
+    s.save
+
+You should be good to go.  
+
+  
 
 Testing
 -------

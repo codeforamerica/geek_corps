@@ -87,6 +87,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :find_team
 
+  def check_team_admin
+    find_team
+    @team.admin?(current_user) || current_user.admin?
+  end
+  helper_method :check_team_admin
+  
   def check_core_team
     find_team
     @team.app.admin?(current_user) || current_user.admin?

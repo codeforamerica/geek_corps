@@ -57,8 +57,7 @@ class MilestonesController < InheritedResources::Base
     else
       flash[:error] = "What? Creating a milestone without core team cred. You're nuts."      
       redirect_to :back
-    end
-    
+    end  
   end
   
 

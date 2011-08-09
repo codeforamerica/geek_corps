@@ -23,6 +23,7 @@
                 <% end %>
               </ul>
           </li>
+          <%= render "resources/resource_list", :resource_lists => @milestone.deploy_task_resources%>
         </ul>
       </div>
     <%= render "shared/comment_list", :comment => @milestone %>  

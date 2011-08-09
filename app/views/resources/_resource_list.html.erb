@@ -1,0 +1,15 @@
+<li class="step-desc">
+      <h3>Resources</h3>
+      <ol>
+      <% resource_lists.each do |resource| %>
+        <li id="resource<%= resource.id %>" class="resource">
+          <%=link_to resource.content, resource.link %> 
+          (<%=link_to "edit", edit_deploy_task_resource_path(resource)%>)
+        </li>
+      <% end %>
+      <li id="resource<%= resource.id %>" class="resource">
+        <%=link_to "Add a New Resource", "#{@team.to_url}/guide/#{resource.class.to_s.downcase}/#{resource.id}/resources/new"%>
+      </li>
+    </ol>
+</li>
+

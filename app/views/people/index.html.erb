@@ -6,20 +6,24 @@
   </div>
 <% end %>
 
-<div id="people-sidebar">
-    <h2>Filter by:</h2>
+<div id="people-sidebar" class="sidebar_box">
+    <h2 class="sidebar_box_title">Filter by:</h2>
+    <div class="sidebar_box_content">
 <!--    <ul id="active-filters">
         <li class="active-filter"><img src="" class="removal-icon" alt="remove" /><span class="filter-metatext">Skill: </span>Python
         </li>
     </ul>-->
+    <%= form_for @search, :url => polymorphic_path(Person.new), :html => {:method => :get} do |f| %>
     <div id="remaining-filters">
         <div id="location-filter">
             <h3>Location:</h3>
             <!-- drop down menu goes here - on select, goes to the active-filters section and updates the people -->
+            
         </div>
         <div id="role-filter">
             <h3>Role:</h3>
             <!-- drop down menu goes here - on select, goes to the active-filters section and updates the people -->
+            <%= f.select :roles_id_equals, Role.all.map {|r| [r.name, r.id] }, {:include_blank => true} %>
         </div>
         <div id="skill-filter">
             <h3>Skills:</h3>
@@ -28,7 +32,10 @@
             </ul>
             <span>Other skills:</span>
             <!-- autocomplete text box and submit button goes here -->
+            <%= f.text_field :name_contains, :id => 'other-skills' %>
         </div>
+    </div>
+    <% end %>
     </div>
 </div>
     
@@ -36,5 +43,6 @@
 
 <!--<%= render :partial => 'shared/search', :locals => {:resource => Person.new} %>-->
 
+<div id="people-list">
 <%= render :partial => 'shared/list', :object => @people %>
-
+</div>

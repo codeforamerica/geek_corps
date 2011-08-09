@@ -13,6 +13,8 @@
           <li class="step-tags">Tags: <span>dev, design</span></li>
           <li class="step-time">Time budget: <span><%= @step.est_time %> minutes</span></li>
           <li class="step-desc"><%= @step.description %></li>
+          <%= render "resources/resource_list", :resource_lists => @step.deploy_task_resources%>
+          
         </ul>
       </div>
     <%= render "shared/comment_list", :comment => @step %>        

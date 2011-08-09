@@ -65,8 +65,10 @@ end
 def create_guide_goal(app, goal_id)
   (rand(4)+1).times do |i|
   m = Milestone.create(:app => app, :goal => goal_id, :position => i+1, :name => Faker::Lorem.sentence, :description => Faker::Lorem.paragraph)
+  m.deploy_task_resources.create(:content => Faker::Lorem.sentence, :resource_type => "link", :link => Faker::Internet.domain_name)
     (rand(4)+1).times do |x|
-      m.steps.create(:est_time => rand(60), :app => app, :goal => goal_id, :position => x+1, :name => Faker::Lorem.sentence, :description => Faker::Lorem.paragraph)
+      s = m.steps.create(:est_time => rand(60), :app => app, :goal => goal_id, :position => x+1, :name => Faker::Lorem.sentence, :description => Faker::Lorem.paragraph)
+      s.deploy_task_resources.create(:content => Faker::Lorem.sentence, :resource_type => "link", :link => Faker::Internet.domain_name)
     end
   end
 end
@@ -97,4 +99,17 @@ Factory(:app, :name => "Class Talk")].each do |app|
     puts "  organizer added"
   end
 end
+puts "Adding comments on all teams"  
+Team.all.each do |team|
+  team.team_members.each do |member|
+    team.comments.create!(:user => member.user, :text => Faker::Lorem.sentence, :team => team)
+  end
+puts "Adding comments on all tasks for #{team.name}"    
+  team.app.deploy_tasks.each do |task|
+    2.times do |h| 
+      task.comments.create!(:user => team.members.shuffle.last, :text => Faker::Lorem.sentence, :team => team)
+    end
+  end
+end
+
 
