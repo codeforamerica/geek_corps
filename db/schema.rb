@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20110809170919) do
   create_table "deploy_task_resources", :force => true do |t|
     t.integer  "deploy_task_id"
     t.integer  "team_id"
-    t.string   "type"
+    t.string   "resource_type"
     t.text     "content"
     t.string   "link"
     t.datetime "created_at"

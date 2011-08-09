@@ -97,9 +97,6 @@ Factory.define :person do |p|
   p.url { Faker::Internet.domain_name }
   p.bio { Faker::Lorem.paragraph }
   p.location { Faker::Address.city }
-  p.roles { [ Factory(:role) ] }
-  p.languages { [ Factory(:language) ] }
-  p.skills { [ Factory(:skill) ] }
 end
 
 Factory.define :admin_user, :parent => :user do |u|
