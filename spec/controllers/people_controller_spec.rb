@@ -29,7 +29,7 @@ describe PeopleController do
   describe "POST create" do
     describe "with valid params" do
       before do
-        current_user = User.new
+        current_user = Factory(:user)
         current_user.stub!(:admin?).and_return(true)
         controller.stub!(:authenticate_user!).and_return(true)
         controller.stub!(:current_user).and_return(current_user)
