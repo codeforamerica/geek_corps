@@ -14,6 +14,7 @@
         <div id="location-filter">
             <h3>Location:</h3>
               <select name="region" id="region" size="1">
+                <option value="all" data-filter="">All cities</option>              
               <% Region.all.each do |region| %>
                 <option value="<%=region_name_underscored(region)%>" data-filter=".<%=region_name_underscored(region)%>"><%=region.city%>, <%=region.state%></option>              
               <% end %>    
@@ -38,7 +39,8 @@
 <%= render :partial => 'list' %>
 </div>
 <script type="text/javascript" charset="utf-8">
-var selector_string = '';
+// TODO: Refactor out this global namespace polluting variable
+var selector_string = ''; 
 
 $('#people-list').isotope({
   // options
@@ -55,18 +57,26 @@ $('#skill-filter a').live('click', function(){
   return false;
 });
 
-$('#location-filter select').select(function(){
-  var selector = $(this).attr('data-filter');
-  selector_string += selector;
+$('#location-filter select').change(function(ev){
+  // TODO: this process could be cleaner
+  var list_of_locations = [];
+  $('#location-filter option').each(function(idx, el) { list_of_locations.push('.'+$(el).val()); });
+  $(list_of_locations).each(function(i, loc) {
+    selector_string = selector_string.replace(loc, '', 'gi');
+  });
+
+  // Only change the selector if they select 'all'
+  if($(this).val() != 'all') {
+    var selector = '.'+$(this).val();
+    selector_string += selector;
+  }
   $('#people-list').isotope({ filter: selector_string });
   return false;
-});
+}).change();
 
 $('#active-filters li a').live('click', function(ev) {
   var $theEl = $(this);
-  console.log($theEl.attr('data-filter'));
   selector_string = selector_string.replace($theEl.attr('data-filter'), '','gi');
-  console.log(selector_string);
   $('#people-list').isotope({ filter: selector_string });
   $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a></li>'));
   $theEl.parent().remove();
