@@ -15,6 +15,8 @@ class App < ActiveRecord::Base
 
   has_many :deploy_task_resources, :through => :deploy_tasks
 
+  acts_as_taggable_on :tags, :technologies
+
   accepts_nested_attributes_for :details, :deploy_tasks, :goals, :milestones, :steps
 
   validates_uniqueness_of :name, :on => :create, :message => "must be unique"
