@@ -1,6 +1,5 @@
 class Milestone < DeployTask
   has_many :steps, :foreign_key => :parent_id, :inverse_of => :milestone
-
   belongs_to :app
 
   private 

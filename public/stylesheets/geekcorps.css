@@ -973,6 +973,18 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	cursor:pointer;
 }
 
+#person_submit {
+    font-size:18px;
+	text-transform:uppercase;
+	font-weight:bold;
+	padding:3px 10px;
+	background:#992739;
+	color:#FFF;
+	border:0;
+	margin: 5px;
+	cursor:pointer;    
+}
+
 #comment_submit {
 	font-size:18px;
 	text-transform:uppercase;
