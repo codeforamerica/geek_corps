@@ -37,7 +37,7 @@ class Person < ActiveRecord::Base
     end
   end
 
-  validates_presence_of :name
+  validates_presence_of :name, :location
 
   before_save :attach_to_matching_user
 
