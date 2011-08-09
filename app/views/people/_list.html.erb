@@ -3,6 +3,10 @@
   <li class="front-box <%= region_name_underscored(person.user.region)%> <%=skill_list(person.skill_list)%>">
     <h3><%= link_to person.name, polymorphic_path(person) %></h3>
     <%= image_tag person.photo.url %>
+    <div id="details" style="display:none">
+      <div id="bio"><%= person.bio%></div>
+      <div id="website"><%=link_to person.url, person.url%></div>
+    </div>
   </li>
   <% end %>
 </ul>
