@@ -8,10 +8,10 @@
 <div id="sidebar" class="sidebar_box">
     <h2 class="sidebar_box_title">Filter by:</h2>
     <div class="sidebar_box_content">
-<!--    <ul id="active-filters">
+    <ul id="active-filters">
         <li class="active-filter"><img src="" class="removal-icon" alt="remove" /><span class="filter-metatext">Skill: </span>Python
         </li>
-    </ul>-->
+    </ul>
     <div id="remaining-filters">
         <div id="location-filter">
             <h3>Location:</h3>
@@ -40,19 +40,26 @@
 <%= render :partial => 'list' %>
 </div>
 <script type="text/javascript" charset="utf-8">
+var selector_string = '';
+
 $('#people-list').isotope({
   // options
   itemSelector : '.front-box',
   layoutMode : 'fitRows'
 });
+
 $('#skill-filter a').click(function(){
   var selector = $(this).attr('data-filter');
-  $('#people-list').isotope({ filter: selector });
+  selector_string += selector;
+  $('#people-list').isotope({ filter: selector_string });
+  $('#active-filters').append($('<li class="active-filter"><img src="" class="removal-icon" alt="remove" />'+$(this).html()+'</li>'));
+  $(this).remove();
   return false;
 });
 $('#location-filter select').select(function(){
   var selector = $(this).attr('data-filter');
-  $('#people-list').isotope({ filter: selector });
+  selector_string += selector;
+  $('#people-list').isotope({ filter: selector_string });
   return false;
 });
 </script>
