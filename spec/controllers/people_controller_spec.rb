@@ -4,7 +4,7 @@ describe PeopleController do
 
   describe "GET index" do
     it "assigns all people as @people" do
-      @person = Person.create(:name => 'Harvey Jenkins')
+      @person = Factory(:person, :name => 'Harvey Jenkins')
       get :index
       assigns(:people).should eq([@person])
     end
@@ -12,7 +12,7 @@ describe PeopleController do
 
   describe "GET show" do
     it "assigns the requested person as @person" do
-      @person = Person.create(:name => 'Harvey Jenkins')
+      @person = Factory(:person, :name => 'Harvey Jenkins')
       get :show, :id => @person.id.to_s
       assigns(:person).should eq(@person)
     end
@@ -36,18 +36,18 @@ describe PeopleController do
       end
       it "creates a new Person" do
         expect {
-          post :create, :person => {:name => 'Harvey Jenkins'}
+          post :create, :person => {:name => 'Harvey Jenkins', :location => 1}
         }.to change(Person, :count).by(1)
       end
 
       it "assigns a newly created person as @person" do
-        post :create, :person => {:name => 'Harvey Jenkins'}
+        post :create, :person => {:name => 'Harvey Jenkins', :location => 1}
         assigns(:person).should be_a(Person)
         assigns(:person).should be_persisted
       end
 
       it "redirects to the created person" do
-        post :create, :person => {:name => 'Harvey Jenkins'}
+        post :create, :person => {:name => 'Harvey Jenkins', :location => 1}
         response.should redirect_to(Person.last)
       end
     end
