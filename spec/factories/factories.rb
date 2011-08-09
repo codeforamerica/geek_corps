@@ -74,23 +74,6 @@ Factory.define :detail do |f|
   f.name { "name#{rand(1000)}" }
 end
 
-#--[ Role ]--------------------------------------------------------------------
-Factory.define :role do |r|
-  r.name 'Backend Developer'
-end
-
-#--[ Language ]--------------------------------------------------------------------
-Factory.define :language do |l|
-  l.name 'Ruby'
-end
-
-#--[ Skill ]--------------------------------------------------------------------
-Factory.define :skill do |s|
-  s.name 'Rails'
-  s.role { Factory(:role) }
-  s.skillable Person.first
-end
-
 #--[ Person ]-------------------------------------------------------------------
 Factory.define :person do |p|
   p.name { Faker::Name.name }
