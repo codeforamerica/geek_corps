@@ -56,7 +56,7 @@ class PeopleController < InheritedResources::Base
   end
 
   def update
-    if params[:person][:location] != current_user.region
+    if !params[:person][:location].nil? and params[:person][:location] != current_user.region
       current_user.update_attributes(:region_id => params[:person][:location])
     end
     update!
