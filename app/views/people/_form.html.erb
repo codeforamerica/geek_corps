@@ -2,7 +2,7 @@
     <p><%= f.label :name, "Name" %><br>
     <%= f.text_field :name %></p>
     <p><%= f.label :location, "Region" %><br>
-    <%= select :person, :location, :label => "Region", :collection => Region.all.map { |x| ["#{x.city}, #{x.state}", x.id]} %></p>
+    <%= select :person, :location, Region.all.map { |x| ["#{x.city}, #{x.state}", x.id]} %></p>
     <p><%= f.label :website, "Website" %><br>
     <%= f.text_field :url, :label => 'Website' %></p>
     <p><%= f.label :tag_list, "Tag List" %><br>
