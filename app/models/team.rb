@@ -9,6 +9,7 @@ class Team < ActiveRecord::Base
   has_many :team_deploy_tasks
   has_many :deploy_tasks, :through => :team_deploy_tasks
   has_many :activity_feeds
+  has_many :comments, :as => :commentable
 
   validates_presence_of :region, :unless => Proc.new { |team| team.team_type == 'core' }
   validates_uniqueness_of :region_id, :scope => :app_id, :unless => Proc.new { |team| team.team_type == 'core' }
