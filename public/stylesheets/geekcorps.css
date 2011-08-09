@@ -1479,6 +1479,16 @@ form.edit_person input {
 	color:#999;
 	}
 
+h3.implementation {
+    background:url(../images/fork.png) top left no-repeat;
+    float:left;
+    padding:0 0 0 30px;
+    width:450px;
+    }
+h2.organizer {
+    font-size:1.25em;
+    }
+
 /**** Isotope CSS stuff ****/
 
 /**** Isotope Filtering ****/
