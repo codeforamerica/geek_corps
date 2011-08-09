@@ -1434,3 +1434,15 @@ form.edit_person input {
     color:#CCC;
     text-decoration:underline;
     }
+
+#new_sign_in_data li {
+	list-style:none;
+	display:block;
+	}
+#new_sign_in_data label {
+	margin:0 20px 10px 0;
+	width:50px;
+	}
+#new_sign_in_data input {
+	margin:0 20px 10px 0;
+	}
