@@ -1,0 +1,5 @@
+<div id="app-image">
+  <%= link_to image_tag(@person.photo.url, :id => 'person-photo', :class => 'main-visual'), @person %>
+</div>
+  <h1 class="app-name"><%=link_to "Hi #{@person.name}!", @person %> </h1>  
+  <h2><%=@person.user.region.city%>, <%=@person.user.region.state%></h2>

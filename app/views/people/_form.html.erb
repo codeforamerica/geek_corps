@@ -1,23 +1,14 @@
-<% semantic_form_for(@person, :html => {:multipart => true}) do |f| %>
-  <% f.inputs do %>
-    <%= f.input :name %>
-    <%= f.input :location, :label => "Region", :hint => 'We are only in a select number of regions', :collection => Region.all.map { |x| ["#{x.city}, #{x.state}", x.id]} %>
-    <%= f.input :url, :label => 'Website' %>        
-    <%= f.input :bio %>
-    <%= f.input :tag_list, :as => :text, :label => 'Tags (interests, titles, personal descriptors, technologies)', :hint => "Comma separated, please", :input_html => {:class => 'tags'}%>
-  <% end %>
-  <% f.inputs :name => "Photo" do %>
-   <% if photo_url = @person.photo_import_url || (@person.photo.file? && @person.photo.url(:medium)) %>
-    <li>
-      <%= image_tag photo_url, :size => '220'%>
-    </li>
-  <% end %>
-    <li>
-      <%=f.input :photo_import_url, :label => "Import a photo from the web…"%>
-      <%= f.input :photo, :label => "…or upload one from your computer.", :hint => "Preferably 220px wide or larger"%>
-    </li>
-  <% end %>
-  <%=hidden_field_tag :form_context, :review%>
-  <%=f.buttons%>
-
+<% form_for(@person, :html => {:multipart => true}) do |f| %>
+    <p><%= f.label :name, "Name" %><br>
+    <%= f.text_field :name %></p>
+    <p><%= f.label :location, "Region" %><br>
+    <%= select :person, :location, Region.all.map { |x| ["#{x.city}, #{x.state}", x.id]} %></p>
+    <p><%= f.label :website, "Website" %><br>
+    <%= f.text_field :url, :label => 'Website' %></p>
+    <p><%= f.label :tag_list, "Tag List" %><br>
+    <%= f.text_field :tag_list, :input_html => {:class => 'tags'}%></p>
+    <p><%= f.label :bio, "Bio" %><br>
+    <%= f.text_area :bio, :as => :text%></p>
+    <%= f.hidden_field :form_context, :value => "review" %>
+  <%=f.submit%>
 <% end %>

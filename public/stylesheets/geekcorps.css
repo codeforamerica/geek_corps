@@ -917,6 +917,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	}
 #activity-feed img {
 	float:left;
+	width: 60px;
 	}
 #activity-feed a {
 	color:#992739;
@@ -970,6 +971,18 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	border:0;
 	margin: 5px;
 	cursor:pointer;
+}
+
+#person_submit {
+    font-size:18px;
+	text-transform:uppercase;
+	font-weight:bold;
+	padding:3px 10px;
+	background:#992739;
+	color:#FFF;
+	border:0;
+	margin: 5px;
+	cursor:pointer;    
 }
 
 #comment_submit {
@@ -1136,8 +1149,13 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 
 /* --- Profile View by Pete --- */
 
+#flash {
+	margin:-20px 0 20px 0;
+	line-height:30%;
+	}
 .message {
-	padding-bottom:20px;
+	padding:20px 10px;
+	background-color:#e89a41;
 	}
 .message_type {
 	display:block;

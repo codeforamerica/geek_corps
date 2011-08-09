@@ -11,7 +11,7 @@ class Person < ActiveRecord::Base
 
   PHOTO_SIZES = {:medium => 220, :thumb => 48} # for gravatar
 
-  acts_as_taggable_on :tags, :technologies
+  acts_as_taggable_on :tags, :skills
 
   # s3 credentials specified in _load_settings
   has_attached_file :photo, :storage => :s3,
@@ -24,9 +24,6 @@ class Person < ActiveRecord::Base
   }
 
   belongs_to :user
-  has_many :skills, :as => :skillable
-  has_many :roles, :as => :rolable
-  has_many :languages, :as => :polyglot
 
   before_validation :on => :create do
     if self.photo_import_url.present?

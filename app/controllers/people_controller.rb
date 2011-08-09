@@ -7,8 +7,7 @@ class PeopleController < InheritedResources::Base
   before_filter :set_user_id_if_admin, :only => [:update, :create]
 
   def index
-    @search = Person.search(params[:search])
-    @people = @search.paginate
+    @people = Person.all
   end
 
   def tag
