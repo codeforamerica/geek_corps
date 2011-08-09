@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110805185055) do
+ActiveRecord::Schema.define(:version => 20110809170919) do
 
   create_table "activity_feeds", :force => true do |t|
     t.integer  "team_id"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(:version => 20110805185055) do
   create_table "deploy_task_resources", :force => true do |t|
     t.integer  "deploy_task_id"
     t.integer  "team_id"
-    t.string   "resource_type"
+    t.string   "type"
     t.text     "content"
     t.string   "link"
     t.datetime "created_at"
@@ -156,14 +156,6 @@ ActiveRecord::Schema.define(:version => 20110805185055) do
   add_index "github_contacts", ["public_gist_count"], :name => "index_github_contacts_on_public_gist_count"
   add_index "github_contacts", ["public_repo_count"], :name => "index_github_contacts_on_public_repo_count"
 
-  create_table "languages", :force => true do |t|
-    t.string   "name"
-    t.integer  "polyglot_id"
-    t.string   "polyglot_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "people", :force => true do |t|
     t.string   "bio"
     t.string   "location"
@@ -196,23 +188,6 @@ ActiveRecord::Schema.define(:version => 20110805185055) do
     t.string   "photo_content_type"
     t.datetime "photo_updated_at"
     t.integer  "photo_file_size"
-  end
-
-  create_table "roles", :force => true do |t|
-    t.string   "name"
-    t.integer  "rolable_id"
-    t.string   "rolable_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "skills", :force => true do |t|
-    t.string   "name"
-    t.integer  "skillable_id"
-    t.string   "skillable_type"
-    t.integer  "role_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "taggings", :force => true do |t|
