@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :team_members
   has_many :teams, :through => :team_members, :source => :team
   belongs_to :region
+  has_many :comments
 
   scope :admins, joins(:team_members).where(:team_members => {:admin => true})
 

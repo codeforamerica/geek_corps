@@ -2,6 +2,9 @@
   <%= link_to image_tag(@person.photo.url, :id => 'person-photo', :class => 'main-visual'), @person %>
 </div>
   <h1 class="app-name"><%=link_to "Hi #{@person.name}!", @person %> </h1>  
-  <% if @person.user.region %>
+  <% if @person.user && @person.user.region %>
   <h2><%=@person.user.region.city%>, <%=@person.user.region.state%></h2>
 <% end %>
+  <% if @person.tags.present? %>
+  <h2><span>Tags: </span><%= render :partial => 'tags/list', :object => @person.tags, :locals => {:type => :person} %><h2>
+  <% end %>
