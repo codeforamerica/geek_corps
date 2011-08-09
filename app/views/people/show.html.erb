@@ -21,17 +21,10 @@
       <%= link_to( normalize_url(@person.url), normalize_url(@person.url), :class => 'url') if @person.url.present? %>
     <% end %>
   </div>
-  <% if @person.tags.present? %>
+  <% if @person.skill_list.present? %>
     <div class="section tags">
       <span class="tags"> Tags </span>
-      <%= render :partial => 'tags/list', :object => @person.tags, :locals => {:type => :person} %>
-    </div>
-  <% end %>
-
-  <% if @person.technologies.present? %>
-    <div class="section technologies">
-      <span class="technologies"> Technologies </span>
-      <%= render :partial => 'tags/list', :object => @person.technologies, :locals => {:type => :person} %>
+      <%= render :partial => 'tags/list', :object => @person.skills, :locals => {:type => :person} %>
     </div>
   <% end %>
 
