@@ -1,4 +1,14 @@
-<li class="front-box">
-<h3><a href="/<%= team_list.name.parameterize %>"><%=link_to team_list.name, team_list.to_url %></a></h3>
-  <%= image_tag team_list.app.photo.url %>
-</li>
+<div class="sidebar_box sb_container">
+    <div class="sidebar_box_title"><%=@person.name%>'s Teams</div>
+    <div class="sidebar_box_content ">
+      <ul>
+      <% @person.user.teams.each do |team|%>
+      <li>
+        <%= link_to image_tag(team.app.photo.url, :alt => team.pretty_name, :class => "medium-avatar"), team.to_url %>
+        <h3><%=team.pretty_name%></h3>
+        </li>
+      <%end%>
+      </ul>
+      <div class="clear"></div>
+    </div>
+</div>
