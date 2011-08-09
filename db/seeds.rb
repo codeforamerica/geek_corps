@@ -25,12 +25,14 @@ Region.all.each do |region|
   end
 end
 
-def create_guide_goal(app, goal_id)
+def create_guide_goal(app, goal_id, skills)
   (rand(4)+1).times do |i|
   m = Milestone.create(:app => app, :goal => goal_id, :position => i+1, :name => Faker::Lorem.sentence, :description => Faker::Lorem.paragraph)
   m.deploy_task_resources.create(:content => Faker::Lorem.sentence, :resource_type => "link", :link => Faker::Internet.domain_name)
     (rand(4)+1).times do |x|
       s = m.steps.create(:est_time => rand(60), :app => app, :goal => goal_id, :position => x+1, :name => Faker::Lorem.sentence, :description => Faker::Lorem.paragraph)
+      (rand(3)+1).times { |x| s.skill_list << skills.shuffle.last }
+      s.save
       s.deploy_task_resources.create(:content => Faker::Lorem.sentence, :resource_type => "link", :link => Faker::Internet.domain_name)
     end
   end
@@ -45,7 +47,7 @@ Factory(:app, :name => "Change By Us"),
 Factory(:app, :name => "Class Talk")].each do |app|
   puts "Creating app for #{app.name}"
   5.times do |i|
-    create_guide_goal(app, i+1)
+    create_guide_goal(app, i+1, skills)
   end
   core_team = app.teams.create!(:team_type => "core", :app => app)
   puts "  added core team"
