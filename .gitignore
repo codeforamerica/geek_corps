@@ -31,3 +31,4 @@ tmtags
 tramp
 *.log
 .DS_Store
+public/system/*
