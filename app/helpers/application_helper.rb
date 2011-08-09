@@ -134,4 +134,15 @@ module ApplicationHelper
     select "milestone", "goal", [["Goal 1: Setup the Server",1], ["Goal 2: Get Data",2], ["Goal 3: Customize the Design",3],["Goal 4: Build Community Support",4], ["Goal 5: Launch It!",5]]
   end
   
+  def region_name_underscored(region)
+    (region.city.gsub(" ", "_") + "_" + region.state).downcase
+  end
+  
+  def skill_list(skill_arr)
+    skill_arr.each { |x| x.gsub!(".", "_"); x.gsub!(" ", "_")}.join(" ")
+  end
+  
+  def get_skills
+    ActsAsTaggableOn::Tagging.includes(:tag).where(:context => "skills").group(:tag_id).map { |x| x.tag.name}
+  end
 end

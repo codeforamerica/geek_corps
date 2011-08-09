@@ -5,6 +5,6 @@
   <% if @person.user && @person.user.region %>
   <h2><%=@person.user.region.city%>, <%=@person.user.region.state%></h2>
 <% end %>
-  <% if @person.tags.present? %>
-  <h2><span>Tags: </span><%= render :partial => 'tags/list', :object => @person.tags, :locals => {:type => :person} %><h2>
+  <% if !@person.skill_list.blank? %>
+  <h2><span>Tags: </span><%= render :partial => 'tags/list', :object => @person.skill_list, :locals => {:type => :person} %><h2>
   <% end %>
