@@ -28,7 +28,9 @@
         <div id="skill-filter">
             <h3>Skills:</h3>
             <ul>
-                <!--<li class="skill"><a href="">Ruby (<span class="skill-number">40</span>)</a></li>-->
+                <% Skill.all.each do |skill| %>
+                <li class="skill"><a href=""><%= skill.name %> (<span class="skill-number"><%= rand(40) %></span>)</a></li>
+                <% end %>
             </ul>
             <span>Other skills:</span>
             <!-- autocomplete text box and submit button goes here -->
