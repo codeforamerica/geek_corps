@@ -1099,6 +1099,9 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	text-transform:uppercase;
 	cursor:pointer;
 	}
+#guide-side-bar ul ul ol li.opened h5 {
+  background-position-y: -40px;
+}
 #guide-side-bar ul ul ol li p {
 	padding: 10px;
 	margin:0 -20px 10px -20px;

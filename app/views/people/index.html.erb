@@ -8,10 +8,8 @@
 <div id="sidebar" class="sidebar_box">
     <h2 class="sidebar_box_title">Filter by:</h2>
     <div class="sidebar_box_content">
-<!--    <ul id="active-filters">
-        <li class="active-filter"><img src="" class="removal-icon" alt="remove" /><span class="filter-metatext">Skill: </span>Python
-        </li>
-    </ul>-->
+    <ul id="active-filters">
+    </ul>
     <div id="remaining-filters">
         <div id="location-filter">
             <h3>Location:</h3>
@@ -40,19 +38,38 @@
 <%= render :partial => 'list' %>
 </div>
 <script type="text/javascript" charset="utf-8">
+var selector_string = '';
+
 $('#people-list').isotope({
   // options
   itemSelector : '.front-box',
   layoutMode : 'fitRows'
 });
-$('#skill-filter a').click(function(){
+
+$('#skill-filter a').live('click', function(){
   var selector = $(this).attr('data-filter');
-  $('#people-list').isotope({ filter: selector });
+  selector_string += selector;
+  $('#people-list').isotope({ filter: selector_string });
+  $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/target-icon.png" class="removal-icon" alt="remove" /></a><span>'+$(this).html()+'</span></li>'));
+  $(this).remove();
   return false;
 });
+
 $('#location-filter select').select(function(){
   var selector = $(this).attr('data-filter');
-  $('#people-list').isotope({ filter: selector });
+  selector_string += selector;
+  $('#people-list').isotope({ filter: selector_string });
+  return false;
+});
+
+$('#active-filters li a').live('click', function(ev) {
+  var $theEl = $(this);
+  console.log($theEl.attr('data-filter'));
+  selector_string = selector_string.replace($theEl.attr('data-filter'), '','gi');
+  console.log(selector_string);
+  $('#people-list').isotope({ filter: selector_string });
+  $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a></li>'));
+  $theEl.parent().remove();
   return false;
 });
 </script>
