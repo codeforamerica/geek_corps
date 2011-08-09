@@ -1,7 +1,13 @@
 <div class="sign_in_form">
-  <%= semantic_form_for((@signin_data || SignInData.new), :url => user_sessions_path) do |f| %>
-    <%= f.input :email, :label => "Email address", :input_html => {:size => nil, :autocorrect => "off", :autocapitalize => "off"} %>
-    <%= f.input :provider, :collection => Authentication::PROVIDER_OPTIONS, :include_blank => false %>
-    <%= f.commit_button "Sign in!" %>
+  <h1> Sign In </h1>  
+  <%= form_for SignInData.new, :url => user_sessions_path do |f| %>
+    <p><%= f.label :email, "Email Address" %><br>
+    <%= f.text_field :email, :size => nil, :autocorrect => "off", :autocapitalize => "off" %></p>
+    <p><%= f.label :provider, "Social Network Provider" %><br>
+    <%= select :sign_in_data, :provider, Authentication::PROVIDER_OPTIONS %><br>
+    <span>Note, we only use social network authentication mechanisms such as Facebook connect.</span>
+    </p>
+    <%= f.submit "Sign in!", :id => "guide_submit" %>
   <% end %>
 </div>
+

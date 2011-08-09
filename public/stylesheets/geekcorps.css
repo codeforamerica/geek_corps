@@ -1434,3 +1434,47 @@ form.edit_person input {
     color:#CCC;
     text-decoration:underline;
     }
+
+.sign_in_form {
+	padding:10px;
+	}
+.sign_in_form h1 {
+	margin:-10px -10px 0 -10px;
+	background:#96a044;
+	color:#FFF;
+	font-weight:bold;
+	text-transform:uppercase;
+	padding:10px 10px;
+	}
+#new_sign_in_data li {
+	list-style:none;
+	display:block;
+	}
+#new_sign_in_data label {
+	margin:10px 0;
+	border:0;
+	color:#FFF;
+	text-transform:uppercase;
+	padding:5px 10px;
+	background:#533549;
+	}
+#new_sign_in_data input {
+	border: 2px #e9e9e9 dotted;
+	padding:10px;
+	margin:10px 0;
+	width:570px;
+	font-size:14px;
+	}
+#new_sign_in_data select {
+	margin:10px 0;
+	}
+#new_sign_in_data #guide_submit {
+	border: 0;
+	padding:5px 10px;
+	margin:10px 0;
+	width:auto;
+	}
+#new_sign_in_data span {
+	font-size:10px;
+	color:#999;
+	}
