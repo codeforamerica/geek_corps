@@ -24,9 +24,6 @@ class Person < ActiveRecord::Base
   }
 
   belongs_to :user
-  has_many :skills, :as => :skillable
-  has_many :roles, :as => :rolable
-  has_many :languages, :as => :polyglot
 
   before_validation :on => :create do
     if self.photo_import_url.present?

@@ -7,9 +7,6 @@ class App < ActiveRecord::Base
   has_many :users, :through => :team_members, :uniq => true
 
   has_many :details
-  has_many :roles, :as => :rolable
-  has_many :skills, :as => :skillable
-  has_many :languages, :as => :polyglot
 
   has_many :deploy_tasks
   has_many :goals
