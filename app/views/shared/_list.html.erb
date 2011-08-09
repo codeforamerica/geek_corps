@@ -1,3 +1,6 @@
 <ul id="front-list" class="main-list-type">
   <%= render :partial => 'shared/list_item', :collection => list %>
 </ul>
+<script>
+  $('#front-list').isotope();
+</script>
