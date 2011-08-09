@@ -149,3 +149,12 @@ Factory.define :milestone do |m|
   m.app { Factory(:app) }
 end
 
+Factory.define :deploy_task_resource do |resource|
+  resource.team {Factory(:team)}
+  resource.deploy_task {Factory(:milestone)}
+  resource.link {Faker::Internet.domain_name}
+  resource.resource_type "link"
+end
+
+
+
