@@ -9,7 +9,7 @@
   <h1 class="app-name"><%=link_to"#{@team.region.nick_name} #{@team.app.name}", @team.to_url %> </h1>  
   <h3 class="implementation">implementation of <%= link_to @team.app.name, @team.app.core_team.to_url%></h3>
   <% end %>
-  <h2>Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
+  <h2 class="organizer">Organized by <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
     <%=link_to organizer.user.person.name, organizer.user.person %>
     <%end%>
   </h2>
