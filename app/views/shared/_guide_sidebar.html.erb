@@ -14,7 +14,7 @@
           <div>
             <ol>
               <% milestone.steps.each do |step| %>
-                <li id="step_<%= step.id %>" class="step">
+                <li id="step_<%= step.id %>" class="step<% if (@step.id == step.id) %> opened<% end %>">
                 <h5>
                   <%=link_to truncate(step.name, :length => 35, :separator => ' '), team_step_path(@team.name, step)%>
                 </h5>
@@ -32,11 +32,8 @@
   </ul>
 <% end %>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
 <script>
   jQuery(document).ready(function(){
-//    $('ul.group div ul').accordion();
-//    $('#guide-side-bar').accordion();
     // Load the state of the guide table of contents from the browser cookie
     var collapsed_milestones = $.parseJSON($.cookie('geek_corps_toc'));
     console.log(collapsed_milestones);
@@ -45,6 +42,7 @@
         $('#'+collapsed_milestones[i]).addClass('collapsed').next().hide();
       }
     }
+
     // Handler for animating the table of contents and storing the state in a cookie
     $('h3,h4').click(function(e) {
       var closed = [];
