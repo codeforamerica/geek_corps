@@ -13,30 +13,28 @@
         <li class="active-filter"><img src="" class="removal-icon" alt="remove" /><span class="filter-metatext">Skill: </span>Python
         </li>
     </ul>-->
-    <!---
-    <%%= form_for Person.new, :url => polymorphic_path(Person.new), :html => {:method => :get} do |f| %>
     <div id="remaining-filters">
         <div id="location-filter">
             <h3>Location:</h3>
-            <!-- drop down menu goes here - on select, goes to the active-filters section and updates the people 
+            <!-- drop down menu goes here - on select, goes to the active-filters section and updates the people -->
         </div>
         <div id="role-filter">
             <h3>Role:</h3>
-            <!-- drop down menu goes here - on select, goes to the active-filters section and updates the people 
-            <%%= f.select :roles_id_equals, Role.all.map {|r| [r.name, r.id] }, {:include_blank => true} %>
+            <!-- drop down menu goes here - on select, goes to the active-filters section and updates the people -->
         </div>
         <div id="skill-filter">
             <h3>Skills:</h3>
             <ul>
-                <!--<li class="skill"><a href="">Ruby (<span class="skill-number">40</span>)</a></li>
+              <!---
+                <%% Skill.all.each do |skill| %>
+                <li class="skill"><a href=""><%%= skill.name %> (<span class="skill-number"><%%= rand(40) %></span>)</a></li>
+                <%% end %> -->
+                <!--<li class="skill"><a href="">Ruby (<span class="skill-number">40</span>)</a></li> -->
             </ul>
             <span>Other skills:</span>
-            <!-- autocomplete text box and submit button goes here 
-            <%%= f.text_field :name_contains, :id => 'other-skills' %>
+            <!-- autocomplete text box and submit button goes here  -->
         </div>
     </div>
-    <%% end %>
-    --->
     </div>
 </div>
 </div>
