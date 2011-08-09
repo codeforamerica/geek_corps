@@ -1097,7 +1097,8 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 /* --- Profile View by Pete --- */
 
 .message {
-	padding-bottom:20px;
+	padding:20px 10px;
+	background-color:#e89a41;
 	}
 .message_type {
 	display:block;
