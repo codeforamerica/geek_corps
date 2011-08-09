@@ -31,26 +31,33 @@
     </li>
   </ul>
 <% end %>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.15/jquery-ui.min.js"></script>
 <script>
   jQuery(document).ready(function(){
+//    $('ul.group div ul').accordion();
+//    $('#guide-side-bar').accordion();
     // Load the state of the guide table of contents from the browser cookie
     var collapsed_milestones = $.parseJSON($.cookie('geek_corps_toc'));
+    console.log(collapsed_milestones);
     if (collapsed_milestones != null) {
       for (var i = 0; i<collapsed_milestones.length; i++) {
         $('#'+collapsed_milestones[i]).addClass('collapsed').next().hide();
       }
     }
     // Handler for animating the table of contents and storing the state in a cookie
-    $('h3,h4').click(function() {
+    $('h3,h4').click(function(e) {
       var closed = [];
-      $(this).toggleClass('collapsed');
-      $(this).next().slideToggle('slow', function() {
-        $('h3.collapsed, h4.collapsed').each(function(idx, el) {
-          closed.push(el.id);
+      if (e.target.tagName != 'A') {
+        $(this).toggleClass('collapsed');
+        $(this).next().slideToggle('slow', function() {
+          $('h3.collapsed, h4.collapsed').each(function(idx, el) {
+            closed.push(el.id);
+          });
+          $.cookie('geek_corps_toc', JSON.stringify(closed), {path: '/'});
         });
-          $.cookie('geek_corps_toc', JSON.stringify(closed));
-      });
-      return false;
+      }
+//      return false;
     });
   });
 </script>

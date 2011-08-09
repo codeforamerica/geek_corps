@@ -7,9 +7,6 @@ class App < ActiveRecord::Base
   has_many :users, :through => :team_members, :uniq => true
 
   has_many :details
-  has_many :roles, :as => :rolable
-  has_many :skills, :as => :skillable
-  has_many :languages, :as => :polyglot
 
   has_many :deploy_tasks
   has_many :goals
@@ -17,6 +14,8 @@ class App < ActiveRecord::Base
   has_many :steps
 
   has_many :deploy_task_resources, :through => :deploy_tasks
+
+  acts_as_taggable_on :tags, :skills
 
   accepts_nested_attributes_for :details, :deploy_tasks, :goals, :milestones, :steps
 
