@@ -1,43 +1,23 @@
-<div class="single_record person with_image">
-  <%= link_to image_tag(@person.photo.url(:medium), :class => 'person_photo'), photo_person_path(@person) %>
-  <span class="single-user-name"><%= @person.name %></span>
-  <% if current_user && @person.user.blank? && current_person.nil? %>
-    <div id="claim_user">
-      <p><%= "Are you #{@person.name}?" %></p>
-      <%= link_to "Claim this person", claim_person_path(@person), :class => 'claim' %>
-    </div>
-  <% end %>
-  <% if @person.user.admin? %>
-    Code for America Admin
-  <% end %>  
-  <% if @person.user.region %>
-    <div class="location"><%= "#{@person.user.region.city}, #{@person.user.region.state}" %></div>
-  <% end %>
-  <% if @person.bio.present? %>
-    <div class="bio"><%= simple_format @person.bio %></div>
-  <% end %>
-  <div class="links">
-    <% if @person.url.present? %>
-      <%= link_to( normalize_url(@person.url), normalize_url(@person.url), :class => 'url') if @person.url.present? %>
-    <% end %>
+<div id="content">
+  <div id="title-main">
+    <%= render "people/person_header"%>
   </div>
-  <% if @person.tags.present? %>
-    <div class="section tags">
-      <span class="tags"> Tags </span>
-      <%= render :partial => 'tags/list', :object => @person.tags, :locals => {:type => :person} %>
+  <div id="main-bar">
+    <div class="project-text">
+      <h1>Bio</h1>
+      <% if @person.bio.present? %>
+        <%= simple_format @person.bio %>
+      <% end %>
+        <%= link_to( normalize_url(@person.url), normalize_url(@person.url), :class => 'url') if @person.url.present? %>
+    </div>  
+    <ul id="app-nav">
+      <li>Activity</li>
+    </ul>
+    <%= render "person_comments", :comment => @person.user%> 
     </div>
-  <% end %>
-
-  <% if @person.technologies.present? %>
-    <div class="section technologies">
-      <span class="technologies"> Technologies </span>
-      <%= render :partial => 'tags/list', :object => @person.technologies, :locals => {:type => :person} %>
-    </div>
-  <% end %>
-
-  <span class="teams-title">Teams</span>
-  <ul id="front-list" class="main-list-type">
-    <%= render :partial => 'team_list', :collection => @person.user.teams %>
-  </ul>
-
+  <div id="side-bar">
+    <%= render :partial => 'team_list'%>
+  </div>
 </div>
+
+
