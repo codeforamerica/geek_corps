@@ -382,8 +382,8 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 
 #front-list {
     overflow: hidden;
-    border: 22px solid #E9E9E9;
-    padding: 10px;
+    border: 20px solid #E9E9E9;
+    padding: 30px;
     -moz-box-shadow: 1px 1px 4px #444;
     -webkit-box-shadow: 1px 1px 4px #444;
     box-shadow: 1px 2px 3px #444;
@@ -400,35 +400,6 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 .main-list-type li img {
     width: 220px;
     height: 220px;
-}
-
-#front-list:before, #front-list:after {
-    position: absolute;
-    width: 40%;
-    height: 10px;
-    content: ' ';
-    left: 12px;
-    bottom: 16px;
-    background: transparent;
-    -webkit-transform: skew(-5deg) rotate(-4deg);
-    -moz-transform: skew(-5deg) rotate(-4deg);
-    -ms-transform: skew(-5deg) rotate(-4deg);
-    -o-transform: skew(-5deg) rotate(-4deg);
-    transform: skew(-5deg) rotate(-4deg);
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
-    z-index: -1;
-}
-
-#front-list:after {
-    left: auto;
-    right: 12px;
-    -webkit-transform: skew(5deg) rotate(4deg);
-    -moz-transform: skew(5deg) rotate(4deg);
-    -ms-transform: skew(5deg) rotate(4deg);
-    -o-transform: skew(5deg) rotate(4deg);
-    transform: skew(5deg) rotate(4deg);
 }
 
 .main-list-type h3 {
@@ -1133,10 +1104,8 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     position: relative;
     float:right;
     width: 62%;
-    margin-right: 10px;
+    background-color: #ffffff;
     }
-
-
 
 /* --- Profile View by Pete --- */
 
@@ -1269,9 +1238,7 @@ ul.auth_providers li {
 	clear:both;
 	padding-bottom:10px;
 	}
-#front-list {
-	clear:both;
-	}
+
 	
 form.edit_person {
 	clear:both;
