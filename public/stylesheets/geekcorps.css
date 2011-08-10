@@ -809,7 +809,7 @@ box-shadow: 1px 2px 3px #444;
     }
 
     .sidebar_box .sidebar_box_content {
-        padding: 10px 10px 20px 20px;
+        padding: 10px 10px 20px 10px;
         background-color: #ffffff;
         font-size: 1em;
         border: 1px solid #ccc;
@@ -1066,6 +1066,14 @@ box-shadow: 1px 2px 3px #444;
 #guide-side-bar ul ul li h4 a{
   color: #FFF;
 }
+li.milestone div a {
+	background:url(../images/add.png) top left no-repeat;
+	padding:0 0 0 20px;
+	}
+ul.group li div a {
+	background:url(../images/add.png) top left no-repeat;
+	padding:0 0 0 20px;
+	}
 #guide-side-bar ul ul li h4.collapsed {
   background-position-y: 0;
   }
@@ -1096,6 +1104,11 @@ box-shadow: 1px 2px 3px #444;
 #guide-side-bar ul ul ol li.opened h5 {
   background-position-y: -40px;
 }
+#guide-side-bar ul ul ol li h5 a {
+	background:url(../images/delete.png) top left no-repeat;
+	padding:0 0 0 20px;
+	}
+	
 #guide-side-bar ul ul ol li p {
 	padding: 10px;
 	margin:0 -20px 10px -20px;
