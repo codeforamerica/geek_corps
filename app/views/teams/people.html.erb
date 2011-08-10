@@ -27,7 +27,7 @@
                 </span>
               </span>
             <% if @team.admin? current_user %>
-              <span class="comment-stamp"><%= link_to 'Make Admin', '/team_member/update/later' %><span>
+              <span class="comment-stamp"><%= link_to 'Make Admin', team_member_path(team_member), :method => :put %><span>
             <% end %>
           </div>
         <% end %>
