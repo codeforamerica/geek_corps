@@ -1545,3 +1545,29 @@ h2.organizer {
      -moz-transition-duration: 0s;
           transition-duration: 0s;
 }
+
+.team-people-tags {
+  float: left;
+	padding-bottom:10px;
+	margin-left: 10px;
+	padding-right:20px;
+	color:#999;
+	text-transform: uppercase;
+	}
+.team-people-tags span {
+	color:#533549;
+	}
+	
+
+.team-member-role {
+  float: left;
+	padding-bottom:10px;
+	margin-left: 10px;
+	padding-right:20px;
+	color:#999;
+	text-transform: uppercase;
+}
+
+.team-member-role span {
+	color:#533549;
+}
