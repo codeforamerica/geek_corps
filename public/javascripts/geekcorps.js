@@ -1,3 +1,10 @@
+$(function() { $('#flash .message.success, #flash .message.notice').delay(4000).hide('blind'); });
+
+jQuery(document).ready(function() {
+  $('.comment-body').hoverexpand({minHeight: "50px"});
+});
+
+/*
 GeekCorps = {};
 GeekCorps.Models = {};
 GeekCorps.Views = {};
@@ -66,5 +73,4 @@ GeekCorps.Views.SignInForm = Backbone.View.extend({
 
 
 $(function() { GeekCorps.app.init(); });
-
-$(function() { $('#flash .message.success, #flash .message.notice').delay(4000).hide('blind'); });
+*/
