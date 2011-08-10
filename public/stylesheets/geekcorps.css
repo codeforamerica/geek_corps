@@ -1301,6 +1301,21 @@ form.edit_person input {
 	float:right;
 	width:auto; 
 }
+
+#people-list .front-box, #people-list .front-box img {
+    width: 140px;
+    height: 140px;
+    }
+    
+#people-list .front-box {
+    margin: 0 10px 10px 0;
+    }
+    
+#people-list h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 5px;
+    }
 	
 .front-box .organizer {
     position: absolute;
@@ -1309,8 +1324,8 @@ form.edit_person input {
     color: white;
     text-align: left;
     display: block;
-    width: 80px;
-    height: 80px;
+    width: 50px;
+    height: 50px;
     background: url(/images/org-sash.png) no-repeat; 
 }
 	
