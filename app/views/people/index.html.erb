@@ -36,8 +36,17 @@
                 <li><a href="#" data-filter=".<%=skill.gsub(".", "_").gsub(" ", "_")%>"><%=skill%></a></li>
                 <% end %>
               </ul>
+<<<<<<< HEAD
               <span>Other skills:</span>
               <!-- autocomplete text box and submit button goes here  -->
+          </div>
+      </div>
+    </div>
+</div>
+
+<div id="people-list">
+  <%= render :partial => 'list' %>
+=======
           </div>
       </div>
       </div>
@@ -45,8 +54,10 @@
 </div>  
 
 <div id="people-list">
-<%= render :partial => 'list' %>
+<%= render :partial => 'list' %><br style="clear:both;" />
+>>>>>>> 8002153228d0cf6af8ed31e3f98c7e38c93e53c2
 </div>
+
 <script type="text/javascript" charset="utf-8">
 // TODO: Refactor out this global namespace polluting variable
 var selector_string = ''; 
@@ -91,4 +102,6 @@ $('#active-filters li a').live('click', function(ev) {
   $theEl.parent().remove();
   return false;
 });
+
+
 </script>

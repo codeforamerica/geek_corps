@@ -1,9 +1,9 @@
-<ul id="front-list" class="main-list-type">
+<ul class="main-list-type">
   <% @people.each do |person|%>
   <li class="front-box <%= region_name_underscored(person.user.region)%> <%=skill_list(person.skill_list)%>">
     <h3><%= link_to person.name, polymorphic_path(person) %></h3>
     <%= image_tag person.photo.url %>
-    <% if !person.user.team_members.where(:team_role => "organizer").blank?%><span class="organizer">something</span><% end %>
+    <% if !person.user.team_members.where(:team_role => "organizer").blank?%><span class="organizer">&nbsp;</span><% end %>
     <div id="details" style="display:none">
       <div id="bio"><%= person.bio%></div>
       <div id="website"><%=link_to person.url, person.url%></div>
