@@ -14,7 +14,7 @@
           <div>
             <ol>
               <% milestone.steps.each do |step| %>
-                <li id="step_<%= step.id %>" class="step<% if (@step.id == step.id) %> opened<% end %>">
+                <li id="step_<%= step.id %>" class="step<%= @step && (@step.id == step.id) ? ' opened' : '' %>">
                 <h5>
                   <%=link_to truncate(step.name, :length => 35, :separator => ' '), team_step_path(@team.name, step)%>
                 </h5>

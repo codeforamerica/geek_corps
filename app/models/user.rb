@@ -22,9 +22,11 @@ class User < ActiveRecord::Base
 
   def avatar_url
     if self.person.present?
-      self.person.photo.url(:thumb) 
+      self.person.photo.url(:thumb)
+    elsif self.authentications.present?
+      (self.authentications.info_get(:image) || '/images/geekcorpsavatar1.png')
     else
-      self.authentications.info_get(:image)
+      '/images/geekcorpsavatar1.png'
     end
   end
 
