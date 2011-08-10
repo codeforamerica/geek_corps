@@ -83,7 +83,7 @@ h3 { font-size:1.25em;}
     position: relative;
     float:left;
     width: 60%;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 #title-main h1 {
@@ -471,6 +471,10 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     font-size: 4em;
 }
 
+#app-nav {
+    padding-top: 5px;
+    }
+
 #app-nav li {
     display: block;
     font-size: 1.5em;
@@ -478,11 +482,10 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     margin-right: 15px;
     margin-top: 10px;
     padding: 10px;
-    background-color: white;
+    background-color: #e9e9e9;
 }
 
 #app-nav li:first-child {
-    margin-left: 40px;
 }
 
 #content {
