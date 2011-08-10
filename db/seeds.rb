@@ -74,7 +74,10 @@ puts "Adding comments on all tasks for #{team.name}"
     2.times do |h| 
       task.comments.create!(:user => team.members.shuffle.last, :text => Faker::Lorem.sentence, :team => team)
     end
-  end
+     2.times do |h| 
+      task.comments.create!(:user => team.members.shuffle.last, :text => Faker::Lorem.paragraph, :team => team)
+    end
+ end
 end
 
 
