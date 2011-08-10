@@ -1498,12 +1498,8 @@ h3.implementation {
     width:450px;
     }
 h2.organizer {
-<<<<<<< HEAD
 	font-size:1.25em;
 	padding-left:145px;
-	}
-=======
-    font-size:1.25em;
     }
 
 /**** Isotope CSS stuff ****/
@@ -1549,4 +1545,3 @@ h2.organizer {
      -moz-transition-duration: 0s;
           transition-duration: 0s;
 }
->>>>>>> 62c75c7c3d4f388b1c00fbe22d3b70000615c9d9
