@@ -37,7 +37,6 @@
     var team = "<%= @team.name %>";
     // Load the state of the guide table of contents from the browser cookie
     var collapsed_milestones = $.parseJSON($.cookie('geek_corps_toc'));
-    console.log(collapsed_milestones);
     if (collapsed_milestones != null) {
       for (var i = 0; i<collapsed_milestones.length; i++) {
         var milestone = collapsed_milestones[i].replace(team + '-','');
