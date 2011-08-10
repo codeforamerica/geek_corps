@@ -4,12 +4,4 @@ class Step < DeployTask
 
   acts_as_taggable_on :tags, :skills
 
-  validate :milestone_is_milestone
-  private
-
-  def milestone_is_milestone
-    if milestone.present? && not(milestone.is_a? Milestone)
-      errors.add(:milestone, "must be a Milestone")
-    end
-  end
 end

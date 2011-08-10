@@ -21,4 +21,16 @@ describe 'User' do
   end
   context 'validates' do
   end
+  context 'methods' do
+    before do
+      @user = Factory(:user)
+    end
+    it 'returns a default image if theres an authentication but no image stored with that auth' do
+      new_auth = @user.authentications.create!
+      @user.authentications = [new_auth]
+      @user.person = nil
+      @user.save!
+      @user.avatar_url.should == '/images/geekcorpsavatar1.png'
+    end
+  end
 end

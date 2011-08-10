@@ -19,9 +19,10 @@
     <div id="guide-main-bar">
       <%= form_for @step do |f| %>
         <p><%= f.label :name, "Name:" %><%= f.text_field :name %></p>
+        <p><%= f.label :skill_list, "Required Skills:" %><br><%= f.text_field :skill_list, :input_html => {:class => 'tags'}%></p>
         <p><%= f.label :description, "Description" %><br><%= f.text_area :description %></p>
         <%= f.hidden_field :parent_id%>
-        <input name="team_name" value="<%=@team.name%>" type="hidden">        
+        <input name="team_name" value="<%=@team.name%>" type="hidden">
         <%= f.submit %>
       <% end %>
     </div>
