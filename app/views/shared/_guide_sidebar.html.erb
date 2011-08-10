@@ -34,12 +34,14 @@
 
 <script>
   jQuery(document).ready(function(){
+    var team = "<%= @team.name %>";
     // Load the state of the guide table of contents from the browser cookie
     var collapsed_milestones = $.parseJSON($.cookie('geek_corps_toc'));
     console.log(collapsed_milestones);
     if (collapsed_milestones != null) {
       for (var i = 0; i<collapsed_milestones.length; i++) {
-        $('#'+collapsed_milestones[i]).addClass('collapsed').next().hide();
+        var milestone = collapsed_milestones[i].replace(team + '-','');
+        $('#'+milestone).addClass('collapsed').next().hide();
       }
     }
 
@@ -50,7 +52,7 @@
         $(this).toggleClass('collapsed');
         $(this).next().slideToggle('slow', function() {
           $('h3.collapsed, h4.collapsed').each(function(idx, el) {
-            closed.push(el.id);
+            closed.push(team + '-' + el.id);
           });
           $.cookie('geek_corps_toc', JSON.stringify(closed), {path: '/'});
         });
