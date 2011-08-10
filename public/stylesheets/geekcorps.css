@@ -5,6 +5,11 @@
 /**
  * General HTML elements styles
  */
+ 
+/**
+ * "This is my bitch" - Pete Fecteau
+ */
+ 
 body {
     background:#fff;
     font-family:Helvetica, Arial, sans-serif;
@@ -1251,7 +1256,24 @@ ul.auth_providers li {
 	padding-bottom:10px;
 	}
 
-	
+#new_person {
+	padding:0 10px;
+	}	
+#new_person p label {
+	background: none repeat scroll 0 0 #533549;
+    border: 0 none;
+    color: #FFFFFF;
+    margin: 10px 0;
+    padding: 5px 10px;
+    text-transform: uppercase;
+	}
+#new_person p input {
+	border: 2px dotted #999;
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 10px;
+    width: 570px;
+	}
 form.edit_person {
 	clear:both;
 	margin:30px 10px 0 10px;
@@ -1265,20 +1287,42 @@ form.edit_person label {
 	padding:5px 10px;
 	background:#533549;
 }
+.inputs label {
+	margin:10px 0;
+	border:0;
+	color:#FFF;
+	text-transform:uppercase;
+	padding:5px 10px;
+	background:#533549;
+	}
+.inputs legend {
+	margin:0 0 10px 0;
+	}
+.inputs ol li img {
+	margin-bottom:10px;
+	}
+.inputs legend span {
+	margin:10px 0;
+	border:0;
+	color:#FFF;
+	text-transform:uppercase;
+	padding:5px 10px;
+	background:#533549;
+	}
 form.edit_person input {
 	width:570px;
-	border: 2px #333 dotted;
+	border: 2px dotted #999;
 	padding:10px;
 	margin:10px 0;
 	}
 #person_bio {
 	width:570px;
-	border: 2px #333 dotted;
+	border: 2px dotted #999;
 	padding:10px;
 	margin:10px 0;
 	}
 #person_photo_import_url {
-	border: 2px dotted #333;
+	border: 2px dotted #999;
     color: #CCCCCC;
     font-weight: bold;
     margin: 10px 0;
@@ -1301,6 +1345,78 @@ form.edit_person input {
 	float:right;
 	width:auto; 
 }
+
+/* --- File Upload Hack --- */
+
+div.fileinputs {
+	position: relative;
+}
+
+div.fakefile {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+div.fakefile input {
+	border: 2px dotted #999;
+	padding:10px;
+	margin:10px 10px 0 0;
+	z-index:1;
+	float:left;
+	}
+div.fakefile img {
+	margin-top:10px;
+	}
+input#person_photo_upload {
+	position: relative;
+	text-align: right;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	margin: 10px 0;
+    padding: 10px;
+	z-index: 2;
+	height:30px;
+	width:285px;
+	cursor:pointer;
+}
+
+div.fileinputs2 {
+	position: relative;
+}
+
+div.fakefile2 {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+}
+div.fakefile2 input {
+	border: 2px dotted #999;
+	padding:10px;
+	margin:10px 10px 0 0;
+	z-index:1;
+	float:left;
+	}
+div.fakefile2 img {
+	margin-top:10px;
+	}
+input#person_photo_upload2 {
+	position: relative;
+	text-align: right;
+	-moz-opacity:0 ;
+	filter:alpha(opacity: 0);
+	opacity: 0;
+	margin: 10px 0 50px 0;
+    padding: 10px;
+	z-index: 2;
+	height:20px;
+	width:250px;
+	cursor:pointer
+}
+
+/* --- End File Upload Hack --- */
 	
 .front-box .organizer {
     position: absolute;

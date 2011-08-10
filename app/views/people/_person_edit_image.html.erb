@@ -2,15 +2,21 @@
     <div class="sidebar_box_title">Update Your Photo</div>
     <div class="sidebar_box_content ">
         <% semantic_form_for(@person, :html => {:multipart => true}) do |f| %>
-          <% f.inputs :name => "Photo" do %>
+          <% f.inputs :name => "Current Photo" do %>
            <% if photo_url = @person.photo_import_url || (@person.photo.file? && @person.photo.url(:medium)) %>
             <li>
               <%= image_tag photo_url%>
             </li>
           <% end %>
             <li>
-              <%=f.input :photo_import_url, :label => "Import a photo from the web…"%>
-              <%= f.input :photo, :label => "…or upload one from your computer.", :hint => "Preferably 220px wide or larger"%>
+              	<%= f.label :photo, "Upload from your computer." %><br>
+				<div class="fileinputs2">
+			      <%= f.file_field :photo, :id => "person_photo_upload2" %>
+				  <div class="fakefile2">
+					<input />
+					<img src="/images/person_photo_upload_img_sm.png" />
+					</div>
+				</div>
             </li>
           <% end %>
           <%=hidden_field_tag :form_context, :review%>

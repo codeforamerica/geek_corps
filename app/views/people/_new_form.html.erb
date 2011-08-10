@@ -14,7 +14,13 @@
     <p><%= f.label :photo_import_url, "Import a photo from the web…" %><%=f.text_field :photo_import_url, :value => current_user.authentications.first.info[:image] %>
     </p>
     <p><%= f.label :photo, "…or upload one from your computer." %><br>
-      <%= f.file_field :photo %>
+	<div class="fileinputs">
+      <%= f.file_field :photo, :id => "person_photo_upload" %>
+	  <div class="fakefile">
+		<input />
+		<img src="/images/person_photo_upload_img.png" />
+		</div>
+	</div>
     </p>  
   <%=f.submit%>
 <% end %>
