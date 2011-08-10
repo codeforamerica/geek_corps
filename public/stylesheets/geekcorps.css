@@ -1310,6 +1310,12 @@ form.edit_person input {
 #people-list .front-box {
     margin: 0 10px 10px 0;
     }
+    
+#people-list h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 5px;
+    }
 	
 .front-box .organizer {
     position: absolute;
