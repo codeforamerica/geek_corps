@@ -51,5 +51,27 @@ describe StepsController do
         response.should be_success
       end
     end
+
+    context 'destroy' do
+      it 'wont delete if user is not an admin of the core team' do
+        request.env['HTTP_REFERER'] = '/welcome'
+        team = Factory(:team)
+        milestone = Factory(:milestone, :app => team.app)
+        step = Factory(:step, :milestone => milestone)
+        team.team_members.create(:user => @user, :admin => false, :team_role => 'justin')
+        delete :destroy, :team_name => team.name, :id => step.id
+        response.should redirect_to '/welcome'
+      end
+      it 'will delete if user is an admin of the core team' do
+        team = Factory(:team)
+        milestone = Factory(:milestone, :app => team.app)
+        step = Factory(:step, :milestone => milestone)
+        team.team_members.create(:user => @user, :admin => true, :team_role => 'organizer')
+        delete :destroy, :team_name => team.name, :id => step.id
+        flash[:success].should_not be_nil
+      end
+
+
+    end
   end
 end

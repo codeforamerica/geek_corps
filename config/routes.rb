@@ -45,6 +45,7 @@ GeekCorps::Application.routes.draw do
   match '/auth/failure' => 'authentications#auth_failure'
 
   resources :teams do
+    resources :members
   end
 
   put 'team_members/:id' => 'team_members#update', :as => 'team_member'
