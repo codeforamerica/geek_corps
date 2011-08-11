@@ -5,11 +5,21 @@
     <div id="guide-side-bar">
       <%= render "shared/guide_sidebar"%>
     </div>
-    <div id="guide-main-bar">    
+    <div id="guide-main-bar">
       <div id="step-detail">
         <ul>
           <li><%=link_to @team.pretty_name, @team.to_url%> >> <%=link_to "Guide", team_guide_path(@team.name)%> >> <%= link_to @step.milestone.name[0..25].strip + "...", team_milestone_path(@team.name, @step.milestone.id) %></li>          
-          <li class="step-title"><span class="detail-edit"><%= link_to "EDIT", team_step_edit_path(@team.name, @step.id)%></span>Step: <span><%= @step.name %></span></li>
+          <li class="step-title">
+            <% if @team.admin?(current_user) || current_user.admin? %>
+              <span class="detail-delete">
+                <%= button_to 'DELETE', step_path(@step, :team_name => @team.name), :confirm => "Are you sure you want to delete '#{@step.name}'!?!", :method => :delete %>
+              </span>
+              <span class="detail-edit">
+                <%= link_to "EDIT", team_step_edit_path(@team.name, @step.id)%>
+              </span>
+            <% end %>
+            Step: <span><%= @step.name %></span>
+          </li>
           <li class="step-tags">Tags: <span>
           <%= render :partial => "shared/tag_list", :collection => @step.skill_list, :as => :skill%></span></li>
           <li class="step-time">Time budget: <span><%= @step.est_time %> minutes</span></li>
