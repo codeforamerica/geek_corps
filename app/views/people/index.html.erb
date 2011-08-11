@@ -37,7 +37,7 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-// TODO: Refactor out this global namespace polluting variable
+jQuery(document).ready(function() {
 var selector_string = ''; 
 
 $('#people-list').isotope({
@@ -149,5 +149,6 @@ function check_params_fire_off_filter()
 };
 
 check_params_fire_off_filter();
+});
 
 </script>
