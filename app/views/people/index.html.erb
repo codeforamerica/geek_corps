@@ -1,19 +1,8 @@
-<% content_for(:page_heading) do %>
-  <div id="page-heading">
-    <h1>
-      People
-    </h1>
-  </div>
-<% end %>
+<div class="seperator"></div>
 <div id="sidebar"> 
-  <div class="sidebar_box sb_container">
-      <h2 class="sidebar_box_title">Geek Stats:</h2>
-      <div class="sidebar_box_content">
-        <div id="geek_count">
-          <h1><span class="metric_value">45</span> Geeks</h1>
-        </div>
-      </div>   
-  </div> 
+  <div id="geek_count">
+    <h1>Found <span class="metric_value">45</span> Geeks</h1>
+  </div>
   <div class="sidebar_box sb_container">
       <h2 class="sidebar_box_title">Filter by:</h2>
       <div class="sidebar_box_content">
@@ -95,7 +84,7 @@ $('#active-filters li a').live('click', function(ev) {
   var $theEl = $(this);
   selector_string = selector_string.replace($theEl.attr('data-filter'), '','gi');
   $('#people-list').isotope({ filter: selector_string });
-  $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a><span class="count-span"></span></li>'));
+  $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a>(<span class="count-span"></span>)</li>'));
   var skill = $theEl.attr('data-filter').replace(".","");
   var update_skills_text  = $('span.skills').html().replace(", " + skill, "").replace(skill  , "");
   if (update_skills_text == "") {
