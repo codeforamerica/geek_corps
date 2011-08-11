@@ -2,10 +2,13 @@
   <%= link_to image_tag(@person.photo.url, :id => 'person-photo', :class => 'main-visual'), @person %>
   <% if @person.user.team_members.where(:team_role => "organizer") %><span class="organizer">&nbsp;</span><% end %>
 </div>
-  <h1 class="app-name"><%=link_to "Hi #{@person.name}!", @person %> </h1>  
+  <h1 class="person-name"><%=link_to "Hi #{@person.name}!", @person %> </h1>  
   <% if @person.user && @person.user.region %>
   <h2><%=@person.user.region.city%>, <%=@person.user.region.state%></h2>
 <% end %>
   <% if !@person.skill_list.blank? %>
   <h2><span>Tags: </span><%= render :partial => 'shared/tag_list', :collection => @person.skill_list, :as => :skill %><h2>
+  <% end %>
+  <% if user_signed_in? and current_user!=@person.user %>
+  <h2><a href="mailto:<%= @person.user.email %>">Invite <%= @person.name %> to join one of your teams &raquo;</a></h2>
   <% end %>

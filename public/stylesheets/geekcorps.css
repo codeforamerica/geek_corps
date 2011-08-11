@@ -371,6 +371,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 
 #main {
     background: white;
+    padding-top: 25px;
 }
 
 /***
@@ -475,6 +476,10 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 
 .app-name {
     font-size: 4em;
+}
+
+.person-name {
+    font-size: 2em;
 }
 
 #app-nav li {
