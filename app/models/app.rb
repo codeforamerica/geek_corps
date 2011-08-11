@@ -15,7 +15,7 @@ class App < ActiveRecord::Base
 
   has_many :deploy_task_resources, :through => :deploy_tasks
 
-  acts_as_taggable_on :tags, :skills
+  acts_as_taggable_on :tags
 
   accepts_nested_attributes_for :details, :deploy_tasks, :goals, :milestones, :steps
 
@@ -53,10 +53,24 @@ class App < ActiveRecord::Base
   def admin?(user)
     core_team.admins.include? user
   end
+  
+  def skill_list
+    skills = []
+    self.milestones.each do |milestone|
+      skills << milestone.steps.inject([]) do |a,b|
+        a += b.skill_list
+        a.uniq
+      end
+    end
+    skills[0].uniq
+  end
+  
   private
 
   def random_default
     File.new(PHOTO_DEFAULTS.sample)
   end
+  
+
 
 end

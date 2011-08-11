@@ -27,4 +27,20 @@ describe App do
       @invalid_app.should have(1).error_on(:name)
     end
   end
+  
+  context 'aggregates skill list' do
+      it 'skill_list' do
+        s1 = Factory(:step, :app => @app,  :skill_list => ['one', 'two'])
+        s2 = Factory(:step, :app => @app,  :skill_list => ['two'])
+        s3 = Factory(:step, :app => @app,  :skill_list => ['two', 'three'])
+        s4 = Factory(:step, :app => @app,  :skill_list => ['one', 'two'])
+        s5 = Factory(:step, :app => @app,  :skill_list => ['two'])
+        s6 = Factory(:step, :app => @app,  :skill_list => ['two', 'three'])        
+        m1 = Factory(:milestone, :app => @app, :steps => [s3, s2, s1])
+        m2 = Factory(:milestone, :app => @app, :steps => [s4, s5, s6])
+        @app.reload.milestones.size.should == 2
+        @app.reload.skill_list.should == ['one', 'two', 'three']
+      end
+    
+  end
 end
