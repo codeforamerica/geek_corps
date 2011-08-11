@@ -59,7 +59,7 @@ jQuery(document).ready(function() {
   $('#skill-filter a').live('click', function(){
     var selector = $(this).attr('data-filter');
     selector_string += selector;
-    $('#people-list').isotope({ filter: selector_string });
+    $('#team-list').isotope({ filter: selector_string });
     $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/delete.png" class="removal-icon" alt="remove" /><span>'+$(this).html()+'</span></a></li>'));
     $(this).parent().remove();
     if ($('span.skills').html()=="all") {
@@ -74,15 +74,10 @@ jQuery(document).ready(function() {
   $('#application-filter a').live('click', function(){
     var selector = $(this).attr('data-filter');
     selector_string += selector;
-    console.log(selector_string);
+
     $('#team-list').isotope({ filter: selector_string });
     $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'" class="type-app"><img src="/images/delete.png" class="removal-icon" alt="remove" /><span>'+$(this).html()+'</span></a></li>'));
     $(this).parent().remove();
-    if ($('span.skills').html()=="all") {
-      $('span.skills').html(selector.replace(".", "").replace("_"," "));
-    } else {
-      $('span.skills').append(", " + selector.replace(".", "").replace("_"," "));
-    };
     updateCounts();
     return false;
   });
