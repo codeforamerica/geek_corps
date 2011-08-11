@@ -145,4 +145,10 @@ module ApplicationHelper
   def get_skills
     ActsAsTaggableOn::Tagging.includes(:tag).where(:context => "skills").group(:tag_id).map { |x| x.tag.name}
   end
+  
+  def is_team_member(team, current_user)
+    if !team.members.include?(current_user)
+      "join"
+    end
+  end
 end
