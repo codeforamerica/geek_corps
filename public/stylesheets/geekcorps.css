@@ -57,8 +57,8 @@ h3 { font-size:1.25em;}
 
 #page-heading h1 {
     font-size: 4em;
-    line-height: 120px;
-    margin: 0 0 0 54px;
+    line-height: 80px;
+    margin: 0 0 20px 0;
 }
 
 #page-heading p {
@@ -410,7 +410,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 .main-list-type h3 {
     background-color: rgba(255, 255, 255, .7);
     margin: 0;
-    width: 100%;
+    width: 93%;
     padding: 10px;
     position: absolute;
     bottom: 0;
