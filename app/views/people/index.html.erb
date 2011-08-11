@@ -6,15 +6,15 @@
   </div>
 <% end %>
 <div id="sidebar"> 
-  <div class="sidebar_box">
+  <div class="sidebar_box sb_container">
       <h2 class="sidebar_box_title">Geek Stats:</h2>
       <div class="sidebar_box_content">
         <div id="geek_count">
           <h1><span class="metric_value">45</span> Geeks</h1>
         </div>
       </div>   
-  </div>  
-  <div class="sidebar_box">
+  </div> 
+  <div class="sidebar_box sb_container">
       <h2 class="sidebar_box_title">Filter by:</h2>
       <div class="sidebar_box_content">
         <ul id="active-filters"></ul>
@@ -35,8 +35,6 @@
                   <li><a href="#" data-filter=".<%=skill.gsub(".", "_").gsub(" ", "_")%>"><%=skill%></a><span class="count-span"></span></li>
                   <% end %>
                 </ul>
-                <span>Other skills:</span>
-                <!-- autocomplete text box and submit button goes here  -->
             </div>
         </div>
     </div>
@@ -98,8 +96,10 @@ function updateCounts() {
   $('#skill-filter li a').each(function(index, filter) {
     var filter = $(filter);
     var curFilter = filter.attr('data-filter');
-    var skillCount = $('#people-list '+curFilter).not('.isotope-hidden').length;
+    var skillCount = $('#people-list '+curFilter).not('.isotope-hidden').length;  
     filter.next('.count-span').html(skillCount);
   });
+  var geek_count = $('#people-list li').not('.isotope-hidden').length;
+   $('.metric_value').html(geek_count)
 };
 </script>
