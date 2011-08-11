@@ -25,7 +25,7 @@
               <%= link_to "Your Team Role: #{role.nil? ? "Doesn't Exist :(" : role.capitalize}", "#", :class => 'join-btn' %>
             <% end %>
           <% else %>
-            <%= link_to 'Join the Geek Corps to help start this project', sign_up_path, :class => 'join-btn' %>
+            <%= link_to 'Join the Geek Corps to help start this project', sign_in_path, :class => 'join-btn' %>
           <% end %>
         </div>
         </div>
