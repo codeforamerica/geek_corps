@@ -1,8 +1,7 @@
-<h1>Listing teams</h1>
 <div class="seperator"></div>
 <div id="sidebar"> 
   <div id="geek_count">
-    <h1>Found <span class="metric_value">45</span> Geeks</h1>
+    <h1>Found <span class="metric_value"><%=@teams.size%></span> Teams</h1>
   </div>
   <div class="sidebar_box sb_container">
       <h2 class="sidebar_box_title">Filter by:</h2>
@@ -40,7 +39,7 @@
   </div>
 </div>
 <div id="search_descr">
-  <h1>Searching for <span class="skills">all</span> skills in <span class="regions"> all regions</span>
+  <h1>Searching teams for <span class="skills">all</span> skills in <span class="regions"> all regions</span>
   </div>
 <div id="team-list">
   <%= render :partial => 'list', :object => @teams %>
