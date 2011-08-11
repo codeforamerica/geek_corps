@@ -5,7 +5,7 @@
     </div>
     <ul id="main-nav">
       <% if user_signed_in? %>
-      <li><%= link_to "Find People", "/people?region=#{region_name_underscored(current_user.region)}" %></li>
+      <li><%= link_to "Find People", "/people?region=#{region_name_underscored(current_user.region)}", :class => "find-people" %></li>
       <li><%= link_to "Join a Team", "/teams?region=#{region_name_underscored(current_user.region)}" %></li>
       <% else %>
       <li><%= link_to "Find People", people_path %></li>
