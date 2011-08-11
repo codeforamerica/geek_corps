@@ -9,7 +9,18 @@
       <div id="step-detail">
         <ul>
           <li><%=link_to @team.pretty_name, @team.to_url%> >> <%=link_to "Guide", team_guide_path(@team.name)%></li>
-          <li class="step-title"><span class="detail-edit"><%= link_to "EDIT", team_milestone_edit_path(@team.name, @milestone.id)%></span>Milestone: <span><%= @milestone.name %></span></li>
+          <li class="step-title">
+          <span class="detail-edit">
+            <% if @team.admin?(current_user) || current_user.admin? %>
+              <span class="detail-delete">
+                <%= button_to 'DELETE', milestone_path(@milestone, :team_name => @team.name), :confirm => "Are you sure you want to delete '#{@milestone.name}'!?!", :method => :delete %>
+              </span>
+              <span class="detail-edit">
+                <%= link_to "EDIT", team_milestone_edit_path(@team.name, @milestone.id)%>
+              </span>
+            <% end %>
+            Milestone: <span><%= @milestone.name %></span>
+          </li>
           <li class="step-tags">Tags: <span>
           <%= render :partial => "shared/tag_list", :collection => @milestone.skill_list, :as => :skill%></span></li>          
           <li class="step-time">Time budget: <span><%= @milestone.steps.sum(:est_time) %> minutes</span></li>
