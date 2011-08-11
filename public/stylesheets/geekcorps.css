@@ -935,7 +935,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	font-size:10px;
 	}
 #activity-feed textarea {
-	width:480px;
+	width:520px;
 	height:50px;
 	padding:10px;
 	border:0;
@@ -980,16 +980,16 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	font-size:20px;
 	font-weight:bold;
 	padding:2px 10px;
-	width:450px;
+	width:480px;
 	float:left;
-	*width:450px;
+	*width:480px;
 	*background:#999;
 	cursor:pointer;
 }
 
 #mainselection {
 	overflow:hidden;
-	width:415px;
+	width:455px;
 	background: url("select-arrow.png") no-repeat scroll 380px 6px #999;
 	float:left;
 }
