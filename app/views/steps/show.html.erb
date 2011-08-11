@@ -10,7 +10,7 @@
         <ul>
           <li><%=link_to @team.pretty_name, @team.to_url%> >> <%=link_to "Guide", team_guide_path(@team.name)%> >> <%= link_to @step.milestone.name[0..25].strip + "...", team_milestone_path(@team.name, @step.milestone.id) %></li>          
           <li class="step-title">
-            <% if @team.admin?(current_user) || current_user.admin? %>
+            <% if user_signed_in? and (@team.admin?(current_user) || current_user.admin?) %>
               <span class="detail-delete">
                 <%= button_to 'DELETE', step_path(@step, :team_name => @team.name), :confirm => "Are you sure you want to delete '#{@step.name}'!?!", :method => :delete %>
               </span>

@@ -4,12 +4,16 @@
       <% resource_lists.each do |resource| %>
         <li id="resource<%= resource.id %>" class="resource">
           <%=link_to resource.content, resource.link %> 
-          (<%=link_to "edit", edit_deploy_task_resource_path(resource)%>)
+           <% if user_signed_in? and (@team.admin?(current_user) || current_user.admin?) %>
+           (<%=link_to "edit", edit_deploy_task_resource_path(resource)%>)
+           <% end %>
         </li>
       <% end %>
+       <% if user_signed_in? and (@team.admin?(current_user) || current_user.admin?) %>
       <li id="resource<%= resource.id %>" class="resource">
         <%=link_to "Add a New Resource", "#{@team.to_url}/guide/#{resource.class.to_s.downcase}/#{resource.id}/resources/new"%>
       </li>
+      <% end %>
     </ol>
 </li>
 
