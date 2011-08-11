@@ -2,7 +2,7 @@
 <div class="seperator"></div>
 <div id="sidebar"> 
   <div id="geek_count">
-    <h1>Found <span class="metric_value">45</span> Geeks</h1>
+    <h1>Found <span class="metric_value">45</span> Teams</h1>
   </div>
   <div class="sidebar_box sb_container">
       <h2 class="sidebar_box_title">Filter by:</h2>
@@ -47,102 +47,131 @@
 </div>
 
 <script type="text/javascript" charset="utf-8">
-// TODO: Refactor out this global namespace polluting variable
-var selector_string = ''; 
+jQuery(document).ready(function() {
+  var selector_string = ''; 
 
-$('#people-list').isotope({
-  // options
-  itemSelector : '.front-box',
-  layoutMode : 'fitRows'
-});
-
-$('#skill-filter a').live('click', function(){
-  var selector = $(this).attr('data-filter');
-  selector_string += selector;
-  $('#people-list').isotope({ filter: selector_string });
-  $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/delete.png" class="removal-icon" alt="remove" /><span>'+$(this).html()+'</span></a></li>'));
-  $(this).parent().remove();
-  if ($('span.skills').html()=="all") {
-    $('span.skills').html(selector.replace(".", "").replace("_"," "));
-  } else {
-    $('span.skills').append(", " + selector.replace(".", "").replace("_"," "));
-  };
-  updateCounts();
-  return false;
-});
-
-$('#location-filter select').change(function(ev){
-  // TODO: this process could be cleaner
-  var list_of_locations = [];
-  $('#location-filter option').each(function(idx, el) { list_of_locations.push('.'+$(el).val()); });
-  $(list_of_locations).each(function(i, loc) {
-    selector_string = selector_string.replace(loc, '', 'gi');
+  $('#team-list').isotope({
+    // options
+    itemSelector : '.front-box',
+    layoutMode : 'fitRows'
   });
 
-  // Only change the selector if they select 'all'
-  if($(this).val() != 'all') {
-    var selector = '.'+$(this).val();
+  $('#skill-filter a').live('click', function(){
+    var selector = $(this).attr('data-filter');
     selector_string += selector;
-  }
-  $('#people-list').isotope({ filter: selector_string });
-  $('span.regions').html($('#region option:selected').text());  
-  updateCounts();
-  return false;
-}).change();
-
-$('#active-filters li a').live('click', function(ev) {
-  var $theEl = $(this);
-  selector_string = selector_string.replace($theEl.attr('data-filter'), '','gi');
-  $('#people-list').isotope({ filter: selector_string });
-  $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a> (<span class="count-span"></span>)</li>'));
-  var skill = $theEl.attr('data-filter').replace(".","");
-  var update_skills_text  = $('span.skills').html().replace(", " + skill, "").replace(skill  , "");
-  if (update_skills_text == "") {
-    update_skills_text = "all"
-  };
-  $('span.skills').html(update_skills_text);
-  $theEl.parent().remove();
-  updateCounts();
-  return false;
-});
-
-function updateCounts() {
-  // Count the still-visible skills
-  $('#skill-filter li a').each(function(index, filter) {
-    var filter = $(filter);
-    var curFilter = filter.attr('data-filter');
-    var skillCount = $('#people-list '+curFilter).not('.isotope-hidden').length;  
-    filter.next('.count-span').html(skillCount);
+    $('#people-list').isotope({ filter: selector_string });
+    $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/delete.png" class="removal-icon" alt="remove" /><span>'+$(this).html()+'</span></a></li>'));
+    $(this).parent().remove();
+    if ($('span.skills').html()=="all") {
+      $('span.skills').html(selector.replace(".", "").replace("_"," "));
+    } else {
+      $('span.skills').append(", " + selector.replace(".", "").replace("_"," "));
+    };
+    updateCounts();
+    return false;
   });
   
-  // Sort the list by the skill count (descending)
-  $('#skill-filter li').sortElements(function(a, b) {
-    return parseInt($(a).find('.count-span').text(), 10) > parseInt($(b).find('.count-span').text(), 10) ? -1 : 1;
+  $('#application-filter a').live('click', function(){
+    var selector = $(this).attr('data-filter');
+    selector_string += selector;
+    console.log(selector_string);
+    $('#team-list').isotope({ filter: selector_string });
+    $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/delete.png" class="removal-icon" alt="remove" /><span>'+$(this).html()+'</span></a></li>'));
+    $(this).parent().remove();
+    if ($('span.skills').html()=="all") {
+      $('span.skills').html(selector.replace(".", "").replace("_"," "));
+    } else {
+      $('span.skills').append(", " + selector.replace(".", "").replace("_"," "));
+    };
+    updateCounts();
+    return false;
   });
-  
-  // Update the geek count
-  var geek_count = $('#people-list li').not('.isotope-hidden').length;
-   $('.metric_value').html(geek_count)
-};
 
-function check_params_fire_off_filter()
-{ 
-    var vars = [], hash;
-    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-    for(var i = 0; i < hashes.length; i++)
-    {
-        hash = hashes[i].split('=');
-        if (hash[0] == 'region') {
-          $('select#region').val(hash[1]);
-          $('select#region').trigger('change');
-        };
-        if (hash[0] == 'skill') {
-          $("#skill-filter li a:contains("+hash[1]+")").trigger('click');          
-        };
+  $('#location-filter select').change(function(ev){
+    // TODO: this process could be cleaner
+    var list_of_locations = [];
+    $('#location-filter option').each(function(idx, el) { list_of_locations.push('.'+$(el).val()); });
+    $(list_of_locations).each(function(i, loc) {
+      selector_string = selector_string.replace(loc, '', 'gi');
+    });
+
+    // Only change the selector if they select 'all'
+    if($(this).val() != 'all') {
+      var selector = '.'+$(this).val();
+      selector_string += selector;
     }
-    return vars;
-};
+    $('#team-list').isotope({ filter: selector_string });
+    $('span.regions').html($('#region option:selected').text());  
+    updateCounts();
+    return false;
+  }).change();
 
-check_params_fire_off_filter();
+  $('#active-filters li a').live('click', function(ev) {
+    var $theEl = $(this);
+    selector_string = selector_string.replace($theEl.attr('data-filter'), '','gi');
+    $('#team-list').isotope({ filter: selector_string });
+    $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a> (<span class="count-span"></span>)</li>'));
+    var skill = $theEl.attr('data-filter').replace(".","");
+    var update_skills_text  = $('span.skills').html().replace(", " + skill, "").replace(skill  , "");
+    if (update_skills_text == "") {
+      update_skills_text = "all"
+    };
+    $('span.skills').html(update_skills_text);
+    $theEl.parent().remove();
+    updateCounts();
+    return false;
+  });
 
+  function updateCounts() {
+    // Count the still-visible skills
+    $('#skill-filter li a').each(function(index, filter) {
+      var filter = $(filter);
+      var curFilter = filter.attr('data-filter');
+      var skillCount = $('#team-list '+curFilter).not('.isotope-hidden').length;  
+      filter.next('.count-span').html(skillCount);
+    });
+  
+    // Sort the list by the skill count (descending)
+    $('#skill-filter li').sortElements(function(a, b) {
+      return parseInt($(a).find('.count-span').text(), 10) > parseInt($(b).find('.count-span').text(), 10) ? -1 : 1;
+    });
+    
+    // Count the still-visible skills
+    $('#application-filter li a').each(function(index, filter) {
+      var filter = $(filter);
+      var curFilter = filter.attr('data-filter');
+      var skillCount = $('#team-list '+curFilter).not('.isotope-hidden').length;  
+      filter.next('.count-span').html(skillCount);
+    });
+  
+    // Sort the list by the skill count (descending)
+    $('#application-filter li').sortElements(function(a, b) {
+      return parseInt($(a).find('.count-span').text(), 10) > parseInt($(b).find('.count-span').text(), 10) ? -1 : 1;
+    });
+  
+    // Update the geek count
+    var geek_count = $('#team-list li').not('.isotope-hidden').length;
+     $('.metric_value').html(geek_count)
+  };
+
+  function check_params_fire_off_filter()
+  { 
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      for(var i = 0; i < hashes.length; i++)
+      {
+          hash = hashes[i].split('=');
+          if (hash[0] == 'region') {
+            $('select#region').val(hash[1]);
+            $('select#region').trigger('change');
+          };
+          if (hash[0] == 'skill') {
+            $("#skill-filter li a:contains("+hash[1]+")").trigger('click');          
+          };
+      }
+      return vars;
+  };
+
+  check_params_fire_off_filter();
+});
 </script>
