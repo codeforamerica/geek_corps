@@ -11,7 +11,7 @@
           <li><%=link_to @team.pretty_name, @team.to_url%> >> <%=link_to "Guide", team_guide_path(@team.name)%></li>
           <li class="step-title">
           <span class="detail-edit">
-            <% if @team.admin?(current_user) || current_user.admin? %>
+            <% if user_signed_in? and (@team.admin?(current_user) || current_user.admin?) %>
               <span class="detail-delete">
                 <%= button_to 'DELETE', milestone_path(@milestone, :team_name => @team.name), :confirm => "Are you sure you want to delete '#{@milestone.name}'!?!", :method => :delete %>
               </span>
