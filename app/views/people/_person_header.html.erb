@@ -1,5 +1,6 @@
 <div id="app-image">
   <%= link_to image_tag(@person.photo.url, :id => 'person-photo', :class => 'main-visual'), @person %>
+  <% if @person.user.team_members.where(:team_role => "organizer") %><span class="organizer">&nbsp;</span><% end %>
 </div>
   <h1 class="app-name"><%=link_to "Hi #{@person.name}!", @person %> </h1>  
   <% if @person.user && @person.user.region %>
