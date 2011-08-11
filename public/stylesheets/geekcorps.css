@@ -1143,6 +1143,12 @@ ul.group li div a {
     background-color: #ffffff;
     }
 
+#search_descr h1 {
+    position: relative;
+    left: 70px;
+    line-height: 100%;
+}
+
 /* --- Profile View by Pete --- */
 
 #flash {

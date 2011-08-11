@@ -22,7 +22,7 @@
             <div id="location-filter">
                 <h3>Location:</h3>
                   <select name="region" id="region" size="1">
-                    <option value="all" data-filter="">All cities</option>              
+                    <option value="all" data-filter="">all regions</option>              
                   <% Region.all.each do |region| %>
                     <option value="<%=region_name_underscored(region)%>" data-filter=".<%=region_name_underscored(region)%>"><%=region.city%>, <%=region.state%></option>              
                   <% end %>    
@@ -32,7 +32,7 @@
                 <h3>Skills:</h3>
                 <ul>
                   <% get_skills.each do |skill|%>
-                  <li><a href="#" data-filter=".<%=skill.gsub(".", "_").gsub(" ", "_")%>"><%=skill%></a><span class="count-span"></span></li>
+                  <li><a href="#" data-filter=".<%=skill.gsub(".", "_").gsub(" ", "_")%>"><%=skill%></a> (<span class="count-span"></span>)</li>
                   <% end %>
                 </ul>
             </div>
@@ -40,6 +40,9 @@
     </div>
   </div>
 </div>
+<div id="search_descr">
+  <h1>Searching for <span class="skills">all</span> skills in <span class="regions"> all regions</span>
+  </div>
 <div id="people-list">
   <%= render :partial => 'list' %>
 </div>
@@ -60,6 +63,11 @@ $('#skill-filter a').live('click', function(){
   $('#people-list').isotope({ filter: selector_string });
   $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/target-icon.png" class="removal-icon" alt="remove" /></a><span>'+$(this).html()+'</span></li>'));
   $(this).parent().remove();
+  if ($('span.skills').html()=="all") {
+    $('span.skills').html(selector.replace(".", "").replace("_"," "));
+  } else {
+    $('span.skills').append(", " + selector.replace(".", "").replace("_"," "));
+  };
   updateCounts();
   return false;
 });
@@ -78,6 +86,7 @@ $('#location-filter select').change(function(ev){
     selector_string += selector;
   }
   $('#people-list').isotope({ filter: selector_string });
+  $('span.regions').html($('#region option:selected').text());  
   updateCounts();
   return false;
 }).change();
@@ -87,6 +96,12 @@ $('#active-filters li a').live('click', function(ev) {
   selector_string = selector_string.replace($theEl.attr('data-filter'), '','gi');
   $('#people-list').isotope({ filter: selector_string });
   $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a><span class="count-span"></span></li>'));
+  var skill = $theEl.attr('data-filter').replace(".","");
+  var update_skills_text  = $('span.skills').html().replace(", " + skill, "").replace(skill  , "");
+  if (update_skills_text == "") {
+    update_skills_text = "all"
+  };
+  $('span.skills').html(update_skills_text);
   $theEl.parent().remove();
   updateCounts();
   return false;
