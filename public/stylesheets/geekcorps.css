@@ -1168,6 +1168,10 @@ li.active-filter {
 	padding:5px 10px;
 	line-height:100%;
 	}
+li.active-filter a {
+    width: 200px;
+    color: white;
+}	
 li.active-filter img {
 	margin-right:10px;
 	}
@@ -1182,6 +1186,10 @@ li.active-filter img {
 	font-weight:bold;
 	background:#999;
 	margin-bottom:10px;
+	}
+#location-filter select {
+	width:290px;
+    font-size: 16px;	
 	}
 #skill-filter {
 	margin-bottom:20px;
