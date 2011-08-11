@@ -22,7 +22,7 @@
             <div id="location-filter">
                 <h3>Location:</h3>
                   <select name="region" id="region" size="1">
-                    <option value="all" data-filter="">All cities</option>              
+                    <option value="all" data-filter="">all regions</option>              
                   <% Region.all.each do |region| %>
                     <option value="<%=region_name_underscored(region)%>" data-filter=".<%=region_name_underscored(region)%>"><%=region.city%>, <%=region.state%></option>              
                   <% end %>    
@@ -40,6 +40,9 @@
     </div>
   </div>
 </div>
+<div id="search_descr">
+  <h1>Searching for <span class="skills"></span> in <span class="regions"> all regions</span>
+  </div>
 <div id="people-list">
   <%= render :partial => 'list' %>
 </div>
@@ -70,6 +73,7 @@ $('#location-filter select').change(function(ev){
   $('#location-filter option').each(function(idx, el) { list_of_locations.push('.'+$(el).val()); });
   $(list_of_locations).each(function(i, loc) {
     selector_string = selector_string.replace(loc, '', 'gi');
+        $('span.regions').html($('#region option:selected').text());
   });
 
   // Only change the selector if they select 'all'
