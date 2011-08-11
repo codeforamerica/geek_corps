@@ -4,8 +4,13 @@
       <%= link_to image_tag('logo-sash.png'), root_path %>
     </div>
     <ul id="main-nav">
+      <% if user_signed_in? %>
+      <li><%= link_to "Find People", "/people?region=#{region_name_underscored(current_user.region)}" %></li>
+      <li><%= link_to "Join a Team", "/teams?region=#{region_name_underscored(current_user.region)}" %></li>
+      <% else %>
       <li><%= link_to "Find People", people_path %></li>
       <li><%= link_to "Join a Team", teams_path %></li>
+      <% end %>
     </ul>
     <div id="account-box">
       <% if user_signed_in? %>
