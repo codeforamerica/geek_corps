@@ -1032,7 +1032,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 	cursor:pointer;
 	}
 #guide-side-bar ul li h3.collapsed {
-  background-position-y: 0;
+  background-position:right  0;
 }
 #guide-side-bar ul li p {
 	padding: 10px;
@@ -1069,7 +1069,7 @@ ul.group li div a {
 	padding:0 0 0 20px;
 	}
 #guide-side-bar ul ul li h4.collapsed {
-  background-position-y: 0;
+	background-position:right  0;
   }
 #guide-side-bar ul ul li p {
 	padding: 10px;
@@ -1096,7 +1096,7 @@ ul.group li div a {
 	cursor:pointer;
 	}
 #guide-side-bar ul ul ol li.opened h5 {
-  background-position-y: -40px;
+  background-position:right -40px;
 }
 #guide-side-bar ul ul ol li h5 a {
 	background:url(../images/delete.png) top left no-repeat;
