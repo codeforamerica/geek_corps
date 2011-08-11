@@ -1189,6 +1189,7 @@ li.active-filter img {
 	}
 #location-filter select {
 	width:290px;
+    font-size: 16px;	
 	}
 #skill-filter {
 	margin-bottom:20px;
