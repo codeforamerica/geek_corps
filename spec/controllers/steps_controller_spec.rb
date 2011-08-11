@@ -70,8 +70,6 @@ describe StepsController do
         delete :destroy, :team_name => team.name, :id => step.id
         flash[:success].should_not be_nil
       end
-
-
     end
   end
 end
