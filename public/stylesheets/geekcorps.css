@@ -1304,7 +1304,7 @@ form.edit_person {
 	margin:30px 10px 0 10px;
 	border:0;
 }
-form.edit_person label {
+form.edit_person label, form.edit_step label, form.edit_milestone label {
 	margin:10px 0;
 	border:0;
 	color:#FFF;
@@ -1320,6 +1320,7 @@ form.edit_person label {
 	padding:5px 10px;
 	background:#533549;
 	}
+	
 .inputs legend {
 	margin:0 0 10px 0;
 	}
@@ -1334,18 +1335,24 @@ form.edit_person label {
 	padding:5px 10px;
 	background:#533549;
 	}
-form.edit_person input {
+form.edit_person input, form.edit_step input, form.edit_milestone input {
 	width:570px;
 	border: 2px dotted #999;
 	padding:10px;
 	margin:10px 0;
 	}
-#person_bio {
+	
+#person_bio, form.edit_milestone textarea, form.edit_step textarea {
 	width:570px;
 	border: 2px dotted #999;
 	padding:10px;
 	margin:10px 0;
 	}
+form.edit_person select, form.edit_step select, form.edit_milestone select {	
+	padding:10px;
+	margin:10px 0;
+}
+	
 #person_photo_import_url {
 	border: 2px dotted #999;
     color: #CCCCCC;
