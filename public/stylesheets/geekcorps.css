@@ -1528,7 +1528,7 @@ input#person_photo_upload2 {
     padding: 5px;
     }
 	
-.front-box .organizer, .organizer {
+.front-box .organizer, .person-profile .organizer {
     position: absolute;
     left: 0;
     top: 0px;

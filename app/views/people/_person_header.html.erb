@@ -1,4 +1,4 @@
-<div id="app-image">
+<div id="app-image" class="person-profile">
   <%= link_to image_tag(@person.photo.url, :id => 'person-photo', :class => 'main-visual'), @person %>
   <% if @person.user.team_members.where(:team_role => "organizer") %><span class="organizer">&nbsp;</span><% end %>
 </div>
