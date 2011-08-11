@@ -102,4 +102,25 @@ function updateCounts() {
   var geek_count = $('#people-list li').not('.isotope-hidden').length;
    $('.metric_value').html(geek_count)
 };
+
+function check_params_fire_off_filter()
+{ 
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        if (hash[0] == 'region') {
+          $('select#region').val(hash[1]);
+          $('select#region').trigger('change');
+        };
+        if (hash[0] == 'skill') {
+          $("#skill-filter li a:contains("+hash[1]+")").trigger('click');          
+        };
+    }
+    return vars;
+};
+
+check_params_fire_off_filter();
+
 </script>

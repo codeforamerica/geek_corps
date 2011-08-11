@@ -1,0 +1,5 @@
+<% if @team.team_type=="application"%>
+<a href="/people?region=<%=region_name_underscored(@team.region)%>&skill=<%=skill%>"><%=skill%></a>
+<% else %>
+<a href="/people?skill=<%=skill%>"><%=skill%></a>
+<% end %>
