@@ -50,7 +50,7 @@ $('#skill-filter a').live('click', function(){
   var selector = $(this).attr('data-filter');
   selector_string += selector;
   $('#people-list').isotope({ filter: selector_string });
-  $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/delete.png" class="removal-icon" alt="remove" /></a><span>'+$(this).html()+'</span></li>'));
+  $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/delete.png" class="removal-icon" alt="remove" /><span>'+$(this).html()+'</span></a></li>'));
   $(this).parent().remove();
   if ($('span.skills').html()=="all") {
     $('span.skills').html(selector.replace(".", "").replace("_"," "));
