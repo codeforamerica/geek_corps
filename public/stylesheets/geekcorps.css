@@ -1130,7 +1130,7 @@ ul.group li div a {
      text-transform: uppercase;
      }
 
-#people-list {
+#people-list, #team-list {
     position: relative;
     float:right;
     width: 62%;
@@ -1191,10 +1191,10 @@ li.active-filter img {
 	width:290px;
     font-size: 16px;	
 	}
-#skill-filter {
+#skill-filter, #application-filter {
 	margin-bottom:20px;
 	}
-#skill-filter h3 {
+#skill-filter h3, #application-filter h3 {
 	margin:0 -11px;
 	padding:5px 10px;
 	line-height:100%;
@@ -1203,7 +1203,7 @@ li.active-filter img {
 	background:#999;
 	margin-bottom:10px;
 	}
-#skill-filter ul li a {
+#skill-filter ul li a, #application-filter ul li a {
 	font-size:14px;
 	font-weight:bold;
 	text-transform:capitalize;
@@ -1513,16 +1513,19 @@ input#person_photo_upload2 {
 
 /* --- End File Upload Hack --- */
 
-#people-list .front-box, #people-list .front-box img {
+#people-list .front-box, #people-list .front-box img,
+#team-list .front-box, #team-list .front-box img {
     width: 140px;
     height: 140px;
     }
     
-#people-list .front-box {
+#people-list .front-box,
+#team-list .front-box {
     margin: 0 10px 10px 0;
     }
     
-#people-list h3 {
+#people-list h3,
+#team-list h3 {
     font-size: 1.2em;
     font-weight: bold;
     padding: 5px;
