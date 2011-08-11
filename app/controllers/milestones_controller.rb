@@ -5,16 +5,16 @@ class MilestonesController < InheritedResources::Base
     find_team
     @milestones = Milestone.where(:app_id => @team.app.id)
   end
-  
+
   def edit
     if check_core_team
       @milestone = Milestone.where(:id => params[:id]).first
     else
       flash[:error] = "Quit trying to edit without core team cred!"
        redirect_to :back
-     end      
+     end
   end
-  
+
   def create
     if check_core_team
       @milestone = Milestone.new(params[:milestone])
@@ -30,12 +30,12 @@ class MilestonesController < InheritedResources::Base
       redirect_to :back
     end
   end
-  
+
   def show
     find_team
     @milestone = Milestone.where(:id => params[:id]).first
   end
-  
+
   def new
     if check_core_team
       @milestone = Milestone.new(:app_id => @team.app_id, :goal => params[:goal])
@@ -44,7 +44,7 @@ class MilestonesController < InheritedResources::Base
       redirect_to :back
     end
   end
-  
+
   def update
     if check_core_team
       @milestone = Milestone.where(:id => params[:id]).first
@@ -57,9 +57,26 @@ class MilestonesController < InheritedResources::Base
     else
       flash[:error] = "What? Creating a milestone without core team cred. You're nuts."      
       redirect_to :back
-    end  
+    end
   end
-  
+
+  def destroy
+    if check_core_team
+      milestone = Milestone.where(:id => params[:id]).first
+      if milestone.steps.empty?
+        milestone.destroy
+        flash[:success] = "And it's gone. Never to be seen again."
+        redirect_to milestones_path
+      else
+        flash[:error] = "Cannot remove Milestone that contains Steps, please try again with the -R option"
+        redirect_to :back
+      end
+    else
+      flash[:error] = "Ye, way would be lost without milestones like this one to guide"
+      redirect_to :back
+    end
+  end
+
 
 
 end
