@@ -84,7 +84,7 @@ $('#active-filters li a').live('click', function(ev) {
   var $theEl = $(this);
   selector_string = selector_string.replace($theEl.attr('data-filter'), '','gi');
   $('#people-list').isotope({ filter: selector_string });
-  $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a><span class="count-span"></span></li>'));
+  $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a>(<span class="count-span"></span>)</li>'));
   var skill = $theEl.attr('data-filter').replace(".","");
   var update_skills_text  = $('span.skills').html().replace(", " + skill, "").replace(skill  , "");
   if (update_skills_text == "") {
