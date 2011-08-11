@@ -50,7 +50,7 @@
 // TODO: Refactor out this global namespace polluting variable
 var selector_string = ''; 
 
-$('#people-list').isotope({
+$('#team-list').isotope({
   // options
   itemSelector : '.front-box',
   layoutMode : 'fitRows'
@@ -84,7 +84,7 @@ $('#location-filter select').change(function(ev){
     var selector = '.'+$(this).val();
     selector_string += selector;
   }
-  $('#people-list').isotope({ filter: selector_string });
+  $('#team-list').isotope({ filter: selector_string });
   $('span.regions').html($('#region option:selected').text());  
   updateCounts();
   return false;
