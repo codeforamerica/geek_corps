@@ -1,19 +1,8 @@
-<% content_for(:page_heading) do %>
-  <div id="page-heading">
-    <h1>
-      People
-    </h1>
-  </div>
-<% end %>
+<div class="seperator"></div>
 <div id="sidebar"> 
-  <div class="sidebar_box sb_container">
-      <h2 class="sidebar_box_title">Geek Stats:</h2>
-      <div class="sidebar_box_content">
-        <div id="geek_count">
-          <h1><span class="metric_value">45</span> Geeks</h1>
-        </div>
-      </div>   
-  </div> 
+  <div id="geek_count">
+    <h1>Found <span class="metric_value">45</span> Geeks</h1>
+  </div>
   <div class="sidebar_box sb_container">
       <h2 class="sidebar_box_title">Filter by:</h2>
       <div class="sidebar_box_content">
@@ -61,7 +50,7 @@ $('#skill-filter a').live('click', function(){
   var selector = $(this).attr('data-filter');
   selector_string += selector;
   $('#people-list').isotope({ filter: selector_string });
-  $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/target-icon.png" class="removal-icon" alt="remove" /></a><span>'+$(this).html()+'</span></li>'));
+  $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/delete.png" class="removal-icon" alt="remove" /></a><span>'+$(this).html()+'</span></li>'));
   $(this).parent().remove();
   if ($('span.skills').html()=="all") {
     $('span.skills').html(selector.replace(".", "").replace("_"," "));

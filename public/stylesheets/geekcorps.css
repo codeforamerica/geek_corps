@@ -57,8 +57,8 @@ h3 { font-size:1.25em;}
 
 #page-heading h1 {
     font-size: 4em;
-    line-height: 120px;
-    margin: 0 0 0 54px;
+    line-height: 80px;
+    margin: 0 0 20px 0;
 }
 
 #page-heading p {
@@ -88,7 +88,7 @@ h3 { font-size:1.25em;}
     position: relative;
     float:left;
     width: 60%;
-    margin-bottom: 0px;
+    margin-bottom: 15px;
 }
 
 #title-main h1 {
@@ -410,7 +410,7 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
 .main-list-type h3 {
     background-color: rgba(255, 255, 255, .7);
     margin: 0;
-    width: 100%;
+    width: 93%;
     padding: 10px;
     position: absolute;
     bottom: 0;
@@ -476,10 +476,6 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     font-size: 4em;
 }
 
-#app-nav {
-    padding-top: 5px;
-    }
-
 #app-nav li {
     display: block;
     font-size: 1.5em;
@@ -487,13 +483,12 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     margin-right: 15px;
     margin-top: 10px;
     padding: 10px;
-    background-color: #e9e9e9;
-    moz-box-shadow: 1px 1px 4px #444;
--webkit-box-shadow: 1px 1px 4px #444;
-box-shadow: 1px 2px 3px #444;
+    background-color: white;
+
 }
 
 #app-nav li:first-child {
+    margin-left: 40px;
 }
 
 #content {
@@ -667,15 +662,14 @@ box-shadow: 1px 2px 3px #444;
     }
     
     #geek_count .metric_value {
-        font-size: 1.8em;
         color: #992739;
     }
     
     #geek_count {
         color: #533549;
         font-weight: bold;
-        margin-left: 30px;
-        margin-top: 13px;
+        margin-left: 5px;
+        margin-top: 15px;
     }
 
     #join_project_wrapper {
@@ -926,7 +920,7 @@ box-shadow: 1px 2px 3px #444;
 	color:#533549;
     padding: 10px;
 	}
-    		
+		
 .comment-body, .comment-stamp, .comment-user {
 	width:450px;
 	float:right;
@@ -1143,12 +1137,76 @@ ul.group li div a {
     background-color: #ffffff;
     }
 
+#search_descr {
+	}
 #search_descr h1 {
     position: relative;
     left: 70px;
     line-height: 100%;
+	color:#533549;
+	font-weight:bold;
+	padding:12px 115px 0 0;
+	margin-bottom:12px;
 }
-
+#search_descr .skills {
+	color:#992739;
+	}
+#search_descr .regions {
+	color:#992739;
+	}
+ul#active-filters {
+	margin-bottom:20px;
+	}	
+li.active-filter {
+	margin:0 -11px;
+	background:#992739;
+	color:#FFF;
+	font-size:14px;
+	text-transform:capitalize;
+	font-weight:bold;
+	border-bottom:#FFF 1px solid;
+	padding:5px 10px;
+	line-height:100%;
+	}
+li.active-filter img {
+	margin-right:10px;
+	}
+#location-filter {
+	margin-bottom:20px;
+	}
+#location-filter h3 {
+	margin:0 -11px;
+	padding:5px 10px;
+	line-height:100%;
+	color:#FFF;
+	font-weight:bold;
+	background:#999;
+	margin-bottom:10px;
+	}
+#location-filter select {
+	width:290px;
+	}
+#skill-filter {
+	margin-bottom:20px;
+	}
+#skill-filter h3 {
+	margin:0 -11px;
+	padding:5px 10px;
+	line-height:100%;
+	color:#FFF;
+	font-weight:bold;
+	background:#999;
+	margin-bottom:10px;
+	}
+#skill-filter ul li a {
+	font-size:14px;
+	font-weight:bold;
+	text-transform:capitalize;
+	line-height:150%;
+	background:url(../images/add.png) top left no-repeat;
+	padding:0 0 0 20px;
+	}
+	
 /* --- Profile View by Pete --- */
 
 #flash {
@@ -1304,7 +1362,7 @@ form.edit_person {
 	margin:30px 10px 0 10px;
 	border:0;
 }
-form.edit_person label {
+form.edit_person label, form.edit_step label, form.edit_milestone label {
 	margin:10px 0;
 	border:0;
 	color:#FFF;
@@ -1320,6 +1378,7 @@ form.edit_person label {
 	padding:5px 10px;
 	background:#533549;
 	}
+	
 .inputs legend {
 	margin:0 0 10px 0;
 	}
@@ -1334,18 +1393,24 @@ form.edit_person label {
 	padding:5px 10px;
 	background:#533549;
 	}
-form.edit_person input {
+form.edit_person input, form.edit_step input, form.edit_milestone input {
 	width:570px;
 	border: 2px dotted #999;
 	padding:10px;
 	margin:10px 0;
 	}
-#person_bio {
+	
+#person_bio, form.edit_milestone textarea, form.edit_step textarea {
 	width:570px;
 	border: 2px dotted #999;
 	padding:10px;
 	margin:10px 0;
 	}
+form.edit_person select, form.edit_step select, form.edit_milestone select {	
+	padding:10px;
+	margin:10px 0;
+}
+	
 #person_photo_import_url {
 	border: 2px dotted #999;
     color: #CCCCCC;
@@ -1566,7 +1631,18 @@ input#person_photo_upload2 {
     width: 250px;
 }
 	
-	
+		
+.detail-delete .button_to {
+    font-size:12px;
+    float:right;
+    background:#FFF;
+    color:#96a044;
+    margin-top:5px;
+    text-decoration:none;
+    padding:5px 10px;
+    line-height: 120%;
+    }
+
 .detail-edit a {
     font-size:12px;
     float:right;
