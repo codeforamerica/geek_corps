@@ -6,16 +6,16 @@
         </ul>
         <div id="join_project_wrapper">
         <div id="join_project">
-            
+
           <% if current_user && current_user.region %>
             <% if @team.app.teams.where(:region_id => current_user.region).blank?%>
-              <%= button_to "Start this in #{current_user.region.nick_name}", app_teams_path(@team.app) %>
+              <%= button_to "Start this in #{current_user.region.nick_name}", app_teams_path(@team.app), :class => 'join-btn' %>
             <% else %>
-              <%=link_to "Goto #{current_user.region.nick_name}'s Page", @team.app.teams.where(:region_id => current_user.region).first.to_url%>
+              <%=link_to "Goto #{current_user.region.nick_name}'s Page", @team.app.teams.where(:region_id => current_user.region).first.to_url, :class => 'join-btn' %>
             <% end %>
           <% else %>
-            Join the Geek Corps to help start this project
-          <% end %>            
+            <%= link_to 'Join the Geek Corps to help start this project', sign_up_path, :class => 'join-btn' %>
+          <% end %>
         </div>
         </div>
     </div>
