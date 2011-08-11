@@ -1168,6 +1168,10 @@ li.active-filter {
 	padding:5px 10px;
 	line-height:100%;
 	}
+li.active-filter a {
+    width: 200px;
+    color: white;
+}	
 li.active-filter img {
 	margin-right:10px;
 	}
