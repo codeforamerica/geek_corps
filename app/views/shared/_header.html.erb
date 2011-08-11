@@ -13,7 +13,7 @@
       <% end %>
     </ul>
     <div id="account-box">
-      <% if user_signed_in? %>
+      <% if user_signed_in? and current_user.region %>
         <%= image_tag current_user.avatar_url, :class => 'current-user-thumb' %>
         Heya <%= link_to current_user.name, current_user.person, :id => 'user-home' %>!
         <p><%= link_to 'Sign Out', sign_out_path, :id => 'sign-out' %> | <%= link_to "Settings", home_users_path, :id => 'user-setting' %></p>
