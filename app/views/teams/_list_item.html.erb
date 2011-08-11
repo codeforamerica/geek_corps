@@ -1,6 +1,6 @@
 <% if list_item.team_type == 'application'%>
 <li class="front-box <%= region_name_underscored(list_item.region)%> <%= list_item.app.name.gsub(" ", "_").downcase%> ">
-<h3><a href="/<%= list_item.name.parameterize %>" class=""><%= list_item.pretty_name %></a></h3>
+  <h3><a href="/<%= list_item.name.parameterize %>" class=""><%= list_item.pretty_name %></a></h3>
   <%= image_tag list_item.app.photo.url %>
 </li>  
 <% end %>
