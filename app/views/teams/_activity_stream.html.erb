@@ -5,7 +5,7 @@
         <%= activity_image(feed.feedable)%>
           <span class="comment-user">
           <% if feed.feedable.user%> 
-            <%=link_to feed.feedable.user.person.name, people_path(feed.feedable.user.person)%>
+            <%=link_to feed.feedable.user.person.name, feed.feedable.user.person %>
             <% else%> 
             Geek Robot
             <%end %>
