@@ -50,7 +50,7 @@ $('#skill-filter a').live('click', function(){
   var selector = $(this).attr('data-filter');
   selector_string += selector;
   $('#people-list').isotope({ filter: selector_string });
-  $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/target-icon.png" class="removal-icon" alt="remove" /></a><span>'+$(this).html()+'</span></li>'));
+  $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/delete.png" class="removal-icon" alt="remove" /><span>'+$(this).html()+'</span></a></li>'));
   $(this).parent().remove();
   if ($('span.skills').html()=="all") {
     $('span.skills').html(selector.replace(".", "").replace("_"," "));
@@ -84,7 +84,7 @@ $('#active-filters li a').live('click', function(ev) {
   var $theEl = $(this);
   selector_string = selector_string.replace($theEl.attr('data-filter'), '','gi');
   $('#people-list').isotope({ filter: selector_string });
-  $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a>(<span class="count-span"></span>)</li>'));
+  $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a> (<span class="count-span"></span>)</li>'));
   var skill = $theEl.attr('data-filter').replace(".","");
   var update_skills_text  = $('span.skills').html().replace(", " + skill, "").replace(skill  , "");
   if (update_skills_text == "") {
@@ -96,13 +96,36 @@ $('#active-filters li a').live('click', function(ev) {
   return false;
 });
 
+
+/*
+$('#skill-filter ul').isotope({
+  itemSelector : 'li',
+  layoutMode : 'straightDown',
+  sortAscending : false,
+  getSortData: {
+    count : function($elem) {
+      return parseInt( $elem.find('.count-span').text(), 10 );
+    }
+  }
+});
+$('#skill-filter ul').isotope({ sortBy : 'count' });
+*/
+
 function updateCounts() {
+  // Count the still-visible skills
   $('#skill-filter li a').each(function(index, filter) {
     var filter = $(filter);
     var curFilter = filter.attr('data-filter');
     var skillCount = $('#people-list '+curFilter).not('.isotope-hidden').length;  
     filter.next('.count-span').html(skillCount);
   });
+  
+  // Sort the list by the skill count (descending)
+  $('#skill-filter li').sortElements(function(a, b) {
+    return parseInt($(a).find('.count-span').text(), 10) > parseInt($(b).find('.count-span').text(), 10) ? -1 : 1;
+  });
+  
+  // Update the geek count
   var geek_count = $('#people-list li').not('.isotope-hidden').length;
    $('.metric_value').html(geek_count)
 };

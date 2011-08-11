@@ -8,7 +8,12 @@
       <% if @person.bio.present? %>
         <%= simple_format @person.bio %>
       <% end %>
+      <br/>
+        <h1>Website</h1>
         <%= link_to( normalize_url(@person.url), normalize_url(@person.url), :class => 'url') if @person.url.present? %>
+      <br/>
+      <br/>
+        <h1><a href="mailto:<%= @person.user.email %>">Invite <%= @person.name %> to join your team &raquo;</a></h1>
     </div>  
     <ul id="app-nav">
       <li>Activity</li>

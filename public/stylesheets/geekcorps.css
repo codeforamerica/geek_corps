@@ -662,15 +662,14 @@ main-nav li a, #main-nav li .count, #header h1 a, #header h1 img {
     }
     
     #geek_count .metric_value {
-        font-size: 1.8em;
         color: #992739;
     }
     
     #geek_count {
         color: #533549;
         font-weight: bold;
-        margin-left: 30px;
-        margin-top: 13px;
+        margin-left: 5px;
+        margin-top: 15px;
     }
 
     #join_project_wrapper {
@@ -1138,12 +1137,81 @@ ul.group li div a {
     background-color: #ffffff;
     }
 
+#search_descr {
+	}
 #search_descr h1 {
     position: relative;
     left: 70px;
     line-height: 100%;
+	color:#533549;
+	font-weight:bold;
+	padding:12px 115px 0 0;
+	margin-bottom:12px;
 }
-
+#search_descr .skills {
+	color:#992739;
+	}
+#search_descr .regions {
+	color:#992739;
+	}
+ul#active-filters {
+	margin-bottom:20px;
+	}	
+li.active-filter {
+	margin:0 -11px;
+	background:#992739;
+	color:#FFF;
+	font-size:14px;
+	text-transform:capitalize;
+	font-weight:bold;
+	border-bottom:#FFF 1px solid;
+	padding:5px 10px;
+	line-height:100%;
+	}
+li.active-filter a {
+    width: 200px;
+    color: white;
+}	
+li.active-filter img {
+	margin-right:10px;
+	}
+#location-filter {
+	margin-bottom:20px;
+	}
+#location-filter h3 {
+	margin:0 -11px;
+	padding:5px 10px;
+	line-height:100%;
+	color:#FFF;
+	font-weight:bold;
+	background:#999;
+	margin-bottom:10px;
+	}
+#location-filter select {
+	width:290px;
+    font-size: 16px;	
+	}
+#skill-filter {
+	margin-bottom:20px;
+	}
+#skill-filter h3 {
+	margin:0 -11px;
+	padding:5px 10px;
+	line-height:100%;
+	color:#FFF;
+	font-weight:bold;
+	background:#999;
+	margin-bottom:10px;
+	}
+#skill-filter ul li a {
+	font-size:14px;
+	font-weight:bold;
+	text-transform:capitalize;
+	line-height:150%;
+	background:url(../images/add.png) top left no-repeat;
+	padding:0 0 0 20px;
+	}
+	
 /* --- Profile View by Pete --- */
 
 #flash {
