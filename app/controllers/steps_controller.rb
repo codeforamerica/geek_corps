@@ -33,12 +33,12 @@ class StepsController < InheritedResources::Base
       redirect_to :back
     end
   end
-  
+
   def show
     find_team
     @step = Step.where(:id => params[:id]).first
   end
-  
+
   def update
     if check_core_team
       @step = Step.where(:id => params[:id]).first
@@ -46,13 +46,23 @@ class StepsController < InheritedResources::Base
         flash[:success] = "It's updated, feel better?"
       else
         flash[:error] = "Didn't update!"
-      end    
+      end
       redirect_to team_step_path(@step.app.core_team.name, @step)
     else
       flash[:error] = "What? Creating a step without core team cred. You're nuts."      
       redirect_to :back
     end
-    
   end
 
+  def destroy
+    if check_core_team
+      step = Step.where(:id => params[:id]).first
+      step.destroy
+      flash[:success] = "And it's gone. Never to be seen again."
+      redirect_to step.milestone
+    else
+      flash[:error] = "Dude, some steps you just can't cut"
+      redirect_to :back
+    end
+  end
 end
