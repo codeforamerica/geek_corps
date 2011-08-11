@@ -32,7 +32,7 @@
                 <h3>Skills:</h3>
                 <ul>
                   <% get_skills.each do |skill|%>
-                  <li><a href="#" data-filter=".<%=skill.gsub(".", "_").gsub(" ", "_")%>"><%=skill%></a><span class="count-span"></span></li>
+                  <li><a href="#" data-filter=".<%=skill.gsub(".", "_").gsub(" ", "_")%>"><%=skill%></a> (<span class="count-span"></span>)</li>
                   <% end %>
                 </ul>
             </div>
