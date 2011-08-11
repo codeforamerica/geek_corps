@@ -22,7 +22,7 @@
  *   The <td>'s parent (<tr>) will be sorted instead
  *   of the <td> itself.
  */
-  jQuery.fn.sortElements = (function(){
+jQuery.fn.sortElements = (function(){
     
     var sort = [].sort;
     
@@ -65,4 +65,4 @@
         });
         
     };
-})();
+})(jQuery);
