@@ -7,7 +7,7 @@ Installation
 ------------
 
 Clone the repo:
-    git clone git@github.com:codeforamerica/geek_corps.git
+      git clone git@github.com:codeforamerica/geek_corps.git
     cd geek_corps
 
 We recommend using Ruby Version Manager. Ruby 1.9.2 or later is required. If you have RVM installed:
@@ -69,11 +69,11 @@ We use spork to speed up development tests.  Run the following in a separate con
 
     spork
 
-Until rake .9.2 is fixed, you'll most likely need to run 
+Until rake .9.2 is fixed, you'll most likely need to run: 
 
     bundle exec rspec your_test
 
-or you can run autotest
+or you can run autotest:
 
     autotest
     
@@ -84,25 +84,25 @@ We use the recommended [Heroku setup for development & staging environments](htt
 
 Edit your git config file:
 
-  vi .git/config
+    vi .git/config
   
 and copy/paste the following in:  
   
-  repositoryformatversion = 0
-    filemode = true
-    bare = false
-    logallrefupdates = true
-    ignorecase = true
-  [remote "origin"]
-    url = git@github.com:codeforamerica/geek_corps.git
-    fetch = +refs/heads/*:refs/remotes/origin/*
-  [remote "master"]
-    url = git@heroku.com:geekcorps.git
-    fetch = +refs/heads/*:refs/remotes/heroku/*
-  [remote "staging"]
-    url = git@heroku.com:geeks-dev.git
-    fetch = +refs/heads/*:refs/remotes/staging/*
-    branch = staging
+>  repositoryformatversion = 0
+>   filemode = true
+>   bare = false
+>   logallrefupdates = true
+>   ignorecase = true
+> [remote "origin"]
+>   url = git@github.com:codeforamerica/geek_corps.git
+>   fetch = +refs/heads/*:refs/remotes/origin/*
+> [remote "master"]
+>   url = git@heroku.com:geekcorps.git
+>   fetch = +refs/heads/*:refs/remotes/heroku/*
+> [remote "staging"]
+>   url = git@heroku.com:geeks-dev.git
+>   fetch = +refs/heads/*:refs/remotes/staging/*
+>   branch = staging
     
 To access heroku commands, you'll need to add --remote staging or --remote staging
 
@@ -110,33 +110,63 @@ To access heroku commands, you'll need to add --remote staging or --remote stagi
 
 We use branching to delineate between staging and production.  
 
-  git checkout origin staging
-  git checkout origin master  
+    git checkout origin staging
+    git checkout origin master
 
 We use tags to delineate releases. +.1 for major code releases. +.01 for design/css, small bug fixes or tests/seed data files.
 
-  git tag 0.1
+    git tag 0.1
+
+### Instructions for Staging (Development Environment):
+
+Checkout the correct branch:
+
+    git checkout origin staging
+
+Merge your branch and push changes, if any, into staging (optional):  
+
+    git checkout origin staging
+    git merge branch_name
+    git add .
+    git commit -m 'Your message'
+    git push origin staging
+
+Check Code for America CI server to make sure the changes didn't break anything:
+
+  http://ci.codeforamerica.org/ or dashboard in the office
+
+Push the staging branch to Heroku:
+
+    git push staging staging
+
+Staging Url:
+
+    http://geeks-dev.heroku.com/
+
+To migrate the database:
+
+    heroku rake db:migrate --remote staging
 
 ### Instructions for Master (Production Environment):
 
 Checkout the correct branch:
 
-  git checkout origin master
+    git checkout origin master
 
 Merge staging branch into master (optional):  
 
-  git checkout origin master
-  git merge staging
-  git add .
-  git commit -m 'Your message'
+    git checkout origin master
+    git merge staging
+    git add .
+    git commit -m 'Your message'
   
 Add a tag for the release
-  git tag 0.1
-  git push origin master
+    git tag 0.1
+    git push origin master
 
 Push the master branch to Heroku:
 
-  git push master master
+    git push master master
   
 Update the Wiki with the Release Information:
 
