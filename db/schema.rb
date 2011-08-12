@@ -10,13 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812194452) do
+ActiveRecord::Schema.define(:version => 20110809170919) do
 
   create_table "activity_feeds", :force => true do |t|
     t.integer  "team_id"
     t.string   "feedable_type"
     t.integer  "feedable_id"
-    t.text     "activity",      :limit => 255
+    t.string   "activity"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
