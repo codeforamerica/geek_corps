@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812194931) do
+ActiveRecord::Schema.define(:version => 20110812221737) do
 
   create_table "activity_feeds", :force => true do |t|
     t.integer  "team_id"
@@ -157,7 +157,6 @@ ActiveRecord::Schema.define(:version => 20110812194931) do
   add_index "github_contacts", ["public_repo_count"], :name => "index_github_contacts_on_public_repo_count"
 
   create_table "people", :force => true do |t|
-    t.string   "bio"
     t.string   "location"
     t.float    "lat"
     t.float    "long"
@@ -176,6 +175,7 @@ ActiveRecord::Schema.define(:version => 20110812194931) do
     t.datetime "photo_updated_at"
     t.boolean  "reviewed",                  :default => false
     t.string   "imported_from_screen_name"
+    t.text     "bio"
   end
 
   create_table "regions", :force => true do |t|

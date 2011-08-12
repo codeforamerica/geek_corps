@@ -143,7 +143,7 @@ module ApplicationHelper
   end
   
   def get_skills
-    ActsAsTaggableOn::Tagging.includes(:tag).where(:context => "skills").group(:tag_id).map { |x| x.tag.name}
+    ActsAsTaggableOn::Tag.select("DISTINCT tags.* ").joins(:taggings).where("taggings.context = 'skills'").order("tags.name ASC").map { |x| x.name}
   end
   
   def is_team_member(team, current_user)
