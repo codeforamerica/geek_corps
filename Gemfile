@@ -28,7 +28,7 @@ gem "haml", "~> 3.0.18"
 gem "formtastic"
 gem 'uuid'
 
-group :test do
+group :test, :jenkins do
   gem 'spork'
   gem 'factory_girl_rails'
   gem 'mocha'
