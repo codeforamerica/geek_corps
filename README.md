@@ -88,21 +88,21 @@ Edit your git config file:
   
 and copy/paste the following in:  
   
->  repositoryformatversion = 0
->   filemode = true
->   bare = false
->   logallrefupdates = true
->   ignorecase = true
-> [remote "origin"]
->   url = git@github.com:codeforamerica/geek_corps.git
->   fetch = +refs/heads/*:refs/remotes/origin/*
-> [remote "master"]
->   url = git@heroku.com:geekcorps.git
->   fetch = +refs/heads/*:refs/remotes/heroku/*
-> [remote "staging"]
->   url = git@heroku.com:geeks-dev.git
->   fetch = +refs/heads/*:refs/remotes/staging/*
->   branch = staging
+    repositoryformatversion = 0
+    filemode = true
+    bare = false
+    logallrefupdates = true
+    ignorecase = true
+    [remote "origin"]
+    url = git@github.com:codeforamerica/geek_corps.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+    [remote "heroku-master"]
+    url = git@heroku.com:geekcorps.git
+    fetch = +refs/heads/*:refs/remotes/heroku/*
+    [remote "heroku-staging"]
+    url = git@heroku.com:geeks-dev.git
+    fetch = +refs/heads/*:refs/remotes/master/*
+    branch = staging
     
 To access heroku commands, you'll need to add --remote staging or --remote staging
 
