@@ -45,14 +45,25 @@ task :cron => :environment do
   Rake::Task['github:sync'].invoke
 end
 
-require 'rspec/core/rake_task'
-Rspec::Core::RakeTask.new(:spec)
-
+begin
 require 'yard'
-namespace :doc do
-  YARD::Rake::YardocTask.new do |task|
-    task.files   = ['LICENSE.md', 'lib/**/*.rb']
-    task.options = ['--markup', 'markdown']
-   end
+  namespace :doc do
+    YARD::Rake::YardocTask.new do |task|
+      task.files   = ['LICENSE.md', 'lib/**/*.rb']
+      task.options = ['--markup', 'markdown']
+     end
+  end
+rescue LoadError
+end
+
+begin
+  require "rspec/core/rake_task"
+
+  desc "Run all examples"
+  RSpec::Core::RakeTask.new(:spec) do |t|
+    t.rspec_opts = %w[--color]
+    t.pattern = 'spec/*_spec.rb'
+  end
+rescue LoadError
 end
 
