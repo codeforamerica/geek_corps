@@ -129,7 +129,7 @@ Merge your branch and push changes, if any, into staging (optional):
     git merge branch_name
     git add .
     git commit -m 'Your message'
-    git push origin staging
+    git push heroku-staging staging:master
 
 Check Code for America CI server to make sure the changes didn't break anything:
 
