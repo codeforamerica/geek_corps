@@ -1,5 +1,6 @@
 *~
 *.sqlite3
+*.dat
 config/settings.yml
 .config
 .directory
