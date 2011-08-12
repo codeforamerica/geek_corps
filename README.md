@@ -141,7 +141,7 @@ Push the staging branch to Heroku:
 
 Staging Url:
 
-    http://geeks-dev.heroku.com/
+    http://corps-dev.codeforamerica.org
 
 To migrate the database:
 
@@ -174,7 +174,7 @@ Update the Wiki with the Release Information:
 
 Production Url:
 
-    http://geekcorps.heroku.com/
+    http://corps.codeforamerica.org
 
 To migrate the database:
 
