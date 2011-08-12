@@ -41,7 +41,7 @@ class AuthenticationsController < ApplicationController
   def create
     omniauth = request.env["omniauth.auth"]
 
-    if auth = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+    if auth = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'].to_s)
       # Existing user, existing authentication, login!
       auth.update_from_omniauth(omniauth)
       auth.save
