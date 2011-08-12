@@ -1,13 +1,12 @@
 class ChangeActivityInActivityFeeds < ActiveRecord::Migration
   def self.up
-    change_table :activity_feeds do |t|
-         t.change :activity, :text
-    end
+    remove_column :activty_feeds, :activity
+    add_column :activty_feeds, :activity, :text
   end
 
   def self.down
-    change_table :activity_feeds do |t|
-      t.change :activity, :string
-    end
+    remove_column :activty_feeds, :activity
+    add_column :activty_feeds, :activity, :string
+
   end
 end

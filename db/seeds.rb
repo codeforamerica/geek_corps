@@ -2,13 +2,16 @@ require 'factory_girl'
 require 'faker'
 require 'factory_girl_rails'
 require 'uuid'
+require 'open-uri'
+
+if Rails.env!='production'
 
 skills = ['ruby', 'python', 'javascript', 'celery', 'juggling', 'node.js', 'design', 'art', 'user experience', 'fundraising', 'marketing', 'php', 'wordpress', 'drupal','couchdb', '.net', 'mongodb', 'mysql'] 
 
 #Add Regions
 puts "Adding Regions"
 [["San Francisco", "CA", "SF"], ["Seattle", "WA", "SEA"], ["Boston", "MA", "BOS"], ["Philadelphia", "PA", "PHL"]]. each do |city|
-  r = Region.create!(:city => city[0], :state => city[1], :nick_name => city[2], :photo => File.open(Rails.root.to_s + "/public/images/#{city[2].downcase}-icon.png"))
+  r = Region.create!(:city => city[0], :state => city[1], :nick_name => city[2], :photo => open("https://github.com/codeforamerica/geek_corps/blob/master/public/images/sf-icon.png?raw=true"))
   puts "Created #{r.city}, #{r.state}" if r
 end
 
@@ -80,4 +83,4 @@ puts "Adding comments on all tasks for #{team.name}"
  end
 end
 
-
+end
