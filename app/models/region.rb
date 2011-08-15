@@ -6,4 +6,9 @@ class Region < ActiveRecord::Base
   validates_presence_of :nick_name
 
   has_attached_file :photo
+  
+  def pretty_name
+    self.city + ", " + self.state
+  end
+  
 end

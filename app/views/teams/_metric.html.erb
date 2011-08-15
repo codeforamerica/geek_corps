@@ -22,7 +22,7 @@
               <%= button_to "Join this Team!", team_members_path(@team), :class => 'join-btn' %>
             <% else %>
               <% role = current_user.team_members.where(:team_id => @team).first.team_role%>
-              <%= link_to "Your Team Role: #{role.nil? ? "Doesn't Exist :(" : role.capitalize}", "#", :class => 'join-btn' %>
+              <%= link_to "Your Role: #{role.nil? ? "Doesn't Exist :(" : role.capitalize}", "#", :class => 'join-btn' %>
             <% end %>
           <% else %>
             <%= link_to 'Join the Geek Corps to help start this project', sign_in_path, :class => 'join-btn' %>

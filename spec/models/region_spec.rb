@@ -13,6 +13,7 @@ describe Region do
     end
   end
   context 'validates' do
+    
     it 'uniqueness of city' do
       attr = Factory.attributes_for(:region)
       @region = Region.new(attr)
@@ -20,6 +21,7 @@ describe Region do
       @invalid_region = Region.new(attr)
       @invalid_region.should have(1).error_on(:city)
     end
+    
     it 'presence of nick_name' do
       @region.nick_name = nil
       @region.should have(1).error_on(:nick_name)
