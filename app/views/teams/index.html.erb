@@ -127,6 +127,12 @@ jQuery(document).ready(function() {
       var curFilter = filter.attr('data-filter');
       var skillCount = $('#team-list '+curFilter).not('.isotope-hidden').length;  
       filter.next('.count-span').html(skillCount);
+      
+      if(skillCount === 0) {
+        filter.parent().hide();
+      } else {
+        filter.parent().show();
+      }
     });
   
     // Sort the list by the skill count (descending)
