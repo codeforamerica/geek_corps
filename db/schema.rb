@@ -16,9 +16,9 @@ ActiveRecord::Schema.define(:version => 20110812221737) do
     t.integer  "team_id"
     t.string   "feedable_type"
     t.integer  "feedable_id"
-    t.text     "activity",      :limit => 255
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "activity"
   end
 
   create_table "apps", :force => true do |t|
