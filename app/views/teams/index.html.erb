@@ -109,7 +109,7 @@ jQuery(document).ready(function() {
     $('#team-list').isotope({ filter: selector_string });
     
     $(type + ' ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.find('span').text()+'</a> (<span class="count-span"></span>)</li>'));
-    var skill = $theEl.attr('data-filter').replace(".","");
+    var skill = $theEl.attr('data-filter').replace(/\.{1}/,"");
     var update_skills_text  = $('span.skills').html().replace(", " + skill, "").replace(skill  , "");
     if (update_skills_text == "") {
       update_skills_text = "all"
@@ -127,6 +127,12 @@ jQuery(document).ready(function() {
       var curFilter = filter.attr('data-filter');
       var skillCount = $('#team-list '+curFilter).not('.isotope-hidden').length;  
       filter.next('.count-span').html(skillCount);
+      
+      if(skillCount === 0) {
+        filter.parent().hide();
+      } else {
+        filter.parent().show();
+      }
     });
   
     // Sort the list by the skill count (descending)

@@ -53,9 +53,9 @@ $('#skill-filter a').live('click', function(){
   $('#active-filters').append($('<li class="active-filter"><a href="#" data-filter="'+$(this).attr('data-filter')+'"><img src="/images/delete.png" class="removal-icon" alt="remove" /><span>'+$(this).html()+'</span></a></li>'));
   $(this).parent().remove();
   if ($('span.skills').html()=="all") {
-    $('span.skills').html(selector.replace(".", "").replace("_"," "));
+    $('span.skills').html($(this).html().replace(".", "").replace("_"," "));
   } else {
-    $('span.skills').append(", " + selector.replace(".", "").replace("_"," "));
+    $('span.skills').append(", " + $(this).html().replace(".", "").replace("_"," "));
   };
   updateCounts();
   return false;
@@ -84,8 +84,8 @@ $('#active-filters li a').live('click', function(ev) {
   var $theEl = $(this);
   selector_string = selector_string.replace($theEl.attr('data-filter'), '','gi');
   $('#people-list').isotope({ filter: selector_string });
-  $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.next('span').html()+'</a> (<span class="count-span"></span>)</li>'));
-  var skill = $theEl.attr('data-filter').replace(".","");
+  $('#skill-filter ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.find('span').text()+'</a> (<span class="count-span"></span>)</li>'));
+  var skill = $theEl.attr('data-filter').replace('.','').replace('_',' ');
   var update_skills_text  = $('span.skills').html().replace(", " + skill, "").replace(skill  , "");
   if (update_skills_text == "") {
     update_skills_text = "all"
@@ -103,6 +103,11 @@ function updateCounts() {
     var curFilter = filter.attr('data-filter');
     var skillCount = $('#people-list '+curFilter).not('.isotope-hidden').length;  
     filter.next('.count-span').html(skillCount);
+    if(skillCount === 0) {
+      filter.parent().hide();
+    } else {
+      filter.parent().show();
+    }
   });
   
   // Sort the list by the skill count (descending)
