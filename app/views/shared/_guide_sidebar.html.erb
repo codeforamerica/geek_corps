@@ -1,4 +1,4 @@
-<% @team.app.milestones.group_by(&:goal).each do |key, value| %>
+<% @team.app.milestones.order("goal asc").group_by(&:goal).each do |key, value| %>
   <ul class="group">
     <li>
     <h3 id="group_<%= key %>">
