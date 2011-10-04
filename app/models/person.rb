@@ -44,6 +44,21 @@ class Person < ActiveRecord::Base
   scope :claimed, where('user_id IS NOT null')
   scope :unclaimed, where('user_id IS null')
 
+  def get_image
+    require 'nokogiri'     
+    begin
+    twitter_url = "http://www.twitter.com/#{self.twitter}"
+    doc = Nokogiri::HTML(open(twitter_url,"User-Agent" => "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.872.0 Safari/535.2"))
+    image_url = doc.at_css("img#profile-image").attributes["src"].value 
+    new_image_url = image_url.gsub("_bigger", "")
+    image = open(new_image_url)
+    self.photo = image
+    self.save
+    rescue
+      puts tweeter
+    end
+  end
+
   private
 
   def random_default
@@ -67,18 +82,6 @@ class Person < ActiveRecord::Base
     end
   end
 
-  def get_image
-    begin
-    twitter_url = "http://www.twitter.com/#{self.twitter}"
-    doc = Nokogiri::HTML(open(twitter_url,"User-Agent" => "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.872.0 Safari/535.2"))
-    image_url = doc.at_css("img#profile-image").attributes["src"].value 
-    new_image_url = image_url.gsub("_bigger", "")
-    image = open(new_image_url)
-    self.update_attributes(:photo => image)
-    rescue
-      puts tweeter
-    end
-  end
   
 end
 
