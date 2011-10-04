@@ -1,7 +1,7 @@
 <div class="seperator"></div>
 <div id="sidebar"> 
   <div id="geek_count">
-    <h1>Found <span class="metric_value">45</span> Geeks</h1>
+    <h1>Found <span class="metric_value"><%=@people.total_entries%></span> Geeks</h1>
   </div>
   <div class="sidebar_box sb_container">
       <h2 class="sidebar_box_title">Filter by:</h2>
@@ -16,6 +16,14 @@
                     <option value="<%=region_name_underscored(region)%>" data-filter=".<%=region_name_underscored(region)%>"><%=region.city%>, <%=region.state%></option>              
                   <% end %>    
                   </select>
+            </div>
+            <div id="skill-filter">
+                <h3>Search:</h3>
+                  <%= form_for @search do |f| %>
+                    <p>Bio:<%= f.text_field :bio_contains%></p>
+                    <p>Location:<%= f.text_field :location_contains%></p>                    
+                    <%= f.submit "Search", :disable_with => 'Searching...' %>
+                  <% end %>
             </div>
             <div id="skill-filter">
                 <h3>Skills:</h3>

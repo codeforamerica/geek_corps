@@ -16,8 +16,7 @@ gem "aws-s3"
 gem 'paperclip'
 gem 'omniauth', '>= 0.2.6'
 gem 'devise'
-
-
+gem 'meta_search'
 gem 'twitter'
 gem 'linkedin'
 gem 'mogli'

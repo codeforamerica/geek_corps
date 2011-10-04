@@ -6,8 +6,15 @@ class PeopleController < InheritedResources::Base
   before_filter :pick_photo_input, :only => [:update, :create]
   before_filter :set_user_id_if_admin, :only => [:update, :create]
 
-  def index
-    @people = Person.all
+  def index 
+    if params[:search].nil?
+      params[:search]={}
+      params[:search][:bio_contains]="python"
+    end
+    @search = Person.search(params[:search])
+    @people = @search.paginate(
+      :per_page => 500, :page => params[:page])    
+      
   end
 
   def tag
