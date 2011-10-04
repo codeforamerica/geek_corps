@@ -66,5 +66,19 @@ class Person < ActiveRecord::Base
       self.user.update_attributes(:region_id => self.location.to_i)
     end
   end
+
+  def get_image
+    begin
+    twitter_url = "http://www.twitter.com/#{self.twitter}"
+    doc = Nokogiri::HTML(open(twitter_url,"User-Agent" => "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.872.0 Safari/535.2"))
+    image_url = doc.at_css("img#profile-image").attributes["src"].value 
+    new_image_url = image_url.gsub("_bigger", "")
+    image = open(new_image_url)
+    self.update_attributes(:photo => image)
+    rescue
+      puts tweeter
+    end
+  end
+  
 end
 
