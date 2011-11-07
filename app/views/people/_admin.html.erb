@@ -1,0 +1,11 @@
+<div class="sidebar_box sb_container">
+    <div class="sidebar_box_title">Admin Functions</div>
+    <div class="sidebar_box_content ">
+      <ul>
+        <li>Inactivate User</li>
+        <li><%=link_to "#{@person.user.admin? ? 'Unadmin User' : 'Make User Admin'}", adminify_user_path(@person.user), :method => :post%></li>        
+        <li>Make User Ambassador for:</li>        
+      </ul>
+      <div class="clear"></div>
+    </div>
+</div>

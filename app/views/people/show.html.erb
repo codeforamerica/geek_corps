@@ -18,6 +18,9 @@
     <%= render "person_comments", :comment => @person.user%> 
     </div>
   <div id="side-bar">
+    <%if current_user.admin?%>
+    <%= render :partial => 'admin'%>
+    <%end%>
     <%= render :partial => 'team_list'%>
   </div>
 </div>

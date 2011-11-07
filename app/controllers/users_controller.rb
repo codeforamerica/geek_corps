@@ -42,13 +42,13 @@ class UsersController < InheritedResources::Base
     @users = User.includes(:authentications, :person).all
   end
 
-  # def destroy
-
   def adminify
+    @user = User.where(:id => params[:id]).first  
     @user.admin = !(@user.admin)
     @user.save
-
-    redirect_to users_path
+    
+    flash[:notice] = @user.admin? ? "Adminified User" : "UnAdminified User"
+    redirect_to :back
   end
 end
 
