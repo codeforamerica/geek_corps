@@ -1,7 +1,7 @@
 <div class="seperator"></div>
 <div id="sidebar"> 
   <div id="geek_count">
-    <h1>Found <span class="metric_value">45</span> Geeks</h1>
+    <h1>Found <span class="metric_value">0</span> Geeks</h1>
   </div>
   <div class="sidebar_box sb_container">
       <h2 class="sidebar_box_title">Filter by:</h2>
@@ -10,12 +10,6 @@
         <div id="remaining-filters">
             <div id="location-filter">
                 <h3>Location:</h3>
-                  <select name="region" id="region" size="1">
-                    <option value="all" data-filter="">all regions</option>              
-                  <% Region.all.each do |region| %>
-                    <option value="<%=region_name_underscored(region)%>" data-filter=".<%=region_name_underscored(region)%>"><%=region.city%>, <%=region.state%></option>              
-                  <% end %>    
-                  </select>
             </div>
             <div id="skill-filter">
                 <h3>Skills:</h3>

@@ -18,19 +18,6 @@ Factory.define :github_contact do |f|
   f.contact_source {Factory(:contact_source, :name => "github")}
 end
 
-#--[ App ]-------------------------------------------------------------------
-Factory.define :app do |f|
-  f.sequence(:name) {|n| "#{n}something#{rand(1000000)}" }
-  f.description { Faker::Lorem.paragraph }
-end
-
-#--[ Region ]-------------------------------------------------------------------
-Factory.define :region do |f|
-  f.city { Faker::Address.city }
-  f.state { Faker::Address.state }
-  f.nick_name { "something#{rand(1000000)}" }
-end
-
 #--[ Authentication ]-----------------------------------------------------------
 Factory.define :authentication do |a|
   a.provider 'open_id'
@@ -42,7 +29,6 @@ end
 Factory.define :user do |u|
   u.email { Faker::Internet.email }
   u.admin false
-  u.region { Factory(:region)}
   u.after_build do |user|
     user.authentications = [ Factory.build(:authentication, :user => user) ]
   end
@@ -50,28 +36,16 @@ end
 
 #--[ Team ]-------------------------------------------------------------------
 Factory.define :team do |f|
-  f.app {Factory(:app)}
-  f.region {Factory(:region)}
   f.team_type "core"
   f.name Faker::Name.name
-  f.repo_url "http://github.com/codeforamerica"
 end
 
 #--[ TeamMember ]-------------------------------------------------------------------
 Factory.define :team_member do |f|
   f.team { Factory(:team)}
   f.user { Factory(:user)}
-  f.app { Factory(:app)}
   f.team_role "supporter"
   f.admin false
-end
-
-#--[ Detail ]-------------------------------------------------------------------
-Factory.define :detail do |f|
-  f.app { Factory(:app)}
-  f.team { Factory(:team)}
-  f.setting "Some setting"
-  f.name { "name#{rand(1000)}" }
 end
 
 #--[ Person ]-------------------------------------------------------------------
@@ -110,30 +84,6 @@ Factory.define :activity_feed do |p|
   p.team {Factory(:team)}
   p.activity "Something funny"
   p.feedable {Factory(:comment)}
-end
-
-#--[ Guide ]-------------------------------------------------------------------
-
-Factory.define :step do |s|
-  s.name Faker::Lorem.sentence
-  s.description Faker::Lorem.paragraph
-  s.position (rand(5)+1)
-end
-
-Factory.define :milestone do |m|
-  m.steps { [Factory(:step), Factory(:step), Factory(:step)] }
-  m.goal (rand(5)+1)
-  m.position (rand(5)+1)
-  m.name Faker::Lorem.sentence
-  m.description Faker::Lorem.paragraph
-  m.app { Factory(:app) }
-end
-
-Factory.define :deploy_task_resource do |resource|
-  resource.team {Factory(:team)}
-  resource.deploy_task {Factory(:milestone)}
-  resource.link {Faker::Internet.domain_name}
-  resource.resource_type "link"
 end
 
 

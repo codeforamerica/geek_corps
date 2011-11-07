@@ -114,30 +114,7 @@ module ApplicationHelper
     else
     end
   end
-  
-  def goal_name(item)
-    case item
-    when 1
-      "Goal 1: Setup the Server"
-    when 2
-      "Goal 2: Get Data"
-    when 3
-      "Goal 3: Customize the Design"      
-    when 4
-      "Goal 4: Build Community Support"            
-    when 5  
-      "Goal 5: Launch It!"            
-    end  
-  end
-  
-  def goal_select_list
-    select "milestone", "goal", [["Goal 1: Setup the Server",1], ["Goal 2: Get Data",2], ["Goal 3: Customize the Design",3],["Goal 4: Build Community Support",4], ["Goal 5: Launch It!",5]]
-  end
-  
-  def region_name_underscored(region)
-    (region.city.gsub(" ", "_") + "_" + region.state).downcase
-  end
-  
+      
   def skill_list(skill_arr)
     skill_arr.each { |x| x.gsub!(".", "_"); x.gsub!(" ", "_")}.join(" ")
   end

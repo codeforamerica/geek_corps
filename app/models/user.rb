@@ -2,11 +2,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   attr_protected :admin
-
   has_one :person
   has_many :team_members
   has_many :teams, :through => :team_members, :source => :team
-  belongs_to :region
   has_many :comments
 
   scope :admins, joins(:team_members).where(:team_members => {:admin => true})

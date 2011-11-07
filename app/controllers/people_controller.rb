@@ -50,13 +50,6 @@ class PeopleController < InheritedResources::Base
       create!
   end
 
-  def update
-    if !params[:person][:location].nil? and params[:person][:location] != current_user.region
-      current_user.update_attributes(:region_id => params[:person][:location])
-    end
-    update!
-  end
-
   def claim
     if resource.user.present?
       flash[:error] = "This person has already been claimed."
