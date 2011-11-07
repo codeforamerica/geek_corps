@@ -8,7 +8,7 @@ class Team < ActiveRecord::Base
   def to_url
     "/" + self.name
   end
-  
+
   def pretty_name
     self.name.gsub('-', " ").downcase.titleize
   end

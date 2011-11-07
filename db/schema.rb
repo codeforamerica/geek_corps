@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812221737) do
+ActiveRecord::Schema.define(:version => 20111107194103) do
 
   create_table "activity_feeds", :force => true do |t|
     t.integer  "team_id"
@@ -154,18 +154,13 @@ ActiveRecord::Schema.define(:version => 20110812221737) do
     t.string   "team_role"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",      :default => false
-    t.integer  "app_id"
   end
 
   create_table "teams", :force => true do |t|
-    t.integer  "app_id"
-    t.integer  "region_id"
     t.string   "team_type"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "repo_url"
   end
 
   create_table "users", :force => true do |t|
@@ -180,7 +175,6 @@ ActiveRecord::Schema.define(:version => 20110812221737) do
     t.datetime "updated_at"
     t.string   "email"
     t.boolean  "admin",               :default => false
-    t.integer  "region_id"
   end
 
 end
