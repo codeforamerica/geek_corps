@@ -154,8 +154,6 @@ ActiveRecord::Schema.define(:version => 20111107194103) do
     t.string   "team_role"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "admin",      :default => false
-    t.integer  "app_id"
   end
 
   create_table "teams", :force => true do |t|
@@ -177,7 +175,6 @@ ActiveRecord::Schema.define(:version => 20111107194103) do
     t.datetime "updated_at"
     t.string   "email"
     t.boolean  "admin",               :default => false
-    t.integer  "region_id"
   end
 
 end
