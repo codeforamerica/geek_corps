@@ -7,13 +7,19 @@ describe TeamsController do
     sign_in(@user)
   end
 
-  it "creates a team around an application" do
-    pending 'this worked as of 27c4b3e but now its not, and none of the actors have substantially changed....' do
-      app = Factory(:app)
-      region = Factory(:region)
-      expect {
-        post :create, :app_id => app.id
-      }.to change(Team, :count).by(1)
-    end
-  end
+  describe '#create' do
+     before do
+       post :create, :team => Factory.attributes_for(:team)
+       @team = Team.find(:first)
+       @response = response
+     end
+
+     it "should create a team" do
+       Team.all.size.should == 1
+     end
+
+   end
+
+
+
 end

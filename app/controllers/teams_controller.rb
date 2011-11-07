@@ -3,7 +3,7 @@ class TeamsController < InheritedResources::Base
 
   def create
     @team = Team.new
-    @team.team_members.build(:user => current_user, :team_role => "organizer", :admin => true)
+    @team.team_members.build(:user => current_user, :team_role => "organizer")
     create!
   end
 
