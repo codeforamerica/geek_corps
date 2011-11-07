@@ -45,7 +45,6 @@ Factory.define :team_member do |f|
   f.team { Factory(:team)}
   f.user { Factory(:user)}
   f.team_role "supporter"
-  f.admin false
 end
 
 #--[ Person ]-------------------------------------------------------------------

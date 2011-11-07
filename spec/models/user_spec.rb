@@ -16,7 +16,6 @@ describe 'User' do
     it('one person') { @user.respond_to?(:person).should be_true }
     it('many team_members') { @user.respond_to?(:team_members).should be_true }
     it('many teams') { @user.respond_to?(:teams).should be_true }
-    it('one region') { @user.respond_to?(:region).should be_true }
     it('many authentications') { @user.respond_to?(:authentications).should be_true }
   end
   context 'validates' do
