@@ -49,22 +49,6 @@ describe Comment do
     it 'should post to activity feed as a team' do
       @comment.activity_feed.activity.should == @comment.text
     end
-    
-    it 'should figure out comment text based upon milestone type' do
-      milestone = Factory(:milestone)
-      team = Factory(:team)
-      comment = Factory(:comment, :commentable => milestone, :team => team )
-      comment.commentable.should == milestone
-      comment.team.should == team
-    end
-    
-    it 'should figure out comment text based upon step type' do
-      step = Factory(:step)
-      team = Factory(:team)
-      comment = Factory(:comment, :commentable => step, :team => team )
-      comment.commentable.should == step
-      comment.team.should == team
-    end
 
     pending 'resource'
 
