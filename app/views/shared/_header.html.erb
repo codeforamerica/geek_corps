@@ -6,6 +6,9 @@
     <ul id="main-nav">
       <li><%= link_to "Find People", people_path %></li>
       <li><%= link_to "Join a Team", teams_path %></li>
+      <% if current_user.admin?%>
+      <li><a href="/admin">Admin</a></li>
+      <% end %>
     </ul>
     <div id="account-box">
       <% if user_signed_in? %>

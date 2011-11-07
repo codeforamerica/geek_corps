@@ -1,3 +1,42 @@
+<% content_for :header do%>
+    <%= javascript_include_tag 'lib/polygon.min.js' %>
+  	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>    
+  	<script type="text/javascript">
+  	$(function(){
+  		  //create map
+  		 var singapoerCenter=new google.maps.LatLng(43.704766775498456, -93.10752451038366);
+  		 var myOptions = {
+  		  	zoom: 4,
+  		  	center: singapoerCenter,
+  		  	mapTypeId: google.maps.MapTypeId.ROADMAP
+  		  }
+  		 map = new google.maps.Map(document.getElementById('main-map'), myOptions);
+
+  		 var creator = new PolygonCreator(map);
+
+  		 //reset
+  		 $('#reset').click(function(){ 
+  		 		creator.destroy();
+  		 		creator=null;
+
+  		 		creator=new PolygonCreator(map);
+  		 });		 
+
+
+  		 //show paths
+  		 $('#showData').click(function(){ 
+  		 		$('textarea#region').empty();
+  		 		if(null==creator.showData()){
+  		 			alert('Please first create a polygon!');
+  		 		}else{
+  		 			$('textarea#region').val(creator.showData());
+  		 		}
+  		 });
+
+  	});	
+  	</script>
+<% end %>
+
 <%= form_for(@team) do |f| %>
   <% if @team.errors.any? %>
     <div id="error_explanation">
@@ -27,3 +66,10 @@
     <%= f.submit %>
   </div>
 <% end %>
+<div>
+	<input id="reset" value="Reset" type="button" class="navi"/>
+	<input id="showData"  value="Set Region" type="button" class="navi"/>
+	<div id="main-map">
+	</div>
+</div>
+

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_filter :require_admin!, :only => :admins
   def privacy
   end
 
@@ -15,6 +16,9 @@ class PagesController < ApplicationController
   end
 
   def terms
+  end
+  
+  def admins
   end
 
 end

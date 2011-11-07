@@ -5,9 +5,16 @@ class PeopleController < InheritedResources::Base
   before_filter :require_owner_or_admin!, :only => [:edit, :update, :destroy]
   before_filter :pick_photo_input, :only => [:update, :create]
   before_filter :set_user_id_if_admin, :only => [:update, :create]
+  before_filter :require_admin!, :only => :list
 
   def index
     @people = Person.all
+  end
+  
+  def list
+    @search = Person.search(params[:search])
+    @people = @search.paginate(
+      :per_page => 50, :page => params[:page])
   end
 
   def tag

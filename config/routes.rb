@@ -1,5 +1,13 @@
 GeekCorps::Application.routes.draw do
 
+  get 'privacy' => 'pages#privacy'
+  get 'about' => 'pages#about'
+  get 'api' => 'pages#api'
+  get 'blog' => 'pages#blog'
+  get 'contact' => 'pages#contact'
+  get 'terms' => 'pages#terms'
+  get 'admin' => 'pages#admins'
+
   resources :skills  
   match 'apps' => 'apps#index', :as => 'apps'
 
@@ -9,7 +17,7 @@ GeekCorps::Application.routes.draw do
 
   resources :people do
     collection do
-      get 'grid', :action => :index, :grid => '1'
+      get 'list', :action => :list
     end
     member do
       get 'claim'
@@ -51,11 +59,6 @@ GeekCorps::Application.routes.draw do
     get '/:team_name/guide/' => 'milestones#index', :as => 'team_guide'
   end
 
-  get 'privacy' => 'pages#privacy'
-  get 'about' => 'pages#about'
-  get 'api' => 'pages#api'
-  get 'blog' => 'pages#blog'
-  get 'contact' => 'pages#contact'
-  get 'terms' => 'pages#terms'
+
 
 end

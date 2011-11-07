@@ -1806,3 +1806,7 @@ h2.organizer {
     height: 500px;
     width: 800px;
 }
+
+#peopleList input[type="text"] {
+    width:75px;
+}

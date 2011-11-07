@@ -8,7 +8,7 @@ gem 'json'
 gem 'sqlite3'
 gem 'hominid'
 gem 'will_paginate'
-#gem 'meta_search'
+gem 'meta_search'
 gem 'acts-as-taggable-on'
 gem 'multi_xml'
 gem "aws-s3"
