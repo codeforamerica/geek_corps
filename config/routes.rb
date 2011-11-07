@@ -1,8 +1,6 @@
 GeekCorps::Application.routes.draw do
 
   resources :skills  
-  resources :regions
-
   match 'apps' => 'apps#index', :as => 'apps'
 
   root :to => "people#index"
