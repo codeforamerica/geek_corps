@@ -1,3 +1,0 @@
-class Description < DeployTaskResource
-
-end

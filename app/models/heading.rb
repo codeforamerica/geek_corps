@@ -1,3 +1,0 @@
-class Heading < DeployTaskResource
-
-end
