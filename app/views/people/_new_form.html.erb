@@ -1,7 +1,7 @@
 <% form_for(@person, :html => {:multipart => true}) do |f| %>
     <p><%= f.label :name, "Name" %><br>
     <%= f.text_field :name, :value => current_user.authentications.first.info[:name] %></p>
-    <p><%= f.label :location, "Region" %><br>
+    <p><%= f.label :location, "Location" %><br>
     <%= f.text_field :location, :label => 'Location' %></p>
     <p><%= f.label :website, "Website" %><br>
     <%= f.text_field :url, :label => 'Website' %></p>
