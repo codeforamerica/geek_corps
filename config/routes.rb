@@ -2,9 +2,7 @@ GeekCorps::Application.routes.draw do
 
 
   resources :languages
-  resources :skills
-  resources :roles
-  resources :regions
+  resources :skills  resources :regions
 
   match 'apps' => 'apps#index', :as => 'apps'
 
