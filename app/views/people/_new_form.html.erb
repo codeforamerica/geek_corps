@@ -2,8 +2,7 @@
     <p><%= f.label :name, "Name" %><br>
     <%= f.text_field :name, :value => current_user.authentications.first.info[:name] %></p>
     <p><%= f.label :location, "Region" %><br>
-    <%= select :person, :location, 
-    Region.all.map { |x| ["#{x.city}, #{x.state}", x.id]} %></p>
+    <%= f.text_field :location, :label => 'Location' %></p>
     <p><%= f.label :website, "Website" %><br>
     <%= f.text_field :url, :label => 'Website' %></p>
     <p><%= f.label :skill_list, "Tag List" %><br>
