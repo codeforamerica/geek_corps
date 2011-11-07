@@ -1801,3 +1801,8 @@ h2.organizer {
 .team-member-role span {
 	color:#533549;
 }
+
+#main-map {
+    height: 500px;
+    width: 800px;
+}
