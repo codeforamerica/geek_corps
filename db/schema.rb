@@ -21,21 +21,6 @@ ActiveRecord::Schema.define(:version => 20110812221737) do
     t.text     "activity"
   end
 
-  create_table "apps", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.integer  "photo_file_size"
-    t.datetime "photo_updated_at"
-    t.string   "video_file_name"
-    t.string   "video_content_type"
-    t.integer  "video_file_size"
-    t.datetime "video_updated_at"
-  end
-
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
@@ -96,38 +81,6 @@ ActiveRecord::Schema.define(:version => 20110812221737) do
 
   add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
-  create_table "deploy_task_resources", :force => true do |t|
-    t.integer  "deploy_task_id"
-    t.integer  "team_id"
-    t.string   "resource_type"
-    t.text     "content"
-    t.string   "link"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "deploy_tasks", :force => true do |t|
-    t.integer  "app_id"
-    t.string   "type"
-    t.integer  "parent_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "goal",        :default => 1
-    t.integer  "est_time",    :default => 0
-    t.integer  "position",    :default => 0
-    t.string   "name"
-    t.text     "description"
-  end
-
-  create_table "details", :force => true do |t|
-    t.integer  "app_id"
-    t.integer  "team_id"
-    t.string   "name"
-    t.string   "setting"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "github_contacts", :force => true do |t|
     t.string   "gravatar_id"
     t.string   "company"
@@ -178,18 +131,6 @@ ActiveRecord::Schema.define(:version => 20110812221737) do
     t.text     "bio"
   end
 
-  create_table "regions", :force => true do |t|
-    t.string   "city"
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "nick_name"
-    t.string   "photo_file_name"
-    t.string   "photo_content_type"
-    t.datetime "photo_updated_at"
-    t.integer  "photo_file_size"
-  end
-
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
@@ -205,14 +146,6 @@ ActiveRecord::Schema.define(:version => 20110812221737) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
-  end
-
-  create_table "team_deploy_tasks", :force => true do |t|
-    t.integer  "team_id"
-    t.integer  "deploy_task_id"
-    t.boolean  "completed"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "team_members", :force => true do |t|
