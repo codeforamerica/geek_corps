@@ -154,6 +154,7 @@ ActiveRecord::Schema.define(:version => 20111108183519) do
     t.string   "team_role"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",      :default => true
   end
 
   create_table "teams", :force => true do |t|
