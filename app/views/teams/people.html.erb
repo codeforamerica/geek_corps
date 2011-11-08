@@ -1,16 +1,15 @@
 <div id="content">
   <div id="title-main">
-    <%= render "shared/app_header"%>
+    <%= render "shared/team_header"%>
   </div>
   <div id="main-bar">
     <div class="project-text">
       <h1>About This Project</h1>
-      <p><%= @team.app.description %></p>
+      <p><%= @team.name %></p>
     </div>
     <ul id="app-nav">
       <li><%= link_to 'Home', @team %></li>
       <li><%= link_to 'People', team_people_path(@team.name) %></li>
-      <li><%= link_to 'Guide', team_guide_path(@team.name) %></li>      
     </ul>
     <div id="feed-wrapper">
       <div id="activity-feed">
@@ -20,14 +19,14 @@
               <span class="comment-user">
                 <%=link_to team_member.user.person.name, person_path(team_member.user.person)%>
               </span>
-              <span class="team-member-role">Team Role: <span><%=team_member.team_role%></span></span>
+              <span class="team-member-role">Team Role: <span><%=team_member.admin? ? 'Ambassador' : 'Supporter'%></span></span>
               <span class="team-people-tags">Tags: 
                 <span>
                   <%=team_member.user.person.skill_list.empty? ? 'none' : team_member.user.person.skill_list.join(', ') %>
                 </span>
               </span>
-            <% if @team.admin? current_user %>
-              <span class="comment-stamp"><%= link_to 'Make Admin', team_member_path(team_member), :method => :put %><span>
+            <% if @team.admin?(current_user) or current_user.admin? %>
+              <span class="comment-stamp"><%= link_to "#{team_member.admin? ? 'Make Supporter' : 'Make Ambassador'}", team_member_path(team_member), :method => :put %><span>
             <% end %>
           </div>
         <% end %>

@@ -1,7 +1,7 @@
 <div class="sidebar_box sb_container">
     <div class="sidebar_box_title"><%=@team.name + 'Core'%> Organizers</div>
     <div class="sidebar_box_content ">
-      <% @team.team_members.where(:team_role => 'organizer').each do |organizer|%>
+      <% @team.team_members.where(:admin => true).each do |organizer|%>
       <div class="supporter_image">
         <%=link_to (image_tag organizer.user.person.photo.url(:medium), :class=>"medium-avatar", :alt => organizer.user.person.name), organizer.user.person%>
       </div>
