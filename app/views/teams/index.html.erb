@@ -33,14 +33,7 @@
 <div id="search_descr">
   <h1>Searching teams for <span class="skills">all</span> skills in <span class="regions"> all regions</span>
   </div>
-  <ul>
-    <% @teams.each do |team| %>
-      <li>
-      <%= link_to team.name, team %>
-      </li>
-  <% end %>
-  </ul>
-<div id="team-list">
+<div>
   <%= render :partial => 'list', :object => @teams %>
 </div>
 
