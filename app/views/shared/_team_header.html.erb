@@ -1,0 +1,6 @@
+  <h1 class="app-name"><%=link_to @team.name, @team.to_url %> </h1>  
+  <% if !@team.team_members.where(:admin => true).blank?%>
+  <h2 class="organizer">Organized by
+    <%=raw @team.team_members.where(:admin => true).map { |organizer| link_to organizer.user.person.name, organizer.user.person }.to_sentence %>
+  </h2>
+  <% end %>
