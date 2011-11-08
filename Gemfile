@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 source 'http://gems.rubyforge.org'
 
+gem 'rails', '3.1.1'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -9,11 +11,9 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'rails', '3.1.1'
 gem 'delayed_job'
 gem 'jquery-rails'
 gem 'json'
-gem 'sqlite3'
 gem 'hominid'
 gem 'will_paginate'
 gem 'meta_search'
@@ -24,6 +24,7 @@ gem 'paperclip'
 gem 'omniauth', '>= 0.2.6'
 gem 'devise'
 
+gem 'sqlite3'
 
 gem 'twitter'
 gem 'linkedin'
@@ -35,14 +36,26 @@ gem "haml", "~> 3.0.18"
 gem "formtastic"
 gem 'uuid'
 
-group :test, :jenkins do
-  gem 'spork'
-  gem 'factory_girl_rails'
-  gem 'mocha'
-  gem 'rspec-rails'
+group :development do
   gem 'ZenTest'
-  gem 'simplecov'
-  gem 'webmock'
-  gem 'yard'
-  gem 'faker'
 end
+
+group :development, :test do
+  gem 'faker'
+  gem 'rspec-rails'
+  gem 'simplecov'
+  gem 'sqlite3'
+  gem 'spork', '0.9.0.rc9'
+end
+
+group :test do
+  gem 'factory_girl_rails'
+  gem 'webmock'
+  gem 'webrat'
+end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
+
