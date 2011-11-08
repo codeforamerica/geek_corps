@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111107194103) do
+ActiveRecord::Schema.define(:version => 20111108183519) do
 
   create_table "activity_feeds", :force => true do |t|
     t.integer  "team_id"
@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(:version => 20111107194103) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "region"
   end
 
   create_table "users", :force => true do |t|
