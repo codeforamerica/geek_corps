@@ -19,5 +19,15 @@ skills = ['ruby', 'python', 'javascript', 'celery', 'juggling', 'node.js', 'desi
     person.save
   end
 
+  puts "Creating 10 Teams"  
+  10.times {
+    team = Factory(:team)
+    team.members << User.all.shuffle[0..10]
+    team.team_members.shuffle[0..2].each do |team_member| 
+      team_member.admin = true
+      team_member.save
+    end
+  }
+
 
 end

@@ -1,6 +1,6 @@
 class AddAdminToTeamMembers < ActiveRecord::Migration
   def self.up
-    add_column :team_members, :admin, :boolean, :default => true
+    add_column :team_members, :admin, :boolean, :default => false
   end
 
   def self.down
