@@ -123,6 +123,10 @@ module ApplicationHelper
     ActsAsTaggableOn::Tag.select("DISTINCT tags.* ").joins(:taggings).where("taggings.context = 'skills'").order("tags.name ASC").map { |x| x.name}
   end
   
+  def get_cfa_tags
+    ActsAsTaggableOn::Tag.select("DISTINCT tags.* ").joins(:taggings).where("taggings.context = 'cfa'").order("tags.name ASC").map { |x| x.name}
+  end
+  
   def is_team_member(team, current_user)
     if !team.members.include?(current_user)
       "join"

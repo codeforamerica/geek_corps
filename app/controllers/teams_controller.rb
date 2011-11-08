@@ -4,6 +4,13 @@ class TeamsController < InheritedResources::Base
 
   def show
     find_team
+    session[:team]=@team.hypen_name
+    puts session[:join_team_id]
+    puts @team.id
+    if session[:join_team_id]==@team.id.to_s
+      @team.members << current_user
+      session[:join_team_id]=nil
+    end
   end
 
   def people

@@ -1,33 +1,20 @@
-<div id="metric_block" class="sb_container">
-    <div id="metric_content">
-        <ul>
-            <li><span class="metric_value"><%=@team.members.uniq.size%></span>
-            <% if @team.members.uniq.size == 1 %>
-              Team Member
-            <% else %>
-              Team Members
-            <% end %>
-            </li>
-            <li><span class="metric_value"><%= dev_count = @team.team_members.where(:team_role => 'developer').uniq.size; dev_count.to_s  %></span>
-            <% if dev_count == 1 %>
-              Developer
-            <% else %>
-              Developers
-            <% end %></li>
-        </ul>
-        <div id="join_project_wrapper">
-        <div id="join_project">
-          <% if user_signed_in? %>
-            <% if current_user.teams.where(:id => @team).blank? %>
-              <%= button_to "Join this Team!", team_members_path(@team), :class => 'join-btn' %>
-            <% else %>
-              <% role = current_user.team_members.where(:team_id => @team).first.team_role%>
-              <%= link_to "Your Role: #{role.nil? ? "Doesn't Exist :(" : role.capitalize}", "#", :class => 'join-btn' %>
-            <% end %>
+
+<% if current_user %>
+  <% if current_user.teams.where(:id => @team).blank? %>
+    <%= button_to "Join this Team!", team_members_path(@team), :class => 'join-btn' %>
+  <% end %>
+<% end %>
+
+
+      <ul class="auth_providers">
+        <% SETTINGS['providers'].each do |provider| %>
+          <li><%= link_to OmniAuth::Utils.camelize(provider), "/auth/#{provider}", :class => provider %>
+          <% if auth = current_user.authentications.via(provider).first %>
+            <%= link_to '&nbsp;'.html_safe, auth, :class => 'auth-delete', :method => :delete %>
           <% else %>
-            <%= link_to 'Join the Geek Corps to help start this project', sign_in_path, :class => 'join-btn' %>
+            <%= link_to '&nbsp;'.html_safe, "/auth/#{provider}", :class => 'auth-add' %>
           <% end %>
-        </div>
-        </div>
-    </div>
-</div>
+          </li>
+        <% end %>
+      </ul>
+

@@ -2,6 +2,14 @@
   <div id="title-main">
     <%= render :partial => 'shared/team_header'%>
   </div>
+  <div class="clear">
+    <% if current_user%>
+        <%= render :partial => "metric"%>
+    <% else %>
+    <%= render 'authentications/signin_and_join_team'%>  
+    <% end %>
+    
+    </div>
   <div id="main-bar">
     <div class="project-text">
       <h1>Team</h1>
@@ -16,7 +24,7 @@
   </div>
 
   <div id="side-bar">
-      <%= render :partial => "metric"%>
+
       <%= render :partial => "organizers"%>
       <%= render :partial => "supporters"%>
   </div>

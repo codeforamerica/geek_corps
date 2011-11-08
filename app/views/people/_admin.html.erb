@@ -3,9 +3,13 @@
     <div class="sidebar_box_content ">
       <ul>
         <li>Inactivate User</li>
-        <li><%=link_to "#{@person.user.admin? ? 'Unadmin User' : 'Make User Admin'}", adminify_user_path(@person.user), :method => :post%></li>        
-        <li>Make User Ambassador for:</li>        
+        <li><%=link_to "#{@person.user.admin? ? 'Unadmin User' : 'Make User Admin'}", adminify_user_path(@person.user), :method => :post%></li>               
       </ul>
+      <% form_for @person do |f| -%>
+      <%= f.label :cfa_list, "Special CfA Tags" %>
+      <%= f.text_field :cfa_list %>
+      <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+      <% end -%>
       <div class="clear"></div>
     </div>
 </div>
