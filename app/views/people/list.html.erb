@@ -1,0 +1,48 @@
+<%= form_for @search, :url => {:controller => :people, :action => :list} do |f| %>
+<table id="peopleList">
+  <thead>
+    <th>Name</th>
+    <th>email</th>
+    <th>CfA Tags</th>
+    <th>Skills</th>
+    <th>Location</th>
+    <th>Bio</th>
+    <th>Admin</th>
+    <th>Teams</th>
+    <th>Team Admins</th>
+    <th>Actions</th>
+  </thead>
+    <tbody>
+      <tr>
+        <td><%= f.text_field :name_contains%></td>
+        <td><%= f.text_field :user_email_contains%></td>
+        <td></td>
+        <td></td>
+        <td><%= f.text_field :location_contains%></td>
+        <td><%= f.text_field :bio_contains%></td>
+        <td><%= f.check_box :user_admin_is_true%></td>
+        <td></td>
+        <td></td>
+        <td><%= f.submit "Submit", :value=>"Search"%></td>                                        
+      </tr>
+<% @people.each do |person| %>
+    <tr>
+      <td><%=link_to person.name, person%></td>
+      <td><%=person.user.email%></td>
+      <td>CfA Tags</td>
+      <td><%=person.skill_list.to_sentence%></td>
+      <td><%=person.location%></td>
+      <td><%=person.bio[0..50]%></td>
+      <td><%=person.user.admin?%></td>
+      <td><%=person.user.teams.map(&:name).to_sentence%></td>
+      <td><%=person.user.i_admin_for.map(&:name).to_sentence%></td>
+      <td><%=link_to "#{person.user.admin? ? 'Unadmin User' : 'Make User Admin'}", adminify_user_path(person.user), :method => :post%></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @people %>
+<%end %>
+
+</div>
