@@ -1,5 +1,5 @@
 <div class="seperator"></div>
-<div id="sidebar"> 
+<div id="sidebar">
   <div id="geek_count">
     <h1>Found <span class="metric_value"><%=@teams.size%></span> Teams</h1>
 
@@ -33,13 +33,20 @@
 <div id="search_descr">
   <h1>Searching teams for <span class="skills">all</span> skills in <span class="regions"> all regions</span>
   </div>
+  <ul>
+    <% @teams.each do |team| %>
+      <li>
+      <%= link_to team.name, team %>
+      </li>
+  <% end %>
+  </ul>
 <div id="team-list">
   <%= render :partial => 'list', :object => @teams %>
 </div>
 
 <script type="text/javascript" charset="utf-8">
 jQuery(document).ready(function() {
-  var selector_string = ''; 
+  var selector_string = '';
 
   $('#team-list').isotope({
     // options
@@ -61,7 +68,7 @@ jQuery(document).ready(function() {
     updateCounts();
     return false;
   });
-  
+
   $('#application-filter a').live('click', function(){
     var selector = $(this).attr('data-filter');
     selector_string += selector;
@@ -87,7 +94,7 @@ jQuery(document).ready(function() {
       selector_string += selector;
     }
     $('#team-list').isotope({ filter: selector_string });
-    $('span.regions').html($('#region option:selected').text());  
+    $('span.regions').html($('#region option:selected').text());
     updateCounts();
     return false;
   }).change();
@@ -95,10 +102,10 @@ jQuery(document).ready(function() {
   $('#active-filters li a').live('click', function(ev) {
     var $theEl = $(this);
     var type = ($theEl.attr('class') === 'type-app') ? '#application-filter' : '#skill-filter';
-    
+
     selector_string = selector_string.replace($theEl.attr('data-filter'), '','gi');
     $('#team-list').isotope({ filter: selector_string });
-    
+
     $(type + ' ul').append($('<li><a href="#" data-filter="'+$theEl.attr('data-filter')+'">'+$theEl.find('span').text()+'</a> (<span class="count-span"></span>)</li>'));
     var skill = $theEl.attr('data-filter').replace(/\.{1}/,"");
     var update_skills_text  = $('span.skills').html().replace(", " + skill, "").replace(skill  , "");
@@ -116,41 +123,41 @@ jQuery(document).ready(function() {
     $('#skill-filter li a').each(function(index, filter) {
       var filter = $(filter);
       var curFilter = filter.attr('data-filter');
-      var skillCount = $('#team-list '+curFilter).not('.isotope-hidden').length;  
+      var skillCount = $('#team-list '+curFilter).not('.isotope-hidden').length;
       filter.next('.count-span').html(skillCount);
-      
+
       if(skillCount === 0) {
         filter.parent().hide();
       } else {
         filter.parent().show();
       }
     });
-  
+
     // Sort the list by the skill count (descending)
     $('#skill-filter li').sortElements(function(a, b) {
       return parseInt($(a).find('.count-span').text(), 10) > parseInt($(b).find('.count-span').text(), 10) ? -1 : 1;
     });
-    
+
     // Count the still-visible skills
     $('#application-filter li a').each(function(index, filter) {
       var filter = $(filter);
       var curFilter = filter.attr('data-filter');
-      var skillCount = $('#team-list '+curFilter).not('.isotope-hidden').length;  
+      var skillCount = $('#team-list '+curFilter).not('.isotope-hidden').length;
       filter.next('.count-span').html(skillCount);
     });
-  
+
     // Sort the list by the skill count (descending)
     $('#application-filter li').sortElements(function(a, b) {
       return parseInt($(a).find('.count-span').text(), 10) > parseInt($(b).find('.count-span').text(), 10) ? -1 : 1;
     });
-  
+
     // Update the geek count
     var geek_count = $('#team-list li').not('.isotope-hidden').length;
      $('.metric_value').html(geek_count)
   };
 
   function check_params_fire_off_filter()
-  { 
+  {
       var vars = [], hash;
       var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
       for(var i = 0; i < hashes.length; i++)
@@ -161,7 +168,7 @@ jQuery(document).ready(function() {
             $('select#region').trigger('change');
           };
           if (hash[0] == 'skill') {
-            $("#skill-filter li a:contains("+hash[1]+")").trigger('click');          
+            $("#skill-filter li a:contains("+hash[1]+")").trigger('click');
           };
       }
       return vars;
