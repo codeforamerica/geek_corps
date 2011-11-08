@@ -46,7 +46,7 @@ class AuthenticationsController < ApplicationController
       auth.update_from_omniauth(omniauth)
       auth.save
       sign_in(auth.user)
-      redirect_to stored_location_for(:user) || (auth.user.person.try(:reviewed) ? home_users_path : welcome_users_path)
+      redirect_to stored_location_for(:user) || (auth.user.person.try(:reviewed) ? home_users_path : people_path)
     elsif current_user
       # Logged in user => give them a new authentication
       Authentication.create_from_omniauth!(omniauth, :user => current_user)
