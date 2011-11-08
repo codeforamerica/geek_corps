@@ -1,7 +1,12 @@
-<ul class="main-list-type">
+<ul>
 <% @teams.each do |team| %>
 <li>
   <%= link_to team.name, team %>
+  <% if current_user %>
+    <% if current_user.admin? %>
+      <%= link_to '(delete)', team, :confirm => 'Are you sure?', :method => :delete %>
+  <% end %>
+<% end %>
 </li>
 <% end %>
 <%= render :partial => 'list_item', :collection => list %>
