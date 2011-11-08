@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 source 'http://gems.rubyforge.org'
 
-gem 'rails', '3.0.7'
+gem 'rails', '3.1.1'
 gem 'delayed_job'
 gem 'jquery-rails'
 gem 'json'
