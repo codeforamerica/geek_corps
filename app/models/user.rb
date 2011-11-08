@@ -44,7 +44,7 @@ class User < ActiveRecord::Base
     self.authentications.via(provider).present?
   end
 
-  def i_admin_for
+  def is_admin_for
     self.team_members.where(:admin => true)
   end
 

@@ -35,7 +35,7 @@
       <td><%=person.bio[0..50]%></td>
       <td><%=person.user.admin?%></td>
       <td><%=person.user.teams.map(&:name).to_sentence%></td>
-      <td><%=person.user.i_admin_for.map(&:name).to_sentence%></td>
+      <td><%=person.user.is_admin_for.map(&:name).to_sentence%></td>
       <td><%=link_to "#{person.user.admin? ? 'Unadmin User' : 'Make User Admin'}", adminify_user_path(person.user), :method => :post%></td>
     </tr>
 <% end %>
