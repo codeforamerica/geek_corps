@@ -79,7 +79,7 @@ class ApplicationController < ActionController::Base
   def find_team
     if params[:team_name] || params[:id]
       if params[:team_name]
-        @team = Team.where(:name => params[:team_name].downcase).first
+        @team = Team.where(:name => params[:team_name].downcase.gsub("-", " ")).first
       elsif params[:id]
         @team = Team.where(:id => params[:id]).first
       end

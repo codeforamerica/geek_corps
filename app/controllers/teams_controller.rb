@@ -1,6 +1,6 @@
 class TeamsController < InheritedResources::Base
   before_filter :authenticate_user!, :except => [:show, :index, :people]
-  before_filter :require_admin!, :only => [:new,:destroy,:edit]
+  before_filter :require_admin!, :only => [:new,:destroy,:edit,:create]
 
   def show
     find_team

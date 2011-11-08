@@ -9,7 +9,7 @@
     </div>
     <ul id="app-nav">
       <li><%= link_to 'Home', @team %></li>
-      <li><%= link_to 'People', team_people_path(@team.name) %></li>
+      <li><%= link_to 'People', team_people_path(@team.hypen_name) %></li>
     </ul>
     <div id="feed-wrapper">
       <div id="activity-feed">
@@ -25,7 +25,7 @@
                   <%=team_member.user.person.skill_list.empty? ? 'none' : team_member.user.person.skill_list.join(', ') %>
                 </span>
               </span>
-            <% if @team.admin?(current_user) or current_user.admin? %>
+            <% if current_user and (@team.admin?(current_user) or current_user.admin?) %>
               <span class="comment-stamp"><%= link_to "#{team_member.admin? ? 'Make Supporter' : 'Make Ambassador'}", team_member_path(team_member), :method => :put %><span>
             <% end %>
           </div>
@@ -36,15 +36,9 @@
   </div>
 
   <div id="side-bar">
-    <% if @team.team_type == 'core' %>
-      <%= render :partial => "core_metric"%>
-      <%= render :partial => "core_team"%>
-      <%= render :partial => "implementations"%>
-    <% else %>
       <%= render :partial => "metric"%>
       <%= render :partial => "organizers"%>
       <%= render :partial => "supporters"%>
-    <% end %>
   </div>
 </div>
 

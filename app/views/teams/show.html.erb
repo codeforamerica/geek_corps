@@ -8,7 +8,7 @@
     </div>
     <ul id="app-nav">
       <li><%= link_to 'Home', @team %></li>
-      <li><%= link_to 'People', team_people_path(@team.name) %></li>
+      <li><%= link_to 'People', team_people_path(@team.hypen_name) %></li>
     </ul>
 
     <%= render :partial => 'activity_stream' %>
@@ -16,15 +16,9 @@
   </div>
 
   <div id="side-bar">
-    <% if @team.team_type == 'core' %>
-      <%= render :partial => "core_metric"%>
-      <%= render :partial => "core_team"%>
-      <%= render :partial => "implementations"%>
-    <% else %>
       <%= render :partial => "metric"%>
       <%= render :partial => "organizers"%>
       <%= render :partial => "supporters"%>
-    <% end %>
   </div>
 </div>
 
