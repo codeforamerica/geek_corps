@@ -25,6 +25,10 @@
       <%= render :partial => "organizers"%>
       <%= render :partial => "supporters"%>
     <% end %>
+    <% if current_user.admin? %>
+    <%= render :partial => 'admin'%>
+    <% end %>
+
   </div>
 </div>
 

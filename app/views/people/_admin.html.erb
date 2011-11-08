@@ -3,8 +3,8 @@
     <div class="sidebar_box_content ">
       <ul>
         <li>Inactivate User</li>
-        <li><%=link_to "#{@person.user.admin? ? 'Unadmin User' : 'Make User Admin'}", adminify_user_path(@person.user), :method => :post%></li>        
-        <li>Make User Ambassador for:</li>        
+        <li><%=link_to "#{@person.user.admin? ? 'Unadmin User' : 'Make User Admin'}", adminify_user_path(@person.user), :method => :post%></li>
+        <li>Make User Ambassador for:</li>
       </ul>
       <div class="clear"></div>
     </div>
