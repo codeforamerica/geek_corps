@@ -1,16 +1,14 @@
 <div id="content">
   <div id="title-main">
-    <%= render "shared/app_header"%>
+    <%= render :partial => 'shared/team_header'%>
   </div>
   <div id="main-bar">
     <div class="project-text">
-      <h1>About This Project</h1>
-      <p><%= @team.app.description %></p>
+      <h1>Team</h1>
     </div>
     <ul id="app-nav">
       <li><%= link_to 'Home', @team %></li>
       <li><%= link_to 'People', team_people_path(@team.name) %></li>
-      <li><%= link_to 'Guide', team_guide_path(@team.name) %></li>      
     </ul>
 
     <%= render :partial => 'activity_stream' %>
