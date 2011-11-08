@@ -1,5 +1,17 @@
-<% form_for(@person) do |f| %>
-    <p><%= f.label :name, "Name" %><br>
+<%= form_for(@person) do |f| %>
+ <% if @person.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@person.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% @person.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p><%= f.label :name, "Name" %><br>
     <%= f.text_field :name %></p>
     <p><%= f.label :location, "Location" %><br>
     <%= f.text_field :location, :label => 'Location' %></p>

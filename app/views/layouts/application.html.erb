@@ -10,8 +10,9 @@
       <% end %>
    </title>
     <%= stylesheet_link_tag 'reset', 'geekcorps' %>
-    <%= javascript_include_tag 'lib/jquery.min.js', 'lib/jquery-ujs', 'lib/jquery.cookie.js', 'lib/jquery.isotope.min.js', 'lib/jquery.hoverexpand.js', 'lib/jquery.sortElements.js', 'geekcorps.js' %>
-        <%= yield(:header) %>    
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+        <%= yield(:header) %>
     <%= csrf_meta_tag %>
   </head>
   <body>

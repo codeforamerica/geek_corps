@@ -1,7 +1,15 @@
 source 'http://rubygems.org'
 source 'http://gems.rubyforge.org'
 
-gem 'rails', '3.0.7'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', " ~> 3.1.0"
+  gem 'coffee-rails', " ~> 3.1.0"
+  gem 'uglifier'
+end
+
+gem 'rails', '3.1.1'
 gem 'delayed_job'
 gem 'jquery-rails'
 gem 'json'
