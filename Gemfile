@@ -23,6 +23,7 @@ gem "aws-s3"
 gem 'paperclip'
 gem 'omniauth', '>= 0.2.6'
 gem 'devise'
+gem 'twitter-bootstrap-rails', '~> 1.4.0'
 
 gem 'sqlite3'
 
