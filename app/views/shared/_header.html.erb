@@ -1,21 +1,44 @@
-<div id="header">
-  <div class="wrapper">
-    <div id="gc-logo">
-      <%= link_to image_tag('logo-sash.png'), root_path %>
-    </div>
-    <ul id="main-nav">
-      <li><%= link_to "Find People", people_path %></li>
-      <li><%= link_to "Join a Team", teams_path %></li>
-      <% if current_user and current_user.admin?%>
-      <li><a href="/admin">Admin</a></li>
-      <% end %>
-    </ul>
-    <div id="account-box">
-      <% if user_signed_in? %>
-        <%= image_tag current_user.avatar_url, :class => 'current-user-thumb' %>
-        Heya <%= link_to current_user.name, current_user.person, :id => 'user-home' %>!
-        <p><%= link_to 'Sign Out', sign_out_path, :id => 'sign-out' %> | <%= link_to "Settings", home_users_path, :id => 'user-setting' %></p>
-      <% end %>
-    </div>
+<div class="topbar-wrapper" style="z-index: 5;">
+    <div class="topbar" data-dropdown="dropdown">
+      <div class="topbar-inner">
+        <div class="container">
+          <h3><a href="#">Civic Corps</a></h3>
+          <ul class="nav">
+            <li><%= link_to "Find People", people_path %></li>
+            <li><%= link_to "Join a Team", teams_path %></li>
+            <% if current_user and current_user.admin?%>
+              <li><a href="/admin">Admin</a></li>
+            <% end %>
+            <% if user_signed_in? %>
+              <li>
+              <%= image_tag current_user.avatar_url, :class => 'current-user-thumb' %>
+              Heya <%= link_to current_user.name, current_user.person, :id => 'user-home' %>!
+              <p><%= link_to 'Sign Out', sign_out_path, :id => 'sign-out' %> | <%= link_to "Settings", home_users_path, :id => 'user-setting' %></p>
+              </li>
+            <% end %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Dropdown</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Secondary link</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Another link</a></li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="nav secondary-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle">Dropdown</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Secondary link</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Another link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div><!-- /topbar-inner -->
+    </div><!-- /topbar -->
   </div>
-</div>
+

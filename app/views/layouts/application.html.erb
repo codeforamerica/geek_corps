@@ -9,13 +9,12 @@
       <%= "#{SETTINGS['organization']['name']}: #{SETTINGS['organization']['city']}'s Tech Directory"%>
       <% end %>
    </title>
-    <%= stylesheet_link_tag 'reset', 'geekcorps' %>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application" %>
         <%= yield(:header) %>
     <%= csrf_meta_tag %>
   </head>
-  <body>
+  <body style="padding-top: 40px;">
       <%= render :partial => 'shared/header' %>
       <a id="feedback" href="http://getsatisfaction.com/geekcorps"></a>
 
