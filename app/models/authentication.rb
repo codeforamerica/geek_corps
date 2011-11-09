@@ -16,8 +16,7 @@ class Authentication < ActiveRecord::Base
     scope "via_#{provider.to_sym}", where("provider = ?", provider)
   end
 
-  PROVIDER_OPTIONS = [["Choose automatically", 'auto']] \
-                        + SETTINGS['providers'].map{|provider|
+  PROVIDER_OPTIONS = SETTINGS['providers'].map{|provider|
                             [OmniAuth::Utils.camelize(provider), provider]
                           }
 

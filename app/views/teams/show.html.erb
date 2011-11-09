@@ -2,13 +2,21 @@
   <div id="title-main">
     <%= render :partial => 'shared/team_header'%>
   </div>
+  <div class="clear">
+    <% if current_user%>
+        <%= render :partial => "metric"%>
+    <% else %>
+    <%= render 'authentications/signin_and_join_team'%>  
+    <% end %>
+    
+    </div>
   <div id="main-bar">
     <div class="project-text">
       <h1>Team</h1>
     </div>
     <ul id="app-nav">
       <li><%= link_to 'Home', @team %></li>
-      <li><%= link_to 'People', team_people_path(@team.name) %></li>
+      <li><%= link_to 'People', team_people_path(@team.hypen_name) %></li>
     </ul>
 
     <%= render :partial => 'activity_stream' %>
@@ -16,19 +24,12 @@
   </div>
 
   <div id="side-bar">
-    <% if @team.team_type == 'core' %>
-      <%= render :partial => "core_metric"%>
-      <%= render :partial => "core_team"%>
-      <%= render :partial => "implementations"%>
-    <% else %>
-      <%= render :partial => "metric"%>
+
       <%= render :partial => "organizers"%>
       <%= render :partial => "supporters"%>
-    <% end %>
     <% if current_user.admin? %>
     <%= render :partial => 'admin'%>
     <% end %>
-
   </div>
 </div>
 

@@ -11,7 +11,7 @@ class Person < ActiveRecord::Base
 
   PHOTO_SIZES = {:medium => 220, :thumb => 48} # for gravatar
 
-  acts_as_taggable_on :tags, :skills
+  acts_as_taggable_on :tags, :skills, :cfa
 
   # s3 credentials specified in _load_settings
   has_attached_file :photo, :storage => :s3,
