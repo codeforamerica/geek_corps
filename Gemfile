@@ -31,7 +31,7 @@ gem 'mogli'
 
 gem "inherited_resources"
 
-gem "haml", "~> 3.0.18"
+gem 'haml'
 gem "formtastic"
 gem 'uuid'
 
