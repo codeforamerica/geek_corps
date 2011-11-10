@@ -36,12 +36,12 @@ namespace :github do
     begin
       CronProcess.new.delay.update_contacts
     end
-  end  
+  end
 end
 
 task :cron => :environment do
   Rake::Task['heroku:backup'].invoke
-  Rake::Task['github:update'].invoke    
+  Rake::Task['github:update'].invoke
   Rake::Task['github:sync'].invoke
 end
 
@@ -52,17 +52,6 @@ require 'yard'
       task.files   = ['LICENSE.md', 'lib/**/*.rb']
       task.options = ['--markup', 'markdown']
      end
-  end
-rescue LoadError
-end
-
-begin
-  require "rspec/core/rake_task"
-
-  desc "Run all examples"
-  RSpec::Core::RakeTask.new(:spec) do |t|
-    t.rspec_opts = %w[--color]
-    t.pattern = 'spec/*_spec.rb'
   end
 rescue LoadError
 end
