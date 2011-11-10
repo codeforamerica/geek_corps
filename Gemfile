@@ -1,5 +1,4 @@
 source 'http://rubygems.org'
-source 'http://gems.rubyforge.org'
 
 # Gems used only for assets and not required
 # in production environments by default.
