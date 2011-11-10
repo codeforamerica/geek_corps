@@ -35,14 +35,28 @@ gem 'haml'
 gem "formtastic"
 gem 'uuid'
 
-group :test, :jenkins do
-  gem 'spork'
+group :development do
+  gem 'ZenTest'
+end
+
+group :development, :test do
+  gem 'faker'
+  gem 'activerecord-spatialite-adapter'
+  gem 'nifty-generators'
+  gem 'rspec-rails'
+  gem 'simplecov'
+  gem 'sqlite3'
+  gem 'spork', '0.9.0.rc9'
+end
+
+group :test do
   gem 'factory_girl_rails'
   gem 'mocha'
-  gem 'rspec-rails'
-  gem 'ZenTest'
-  gem 'simplecov'
   gem 'webmock'
-  gem 'yard'
-  gem 'faker'
+  gem 'webrat'
+end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
 end
