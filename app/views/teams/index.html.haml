@@ -1,0 +1,18 @@
+%h1
+  = "Found #{@teams.size} Teams"
+
+.sidebar
+  %h3 Location:
+  %h3 Application:
+  %h3 Skills:
+  - get_skills.each do |skill|
+    %ul
+      %li
+        = skill
+.content
+  %h1
+    Searching teams for all skills in all regions
+
+  = render :partial => 'list', :object => @teams
+
+
