@@ -1,15 +1,17 @@
-%h1
-  = "Found #{@teams.size} Teams"
 
 .sidebar
-  %h3 Location:
-  %h3 Application:
-  %h3 Skills:
-  - get_skills.each do |skill|
+  .well
+    %h3 Location:
+    %h3 Application:
+    %h3 Skills:
     %ul
+    - get_skills.each do |skill|
       %li
         = skill
 .content
+  %h1
+    = "Found #{@teams.size} Teams"
+
   %h1
     Searching teams for all skills in all regions
 
