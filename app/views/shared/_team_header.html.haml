@@ -1,0 +1,6 @@
+%h1
+  =link_to @team.name.titleize, @team.to_url
+- if !@team.team_members.where(:admin => true).blank?
+  %h2
+    Organized by
+    =raw @team.team_members.where(:admin => true).map { |organizer| link_to organizer.user.person.name, organizer.user.person }.to_sentence
