@@ -1,0 +1,21 @@
+= render :partial => 'shared/team_header'
+
+- if current_user
+  = render :partial => "metric"
+- else
+  = render 'authentications/signin_and_join_team'
+
+%h1 Team
+
+= link_to 'Home', @team
+= link_to 'People', team_people_path(@team.hypen_name)
+
+= render :partial => 'activity_stream'
+
+
+
+= render :partial => "organizers"
+= render :partial => "supporters"
+-  if current_user.try(:admin?)
+  = render :partial => 'admin'
+
