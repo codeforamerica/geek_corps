@@ -14,7 +14,7 @@
         <%= yield(:header) %>
     <%= csrf_meta_tag %>
   </head>
-  <body style="padding-top: 40px;">
+  <body style="padding-top: 60px;">
       <%= render :partial => 'shared/header' %>
       <a id="feedback" href="http://getsatisfaction.com/geekcorps"></a>
 
@@ -22,9 +22,10 @@
         <%= yield(:page_heading) %>
         <%= render_flash %>
         <%= yield %>
+
       </div>
-
+      <div class="row">
       <%= render :partial => 'shared/footer' %>
-
+      </div>
   </body>
 </html>
