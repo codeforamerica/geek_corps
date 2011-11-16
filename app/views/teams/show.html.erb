@@ -6,9 +6,9 @@
     <% if current_user%>
         <%= render :partial => "metric"%>
     <% else %>
-    <%= render 'authentications/signin_and_join_team'%>  
+    <%= render 'authentications/signin_and_join_team'%>
     <% end %>
-    
+
     </div>
   <div id="main-bar">
     <div class="project-text">
@@ -27,7 +27,7 @@
 
       <%= render :partial => "organizers"%>
       <%= render :partial => "supporters"%>
-    <% if current_user.admin? %>
+    <% if current_user.try(:admin?) %>
     <%= render :partial => 'admin'%>
     <% end %>
   </div>
