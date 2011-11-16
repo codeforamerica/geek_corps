@@ -1,0 +1,9 @@
+- @team.activity_feeds.order("created_at DESC")[0..20].each do |feed|
+  = activity_image(feed.feedable)
+  - if feed.feedable.user
+    =link_to feed.feedable.user.person.name, feed.feedable.user.person
+  - else
+    Geek Robot
+  = feed.activity
+  = "#{activity_type(feed.feedable)} , #{time_ago_in_words(feed.created_at)}"
+= render "shared/comment", :comment => @team
