@@ -3,3 +3,8 @@
 *= require_self
 *= require_tree .
 */
+.container-fluid > .sidebar {
+position: static;
+float: left;
+width: 220px;
+}
