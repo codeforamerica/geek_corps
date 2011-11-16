@@ -5,9 +5,9 @@ class Person < ActiveRecord::Base
   attr_accessor :photo_import_url
   attr_protected :user_id
 
-  PHOTO_DEFAULTS = ["/images/geekcorpsavatar1.png",
-                    "/images/geekcorpsavatar2.png",
-                    "/images/geekcorpsavatar3.png"]
+  PHOTO_DEFAULTS = ["/assets/geekcorpsavatar1.png",
+                    "/assets/geekcorpsavatar2.png",
+                    "/assets/geekcorpsavatar3.png"]
 
   PHOTO_SIZES = {:medium => 220, :thumb => 48} # for gravatar
 
@@ -59,6 +59,6 @@ class Person < ActiveRecord::Base
       self.user = matching_user
     end
   end
-  
+
 end
 

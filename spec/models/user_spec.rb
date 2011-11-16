@@ -29,7 +29,7 @@ describe 'User' do
       @user.authentications = [new_auth]
       @user.person = nil
       @user.save!
-      @user.avatar_url.should == '/images/geekcorpsavatar1.png'
+      @user.avatar_url.should == '/assets/geekcorpsavatar1.png'
     end
   end
 end

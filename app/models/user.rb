@@ -22,9 +22,9 @@ class User < ActiveRecord::Base
     if self.person.present?
       self.person.photo.url(:thumb)
     elsif self.authentications.present?
-      (self.authentications.info_get(:image) || '/images/geekcorpsavatar1.png')
+      (self.authentications.info_get(:image) || '/assets/geekcorpsavatar1.png')
     else
-      '/images/geekcorpsavatar1.png'
+      '/assets/geekcorpsavatar1.png'
     end
   end
 
