@@ -1,0 +1,22 @@
+.topbar-wrapper{:style => "z-index: 5;"}
+  .topbar{"data-dropdown" => "dropdown"}
+    .topbar-inner
+      .container
+        %h3
+          =link_to 'Civic Corps', root_path
+        %ul.nav
+          %li
+            = link_to 'Find People', people_path
+          %li
+            = link_to 'Join a Team', teams_path
+          - if current_user and current_user.admin?
+            %li
+              = link_to 'Admin', admin_path
+            - if user_signed_in?
+              %li
+                = image_tag current_user.avatar_url, :class => 'current-user-thumb'
+                = link_to current_user.name, current_user.person, :id => 'user-home'
+                = link_to 'Sign Out', sign_out_path, :id => 'sign-out'
+                |
+                = link_to "Settings", home_users_path, :id => 'user-setting'
+
