@@ -8,7 +8,7 @@ group :assets do
   gem 'uglifier'
 end
 
-gem 'rails', '3.1.2'
+gem 'rails', '3.1.3'
 gem 'delayed_job'
 gem 'jquery-rails'
 gem 'json'
